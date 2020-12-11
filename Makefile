@@ -1,5 +1,5 @@
-source=chess.tex
-target= chess.pdf
+source=stix_data_center.tex
+target= stix_data_center.pdf
 $(target):$(source)
 	pdflatex $(source)
 	pdflatex $(source)

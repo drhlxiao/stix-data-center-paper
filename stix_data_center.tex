@@ -1,15 +1,53 @@
-\documentclass[a4paper,10pt]{article}
-\usepackage[utf8]{inputenc}
+\documentclass[preprint,11pt]{elsarticle}
+%\documentclass[5p,times]{elsarticle}
 
-%opening
-\title{STIX data processing pipeline and science data center}
-\author{Hualin Xiao, Shane, S\"am Krucker, Laslo, Ewan, etc. }
+\usepackage{hyperref}
+\bibliographystyle{elsarticle-num}
+\usepackage{balance}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{float}
+%\usepackage{lineno}
+%\linenumbers
+\usepackage{soul}
+\usepackage{makecell}
+\usepackage{color}
+\usepackage{booktabs}
+
+\hyphenpenalty=5000
+\tolerance=1000
+
+\graphicspath{{figures/}}
+\renewcommand{\figurename}{{\bf Fig.}}
 
 \begin{document}
 
-\maketitle
+\begin{frontmatter}
 
+\title{STIX data processing pipeline and science data center}
+%\author{Hualin Xiao, Shane, S\"am Krucker, Laslo, Ewan, etc. }
+\author[fhnw]{Hualin Xiao}
+%\ead{hualin.xiao@fhnw.ch}
+
+%\ead{wojtek.hajdas@psi.ch}
+\author[fhnw]{S{\"a}m Krucker}
+
+
+\address[fhnw]{University of Applied Sciences and Arts Northwestern Switzerland (FHNW), 5200 Windisch, Switzerland}
 \begin{abstract}
+ abstract
+\end{abstract}
+
+ 
+
+\begin{keyword}
+STIX; Data centre;
+\end{keyword}
+\end{frontmatter}
+
+\section{Introduction}
 Solar Orbiter
 SOLO is a deep space mission study the Sun from close up (~1/3 AU) and from out of the ecliptic.
 
@@ -56,7 +94,7 @@ by STE (the SupraThermal Electron sensor) of the Energetic Particle Detector (EP
 to provide direct tracing of the magnetic structure, field line length, and connectivity. In this
 way, STIX, together with RPW and STE, are able to magnetically link the heliospheric in situ
 observations back to regions at the Sun where the electrons are accelerated.
-\end{abstract}
+
 
 \section{X-ray spectrometer and imager}
 
@@ -139,6 +177,6 @@ advance
 \section{ APIs}
 \subsection{Fits api}
 \subsection{configuration apis}
-
+\section{Web data visualization tools}
 
 \end{document}
