@@ -26,18 +26,22 @@
 
 \begin{frontmatter}
 
-\title{STIX data processing pipeline and science data center}
-%\author{Hualin Xiao, Shane, S\"am Krucker, Laslo, Ewan, etc. }
-\author[fhnw]{Hualin Xiao}
+\title{Automated data processing pipeline and science data center for STIX}
+\author{Hualin Xiao, Shane,Laslo, S\"am Krucker,  Ewan,  Gordon,Adrea,  Other STIX collaborators}
+%\author[fhnw]{Hualin Xiao}
 %\ead{hualin.xiao@fhnw.ch}
 
-%\ead{wojtek.hajdas@psi.ch}
-\author[fhnw]{S{\"a}m Krucker}
+%\author[fhnw]{S{\"a}m Krucker}
 
 
 \address[fhnw]{University of Applied Sciences and Arts Northwestern Switzerland (FHNW), 5200 Windisch, Switzerland}
 \begin{abstract}
- abstract
+ The
+Spectrometer/Telescope for Imaging X-rays (STIX) instrument onboard the Solar Orbiter mission launched
+on February 10th 2020 promises advances in the study of solar flares of various sizes. It is capable of measuring
+X-ray spectra from 4 to 150 keV with 1 keV resolution binned into 32 energy bins before downlinking
+(KRUCKER et al., 2020).
+
 \end{abstract}
 
  
@@ -172,11 +176,87 @@ advance
 
 
 \section{FITS data products}
+
+The latest level 1 FITS io from Shane has been integrated into the data processing pipeline on pub023 server.
+
+I have recreated fits products for all old telemetry data with the upgraded sw.
+
+The L1 fits files  created by this pipeline have a different data level:  L1A ('A' here means  prerelease/alpha version).
+
+The idea behind L1A data sets is to allow for quicker access to STIX data in the fits format instead of grabbing  data from plots or using json requests,
+
+for operations,  debugging  etc.
+
+The L1A data sets can be generated within a few minutes after the arrival of a new raw telemetry file.
+
+The differences between L1A and L1 available in Shane's ftp include:
+
+1.  Two different L1A data files may have duplicated data
+
+2.  L1A data sets are still created for incomplete packets  (L1 checks for data completeness)
+
+3.  SPICE kernel data for telemetry files always arrives  after one or two days later.
+
+    So  there may be a sub-second difference between the UTC time in fits files (same to times on web pages)
+
+   and the real time.
+
+    Shane's formal L1 release can avoid this issue if they are produced on a later date.
+
+4. L1A contains housekeeping data
+
+
+\section{Data flow and data levels at STIX data center}
+\begin{figure*}[!htb]
+\begin{center}
+\includegraphics[width=0.9\textwidth]{calibration-example.pdf}
+\caption{Data flow and data levels at the PSI POLAR data center. }
+\label{fig:ch1}
+\end{center}
+\end{figure*}
+\begin{figure*}[!htb]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{cfl.pdf}
+\caption{Data flow and data levels at the PSI POLAR data center. }
+\label{fig:cfl}
+\end{center}
+\end{figure*}
+
+\begin{figure*}[!htb]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{l1-det-view.pdf}
+\caption{Data flow and data levels at the PSI POLAR data center. }
+\label{fig:det-view}
+\end{center}
+\end{figure*}
+
+
+\begin{figure*}[!htb]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{l1-spectrogram.pdf}
+\caption{Data flow and data levels at the PSI POLAR data center. }
+\label{fig:det-view}
+\end{center}
+\end{figure*}
+
+\section{calibration processing pipeline}
+
+In the STIX instrument, a Ba134 radioactive source is placed at the front of each detector. The total activity of the radioactive source is approximately 4000 Ba.
+When the radioactive source decays, gamma rays are generated. These gamma rays can form peaks in the energy spectrum of the detector.
+The corresponding energy is known, and the corresponding relationship between ADC and real energy can be calibrated through the position of the peak in the energy spectrum, that is, the calibration coefficient. The figure below is a typical Ba133 gamma-ray energy spectrum measured by STIX CdTe detector. There are three obvious peaks in the energy spectrum, and they correspond to three energies of 30 keV, 35 keV and 81 keV. There are many ways to determine the position of each peak, you can use the ECC method, or use the Gaussian function to fit the left part of the peak.
+
 \subsection{Generation of fits file}
 
 \section{ APIs}
 \subsection{Fits api}
 \subsection{configuration apis}
 \section{Web data visualization tools}
+Think about a tall building in your neighborhood. If given the option, would it be better to add more floors in this building or create a new building entirely for more residents?
 
+This is the problem for SQL and NoSQL databases. SQL databases are vertically scalable. This means that the load on a single server can be increased by increasing things like RAM, CPU, or SSD. (More floors can be added to this building). On the other hand, NoSQL databases are horizontally scalable. This means that more traffic can be handled by sharding, or adding more servers in your NoSQL database. (More buildings can be added to the neighborhood).
+
+In the long run, it is better to add more buildings than floors as that is more stable (Less chance of creating a Leaning Tower of Pisa!!!). Thus, NoSQL can ultimately become larger and more powerful, making NoSQL databases the preferred choice for large or ever-changing data sets.
+
+3. Schema Design
+A schema refers to the blueprint of a database i.e how the data is organized. The schema of an SQL database and a NoSQL database is markedly different. Let’s use a joke to better understand this.
 \end{document}
