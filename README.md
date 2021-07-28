@@ -1,1 +1,0 @@
-# stix-data-center-paper

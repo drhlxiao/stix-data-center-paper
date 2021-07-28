@@ -1,0 +1,7 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{{Forveille} \& {Shore}(2020)}]{SolarOrbiter2020}
+{Forveille}, T. \& {Shore}, S. 2020, \aap, 642, E1
+
+\end{thebibliography}
