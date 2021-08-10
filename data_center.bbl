@@ -1,7 +1,29 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{2}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Forveille} \& {Shore}(2020)}]{SolarOrbiter2020}
 {Forveille}, T. \& {Shore}, S. 2020, \aap, 642, E1
+
+\bibitem[{{Krucker, S\"am} {et~al.}(2020){Krucker, S\"am}, {Hurford, G. J.},
+  {Grimm, O.}, {K\"ogl, S.}, {Gr\"obelbauer, H.-P}, {Etesi, L.}, {Casadei, D.},
+  {Csillaghy, A.}, {Benz, A. O.}, {Arnold, N. G.}, {Molendini, F.}, {Orleanski,
+  P.}, {Schori, D.}, {Xiao, H.}, {Kuhar, M.}, {Hochmuth, N.}, {Felix, S.},
+  {Schramka, F.}, {Marcin, S.}, {Kobler, S.}, {Iseli, L.}, {Dreier, M.},
+  {Wiehl, H. J.}, {Kleint, L.}, {Battaglia, M.}, {Lastufka, E.}, {Sathiapal,
+  H.}, {Lapadula, K.}, {Bednarzik, M.}, {Birrer, G.}, {Stutz, St.}, {Wild,
+  Ch.}, {Marone, F.}, {Skup, K. R.}, {Cichocki, A.}, {Ber, K.}, {Rutkowski,
+  K.}, {Bujwan, W.}, {Juchnikowski, G.}, {Winkler, M.}, {Darmetko, M.},
+  {Michalska, M.}, {Seweryn, K.}, {Bialek, A.}, {Osica, P.}, {Sylwester, J.},
+  {Kowalinski, M.}, {\'{}Scislowski, D.}, {Siarkowski, M.}, {Ste\'{}slicki,
+  M.}, {Mrozek, T.}, {Podg\'orski, P.}, {Meuris, A.}, {Limousin, O.}, {Gevin,
+  O.}, {Le Mer, I.}, {Brun, S.}, {Strugarek, A.}, {Vilmer, N.}, {Musset, S.},
+  {Maksimovi\'{}c, M.}, {F\'arn\'{\i}k, F.}, {Koz\'acek, Z.}, {Kasparov\'a,
+  J.}, {Mann, G.}, {\"Onel, H.}, {Warmuth, A.}, {Rendtel, J.}, {Anderson, J.},
+  {Bauer, S.}, {Dionies, F.}, {Paschke, J.}, {Pl\"uschke, D.}, {Woche, M.},
+  {Schuller, F.}, {Veronig, A. M.}, {Dickson, E. C. M.}, {Gallagher, P. T.},
+  {Maloney, S. A.}, {Bloomfield, D. S.}, {Piana, M.}, {Massone, A. M.},
+  {Benvenuto, F.}, {Massa, P.}, {Schwartz, R. A.}, {Dennis, B. R.}, {van Beek,
+  H. F.}, {Rodr\'{\i}guez-Pacheco, J.}, \& {Lin, R. P.}}]{StixInstrument}
+{Krucker, S\"am}, {Hurford, G. J.}, {Grimm, O.}, {et~al.} 2020, A\&A, 642, A15
 
 \end{thebibliography}

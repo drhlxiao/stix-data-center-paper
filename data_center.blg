@@ -1,47 +1,47 @@
-This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2020/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: data_center.aux
 The style file: aa.bst
 Database file #1: citations.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 1 entry,
+You've used 2 entries,
             3039 wiz_defined-function locations,
-            671 strings with 4785 characters,
-and the built_in function-call counts, 418 in all, are:
-= -- 36
-> -- 22
+            677 strings with 6563 characters,
+and the built_in function-call counts, 4902 in all, are:
+= -- 332
+> -- 825
 < -- 1
-+ -- 7
-- -- 6
-* -- 31
-:= -- 80
-add.period$ -- 1
-call.type$ -- 1
-change.case$ -- 6
-chr.to.int$ -- 1
-cite$ -- 1
-duplicate$ -- 19
-empty$ -- 26
-format.name$ -- 11
-if$ -- 80
++ -- 277
+- -- 273
+* -- 498
+:= -- 936
+add.period$ -- 2
+call.type$ -- 2
+change.case$ -- 99
+chr.to.int$ -- 2
+cite$ -- 2
+duplicate$ -- 37
+empty$ -- 52
+format.name$ -- 280
+if$ -- 940
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 1
-newline$ -- 7
-num.names$ -- 4
-pop$ -- 6
+missing$ -- 2
+newline$ -- 10
+num.names$ -- 8
+pop$ -- 98
 preamble$ -- 1
-purify$ -- 6
+purify$ -- 99
 quote$ -- 0
-skip$ -- 18
+skip$ -- 34
 stack$ -- 0
-substring$ -- 18
+substring$ -- 41
 swap$ -- 0
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 9
+type$ -- 18
 warning$ -- 0
-while$ -- 4
+while$ -- 8
 width$ -- 0
-write$ -- 13
+write$ -- 23

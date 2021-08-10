@@ -12,7 +12,7 @@
 \begin{document} 
 
 
-   \title{Data processing pipelines and data center for the X-ray Imaging Spectrometer/Telescope STIX}
+   \title{The data center for the X-ray Imaging Spectrometer/Telescope STIX}
 
    \subtitle{}
 
@@ -50,7 +50,8 @@
    {} %leave it empty if necessary  
   % {context.}
   % aims heading (mandatory)
-   { The Spectrometer/Telescope for Imaging X-rays (STIX) instrument onboard the Solar Orbiter mission launched on February 10, 2020 promises advances in the study of solar flares of various sizes. It is capable of measuring X-ray spectra from 4 to 150 keV with 1 keV resolution binned into 32 energy bins before downlinking.  }
+   { The Spectrometer/Telescope for Imaging X-rays (STIX) instrument onboard the Solar Orbiter mission launched on February 10, 2020 promises advances in the study of solar flares of various sizes. It is capable of measuring X-ray spectra from 4 to 150 keV with 1 keV resolution binned into 32 energy bins before downlinking. STIX data center is an infrastructure established at FHNW in order to process and archive STIX telemetry data, and to support the operations of the instrument. The automated data processing pipeline turns raw telemetry data into processed information and data products. Processed information and data products are achived at the data center.  STIX data center provides various tools to visualized the information and data products for the solar physics community.
+   }
   % methods heading (mandatory)
    {Methods}
   % results heading (mandatory)
@@ -79,18 +80,25 @@ Its goal is to  address the center question of heliophysics  "How does the Sun c
 This consists of the study of energetic solar phenomena like flares,  solar transients,  the solar wind accelerating mechanisms, and the solar dynamo principle.  
 
 
-The Spectrometer Telescope for Imaging X-rays (STIX) is one of the ten instruments onboard Solar Orbiter.  It measures X-rays from 4 to 150 keV and takes X-ray images with a few arcsec angular resolution by using an indirect imaging technique, based on the Moiré effect.  The angular resolution
+The Spectrometer Telescope for Imaging X-rays (STIX) is one of the ten instruments onboard Solar Orbiter.  It measures X-rays from 4 to 150 keV and takes X-ray images with a few arcsec angular resolution by using an indirect imaging technique, based on the Moiré effect .  The angular resolution
 is 7 arcsec and the spectral resolution 1.1 keV full-width-half-maximum at 30 keV.
 Its instrument consists of 32 collimators with
-grids and 32 pixelated Cadmium telluride  detector units called Caliste-SO.
+grids and 32 pixelated Cadmium telluride  detector units called Caliste-SO (See Ref. \cite{StixInstrument} for details).
 STIX's main purpose is to study the extremely hot solar plasma and the high-energy electrons accelerated during solar flares.
 It will address the key science goals of the Solar Orbiter mission by providing information on intensity, spectrum, timing, and location of accelerated electrons near the Sun. 
 
-During its nominal operation, STIX continuously acquired data.  They are processed and archived at STIX data center, established at FHNW. STIX data center processes STIX raw data and produce higher level data products, monitors telemetry data quality and instrument health, provides data products and browsing tools for the solar physics community, and support STIX operations and archives STIX data products. This paper presents the databases, data processing algorithms and the pipeline, data products and data analysis tools developed at STIX data center. 
+STIX raw telemetry data are highly compressed by the on-board software
+in order to reduce the data volume and the total number of data types reaches as many as 246.
+Being aware of the complexity of the data analysis and of
+the need to bring the data to the community, a data center is
+developed at FHNW in order to receive, analyze,  archive and distribute the STIX data.
+The data center turns raw telemetry data into processed information and data products that can be used for scientific analysis.
+SDC also provides various data visualization the solar physics comunity.
+We will describe here STIX raw data types, the flow of data from STIX to the users, the main data processing steps, the data products and the tools provided for the comnunity.
 
 
 %--------------------------------------------------------------------
-\section{Instrumentation and data}
+\section{STIX raw telemetry data}
 
 \begin{figure}
     \centering
@@ -296,7 +304,7 @@ manuall checked
 \subsection{Raw data packet database } 
 \subsection{Configuration database}
 
-\section{STIX web data browsers}
+\section{Online data visualization tools}
 \subsection{Quick-look light curve}
 \subsection{Science data quick analysis}
 \subsubsection{Calibration data}
@@ -316,7 +324,20 @@ manuall checked
 calibration data products
 https://fermi.gsfc.nasa.gov/ssc/data/access/gbm/
 \subsubsection{Solar Orbiter orbit viewer}
+
+
+When a new data file from the platform is received at the PPDC,
+it triggers an autonomous start of the dedicated program that decodes and
+interprets its contents. The binary data contain the spacecraft location, attitude, speed, and GPS timestamps with increments every half second. The GPS timestamps are converted into Unix-timestamps, where the leap seconds are also considered. After processing, the platform data are written to the ROOT format files. The data start and stop time, data processing time, input filename and ID of the output file of each processing are recorded in a dedicated database table.
 SPICE kernel
+
+Updated once per day.
+
+At the center of the Sun.
+It is worth mentioning that has to corrected for.
+This can be done by using the web tool provided at the auxiliary data center at
+
+
 \section{Data access and APIs}
 \section{Future work}
 \section{Conclusions}
