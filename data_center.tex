@@ -83,18 +83,19 @@ This consists of the study of energetic solar phenomena like flares,  solar tran
 The Spectrometer Telescope for Imaging X-rays (STIX) is one of the ten instruments onboard Solar Orbiter.  It measures X-rays from 4 to 150 keV and takes X-ray images with a few arcsec angular resolution by using an indirect imaging technique, based on the Moiré effect .  The angular resolution
 is 7 arcsec and the spectral resolution 1.1 keV full-width-half-maximum at 30 keV.
 Its instrument consists of 32 collimators with
-grids and 32 pixelated Cadmium telluride  detector units called Caliste-SO (See Ref. \cite{StixInstrument} for details).
+grids and 32 pixelated Cadmium telluride  detector units called Caliste-SO  \cite{StixInstrument}.
 STIX's main purpose is to study the extremely hot solar plasma and the high-energy electrons accelerated during solar flares.
 It will address the key science goals of the Solar Orbiter mission by providing information on intensity, spectrum, timing, and location of accelerated electrons near the Sun. 
 
-STIX raw telemetry data are highly compressed by the on-board software
-in order to reduce the data volume and the total number of data types reaches as many as 246.
+
+STIX has more than two hundred different telemetry data types. The data
+have complex data structures and are higly compressed.
 Being aware of the complexity of the data analysis and of
 the need to bring the data to the community, a data center is
 developed at FHNW in order to receive, analyze,  archive and distribute the STIX data.
 The data center turns raw telemetry data into processed information and data products that can be used for scientific analysis.
 SDC also provides various data visualization the solar physics comunity.
-We will describe here STIX raw data types, the flow of data from STIX to the users, the main data processing steps, the data products and the tools provided for the comnunity.
+We will describe here STIX raw data types, the flow of data from to the users, the main data processing steps, the data products and the tools provided for the comnunity.
 
 
 %--------------------------------------------------------------------
@@ -107,93 +108,45 @@ We will describe here STIX raw data types, the flow of data from STIX to the use
     \label{fig:stix_onbard_data_flow}
 \end{figure}
 
-STIX could process a maximum of 800,000 events per second (GOES X10 flares), which corresponds to  a data stream  of 20 MBits/sec. The event data needs to be reconciled to an average telemetry rate of 750 bits/sec.  This is done by an FPGA and a CPU located in the instrument Data Processing Unit (IDPU).  The FPGA is used for highly demanding tasks such as summing and sorting the event data stream into accumulators in the SDRAM.  Then application software running on the CPU processes the data in SDRAM 
-in three parallel data paths by the flight software (FSW) running on the CPU: primary event processing, quick look processing and calibration data processing. 
-
-For the primary event processing, the high-resolution signal amplitude values are first adjusted slightly by the FPGA to compensate for the current detector temperature, and then converted 
-into one of 32 quasi-logarithmic detector-matched ‘science energy bins’ by the FPGA using a lookup table. Counts as a function of energy, detector ID and pixel number are accumulated in accumulators with a variable integration time that is a multiple of 0.1 second.  
-The accumulation is truncated when a suitable number of counts have been reached or the accumulation time exceeds the pre-defined maximum value.
-
-The contents of these accumulators are compressed and transferred to a rotating memory. 
-Within a timescale of minutes, the ASW transfers the data from the rotating memory to a 16 Gigabyte flash memory, which is able to store several months of data.
-
-Note that the processing to this point, done ‘blindly’ by the FPGA and FSW so that there is no data selection or statistically-significant loss of science–relevant information content. Data selections are done by the processor as  background tasks, based on  post facto uploaded requests via ground commands, originating from the STIX operations team.
-There are two stages to the processing of the selected time/energy range by the instrument processor: the first step is selective averaging into science-relevant time and energy bins; The parameters are explicitly uploaded as part of user data requests.  The second stage is to  compress the selected data. The output of the compression algorithms is converted to telemetry packets and stored in the instrument telemetry buffer. 
-
-The second data path is quick look processing.  Individual events are summed into a set of 16-bit accumulators after being corrected for temperature effect and converted to science energy channels. 
-The accumulation time is fixed (can be adjusted by telecommand) with a default of 4 seconds. 
-Corresponding triggers are also accumulated into 16 24-bit accumulators. The contents of these quick-look accumulators are used by the FSW for several purposes: flare identification, the determination of flare position and as input into spatially-averaged spectra and light curves for inclusion in the quick look data. The specifics of the averaging are defined by TC parameters, but the goals are to provide an overview of solar activity, and to monitor individual detector performance.
-The purpose of the 3rd data path is to provide data for energy calibration. In this case individual events are accumulated with their temperature-corrected scaled A/D resolution but only during quiet times and with very long accumulation times (day). This provides detector-based
-background spectra that include features from the calibration source that can be used on the
-ground to establish and monitor the detector energy gain and resolution. To avoid
-contamination of background spectra by periods of enhanced (but still low level) solar activity,
-counts are only be accumulated if no other counts occurred in the preceding TC-specified
-number of seconds.
-The data directly read from STIX hardware can be divided into three categories. The first category is housekeeping data, which include voltage and current of power supplies, temperature sensor readouts; The second category is event data read from the 32 CdTe detectors, including the digitized photon amplitudes recorded by the 384 CdTe pixels detector, as well as the triggers. The third category is aspect system photo-diode readouts, which can be used to determine the pointing directions of STIX. 
-
- Aspect data is handled by a combination of the FPGA and FSW starting from the 1 kHz 12-bit
-digitization of the output of the 4 aspect photodiodes. Low time resolution averaged aspect
-data is included in HK telemetry. In addition, user TC requests can include selected intervals
-with higher time resolution as part of the bulk science T/M. Details of the on-board aspect
-data handling can be found in RD18. No on-board aspect interpretation is required for
-instrument operation.
-In addition to these STIX specific instrument functions, the IDPU provides the normal functions
-of instrument level command interpretation and execution, commanding bias voltage levels in
-response to ground commands or internally generated criteria, commanding attenuator state
-changes, digitizing, monitoring and multiplexing instrument temperature sensor output, etc.
-Both quick-look and science data are buffered internally so that although the rate of STIX-
-generated data will be strongly dependent on solar activity, the data can be metered to the
-spacecraft at a rate and cadence determined by the spacecraft requests.
-The IDPU includes memories (ROM, RAM, and Flash) for data accumulation and software. It
-interfaces to the Payload Data Management Unit, a housekeeping system, and other STIX
-electronics (detector ASICs, aspect diodes readout, attenuator control, and power supplies).
-By use of an autonomous state machine, it manages a rotating memory. The interfaces
-between IDPU and the spacecraft are realized through a SpaceWire link (protocol
-implemented in FPGA with additional external drivers/receivers).
-STIX uses a robust algorithm to set a flare flag that includes information on the intensity,
-spectrum and location of the event. This information will be used internally as input to the data
-compression algorithms and sent to the s/c for optional transmission to other instruments for
-use in choosing to observe modes or data selection.
-Implementing the data flow in hardware, initial accumulation in the 64 MByte rotating memory
-is done autonomously using an FPGA-based hardware state machine. The same FPGA
-provides all necessary logic to interface the rotating memory to the main STIX processing unit.
-The interface is organized in such a way that the data can be accumulated by the state
-machine, while at the same time is available for access by the processing unit.
-The architecture of STIX IDPU is presented in Figure 2-23. Communication with ASICs and
-conversion of amplitude into 32 energy bins are performed in State Machines in Main (or
-Redundant) IDPUs. Initial accumulation in the rotating memory (64MByte rotating memory) is
-done autonomously using an FPGA-based hardware State Machine inside each of FPGAs.
-FPGA provides all necessary logic to interface the rotating memory to the main STIX
-processing unit implemented (as IP core) inside the same FPGA. The interface is organized
-in such a way that the data can be accumulated by the rotating memory, while at the same
-time is available for access by the processing unit. The total volume of the memory is 128
-Mbytes, less than half of which is allocated for S/W operations. The rest of the memory can
-be allocated to rotating memory, implying that the 64 MByte available for rotating memory is
-a conservative estimate.
-The LEON 3FT synthesized on Actel RTAX2000S/SL core is the baseline for the digital data
-processing unit. It provides 20 MIPS of processing power. Since the State Machines internal
-the CPU FPGA handle the time-critical tasks, the LEON3FT is primarily concerned with the
-processing tasks mentioned in previous paragraphs.
+During the nomal operation, STIX continously collects data from the 32 x-ray detector units, the aspect system and
+housekeeping sensors.
+The event data from the x-ray detetors are processed in three parallel paths:
+1) a primary data path transfer time-binned event data to the instrument archive memory;
+2) a quick-look path generates light curves, snapshots of energy spectra and flare triggers;
+3) a calibration path collects events during quiet periods and uses them to form calibration spectrum for each pixel;
 
 
-More details descriptions of on-board data processing can be found in 
-STIX telemetry can be classified in four categories: Housekeeping, Quick-look, Diagnostic
-, and user requested Bulk Science (user-requested). HK and QL will be directed to the
- low Latency data store in Spacecraft Solid State Mass Memory (SSMM). 
-For the most part, STIX data are organized by data content, with each major data content type
-(e.g. x-ray imaging data, spatially-averaged x-ray data, HK data, etc.) associated with its own
-packet types. While the format of each packet type is fixed, the relative frequency of each
-packet type is dependent on solar activity and/or instrument mode.
-Although the mix of packet types will vary, the 1-day average of HK and QL will respect the allocated rate of 4.3 Mbits/day (50 bps) each. The sum of all data types will respect the orbital average of 1.8 Gbits/orbit (700 bits/second for 30 days). STIX can make use of an onboard memory to load the SSMM at a rate compatible with spacecraft requirement.
+Event data and high time resolution aspect
+readouts are stored in STIX archive flash memory.
+The processed data is  stored on the on-board archive memory for further processing as requested by ground commanding, or used to form telemetry data packets.
+As shown in  STIX raw telemetry data can be classified in four categories: Housekeeping (HK), Quick-look (QL), Diagnostic
+, and user requested bulk science data.
+HK data and QL data are directed to the low latency data store in
+the Solid State Mass Memory (SSMM) of the spacecraft. They are sent down to Earth when during ground antenna passes.
+
+
+
+\section{Overview of the data flow}
+STIX telemetry data are first be stored in the spacecraft solid state disk.
+They are transmitted to ground stations during antenna passes.
+Telemetry data recieved by ground stations are processed at the mission control center of ESA and
+stored in .
+ESA provides a web interface.
+The typical latency of the low latency data before they arrive at STIX data center is about x day when there is a pass a.
+Raw data received at STIX data center has the same structure.
+
+The payload data must be created through the EEDS web page to create a data download request. After receiving the user's data request, EDDS displays the original payload data in the form of hex code and sends it to the stix data center server through the RSYNC protocol. Users can define the time interval of data request. Generally speaking, STIX server requests data from EDDS once a day. The data STIX obtains from EDDS is a HEX code with a time stamp, which is the same as the data sent by STIX to the spacecraft platform after being converted into binary data.
+
+In addition to telemetry data, STIX data center also receive spacecraft ancillary data from ESA, that contains
+information of spacecraft ephemris and factors for time conversion.
+
 
 \section{Data processing pipelines at STIX data center}
 
 
 
 \subsection{Data link and data reception}
-Telemetry generated by STIX are first be stored in the spacecraft solid state disk.
-They are transmitted to ground data station when they are passes.  
-After being received by the ground station of SOLAR Orbiter, it will be processed by ESA and stored in the EEDS database. ESA provides a web interface. The payload data must be created through the EEDS web page to create a data download request. After receiving the user's data request, EDDS displays the original payload data in the form of hex code and sends it to the stix data center server through the RSYNC protocol. Users can define the time interval of data request. Generally speaking, STIX server requests data from EDDS once a day. The data STIX obtains from EDDS is a HEX code with a time stamp, which is the same as the data sent by STIX to the spacecraft platform after being converted into binary data.
+
 \subsection{STIX raw data processing pipeline}
 \subsubsection{Raw data parsing}
 
