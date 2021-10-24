@@ -12,7 +12,7 @@
 \begin{document} 
 
 
-   \title{The data center for the X-ray Imaging Spectrometer/Telescope STIX}
+   \title{The data center for X-ray Imaging Spectrometer/Telescope STIX}
 
    \subtitle{}
 
@@ -25,9 +25,10 @@
           Ewan Dickson \inst{1,4}
           \and 
           S\"am Krucker\inst{1}
+          \and Andrea Francesco Battaglia\inst{3}
             \and László Etesi \inst{1}
-          \and Andrea Francesco Battaglia\inst{1,3}
-          \and Daniel Ryan\inst{1}
+          \and Ryan Daniel \inst{1}
+          \and Lastufka Erica \inst{1}
           \and Other STIX team members
          }
 
@@ -50,7 +51,7 @@
    {} %leave it empty if necessary  
   % {context.}
   % aims heading (mandatory)
-   { The Spectrometer/Telescope for Imaging X-rays (STIX) instrument onboard the Solar Orbiter mission launched on February 10, 2020 promises advances in the study of solar flares of various sizes. It is capable of measuring X-ray spectra from 4 to 150 keV with 1 keV resolution binned into 32 energy bins before downlinking. STIX data center is an infrastructure established at FHNW in order to process and archive STIX telemetry data, and to support the operations of the instrument. The automated data processing pipeline turns raw telemetry data into processed information and data products. Processed information and data products are achived at the data center.  STIX data center provides various tools to visualized the information and data products for the solar physics community.
+   { The Spectrometer/Telescope for Imaging X-rays (STIX) instrument onboard the Solar Orbiter mission launched on February 10, 2020 promises advances in the study of solar flares of various sizes. It is capable of measuring X-ray spectra from 4 to 150 keV with 1 keV resolution binned into 32 energy bins before downlinking. STIX data center is an infrastructure established at FHNW in order to process and archive STIX telemetry data, and to support the operations of the instrument. The automated data processing pipelines turn raw telemetry data into processed information and data products. Processed information and data products are achived at the data center.  STIX data center provides the solar physics community various tools to visualize STIX data products.
    }
   % methods heading (mandatory)
    {Methods}
@@ -80,27 +81,32 @@ Its goal is to  address the center question of heliophysics  "How does the Sun c
 This consists of the study of energetic solar phenomena like flares,  solar transients,  the solar wind accelerating mechanisms, and the solar dynamo principle.  
 
 
-The Spectrometer Telescope for Imaging X-rays (STIX) is one of the ten instruments onboard Solar Orbiter.  It measures X-rays from 4 to 150 keV and takes X-ray images with a few arcsec angular resolution by using an indirect imaging technique, based on the Moiré effect .  The angular resolution
-is 7 arcsec and the spectral resolution 1.1 keV full-width-half-maximum at 30 keV.
-Its instrument consists of 32 collimators with
-grids and 32 pixelated Cadmium telluride  detector units called Caliste-SO  \cite{StixInstrument}.
-STIX's main purpose is to study the extremely hot solar plasma and the high-energy electrons accelerated during solar flares.
-It will address the key science goals of the Solar Orbiter mission by providing information on intensity, spectrum, timing, and location of accelerated electrons near the Sun. 
+The Spectrometer Telescope for Imaging X-rays (STIX) is one of the ten instruments onboard Solar Orbiter.  It measures X-rays from 4 to 150 keV and takes X-ray images with a few arcsec angular resolution by using an indirect imaging technique, based on the Moiré effect .  It has an angular resolution of 7 arcsec and a spectral resolution of  about 1.0 keV (FWHM) at 30 keV.
+STIX instrument consists of 32 collimators with
+grids and 32 pixelated Cadmium telluride  detector units called Caliste-SO.
+The main science objective of STIX is to study the extremely hot solar plasma and the high-energy electrons accelerated during solar flares. STIX will address the key science goals of the Solar Orbiter mission by providing information on intensity, spectrum, timing, and location of accelerated electrons near the Sun.
+For the details of the STIX instrument, we refer to the instrument paper \cite{StixInstrument}.
 
 
-STIX has more than two hundred different telemetry data types. The data
-have complex data structures and are higly compressed.
+During nominal science operations, STIX continously acquires data. They are processed and compressed into different types of telemetry packets by
+before being tansmitted to the ground.
 Being aware of the complexity of the data analysis and of
-the need to bring the data to the community, a data center is
-developed at FHNW in order to receive, analyze,  archive and distribute the STIX data.
-The data center turns raw telemetry data into processed information and data products that can be used for scientific analysis.
-SDC also provides various data visualization the solar physics comunity.
-We will describe here STIX raw data types, the flow of data from to the users, the main data processing steps, the data products and the tools provided for the comnunity.
-
-
+the need to bring the data to the community, a data center has been
+developed at FHNW.
+It tasks include receiving, analyzing, archiving and distributing STIX data, and supporting STIX instrument operations.
+It turns raw telemetry data into processed information and data products that can be used for scientific analysis.
+SDC also provides various data visualization tools to the solar physics comunity.
+We will describe here STIX data types,  the flow of data from to the users, the data processing pipelines, the database, the data products and the tools provided for the solar physics comnunity.
 %--------------------------------------------------------------------
-\section{STIX raw telemetry data}
 
+\section{STIX raw telemetry data}
+Data collected from 32 detector units, the aspect system,
+housekeeping sensors are processed by the FPGA and the onboard flight software.
+They are either processed the onboard FPGA and CPU forming low latency telemetry data or stored in the onboard archive memeory,
+which are used to form science data according to requests initiated from the operations team.
+STIX sends data to the spacecraft in the form of binary packets.
+These data packets are considered as STIX raw telemetry data.
+They can be classified into four categories as follows:
 \begin{figure}
     \centering
     \includegraphics[width=0.8\linewidth]{figures/onboardDataFlow.pdf}
@@ -108,26 +114,106 @@ We will describe here STIX raw data types, the flow of data from to the users, t
     \label{fig:stix_onbard_data_flow}
 \end{figure}
 
+\begin{itemize}
+ \item  Housekeeping data.
+ %STIX generates two different houskeeping data packets.
+STIX housekeeping data contain engineering  data that measure temperatures, voltages, currents, status of switches,
+averaged signal readouts from the four aspect photodiodes, detector trigger counts and  flags indicating
+status of the onboard software.
+They are generated as long as STIX is powered on.
+The housekeeping packet generation candence is adjustable by telecommands.
+During nominal operations, the HK generate candence is configured to 64 sec / packet and
+the HK data rate is 143 kiB / day.
+HK data arrive at STIX data center with latencies ranging from a few minutes to days, depending on whether
+it is in a data-link pass.
+
+\item Quick-look (QL) data.
+STIX generates four different types of quick-look data in NOMINAL mode: light curves, background light curves, energy spectra and variance.
+Quick-look light curves are  time series of counts
+of all pixels in 30 detectors (excluding background detector and the coarse flare locator)
+accumulated every a few seconds (4 sec nominal) in five different energy ranges.
+Background light curves are similar to the Quick-look light curves but only
+counts recorded by the background detector are included.
+Variance data are
+the detector-summed variance of count rates
+based on 0.1s integration.
+Quick-look spectra are snapshots of energy spectra for for each of the 32 detectors.
+Nominally, STIX acquires an energy spectrum (32 seconds integration time) for each channel every 17 minutes.
+
+\item
+Calibration data. When STIX is NOMINAL mode, high-resolution calibration spectra  are accumulated for events from the weak onboard $^{133}$Ba
+radioactive sources during solar quiet  (non-flaring)  times. The relevant portions of these
+spectra are routinely included in the quick-look low-latency data.
+The nominal accumulation time is 24 hours.
+
+\item
+Science data.  The science data are different combination of summing and compression of the basic pixel data stored in the archive memoery.
+Each science request can selects subsets of of energies, pixels and detectors.
+They are generated when  STIX executes
+science data request commands which are initiated from the STIX operations team. Science data have six different types : 1)
+Level-0 X-ray data is the least processed data and contains uncompressed counts for the selected energies, pixels and detectors.
+2) Level-1 is essentially the same as Level-0 but the counts are compressed on-board before being sent to ground.
+3) For Level-2 data,  counts from the 12 pixel are summed down to 4 before compression.
+4) Level-3 are visibilities, which further reduces the data by combine the the 4 summed pixel counts into a complex visibility which is also compressed.
+5) Level-3 are spectrograms, which combines spectra of all selected pixels.
+6) High time resolution aspect data.
+\end{itemize}
+
+The first three categories are  transferred to the
+common low latency data store in SSMM.
+
+Table \ref{tb:raw_types} shows a summary of telemetry packets.
+
+\begin{table}[h]
+\caption{STIX raw telemetry packet types.}
+\begin{tabular}{lllll}
+\hline
+Category & Type & & & \\ \hline
+Quicklook    & light curves           &  &  &  \\ \hline
+Science      & L1, L2, L3, L4, aspect &  &  &  \\ \hline
+Housekeeping & Housekeeping           &  &  &  \\ \hline
+Calibration  & calibration            &  &  &  \\ \hline
+\end{tabular}
+\label{raw_types}
+\end{table}
+
+The latency of
 During the nomal operation, STIX continously collects data from the 32 x-ray detector units, the aspect system and
-housekeeping sensors.
-The event data from the x-ray detetors are processed in three parallel paths:
-1) a primary data path transfer time-binned event data to the instrument archive memory;
-2) a quick-look path generates light curves, snapshots of energy spectra and flare triggers;
-3) a calibration path collects events during quiet periods and uses them to form calibration spectrum for each pixel;
+housekeeping sensors. The collected data are processed by a FPGA and flight software running on a soft CPU core.
+The processed data are directed to the low latency data store in SSMM or stored in STIX
+onboard archive memory.  The data stored in the onboard archive memeory can
+be processed and form science data on requests from the ground.
 
-
-Event data and high time resolution aspect
-readouts are stored in STIX archive flash memory.
-The processed data is  stored on the on-board archive memory for further processing as requested by ground commanding, or used to form telemetry data packets.
-As shown in  STIX raw telemetry data can be classified in four categories: Housekeeping (HK), Quick-look (QL), Diagnostic
-, and user requested bulk science data.
-HK data and QL data are directed to the low latency data store in
-the Solid State Mass Memory (SSMM) of the spacecraft. They are sent down to Earth when during ground antenna passes.
+ HK and QL will be
+directed to the Low Latency data store in SSMM.
 
 
 
-\section{Overview of the data flow}
-STIX telemetry data are first be stored in the spacecraft solid state disk.
+\section{Data link and data reception}
+For the most part, STIX data are organized by data content, with each major data content
+type (e.g. x-ray imaging data, spatially-averaged x-ray data, HK data, etc.) associated with
+its own packet types. While the format of each packet type is fixed, the relative frequency of
+each packet type is dependent on solar activity and/or instrument mode. Although the mix
+of packet types will vary, the 1-day average of HK and QL will respect the allocated rate of
+4.3 Mbits/day (50 bps) each. The sum of all data types will respect the orbital average of 1.8
+Gbits/orbit (700 bits/second for 30 days). STIX can make use of an on-board memory to
+load the SSMM at a rate compatible with spacecraft requirements.
+
+During nominal science operations, science data are downlinked for eight hours during each
+communication period with the ground stations. Additional eight-hour downlink passes are
+scheduled as needed to reach the required total science data return of the mission.
+The Solar Orbiter ground segment makes maximum reuse of ESA's infrastructure for Deep Space missions:
+
+The ground stations, which belong to ESA's space tracking station network (ESTRACK)
+The Mission Operations Centre (MOC), located at ESOC, Darmstadt, Germany
+The Science Operations Centre (SOC), located at ESAC, Villanueva de la Cañada, Spain
+The communications network, linking the various remotely located centres and stations to support the operational data traffic
+The Science Operations Centre was responsible for mission planning and the generation of payload operations requests to the MOC, as well as science data archiving. The SOC has been operational for the active science phase of the mission, i.e. from the beginning of the Cruise Phase onwards. The handover of payload operations from the MOC to the SOC is performed at the end of the Near-Earth Commissioning Phase (NECP). ESA's Malargüe Station in Argentina will be used for all operations throughout the mission, with the ground stations of New Norcia Station, Australia, and Cebreros Station, Spain, acting as backup when necessary.[12] wikipedia
+
+STIX telemetry data are firstly stored in the spacecraft solid state disk (SSMM).
+Low latency telemetry data are downlinked  with the ground stations during each communication period with the ground stations.
+Science data are downloaded  as needed to reach the required total science data return of the mission.
+
 They are transmitted to ground stations during antenna passes.
 Telemetry data recieved by ground stations are processed at the mission control center of ESA and
 stored in .
@@ -135,45 +221,101 @@ ESA provides a web interface.
 The typical latency of the low latency data before they arrive at STIX data center is about x day when there is a pass a.
 Raw data received at STIX data center has the same structure.
 
-The payload data must be created through the EEDS web page to create a data download request. After receiving the user's data request, EDDS displays the original payload data in the form of hex code and sends it to the stix data center server through the RSYNC protocol. Users can define the time interval of data request. Generally speaking, STIX server requests data from EDDS once a day. The data STIX obtains from EDDS is a HEX code with a time stamp, which is the same as the data sent by STIX to the spacecraft platform after being converted into binary data.
-
-In addition to telemetry data, STIX data center also receive spacecraft ancillary data from ESA, that contains
+The payload data must be created through the EEDS web page to create a data download request.
+After receiving the user's data request, EDDS displays the original payload data in the form of hex code and sends it to the stix data center server through the RSYNC protocol. Users can define the time interval of data request. Generally speaking, STIX server requests data from EDDS once a day. The data STIX obtains from EDDS is a HEX code with a time stamp, which is the same as the data sent by STIX to the spacecraft platform after being converted into binary data.
+In addition to telemetry data, STIX data center also receive spacecraft ancillary data from
+the mission operation center, which contains
 information of spacecraft ephemris and factors for time conversion.
 
 
 \section{Data processing pipelines at STIX data center}
 
 
-
-\subsection{Data link and data reception}
+\section{Filename naming conventions}
 
 \subsection{STIX raw data processing pipeline}
 \subsubsection{Raw data parsing}
 
 include a decompression error map here
-\subsubsection{Background monitoring}
+
+\subsection{metadata and sysposis data creation}
+
+\subsubsection{FITS file creation}
+
+
+
+\subsubsection{Background data processing pipeline}
 Light curves measured during quiet periods of the sun are used for background estimation. Median values and of counts are computed and considered as the background in the selected time frame. They are stored in a database and used for flare identifications. 
+
+\subsection{Calibration data processing pipeline}
+The calibration data processing pipeline is started automatically after the calibration data raw packets
+are being parsed and written to the NoSQL database.
+
+
+As described in Ref. \cite{StixInstrument},  Ba134 radioactive sources with a total activity of about 4000 Bq are placed at the front of each detector. The total activity of the radioactive source is approximately 4000 Ba.
+When the radioactive source decays, gamma rays are generated. These gamma rays can form peaks in the energy spectrum of the detector.
+As the energies of the peaks are known, and the corresponding relationship between ADC and real energy can be calibrated through the position of the peak in the energy spectrum, that is, the calibration coefficient. The figure below is a typical Ba133 gamma-ray energy spectrum measured by STIX CdTe detector. There are three obvious peaks in the energy spectrum, and they correspond to three energies of 30 keV, 35 keV and 81 keV. There are many ways to determine the position of each peak, you can use the ECC method, or use the Gaussian function to fit the left part of the peak.
+
+
+ELUT and calibratino factors can be downloaded from STIX data center by using web GUIs or python APIs.
+\subsubsection{calibration analysis production, ELUT}
+
+\section{Data request procedure}
+
+For detected flares,  a script is used to create data requests.
+If the background subtracted peak count rate of a flare is greater 150,
+both L1 and spectrogram rquests are created;  For microflares, as only
+spectrograms are request normally as the statistics is too
+low to recontruct flare images.  Aspect data requests
+and some extra data requests are created for events of interest by the
+STIX operations team.
+For external users, data request forms can be also submitted using a web tool
+at the data center.
+
+An unique ID is assigned to each data request automatically.
+The ID naming convention is yyddmmxxxx, in which yyddmm indicate the observation year (without century), month, date,
+and the last four digits indicates the serial number of the data request in the day.
+IDs are used to track the status of data requests, and reterieve data products from the
+STIX data center.
+The information of created data requests are stored in the NoSQL database on the same server.
+They are converted to instrument operation requests (IORs) after a series of checks.
+Requested data will arrive at STIX data center within a time frame of two weeks to three months, depending on
+telemetry allocations.
+
+
+\section{Flare processing pipeline}
+
 \subsubsection{Flare identification}
 Quick-look light curves in the energy range 4 to 10 keV are used for solar flare identification.  The flare identification procedure consists of  two steps:
 \begin{itemize}
-\item Light curve smoothing. In order to filter spikes from electronics and to reduce the amount of variation due to statistics and the onboard integer compression, light curves are smoothed by using the average filtering. The 
-\item Flare identification. Local maximums are selected from smoothed light curves.  A local maximum is considered as a flare peak if the counts are exceeds 2 standard deviations above the background and the duration above the background is longer than 1 minute.  
+\item Light curve smoothing. In order to filter spikes from electronics and to reduce the amount of variation due to statistics and the onboard integer compression, light curves are smoothed by using the average filtering. The
+\item Flare identification. Local maximums are selected from smoothed light curves.  A local maximum is considered as a flare peak if the counts are exceeds 2 standard deviations above the background and the duration above the background is longer than 1 minute.
 \end{itemize}
 
-For each of identified solar flares,   the  information such as start time, end time, counts, background subtracted counts is stored in the STIX flare database.   It is used for automatic creation of data requests for on-board archived data. 
+For each of identified solar flares,   the  information such as start time, end time, counts, background subtracted counts is stored in the STIX flare database.   It is used for automatic creation of data requests for on-board archived data.
+
+How to define a flux.
+
 
 \subsubsection{flare ID naming convention}
 \subsubsection{Flare locations}
-\subsection{Calibration data processing}
 
-Ba134 radioactive sources with a total activity of about 4000 Bq are placed at the front of each detector. The total activity of the radioactive source is approximately 4000 Ba.
-When the radioactive source decays, gamma rays are generated. These gamma rays can form peaks in the energy spectrum of the detector.
-The corresponding energy is known, and the corresponding relationship between ADC and real energy can be calibrated through the position of the peak in the energy spectrum, that is, the calibration coefficient. The figure below is a typical Ba133 gamma-ray energy spectrum measured by STIX CdTe detector. There are three obvious peaks in the energy spectrum, and they correspond to three energies of 30 keV, 35 keV and 81 keV. There are many ways to determine the position of each peak, you can use the ECC method, or use the Gaussian function to fit the left part of the peak.
+\subsection{Solar flare list}
+\subsection{Flare location database}
+
+
+A list of products from the flare processing pipeline
+
+* Flare list
+* Flare location
+*
 
 \subsubsection{Flare location using coarse flare data}
 \subsubsection{Flare classification using GOES x-ray flux}
-\subsubsection{FITS file creation}
+
 \section{STIX data products}
+
+\subsection{L1 data products}
 \begin{itemize}
     \item Raw data.
     \item L1 data.
@@ -208,7 +350,15 @@ The differences between L1A and L1 available in Shane's ftp include:
 
 4. L1A contains housekeeping data
 
-
+The different data-processing levels for HMI are summarized as follows, with more details available from this source:
+• Data at Level 0 are images that have been constructed from the raw telemetry stream.
+• Data at Level 1.0 are images that have been converted from Level 0, with processing including bad-pixel removal, flat-fielding,
+and quality assessment checks, but otherwise not having undergone any irreversible data alterations.
+• Data at Level 1.5 are images of the physical observables (Dopplergrams, magnetograms, and continuum images), which were
+constructed from the individual Level 1.0 filtergrams.
+• Data at Level 2 have been irrevocably filtered, time-sequence-merged, Fourier-transformed or otherwise changed from Level 1.5
+data in a way that is irreversible. Level 2 products include intermediate products for later production of mission science data
+products, such as helioseismic inferences of solar subsurface flows
 
 
 The Level0 archive contains TM which has been parsed or decommuated into readable structures but no additional external information is include:
@@ -228,6 +378,9 @@ Mongodb benchmark,
 key value, index, performance
 
 
+\subsection{Auxilary data}
+
+
 
 \begin{table}
 \centering
@@ -245,13 +398,6 @@ Category & Type   &  Naming convention  & Remarks   \\ \hline
 \end{tabular}
 \end{table}
 
-\section{Data request procedure}
-created of data requests
-manuall checked
-\textbf{  data request naming convention  yyddmm00  to yyddmm 11 }
-
-
-\section{Flare processing}
 
 \section{Database}
 \subsection{Raw data packet database } 
@@ -290,11 +436,13 @@ At the center of the Sun.
 It is worth mentioning that has to corrected for.
 This can be done by using the web tool provided at the auxiliary data center at
 
+\subsection{Automated data request scheme}
+scheme
+
 
 \section{Data access and APIs}
 \section{Future work}
 \section{Conclusions}
-
 
 
 
