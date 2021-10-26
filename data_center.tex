@@ -12,7 +12,7 @@
 \begin{document} 
 
 
-   \title{The data center for X-ray Imaging Spectrometer/Telescope STIX}
+   \title{Data processing pipelines and data center the solar flare X-ray spectrometer / imager STIX}
 
    \subtitle{}
 
@@ -147,20 +147,26 @@ spectra are routinely included in the quick-look low-latency data.
 The nominal accumulation time is 24 hours.
 
 \item
-Science data.  The science data are different combination of summing and compression of the basic pixel data stored in the archive memoery.
+Bulk science data.  The science data are different combination of summing and compression of the basic pixel data stored in STIX onboard archive memoery.
+They are created as results of science data requests which are initiated by the STIX operations team.
 Each science request can selects subsets of of energies, pixels and detectors.
-They are generated when  STIX executes
-science data request commands which are initiated from the STIX operations team. Science data have six different types : 1)
-Level-0 X-ray data is the least processed data and contains uncompressed counts for the selected energies, pixels and detectors.
-2) Level-1 is essentially the same as Level-0 but the counts are compressed on-board before being sent to ground.
-3) For Level-2 data,  counts from the 12 pixel are summed down to 4 before compression.
-4) Level-3 are visibilities, which further reduces the data by combine the the 4 summed pixel counts into a complex visibility which is also compressed.
-5) Level-3 are spectrograms, which combines spectra of all selected pixels.
-6) High time resolution aspect data.
-\end{itemize}
+There are six different cience data have six different types:
+\begin{enumerate}
+\item Level-0 X-ray data is the least processed data and contains uncompressed counts for the selected energies, pixels and detectors;
+\item Level-1 is essentially the same as Level-0 but the counts are compressed on-board before being sent to ground;
+\item For Level-2 data,  counts from the 12 pixel are summed down to 4 before compression.
+\item Level-3 are visibilities, which further reduces the data by combine the the 4 summed pixel counts into a complex visibility which is also compressed.
+\item Level-3 are detector summed spectrograms;
+\item High time resolution aspect data.
+\end{enumerate}
 
-The first three categories are  transferred to the
-common low latency data store in SSMM.
+\end{itemize}
+The first three categories are  directed to the
+common low latency data store  in SSMM in the spacecraft. They are downlinked
+at the earliest ground station passes. The low latency raw data arrive  at the STIX data center with a delay of hours to
+days after being genrated onboard.   As bulk science data are only
+created  after being requested from the ground, they delay can be
+months.
 
 Table \ref{tb:raw_types} shows a summary of telemetry packets.
 
@@ -177,15 +183,10 @@ Calibration  & calibration            &  &  &  \\ \hline
 \label{raw_types}
 \end{table}
 
-The latency of
-During the nomal operation, STIX continously collects data from the 32 x-ray detector units, the aspect system and
-housekeeping sensors. The collected data are processed by a FPGA and flight software running on a soft CPU core.
-The processed data are directed to the low latency data store in SSMM or stored in STIX
-onboard archive memory.  The data stored in the onboard archive memeory can
-be processed and form science data on requests from the ground.
+
 
  HK and QL will be
-directed to the Low Latency data store in SSMM.
+
 
 
 
