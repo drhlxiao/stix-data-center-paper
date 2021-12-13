@@ -1,5 +1,8 @@
-\begin{thebibliography}{2}
+\begin{thebibliography}{4}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Acton(1996)}]{spice}
+Acton, C.~H. 1996, Planetary and Space Science, 44, 65, planetary data system
 
 \bibitem[{{Forveille} \& {Shore}(2020)}]{SolarOrbiter2020}
 {Forveille}, T. \& {Shore}, S. 2020, \aap, 642, E1
@@ -25,5 +28,8 @@
   {Benvenuto, F.}, {Massa, P.}, {Schwartz, R. A.}, {Dennis, B. R.}, {van Beek,
   H. F.}, {Rodr\'{\i}guez-Pacheco, J.}, \& {Lin, R. P.}}]{StixInstrument}
 {Krucker, S\"am}, {Hurford, G. J.}, {Grimm, O.}, {et~al.} 2020, A\&A, 642, A15
+
+\bibitem[{Peccia(2005)}]{EDDS}
+Peccia, N. 2005, in 2005 IEEE Aerospace Conference, 3988--3995
 
 \end{thebibliography}
