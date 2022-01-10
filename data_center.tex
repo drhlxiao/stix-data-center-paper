@@ -97,7 +97,7 @@ This consists of the study of energetic solar phenomena like flares,  solar tran
 
 The Spectrometer Telescope for Imaging X-rays (STIX) is one of the ten instruments onboard Solar Orbiter.  It measures X-rays from 4 to 150 keV and takes X-ray images with a few arcsec angular resolution by using an indirect imaging technique, based on the Moiré effect .  It has an angular resolution of 7 arcsec and a spectral resolution of  about 1.0 keV (FWHM) at 30 keV.
 STIX instrument consists of 32 collimators with
-grids and 32 pixelated Cadmium telluride  detector units called Caliste-SO.
+grids and 32 pixelated Cadmium telluride detector units called Caliste-SO.
 The main science objective of STIX is to study the extremely hot solar plasma and the high-energy electrons accelerated during solar flares. STIX will address the key science goals of the Solar Orbiter mission by providing information on intensity, spectrum, timing, and location of accelerated electrons near the Sun.
 For the details of the STIX instrument, we refer to the instrument paper \cite{StixInstrument}.
 
@@ -110,7 +110,7 @@ developed at FHNW.
 It tasks include receiving, analyzing, archiving and distributing STIX data, and supporting STIX instrument operations.
 It turns raw telemetry data into processed information and data products that can be used for scientific analysis.
 SDC also provides various data visualization tools to the solar physics community.
-The purpose of this paper is to described the standard processing pipelines, data products and tools provided by the STIX data center for the solar physics community.
+The purpose of this paper is to describe the standard processing pipelines, data products and tools provided by the STIX data center for the solar physics community.
 %We will describe here STIX data types,  the flow of data from to the users, the data processing pipelines, the %database, the data products and the tools provided for the solar physics comnunity.
 %--------------------------------------------------------------------
 
@@ -134,7 +134,7 @@ After the prompt processing, low latency telemetry data are directed to the
 storage in the spacecraft whearas high time resolution pixel data are written to STIX onboard archive memory for
 later processings.
 STIX transmits data to the spacecraft in the form of binary packets.
-STIX raw telemetry data can be be classified into four
+STIX raw telemetry data can be classified into four
 categories: housekeeping data, diagnostic data, quick-look data and science data.
 
 In the next sections, we briefly introduce the main raw telemetry data types.
@@ -143,8 +143,8 @@ For details about STIX raw telemetry data, we refer to STIX instrument paper \ci
 \subsection{Housekeeping data}
  %\item  Housekeeping data.
  %STIX generates two different houskeeping data packets.
-STIX housekeeping data (HK) contain engineering  data that measure temperatures, voltages, currents, status of switches,
-averaged signal readouts from the four aspect photodiodes, detector trigger counts and  flags indicating
+STIX housekeeping data (HK) contain engineering data that measure temperatures, voltages, currents, status of switches,
+averaged signal readouts from the four aspect photodiodes, detector trigger counts, and  flags indicating
 status bits of the onboard software and the archive memoery.
 The data is used to monitor instrument status, and the instrument pointing.
 %All the parameters are reported in the same type packet at a fixed 64 sec cadence.
@@ -154,20 +154,20 @@ All STIX sensors and the IDPU will produce housekeeping data that will be receiv
 for monitoring instrument status and health.
 
 \subsection{Quick-look data}
-STIX has only one operational mode in which Low Latency data is produced, and that is nominal mode, which is the regular science mode.
+STIX has only one operational mode in which Low Latency data is produced, and that is  NOMINAL mode, which is the regular science mode.
 STIX generates four different types of quick-look (QL) data:
 \begin{itemize}
                                                                                                                                                                \item Quick-look light curves, which are time series of counts
 of all pixels in 30 detectors (excluding background detector and the coarse flare locator)
 accumulated every 4 sec time resolution in five broad energy ranges (two thermal, two nonthermal
 and one intermediate). Quick-look light curves are generated when STIX is in nominal observation mode.
-The STIX lightcurve Low Latency Product is a time series of detector counts in different energy bands (units will be counts/second/cm$^2$). There are five configurable energy bands (for example: 4-7keV, 7-11keV, 11-16keV, 16-40keV, and 40-150keV), with a default integration time of 4 seconds. A lightcurve data point corresponds to the total counts integrated over all selected detectors and pixels for the given energy band. The data are temperature corrected on-board, and undergo minor corrections for detector and pixels,
+STIX light curves are a time series of detector counts in different energy bands (units will be counts/second/cm$^2$). There are five configurable energy bands (for example: 4-7keV, 7-11keV, 11-16keV, 16-40keV, and 40-150keV), with a default integration time of 4 seconds. A lightcurve data point corresponds to the total counts integrated over all selected detectors and pixels for the given energy band. The data are temperature corrected on-board, and undergo minor corrections for detector and pixels,
 and nominal grid transmission (25 percent) on the ground. As lower energies are highly impacted by the presence of the attenuator, they will also need to be corrected. The data will not be corrected for background, live time or detector efficiency. The FITS file is in accordance with [LLFITSICD] but will also comply with  in order to be usable with existing high-energy solar data file routines.
 
-The lightcurve data are structured as an array of five count values COUNTS (for the five energy bands) per time, where time is a relative time $RELATIVE_TIME$ since $OBT_START$ that is time bin centered (i.e. with an integration time of 4s, $RELATIVE_TIME$ will 2-6-10…, as opposed to 0-4-8…). It is possible that that $RELATIVE_TIME$ “jumps”, e.g. when the attenuator is moving in and the affected time bin becomes undetermined and is left out. Additionally, there is an energy channel reference CHANNEL, with indices into the energy axis in the second extension. Given below is an IDL-based structure notation.
+The light curve data are structured as an array of five count values COUNTS (for the five energy bands) per time, where time is a relative time $RELATIVE_TIME$ since $OBT_START$ that is time bin centered (i.e. with an integration time of 4s, $RELATIVE_TIME$ will 2-6-10…, as opposed to 0-4-8…). It is possible that that $RELATIVE_TIME$ “jumps”, e.g. when the attenuator is moving in and the affected time bin becomes undetermined and is left out. Additionally, there is an energy channel reference CHANNEL, with indices into the energy axis in the second extension. Given below is an IDL-based structure notation.
 
-\item Background light curves. Background light curves are similar to the Quick-look light curves but only
-counts recorded by the background detector pixels are included and the integration time is 8 seconds.
+\item Background monitor light curves. Background monitor light curves are similar to the Quick-look light curves but only
+counts recorded by the background detector pixels are included, and the integration time is 8 seconds.
 \item Variance data are   onboard computed variance of 40 successive detector-summed count rates
 based on 0.1 sec integration.
 \item Quick-look spectra, which are energy snapshots of energy spectra (32 science energy bins) for
@@ -192,7 +192,7 @@ Each science request can select subsets of energies, pixels and detectors.
 Six different science data can be generated:
 \begin{itemize}
  \item Level-0 X-ray data is the least processed data and contains uncompressed counts for the selected energies, pixels and detectors;
-\item Level-1 is essentially the same as Level-0 but the counts are compressed on-board before being sent to ground;
+\item Level-1 is essentially the same as Level-0 but the counts are compressed onboard before being sent to the ground;
 \item Level-2 data are further compressed counts from the L1 pixel data, in which are summed down to 4 before compression.
 \item Level-3 data are visibilities, which further reduces the data by combine the the 4 summed pixel counts into a complex visibility which is also compressed.
 \item Level-4 data are detector summed spectrograms;
@@ -200,7 +200,7 @@ Six different science data can be generated:
 \end{itemize}
 \begin{table}[h]
 \centering
-\caption{STIX raw telemetry data converage, data rate and typical reception delay at SDC.  }
+\caption{STIX raw telemetry data coverage, data rate and typical reception delay at SDC.  }
 \resizebox{0.5\textwidth}{!}{
 \begin{tabular}{lllll}
 \hline
@@ -216,46 +216,65 @@ Calibration  & quiet sun periods  & 100 kiB  & $\sim$ 1 day \\ \hline
 \end{table}
 
 Housekeeping data, quick-look data and calibration data are directed to the
-common low latency data store  in SSMM in the spacecraft.
+common low latency data stored in SSMM in the spacecraft.
 The coverage, data rate and latency of
 different types of STIX raw telemetry data are
 summarized in Table \ref{tb:raw_types}.
 
 %https://issues.cosmos.esa.int/solarorbiterwiki/display/SOSP/SOC+Archive+Plan?preview=%2F11734040%2F21759347%2FSOL-SGS-PL-0009-SOARPL-2.0.pdf
 
-\section{Data link and data reception}
-
-SOC will host the instrument pipelines and retrieve the low latency data from MOC after downlink, passing it as input to the instrument pipelines. SOC will also post process the output of the pipelines, applying operations that will include, but not necessarily be limited to, time conversion from on-board time (OBT) to UTC and transformation of FOV parameters from instrument coordinates to an appropriate scientific coordinate system. SOC will not apply calibrations to the output of the instrument pipelines. SOC will also provide a simple web-based visualization tool for the low latency. SOC will also distribute the low latency data files via the Solar Orbiter Archive, hosted at ESAC, following the policies described in the Archive Plan
+\section{Data reception}
 
 During nominal science operations,
-Low latency data are downlinked in the very next ground station pass regardless of orbital geometry, whereas science data are downlinked
-as soon as when the bandwidth permits.
-Solar Orbiter raw telemetry data are downlinked for eight hours during each communication period with the ground stations belonging to ESA's space tracking station network.  The downloaded telemetry data are first processed by ESA's ground segment
-software at the Solar Orbiter mission control center.
-The processed data are then distributed to instrument teams by the ESA EGOS Data
-Dissemination System (EDDS) (\cite{EDDS}) according to instrument teams' preset conditions.
+Low latency data are down-linked in the very next ground station pass regardless of orbital geometry, 
+whereas science data are only downlinked when the bandwidth permits.
+The downloaded instrument telemetry data are first processed by ESA's ground segment
+software at the Solar Orbiter mission control center. Then they
+are distributed to instrument teams by the ESA EGOS Data
+Dissemination System (EDDS) (\cite{EDDS}) according instrument teams' preset conditions.
 
 
+Telemetry data received by STIX data center from EDDS  are in binary format, 
+and  they have the same structure as the data generated by STIX instrument.
+The delay of low-latency data ranges from a few hours to a few days, depending on whether there
+are antenna passes, whearas science data may arrive several weeks after being generated onboard.
 
-STIX telemetry data arriving at STIX data center  are in binary format, and
-they have the same format as the data generated by STIX instrument.
-The delay for low-latency data to  arrive at STIX data center is a few hours to one or two days,
-while the arrival time for science data may delay weeks after being generated onboard.
 
-In addition to the telemetry data, STIX data center also
-receives SPICE kernel files (\cite{spice})  from the the solar orbiter science operations center ,
-They contains information on spacecraft ephemeris and are used for timestamp conversions.
-
+In addition to the telemetry data, STIX data center also receives SPICE kernel files (\cite{spice})  from the science operations center.
+The SPICE kernels contain information of spacecraft ephemeris and clocking calibration factors required for time conversions.
 
 
 \section{Data processing pipelines}
-
 \subsubsection{Raw data parsing}
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/pipelines.pdf}
+    \caption{Data processing pipelines at STIX data center.}
+    \label{fig:main_pipelines}
+\end{figure*}
+
 %https://v000658.fhnw.ch/index.php/apps/files/?dir=/Stix/GSW/documents&fileid=1206862
-The telemetry reader (TM Reader) reads the input file, extracts the APID and SID, and determines the Low Latency Product to be generated. A product-dependent construction routine then transforms the telemetry content to an intermediate IDL structure for the given product (Data Extraction). Then, the intermediate IDL structure is transformed into our internal target Low Latency IDL structure (Data Product Builder). Depending on the provided product (lightcurves or flare information), minor corrections and/or normalizations are applied to the internal Low Latency IDL structure. Finally, the internal IDL product structure is written to the output NFS file share (FITS Output) using a product-dependent FITS writer (Data Product FITS Writer). This results in one file per solar orbiter packet (violet files labeled 1…N/A…N). If there are more telemetry files or packets present, the control script will continue processing, otherwise it will terminate.
+New data archived at STIX data center are processed by the raw telemetry parser immediately. 
+ The processing involves
+several steps: 1) the parser extracts packet ID from packet headers to determine packet types.
+2)packet structure  
+parameter list of the data type is from the database according to the data type, as well as the length of each parameter, 
+the type of parameter value, and the parameter value in the original data
+ A product-dependent construction 
+routine then transforms the telemetry content to an intermediate IDL structure for 
+the given product (Data Extraction). Then, the intermediate IDL structure is transformed
+ into our internal target Low Latency IDL structure (Data Product Builder). Depending on 
+ the provided product (light curves or flare information), minor corrections and/or normalizations
+  are applied to the internal Low Latency IDL structure. Finally, the internal IDL product structure is written 
+  to the output NFS file share (FITS Output) using a product-dependent 
+  FITS writer (Data Product FITS Writer). This results in one 
+ file per solar orbiter packet. If there are more telemetry files
+  or packets present, the control script will continue processing, otherwise it will terminate.
 
 
-Although the daily data volume of stix is small, the data structure is complex and they are highly compressed.
+
+Although the daily data volume of STIX is small, the data structure is complex and they are highly compressed.
 There are more than 200 types of data packets (many of which are different types
 of diagnostic information).
 They are highly compressed and all need to be parsed.
@@ -271,7 +290,7 @@ include a decompression error map here
 \end{itemize}
 
 The above processing steps are done with a single program.
-\subsection{metadata and sysposis data creation}
+\subsection{Metadata and sysposis data creation}
 
 
 
@@ -337,6 +356,36 @@ How to define a flux.
 
 \subsubsection{flare ID naming convention}
 \subsubsection{Flare locations}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=0.95\linewidth]{figures/cflMay07.pdf}
+  \caption{Left: area of exposed regions of 12 pixels calculated by combining
+  the twelve pixels counts with averages from other detectors, and the best fit.
+   Middle: solution of flare location as seen by Solar Orbiter for Flare 202105070034.
+   The best fit location is indicated with the symbol X. The 1 $\sigma$, 2 $\sigma$ and 3 $\sigma$ confidence
+   regions are also shown. Right: shadow of CFL sub-collimator projected on the twelve CFL pixels.}
+  \label{fig:cflpattern}
+  %/FHNW/STIX/SolarFlareAnalysis/stix_simulator/cfl
+\end{figure*}
+
+
+
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=0.7\linewidth]{figures/cflError.pdf}
+  \caption{Top: reconstructed coarse flare location solutions against actual locations along the x-axis (left) and y-axis (right). Bottom:
+  Differences between the reconstructed and randomly generated locations along
+   the x-axis (left) and y-axis (right). The generated sources are assumed to be point-like. Note that statistical
+   uncertainties are not considered here. 
+    }
+  \label{fig:cflerror}
+  %/FHNW/STIX/SolarFlareAnalysis/stix_simulator/cfl
+\end{figure*}
+
+
+
 
 \subsection{Solar flare list}
 \subsection{Flare location database}
