@@ -28,7 +28,7 @@
 \begin{document} 
 
 
-   \title{Data processing pipelines and data center the X-ray spectrometer / imager STIX}
+   \title{Data processing pipelines and the data center for the X-ray spectrometer / imager STIX onboard Solar Orbiter}
 
    \subtitle{}
 
@@ -86,7 +86,7 @@
 \section{Introduction}
 Solar Orbiter is a Sun-observing mission of the European Space  Agency that 
 addresses the interaction between the Sun and the heliosphere.
-It was lunched on Feb. 10, 2020 for a nominal mission duration of seven years and a planned 
+It was launched on Feb. 10, 2020 for a nominal mission duration of seven years and a planned 
 extension of
 three years. It carries ten sets of instruments for comprehensive
 remote-sensing and in-situ measurements. 
@@ -95,35 +95,40 @@ Its goal is to  address the center question of heliophysics  "How does the Sun c
 This consists of the study of energetic solar phenomena like flares,  solar transients,  the solar wind accelerating mechanisms, and the solar dynamo principle.  
 
 
-The Spectrometer Telescope for Imaging X-rays (STIX) is one of the ten instruments onboard Solar Orbiter.  It measures X-rays from 4 to 150 keV and takes X-ray images with a few arcsec angular resolution by using an indirect imaging technique, based on the Moiré effect .  It has an angular resolution of 7 arcsec and a spectral resolution of  about 1.0 keV (FWHM) at 30 keV.
+The Spectrometer Telescope for Imaging X-rays (STIX) is one of the instruments onboard Solar Orbiter.  
+It measures X-rays from 4 to 150 keV and takes X-ray images with a few arcsec angular resolution by using an indirect imaging technique based on the Moiré effect. 
 STIX instrument consists of 32 collimators with
-grids and 32 pixelated Cadmium telluride detector units called Caliste-SO.
-The main science objective of STIX is to study the extremely hot solar plasma and the high-energy electrons accelerated during solar flares. STIX will address the key science goals of the Solar Orbiter mission by providing information on intensity, spectrum, timing, and location of accelerated electrons near the Sun.
-For the details of the STIX instrument, we refer to the instrument paper \cite{StixInstrument}.
+grids and pixelated Cadmium telluride detector units called Caliste-SO.
+The main science objective of STIX is to study the extremely hot solar plasma and the high-energy electrons accelerated during solar flares. STIX will address the key science goals of the Solar Orbiter mission by providing information on intensity, 
+spectrum, timing, and location of accelerated electrons near the Sun.
+For details of the STIX instrumentation, we refer to the instrument paper \cite{StixInstrument}.
 
 
-During nominal science operations, STIX continuously acquires data. They are processed and compressed into different types of telemetry packets by
+During nominal science operations, STIX continuously acquires science data. 
+They are processed and compressed into different types of telemetry packets by
 before being transmitted to the ground.
-Being aware of the complexity of the data analysis and of
-the need to bring the data to the community, a data center has been
-developed at FHNW.
-It tasks include receiving, analyzing, archiving and distributing STIX data, and supporting STIX instrument operations.
-It turns raw telemetry data into processed information and data products that can be used for scientific analysis.
-SDC also provides various data visualization tools to the solar physics community.
-The purpose of this paper is to describe the standard processing pipelines, data products and tools provided by the STIX data center for the solar physics community.
+Being aware of the complexity of STIX data analysis and 
+the need of bringing the data to the solar physics community, a data center has been
+developed at FHNW. The data center (SDC) receives, analyzes, archives and distributes STIX data,
+ and supports STIX in-flight operations.
+It turns raw telemetry data into processed information and produces data products that can be used for scientific analysis.
+It also provides various data visualization tools to the solar physics community.
+The purpose of this paper is to describe the standard processing pipelines, 
+algorithms of automated data processing, data products and tools provided by the STIX data center.
 %We will describe here STIX data types,  the flow of data from to the users, the data processing pipelines, the %database, the data products and the tools provided for the solar physics comnunity.
 %--------------------------------------------------------------------
 
-This paper is orgnized as follows: Section \ref{sec:raw-data} briefly introduces STIX raw telemetry types, Data flow and telemetry
+This paper is organized as follows: Section \ref{sec:raw-data} briefly introduces STIX raw telemetry types, Data flow and telemetry
 We end with a summary in Section \ref{sec:summary}.
 \section{STIX raw telemetry data}
 \label{sec:raw-data}
-%STIX measures energy deposited by x-rays
-%see http://espada.uah.es/epd/EPD_data_overview.php
-% this section need to be reformated
 
-STIX continuously observes high-energy events on the Sun at 4-150keV. Photons emitted by solar flares are detected with 32 subcollimators (a 12-pixel-detector behind a front and rear grid). While passing through the front and rear grids, the flares generate a modulation pattern over the 12 pixels of each detector. That pattern can then be used to reconstruct images and to do spectroscopy. Other data products include lightcurves, flare information, spectra, and background information.
-
+STIX continuously observes high-energy events on the Sun at 4 -- 150keV. 
+Photons emitted by solar flares are detected with 32 subcollimators 
+(a 12-pixel-detector behind a front and rear grid). While passing through the front and rear grids, 
+the flares generate a modulation pattern over the 12 pixels of each detector. 
+The pattern can then be used to reconstruct images and to do spectroscopy. 
+Other data products include lightcurves, flare information, spectra, and background information.
 The nominal telemetry budget of STIX is 50 bps.
 STIX is far from earth, not all data can be downloaded from the spacecraft. We have low latency data.
 For bulk science data have to be requested.
@@ -255,42 +260,25 @@ The SPICE kernels contain information of spacecraft ephemeris and clocking calib
 \end{figure*}
 
 %https://v000658.fhnw.ch/index.php/apps/files/?dir=/Stix/GSW/documents&fileid=1206862
-New data archived at STIX data center are processed by the raw telemetry parser immediately. 
- The processing involves
-several steps: 1) the parser extracts packet ID from packet headers to determine packet types.
-2)packet structure  
-parameter list of the data type is from the database according to the data type, as well as the length of each parameter, 
-the type of parameter value, and the parameter value in the original data
- A product-dependent construction 
-routine then transforms the telemetry content to an intermediate IDL structure for 
-the given product (Data Extraction). Then, the intermediate IDL structure is transformed
- into our internal target Low Latency IDL structure (Data Product Builder). Depending on 
- the provided product (light curves or flare information), minor corrections and/or normalizations
-  are applied to the internal Low Latency IDL structure. Finally, the internal IDL product structure is written 
-  to the output NFS file share (FITS Output) using a product-dependent 
-  FITS writer (Data Product FITS Writer). This results in one 
- file per solar orbiter packet. If there are more telemetry files
-  or packets present, the control script will continue processing, otherwise it will terminate.
+New telemetry data arrived at STIX data center are processed by STIX data parser immediately. 
+The parser is able to decode all types of STIX binary telecommands and telemetry packets.   
+Decoding of raw binary data is based on the mission interface database (MIB), which 
+contains  information on packet parameters such as  names, descriptions, lengths,
+data types. Decoded packets contain raw values of parameters. For spacecraft clock times,
+they are further converted to UTC times using 
+SPICE kernel tools (\cite{spice}), compressed integers are  
+decompressed by using a LUT table and  housekeeping raw values are converted to 
+human-readable values using calibration factors or look-up tables stored in the MIB. 
+Packets after above processing steps  are called level-1 packets, they
+ are stored in tree structures.  
+ They are written to a high-performance NoSQL database, no matter what types they are. 
+The NoSQL database is schemaless, making it ideal to store data with complex structures but small sizes. 
 
+During the data parsing,  the parser also extract metadata  such as,  data arrival 
+times, data acquisition  time ranges,  calibration run numbers,  raw data 
+filenames and SPICE kernel versions.  They are also written to the NoSQL but different collections. 
+They are needed by the subsequent processing pipelines. 
 
-
-Although the daily data volume of STIX is small, the data structure is complex and they are highly compressed.
-There are more than 200 types of data packets (many of which are different types
-of diagnostic information).
-They are highly compressed and all need to be parsed.
-The processing includes the following processes
-include a decompression error map here
-\begin{itemize}
- \item Raw packet decoding Mission interface face
-\item SPICE kernel data is used to convert the onboard timestamp and
-\item Integer decompression
-\item Energy conversion
-\item Packet IO, mongodb,  mongodb is used to find duplicated packets, using md5 checksum
-\item meta data creation
-\end{itemize}
-
-The above processing steps are done with a single program.
-\subsection{Metadata and sysposis data creation}
 
 
 
@@ -315,7 +303,7 @@ As the energies of the peaks are known, and the corresponding relationship betwe
 
 
 ELUT and calibratino factors can be downloaded from STIX data center by using web GUIs or python APIs.
-\subsubsection{calibration analysis production, ELUT}
+\subsubsection{Calibration analysis production, ELUT}
 
 \section{Data request procedure}
 
@@ -353,8 +341,41 @@ For each of identified solar flares,   the  information such as start time, end 
 
 How to define a flux.
 
+An ID is given to each identified solar flares. 
 
-\subsubsection{flare ID naming convention}
+\subsubsection{Flare ID naming convention}
+\subsubsection{Determination of solar flare GOES classes}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/goes-stix-scatter.pdf}
+  \caption{A scatter plot of GOES flux and STIX peak counts in the 4 -- 10 keV quick-look light curve for 989 flares observed by both instruments.
+A quadratic function fitted to the log-log data is also shown in the figure. 
+STIX counts are background subtracted and 
+corrected for flux differences due to the variation of the distance between the Sun and Solar Orbiter. 
+The fitted parameters for the quadratic function  are $p_0$=-6.91, $p_1$=0.075 and $p_2$=0.071. 
+}
+\label{fig:goes-stix}
+\end{figure}
+For flares that are not observed by GOES. 
+A model based on a polynomial fit to the relationship of GOES flux between  STIX counts normalized by the 
+squared distance between the Sun and STIX (More details about the model.
+Fig. \ref{fig:goes-stix} shows the correlation between GOES flux and STIX peak counts in the 4 -- 10 keV quick-look light curve
+for 989 flares observed before Jan. 2022 by both instruments. 
+The GOES flux of a solar flare $F$ is estimated using
+\begin{equation}
+F=10^{p_0+p_1 x+p_2 x^2},
+\end{equation}
+with
+\begin{equation}
+ x=\log_{10} {c*r^2}.
+\end{equation}
+where $p_0$, $p_1$, $p_2$ are the parameters from the curve fit, 
+$c$ is STIX background subtracted  counts accumulated in 4 sec and $r$ is 
+the distance between the Sun and solar orbiter in units of AU, respectively.
+The error of an estimated flux is considered to be the same as the error 
+of its nearest data point.
+
 \subsubsection{Flare locations}
 
 \begin{figure*}
@@ -528,6 +549,14 @@ scheme
 
 
 \section{Data access and APIs}
+stixdcpy allows you to query and download data which are available at STIX data center, include
+Quick-look light curves
+Housekeeping data
+Science data
+Energy calibration data
+Auxilary data
+STIX solar flare list
+
 
 \section{Summary}
 \label{sec:summary}
