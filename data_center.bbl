@@ -1,7 +1,12 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{6}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
-\bibitem[{Acton(1996)}]{spice}
+\bibitem[{Acton {et~al.}(2018)Acton, Bachman, Semenov, \& Wright}]{spice2018}
+Acton, C., Bachman, N., Semenov, B., \& Wright, E. 2018, Planetary and Space
+  Science, 150, 9, enabling Open and Interoperable Access to Planetary Science
+  and Heliophysics Databases and Tools
+
+\bibitem[{Acton(1996)}]{spice1996}
 Acton, C.~H. 1996, Planetary and Space Science, 44, 65, planetary data system
 
 \bibitem[{{Forveille} \& {Shore}(2020)}]{SolarOrbiter2020}
@@ -31,5 +36,10 @@ Acton, C.~H. 1996, Planetary and Space Science, 44, 65, planetary data system
 
 \bibitem[{Peccia(2005)}]{EDDS}
 Peccia, N. 2005, in 2005 IEEE Aerospace Conference, 3988--3995
+
+\bibitem[{{Pence, W. D.} {et~al.}(2010){Pence, W. D.}, {Chiappetti, L.}, {Page,
+  C. G.}, {Shaw, R. A.}, \& {Stobie, E.}}]{fits}
+{Pence, W. D.}, {Chiappetti, L.}, {Page, C. G.}, {Shaw, R. A.}, \& {Stobie, E.}
+  2010, A\&A, 524, A42
 
 \end{thebibliography}

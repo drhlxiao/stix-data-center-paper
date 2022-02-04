@@ -13,63 +13,67 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Quick-look data}{2}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Diagnostic and event data}{2}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Bulk science data}{2}{}\protected@file@percent }
-\citation{spice}
-\citation{spice}
+\citation{spice1996,spice2018}
+\citation{spice1996,spice2018}
+\citation{fits}
 \citation{StixInstrument}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces STIX raw telemetry data coverage, data rate and typical reception delay at SDC. }}{3}{}\protected@file@percent }
 \newlabel{tb:raw_types}{{1}{3}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Data reception}{3}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Data processing pipelines}{3}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.0.1}Raw data parsing}{3}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.0.2}FITS file creation}{3}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Filename naming conventions}{3}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}STIX raw data processing pipeline}{3}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Background data processing pipeline}{3}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Calibration data processing pipeline}{3}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Calibration analysis production, ELUT}{3}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Data request procedure}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Data processing pipelines}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Raw data parsing}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}FITS file creation}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Calibration data processing}{3}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Data processing pipelines at STIX data center.}}{4}{}\protected@file@percent }
 \newlabel{fig:main_pipelines}{{1}{4}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Flare processing pipeline}{4}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.0.1}Flare identification}{4}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.0.2}Flare ID naming convention}{4}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.0.3}Determination of solar flare GOES classes}{4}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces A scatter plot of GOES flux and STIX peak counts in the 4 -- 10 keV quick-look light curve for 989 flares observed by both instruments. A quadratic function fitted to the log-log data is also shown in the figure. STIX counts are background subtracted and corrected for flux differences due to the variation of the distance between the Sun and Solar Orbiter. The fitted parameters for the quadratic function are $p_0$=-6.91, $p_1$=0.075 and $p_2$=0.071. }}{4}{}\protected@file@percent }
-\newlabel{fig:goes-stix}{{2}{4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.0.4}Flare locations}{4}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Solar flare list}{4}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Flare location database}{4}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Left: area of exposed regions of 12 pixels calculated by combining the twelve pixels counts with averages from other detectors, and the best fit. Middle: solution of flare location as seen by Solar Orbiter for Flare 202105070034. The best fit location is indicated with the symbol X. The 1 $\sigma $, 2 $\sigma $ and 3 $\sigma $ confidence regions are also shown. Right: shadow of CFL sub-collimator projected on the twelve CFL pixels.}}{5}{}\protected@file@percent }
-\newlabel{fig:cflpattern}{{3}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Top: reconstructed coarse flare location solutions against actual locations along the x-axis (left) and y-axis (right). Bottom: Differences between the reconstructed and randomly generated locations along the x-axis (left) and y-axis (right). The generated sources are assumed to be point-like. Note that statistical uncertainties are not considered here. }}{5}{}\protected@file@percent }
-\newlabel{fig:cflerror}{{4}{5}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.1}Flare location using coarse flare data}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2}Flare classification using GOES x-ray flux}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}STIX data products}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}L1 data products}{5}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Calibrated energy spectrum measured with Ba-133 radioactive sources.}}{4}{}\protected@file@percent }
+\newlabel{fig:calmodel}{{2}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Flare processing pipeline}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.0.1}Background data processing}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.0.2}Flare identification}{4}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces A scatter plot of GOES flux and STIX peak counts in the 4 -- 10 keV quick-look light curve for 989 flares observed by both instruments. A quadratic function fitted to the log-log data is also shown in the figure. STIX counts are background subtracted and corrected for flux differences due to the variation of the distance between the Sun and Solar Orbiter. The fitted parameters for the quadratic function are $p_0$=-6.91, $p_1$=0.075 and $p_2$=0.071. }}{5}{}\protected@file@percent }
+\newlabel{fig:goes-stix}{{3}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.0.3}Flare ID naming convention}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.0.4}Determination of solar flare GOES classes}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.0.5}Flare locations}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Solar flare list}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Flare location database}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Flare location using coarse flare data}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}Flare classification using GOES x-ray flux}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}STIX data products}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}L1 data products}{5}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Left: area of exposed regions of 12 pixels calculated by combining the twelve pixels counts with averages from other detectors, and the best fit. Middle: solution of flare location as seen by Solar Orbiter for Flare 202105070034. The best fit location is indicated with the symbol X. The 1 $\sigma $, 2 $\sigma $ and 3 $\sigma $ confidence regions are also shown. Right: shadow of CFL sub-collimator projected on the twelve CFL pixels.}}{6}{}\protected@file@percent }
+\newlabel{fig:cflpattern}{{4}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Top: reconstructed coarse flare location solutions against actual locations along the x-axis (left) and y-axis (right). Bottom: Differences between the reconstructed and randomly generated locations along the x-axis (left) and y-axis (right). The generated sources are assumed to be point-like. Note that statistical uncertainties are not considered here. }}{6}{}\protected@file@percent }
+\newlabel{fig:cflerror}{{5}{6}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Level 1 data products}}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Auxilary data}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Data request procedure}{6}{}\protected@file@percent }
 \bibstyle{aa}
 \bibdata{citations}
-\bibcite{spice}{{1}{1996}{{Acton}}{{}}}
-\bibcite{SolarOrbiter2020}{{2}{2020}{{{Forveille} \& {Shore}}}{{}}}
-\bibcite{StixInstrument}{{3}{2020}{{{Krucker, S\"am} {et~al.}}}{{{Krucker, S\"am}, {Hurford, G. J.}, {Grimm, O.}, {K\"ogl, S.}, {Gr\"obelbauer, H.-P}, {Etesi, L.}, {Casadei, D.}, {Csillaghy, A.}, {Benz, A. O.}, {Arnold, N. G.}, {Molendini, F.}, {Orleanski, P.}, {Schori, D.}, {Xiao, H.}, {Kuhar, M.}, {Hochmuth, N.}, {Felix, S.}, {Schramka, F.}, {Marcin, S.}, {Kobler, S.}, {Iseli, L.}, {Dreier, M.}, {Wiehl, H. J.}, {Kleint, L.}, {Battaglia, M.}, {Lastufka, E.}, {Sathiapal, H.}, {Lapadula, K.}, {Bednarzik, M.}, {Birrer, G.}, {Stutz, St.}, {Wild, Ch.}, {Marone, F.}, {Skup, K. R.}, {Cichocki, A.}, {Ber, K.}, {Rutkowski, K.}, {Bujwan, W.}, {Juchnikowski, G.}, {Winkler, M.}, {Darmetko, M.}, {Michalska, M.}, {Seweryn, K.}, {Bialek, A.}, {Osica, P.}, {Sylwester, J.}, {Kowalinski, M.}, {\'{}Scislowski, D.}, {Siarkowski, M.}, {Ste\'{}slicki, M.}, {Mrozek, T.}, {Podg\'orski, P.}, {Meuris, A.}, {Limousin, O.}, {Gevin, O.}, {Le Mer, I.}, {Brun, S.}, {Strugarek, A.}, {Vilmer, N.}, {Musset, S.}, {Maksimovi\'{}c, M.}, {F\'arn\'{\i }k, F.}, {Koz\'acek, Z.}, {Kasparov\'a, J.}, {Mann, G.}, {\"Onel, H.}, {Warmuth, A.}, {Rendtel, J.}, {Anderson, J.}, {Bauer, S.}, {Dionies, F.}, {Paschke, J.}, {Pl\"uschke, D.}, {Woche, M.}, {Schuller, F.}, {Veronig, A. M.}, {Dickson, E. C. M.}, {Gallagher, P. T.}, {Maloney, S. A.}, {Bloomfield, D. S.}, {Piana, M.}, {Massone, A. M.}, {Benvenuto, F.}, {Massa, P.}, {Schwartz, R. A.}, {Dennis, B. R.}, {van Beek, H. F.}, {Rodr\'{\i }guez-Pacheco, J.}, \& {Lin, R. P.}}}}
-\bibcite{EDDS}{{4}{2005}{{Peccia}}{{}}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Level 1 data products}}{6}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Caption}}{6}{}\protected@file@percent }
-\newlabel{fig:calibrationSpectrum}{{5}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Auxilary data}{6}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9}data request principle}{6}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {10}Database}{6}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.1}Raw data packet database }{6}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.2}Configuration database}{6}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {11}Online data visualization tools}{6}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.1}Quick-look light curve}{6}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.2}Science data quick analysis}{6}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {11.2.1}Calibration data}{6}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Spectrogram of STIX calibration spectra}}{6}{}\protected@file@percent }
-\newlabel{fig:calibrationSpectrogram}{{6}{6}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {11.2.2}Solar Orbiter orbit viewer}{6}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.3}Automated data request scheme}{6}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {12}Data access and APIs}{6}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {13}Summary}{6}{}\protected@file@percent }
-\newlabel{sec:summary}{{13}{6}}
-\newlabel{LastPage}{{6}{6}{}{}{}}
+\bibcite{spice2018}{{1}{2018}{{Acton {et~al.}}}{{Acton, Bachman, Semenov, \& Wright}}}
+\bibcite{spice1996}{{2}{1996}{{Acton}}{{}}}
+\bibcite{SolarOrbiter2020}{{3}{2020}{{{Forveille} \& {Shore}}}{{}}}
+\bibcite{StixInstrument}{{4}{2020}{{{Krucker, S\"am} {et~al.}}}{{{Krucker, S\"am}, {Hurford, G. J.}, {Grimm, O.}, {K\"ogl, S.}, {Gr\"obelbauer, H.-P}, {Etesi, L.}, {Casadei, D.}, {Csillaghy, A.}, {Benz, A. O.}, {Arnold, N. G.}, {Molendini, F.}, {Orleanski, P.}, {Schori, D.}, {Xiao, H.}, {Kuhar, M.}, {Hochmuth, N.}, {Felix, S.}, {Schramka, F.}, {Marcin, S.}, {Kobler, S.}, {Iseli, L.}, {Dreier, M.}, {Wiehl, H. J.}, {Kleint, L.}, {Battaglia, M.}, {Lastufka, E.}, {Sathiapal, H.}, {Lapadula, K.}, {Bednarzik, M.}, {Birrer, G.}, {Stutz, St.}, {Wild, Ch.}, {Marone, F.}, {Skup, K. R.}, {Cichocki, A.}, {Ber, K.}, {Rutkowski, K.}, {Bujwan, W.}, {Juchnikowski, G.}, {Winkler, M.}, {Darmetko, M.}, {Michalska, M.}, {Seweryn, K.}, {Bialek, A.}, {Osica, P.}, {Sylwester, J.}, {Kowalinski, M.}, {\'{}Scislowski, D.}, {Siarkowski, M.}, {Ste\'{}slicki, M.}, {Mrozek, T.}, {Podg\'orski, P.}, {Meuris, A.}, {Limousin, O.}, {Gevin, O.}, {Le Mer, I.}, {Brun, S.}, {Strugarek, A.}, {Vilmer, N.}, {Musset, S.}, {Maksimovi\'{}c, M.}, {F\'arn\'{\i }k, F.}, {Koz\'acek, Z.}, {Kasparov\'a, J.}, {Mann, G.}, {\"Onel, H.}, {Warmuth, A.}, {Rendtel, J.}, {Anderson, J.}, {Bauer, S.}, {Dionies, F.}, {Paschke, J.}, {Pl\"uschke, D.}, {Woche, M.}, {Schuller, F.}, {Veronig, A. M.}, {Dickson, E. C. M.}, {Gallagher, P. T.}, {Maloney, S. A.}, {Bloomfield, D. S.}, {Piana, M.}, {Massone, A. M.}, {Benvenuto, F.}, {Massa, P.}, {Schwartz, R. A.}, {Dennis, B. R.}, {van Beek, H. F.}, {Rodr\'{\i }guez-Pacheco, J.}, \& {Lin, R. P.}}}}
+\bibcite{EDDS}{{5}{2005}{{Peccia}}{{}}}
+\bibcite{fits}{{6}{2010}{{{Pence, W. D.} {et~al.}}}{{{Pence, W. D.}, {Chiappetti, L.}, {Page, C. G.}, {Shaw, R. A.}, \& {Stobie, E.}}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Caption}}{7}{}\protected@file@percent }
+\newlabel{fig:calibrationSpectrum}{{6}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Spectrogram of STIX calibration spectra}}{7}{}\protected@file@percent }
+\newlabel{fig:calibrationSpectrogram}{{7}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Database}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Raw data packet database }{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Configuration database}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Online data visualization tools}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}Quick-look light curve}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}Science data quick analysis}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.1}Calibration data}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.2}Solar Orbiter orbit viewer}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}Automated data request scheme}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4}Spectral analysis software}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.5}STIX Imagging software}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Data access and APIs}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11}Summary}{7}{}\protected@file@percent }
+\newlabel{sec:summary}{{11}{7}}
+\newlabel{LastPage}{{7}{7}{}{}{}}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.11.9)  21 JAN 2022 22:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.11.9)  4 FEB 2022 23:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -404,7 +404,7 @@ Package: multirow 2021/01/29 v2.7 Span multiple rows of a table
 \multirow@dima=\skip129
 \bigstrutjot=\dimen163
 )
-LaTeX Font Info:    Trying to load font information for T1+txr on input line 28.
+LaTeX Font Info:    Trying to load font information for T1+txr on input line 11.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txr.fd
 File: t1txr.fd 2000/12/15 v3.1
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
@@ -414,36 +414,36 @@ File: l3backend-pdftex.def 2020-01-29 L3 backend support: PDF output (pdfTeX)
 ) (/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.aux)
 \openout1 = `data_center.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 28.
-LaTeX Font Info:    Trying to load font information for OML+txmi on input line 28.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 11.
+LaTeX Font Info:    Trying to load font information for OML+txmi on input line 11.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 28.
-LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 28.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 11.
+LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 11.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 28.
-LaTeX Font Info:    Trying to load font information for OMX+txex on input line 28.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 11.
+LaTeX Font Info:    Trying to load font information for OMX+txex on input line 11.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 28.
-LaTeX Font Info:    Trying to load font information for U+txexa on input line 28.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 11.
+LaTeX Font Info:    Trying to load font information for U+txexa on input line 11.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    ... okay on input line 11.
 
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -497,85 +497,85 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for TS1+txr on input line 82.
+LaTeX Font Info:    Trying to load font information for TS1+txr on input line 69.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ts1txr.fd
 File: ts1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for OT1+txr on input line 82.
+LaTeX Font Info:    Trying to load font information for OT1+txr on input line 69.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsya on input line 82.
+LaTeX Font Info:    Trying to load font information for U+txsya on input line 69.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyb on input line 82.
+LaTeX Font Info:    Trying to load font information for U+txsyb on input line 69.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txmia on input line 82.
+LaTeX Font Info:    Trying to load font information for U+txmia on input line 69.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyc on input line 82.
+LaTeX Font Info:    Trying to load font information for U+txsyc on input line 69.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for T1+txss on input line 82.
+LaTeX Font Info:    Trying to load font information for T1+txss on input line 69.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txss.fd
 File: t1txss.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 16.41594pt on input line 82.
+(Font)              scaled to size 16.41594pt on input line 69.
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <17.28> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 82.
+(Font)              Font shape `T1/txss/bx/n' tried instead on input line 69.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 16.41594pt on input line 82.
-LaTeX Font Info:    Trying to load font information for T1+txtt on input line 82.
+(Font)              scaled to size 16.41594pt on input line 69.
+LaTeX Font Info:    Trying to load font information for T1+txtt on input line 69.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 8.54997pt on input line 82.
+(Font)              scaled to size 8.54997pt on input line 69.
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <9> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 82.
+(Font)              Font shape `T1/txss/bx/n' tried instead on input line 69.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 8.54997pt on input line 82.
+(Font)              scaled to size 8.54997pt on input line 69.
 LaTeX Font Info:    Font shape `T1/txss/m/it' in size <9> not available
-(Font)              Font shape `T1/txss/m/sl' tried instead on input line 82.
+(Font)              Font shape `T1/txss/m/sl' tried instead on input line 69.
 LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
-(Font)              scaled to size 8.54997pt on input line 82.
+(Font)              scaled to size 8.54997pt on input line 69.
 
 
 
 IMPORTANT
 
-Class aa Warning: The running head built automatically from \author and \titleexceeds the pagewidth, please supply a shorter form with \authorrunning and/or \titlerunning prior to \maketitle on input line 82.
+Class aa Warning: The running head built automatically from \author and \titleexceeds the pagewidth, please supply a shorter form with \authorrunning and/or \titlerunning prior to \maketitle on input line 69.
 
 IMPORTANT 
 
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 10.40245pt on input line 86.
+(Font)              scaled to size 10.40245pt on input line 73.
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <10.95> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 86.
+(Font)              Font shape `T1/txss/bx/n' tried instead on input line 73.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 10.40245pt on input line 86.
+(Font)              scaled to size 10.40245pt on input line 73.
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 148.
+(Font)              scaled to size 9.49997pt on input line 135.
 LaTeX Font Info:    Font shape `T1/txss/m/it' in size <10> not available
-(Font)              Font shape `T1/txss/m/sl' tried instead on input line 148.
+(Font)              Font shape `T1/txss/m/sl' tried instead on input line 135.
 LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
-(Font)              scaled to size 9.49997pt on input line 148.
+(Font)              scaled to size 9.49997pt on input line 135.
 LaTeX Font Info:    Font shape `T1/txr/b/n' in size <10> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 165.
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 152.
 LaTeX Font Info:    Font shape `T1/txr/b/n' in size <9> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 208.
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 203.
 
-Overfull \hbox (5.71002pt too wide) in paragraph at lines 209--221
+Overfull \hbox (5.71002pt too wide) in paragraph at lines 204--216
  [][] 
  []
 
@@ -583,62 +583,76 @@ Overfull \hbox (5.71002pt too wide) in paragraph at lines 209--221
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [2]
-<figures/pipelines.pdf, id=20, 963.6pt x 532.99126pt>
+<figures/pipelines.pdf, id=19, 963.6pt x 532.99126pt>
 File: figures/pipelines.pdf Graphic file (type pdf)
 <use figures/pipelines.pdf>
-Package pdftex.def Info: figures/pipelines.pdf  used on input line 257.
+Package pdftex.def Info: figures/pipelines.pdf  used on input line 250.
 (pdftex.def)             Requested size: 471.17442pt x 260.61497pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 7576) has occurred while \output is active []
-
- [3]
-<figures/goes-stix-scatter.pdf, id=26, 569.12625pt x 358.33875pt>
+<figures/cal-model.pdf, id=20, 289.08pt x 216.81pt>
+File: figures/cal-model.pdf Graphic file (type pdf)
+<use figures/cal-model.pdf>
+Package pdftex.def Info: figures/cal-model.pdf  used on input line 331.
+(pdftex.def)             Requested size: 251.2925pt x 188.46768pt.
+<figures/cal-fit.pdf, id=21, 289.08pt x 216.81pt>
+File: figures/cal-fit.pdf Graphic file (type pdf)
+<use figures/cal-fit.pdf>
+Package pdftex.def Info: figures/cal-fit.pdf  used on input line 332.
+(pdftex.def)             Requested size: 251.2925pt x 188.46768pt.
+ [3] [4 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/pipelines.pdf> </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cal-model.pdf> </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cal-fit.pdf>]
+<figures/goes-stix-scatter.pdf, id=106, 569.12625pt x 358.33875pt>
 File: figures/goes-stix-scatter.pdf Graphic file (type pdf)
 <use figures/goes-stix-scatter.pdf>
-Package pdftex.def Info: figures/goes-stix-scatter.pdf  used on input line 351.
+Package pdftex.def Info: figures/goes-stix-scatter.pdf  used on input line 375.
 (pdftex.def)             Requested size: 204.86061pt x 128.98544pt.
-<figures/cflMay07.pdf, id=27, 867.24pt x 252.945pt>
+<figures/cflMay07.pdf, id=107, 867.24pt x 252.945pt>
 File: figures/cflMay07.pdf Graphic file (type pdf)
 <use figures/cflMay07.pdf>
-Package pdftex.def Info: figures/cflMay07.pdf  used on input line 383.
+Package pdftex.def Info: figures/cflMay07.pdf  used on input line 407.
 (pdftex.def)             Requested size: 497.35255pt x 145.064pt.
-<figures/cflError.pdf, id=28, 419.166pt x 274.626pt>
+<figures/cflError.pdf, id=108, 419.166pt x 274.626pt>
 File: figures/cflError.pdf Graphic file (type pdf)
 <use figures/cflError.pdf>
-Package pdftex.def Info: figures/cflError.pdf  used on input line 398.
+Package pdftex.def Info: figures/cflError.pdf  used on input line 422.
 (pdftex.def)             Requested size: 366.46988pt x 240.10439pt.
- [4 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/pipelines.pdf> </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/goes-stix-scatter.pdf, page is rotated 90 degrees>] [5 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cflMay07.pdf> </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cflError.pdf
 
-pdfTeX warning: pdflatex (file /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cflError.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->]
-Overfull \hbox (145.32526pt too wide) in paragraph at lines 496--507
+Overfull \hbox (145.32526pt too wide) in paragraph at lines 520--531
  [][] 
  []
 
-<figures/calibrationSpectrogram.pdf, id=157, 433.62pt x 216.81pt>
+[5 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/goes-stix-scatter.pdf, page is rotated 90 degrees>]
+Underfull \vbox (badness 1442) has occurred while \output is active []
+
+<figures/calibrationSpectrogram.pdf, id=156, 433.62pt x 216.81pt>
 File: figures/calibrationSpectrogram.pdf Graphic file (type pdf)
 <use figures/calibrationSpectrogram.pdf>
-Package pdftex.def Info: figures/calibrationSpectrogram.pdf  used on input line 520.
+Package pdftex.def Info: figures/calibrationSpectrogram.pdf  used on input line 563.
 (pdftex.def)             Requested size: 204.86061pt x 102.43002pt.
-<figures/calibrationSpectrum.pdf, id=158, 505.89pt x 289.08pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cflMay07.pdf> </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cflError.pdf
+
+pdfTeX warning: pdflatex (file /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cflError.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+<figures/calibrationSpectrum.pdf, id=231, 505.89pt x 289.08pt>
 File: figures/calibrationSpectrum.pdf Graphic file (type pdf)
 <use figures/calibrationSpectrum.pdf>
-Package pdftex.def Info: figures/calibrationSpectrum.pdf  used on input line 526.
+Package pdftex.def Info: figures/calibrationSpectrum.pdf  used on input line 569.
 (pdftex.def)             Requested size: 204.86061pt x 117.06352pt.
 
-Overfull \hbox (35.47522pt too wide) in paragraph at lines 531--533
+Overfull \hbox (35.47522pt too wide) in paragraph at lines 574--576
 \T1/txr/m/n/10 calibration data prod-ucts https://fermi.gsfc.nasa.gov/ssc/data/access/gbm/ 
  []
 
-(/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.bbl) [6 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/calibrationSpectrogram.pdf> </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/calibrationSpectrum.pdf
+(/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.bbl) [7 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/calibrationSpectrogram.pdf> </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/calibrationSpectrum.pdf
 
 pdfTeX warning: pdflatex (file /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/calibrationSpectrum.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >] (/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.aux
 
-Package natbib Warning: Citation `spice' multiply defined.
+Package natbib Warning: Citation `spice2018' multiply defined.
+
+
+Package natbib Warning: Citation `spice1996' multiply defined.
 
 
 Package natbib Warning: Citation `SolarOrbiter2020' multiply defined.
@@ -649,20 +663,23 @@ Package natbib Warning: Citation `StixInstrument' multiply defined.
 
 Package natbib Warning: Citation `EDDS' multiply defined.
 
+
+Package natbib Warning: Citation `fits' multiply defined.
+
 ) ) 
 Here is how much of TeX's memory you used:
- 6643 strings out of 481252
- 89101 string characters out of 5915888
- 408732 words of memory out of 5000000
- 23410 multiletter control sequences out of 15000+600000
- 490737 words of font info for 163 fonts, out of 8000000 for 9000
+ 6660 strings out of 481252
+ 89511 string characters out of 5915888
+ 412457 words of memory out of 5000000
+ 23427 multiletter control sequences out of 15000+600000
+ 489361 words of font info for 161 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,11n,102p,1605b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.pdf (6 pages, 606471 bytes).
+Output written on /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.pdf (7 pages, 632516 bytes).
 PDF statistics:
- 272 PDF objects out of 1000 (max. 8388607)
- 116 compressed objects within 2 object streams
+ 347 PDF objects out of 1000 (max. 8388607)
+ 130 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
