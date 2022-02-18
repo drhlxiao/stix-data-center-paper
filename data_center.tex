@@ -1,17 +1,26 @@
+%
+\documentclass[referee]{aa} % for a referee version
+%\documentclass[onecolumn]{aa} % for a paper on 1 column  
+%\documentclass[longauth]{aa} % for the long lists of affiliations 
+%\documentclass[letter]{aa} % for the letters 
+%\documentclass[bibyear]{aa} % if the references are not structured 
+%                              according to the author-year natbib style
 
-\documentclass{aa}  
+
+%\documentclass{aa}  
 
 \usepackage{graphicx}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{txfonts}
 \usepackage{multirow}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{subcaption}
 
   % results heading (mandatory)
 \begin{document} 
 
 
-   \title{Data processing pipelines and the data center for the X-ray spectrometer / imager STIX onboard Solar Orbiter}
+   \title{Data processing pipelines and the data center for the X-ray spectrometer/imager STIX}
 
    \subtitle{}
 
@@ -149,21 +158,21 @@ for monitoring instrument status and health.
 STIX has only one operational mode in which Low Latency data is produced, and that is  NOMINAL mode, which is the regular science mode.
 STIX generates four different types of quick-look (QL) data:
 \begin{itemize}
-                                                                                                                                                               \item Quick-look light curves, which are time series of counts
-of all pixels in 30 detectors (excluding background detector and the coarse flare locator)
-accumulated every 4 sec time resolution in five broad energy ranges (two thermal, two nonthermal
-and one intermediate). Quick-look light curves are generated when STIX is in nominal observation mode.
-STIX light curves are a time series of detector counts in different energy bands (units will be counts/second/cm$^2$). There are five configurable energy bands (for example: 4-7keV, 7-11keV, 11-16keV, 16-40keV, and 40-150keV), with a default integration time of 4 seconds. A lightcurve data point corresponds to the total counts integrated over all selected detectors and pixels for the given energy band. The data are temperature corrected on-board, and undergo minor corrections for detector and pixels,
-and nominal grid transmission (25 percent) on the ground. As lower energies are highly impacted by the presence of the attenuator, they will also need to be corrected. The data will not be corrected for background, live time or detector efficiency. The FITS file is in accordance with [LLFITSICD] but will also comply with  in order to be usable with existing high-energy solar data file routines.
-
-The light curve data are structured as an array of five count values COUNTS (for the five energy bands) 
-per time, where time is a relative time $RELATIVE_TIME$ since $OBT_START$ that is time bin centered (i.e. with an integration 
-time of 4s, $RELATIVE_TIME$ will 2-6-10…, as opposed to 0-4-8…). It is possible that 
- $RELATIVE_TIME$ “jumps”, e.g. when the attenuator is moving in and the affected time bin 
- becomes undetermined and is left out. Additionally, there is an energy channel reference 
- CHANNEL, with indices into the energy axis in the second extension. Given below is an I
- DL-based structure notation.
-
+%of all pixels in 30 detectors (excluding background detector and the coarse flare locator)
+%accumulated every 4 sec time resolution in five broad energy ranges (two thermal, two nonthermal
+%and one intermediate). Quick-look light curves are generated when STIX is in nominal observation mode.
+\item STIX light curves are a time series of detector counts in different energy bands (units will be counts/second/cm$^2$). There are five configurable energy bands (for example: 4-7keV, 7-11keV, 11-16keV, 16-40keV, and 40-150keV), with a default integration time of 4 seconds. 
+A lightcurve data point corresponds to the total counts integrated over all selected detectors and pixels for the given energy band. 
+The data are temperature corrected on-board, and undergo minor corrections for detector and pixels,
+and nominal grid transmission (25 percent) on the ground. As lower energies are highly impacted by the presence of the attenuator, they will also need to be corrected. The data will not be corrected for background, live time or detector
+% efficiency. The FITS file is in accordance with [LLFITSICD] but will also comply with  in order to be usable with existing high-energy solar data file routines.
+%The light curve data are structured as an array of five count values COUNTS (for the five energy bands) 
+%per time, where time is a relative time $RELATIVE_TIME$ since $OBT_START$ that is time bin centered (i.e. with an integration 
+%time of 4s, $RELATIVE_TIME$ will 2-6-10…, as opposed to 0-4-8…). It is possible that 
+% $RELATIVE_TIME$ “jumps”, e.g. when the attenuator is moving in and the affected time bin 
+% becomes undetermined and is left out. Additionally, there is an energy channel reference 
+% CHANNEL, with indices into the energy axis in the second extension. Given below is an I
+% DL-based structure notation.
 \item Background monitor light curves. Background monitor light curves are similar to the Quick-look light curves but only
 counts recorded by the background detector pixels are included, and the integration time is 8 seconds.
 \item Variance data are onboard computed variance of 40 successive detector-summed count rates
@@ -173,11 +182,13 @@ each of the 32 detectors with 32 sec exposure time.
 STIX takes a snapshot of energy spectra every 1024
 seconds in the nominal observation mode.
 \item Calibration spectra. Calibration spectra are accumulated for events from 128 weak onboard $^{133}$Ba radioactive sources 
-(a total activity of 4500 Bq) over 
-long periods (typically 24 hours) when the solar count rate is small compared to the background.
+(a total activity of 4500 Bq) 
+ when the solar count rate is small compared to the background.
 Identification of such quiet periods is done autonomously, based on the presence of a
-TC-specified time gap between two successive photons.  The relevant portions of these
-spectra are included in the quick-look low-latency data.
+TC-specified time gap between two successive photons.  
+ADC readouts of each channel are accumulated in individual spectrum.
+After an accumulation a long period (typically 24 hours),  the spectra are 
+formmated and redirected to in the quick-look low-latency data.
 \end{itemize}
 \subsection{Diagnostic and event data}
 When a failure is detected directly by STIX, the instrument’s response includes sending a
@@ -194,10 +205,13 @@ Six different science data can be generated:
  \item Level-0 X-ray data is the least processed data and contains uncompressed counts for the selected energies, pixels and detectors;
 \item Level-1 is essentially the same as Level-0 but the counts are compressed onboard before being sent to the ground;
 \item Level-2 data are further compressed counts from the L1 pixel data, in which are summed down to 4 before compression.
-\item Level-3 data are visibilities, which further reduces the data by combining the  four summed pixel counts into  complex visibility which is also compressed.
+\item Level-3 data are visibilities, which further reduces the data by combining the four summed pixel counts into complex visibility which is also compressed.
 \item Level-4 data are detector summed spectrograms;
 \item High-time resolution aspect data.
 \end{itemize}
+It should be noticed that the data levels described 
+above are on-board data levels. They are sent to the ground in the format of raw binary packets and 
+considered as level-0 at STIX data center.  
 \begin{table}[h]
 \centering
 \caption{STIX raw telemetry data coverage, data rate and typical reception delay at SDC.  }
@@ -217,7 +231,7 @@ Calibration  & quiet sun periods  & 100 kiB  & $\sim$ 1 day \\ \hline
 
 Housekeeping data, quick-look data and calibration data are directed to the
 common low latency data stored in SSMM in the spacecraft.
-The coverage, data rate and latency of
+The coverage, data rate and latency of 
 different types of STIX raw telemetry data are
 summarized in Table \ref{tb:raw_types}.
 
@@ -294,7 +308,7 @@ After each new raw telemetry file is being parsed,
 housekeeping, quick-look, and science packets  
 are selected from the NoSQL database successively 
 and checked for data integrity and consistency. 
-Then packets of the same type are merged for creations of pre-release version of 
+Then packets of the same type are merged for creations of pre-release of 
 level-1 data products (Level-1A)
  in the FITS format (\cite{fits}), 
 which is a portable file standard widely used in the astronomy 
@@ -303,69 +317,109 @@ Metadata such as observation time range, creation time, filenames,  checksum are
 the primary header data units (HDU) of fits files. 
 They are also written to a collection in the database.
 
-Level-1A FITS files are generated automatically and available at STIX data center within minutes after the reception of a raw file.
+Level-1A FITS files are generated automatically and available at STIX data center within minutes 
+after the reception of a raw file.
 It should be noticed that predicted SPICE kernels may be used when the reconstructed spice kernels  
 are not available, and the L1A data are subjected to some known issues 
 due to bugs in the early version of the flight software.
- Therefore, Level-1A FITS files are not recommended for publication purposes.
-After all resources are validated, 
-Level-1  FITS files are created again. 
-They have almost the same structures as those in Level-1A. 
-They will be available for users to query and download at both STIX data center and the solar orbiter archive.
-
-\subsection{Calibration data processing}
-As described above, STIX uses 128 Ba$^{133}$ radioactive sources for energy calibration.
-The radioactive sources emit  gamma-rays   as they decay. 
-They can be detected by STIX detectors and produce 
-prominent photoelectric peaks in the energy spectra.
-After accumulation for about 24 hours, the spectra are formatted and redirected to the low latency data stream.
-
-In order to monitor the energy response of STIX detectors, calibration energy spectra. 
-Figure 1 is a typical energy spectrum.
-As described above, STIX uses 128 Ba$^{133}$ radioactive sources for in-flight energy calibration. 
-They create prominent photo-peaks in the energy spectra in the energy range from 4 keV to 150 keV.
-In order to monitor STIX detector responses
- After a cumulative time of 24 hours, calibration 
-energy spectra in the ADC units are formatted as packets and redirected to the Quick-look data stream. 
-\begin{figure*}
-  \includegraphics[width=0.48\linewidth]{figures/cal-model.pdf}
-  \includegraphics[width=0.48\linewidth]{figures/cal-fit.pdf}
-  \caption{Calibrated energy spectrum measured with Ba-133 radioactive sources.}
-  \label{fig:calmodel}
-\end{figure*}
-On ground calibration data processing is
- started automatically after all the raw packets of a calibration run 
-are being parsed and written to the NoSQL database.
-As described in Ref. \cite{StixInstrument},  Ba134 radioactive sources with a total activity of about 4000 Bq are placed at the front of each detector. The total activity of the radioactive source is approximately 4000 Ba.
-When the radioactive source decays, gamma rays are generated. These gamma rays can form peaks in the energy spectrum of the detector.
-As the energies of the peaks are known, and the corresponding relationship between ADC and real energy can be calibrated through the position of the peak in the energy spectrum, that is, the calibration coefficient. The figure below is a typical Ba133 gamma-ray energy spectrum measured by STIX CdTe detector. There are three obvious peaks in the energy spectrum, and they correspond to three energies of 30 keV, 35 keV and 81 keV. There are many ways to determine the position of each peak, you can use the ECC method, or use the Gaussian function to fit the left part of the peak.
-
-
-ELUT and calibratino factors can be downloaded from STIX data center by using web GUIs or python APIs.
+After all resources are validated,  Level-1  FITS files are created again. 
+Level-1  FITS products have almost the same data structures as Level-1A.
 
 
 
+\subsection{Energy calibration}
+As mentioned earlier, STIX uses 128 Ba$^{133}$ radioactive sources for energy calibration.
+The radioactive sources emit  gamma-rays  as they decay, producing prominent photoelectric 
+peaks in the calibration spectra (\cite{oliver}). 
 
-\section{Flare processing pipeline}
-\subsubsection{Background data processing}
-Light curves measured during quiet periods of the sun are used for background estimation. 
-Median values and of counts are computed and considered 
-as the background in the selected time frame. They are stored in a database and used for flare identifications. 
+The right panel of Fig.\ref{fig:cal-fit} shows 
+an example of STIX count spectrum from an in-flight calibration run.  
+The three strongest lines are from 31 keV, 35 keV and 81 keV photons. 
+The first two peaks are fitted with the double-Gaussian function and the third peak
+by the crystall-ball function \cite{crsystallball},  which consists of a Gaussian core portion 
+and a power-law low-end tail, below a certain threshold.
+Then a linear line is fitted to the relation between
+the three fitted peak positions and the photon energies.  
+The interception and slope indicate the baseline and gain of the channel. 
+The results were compared to the those obtained using the ECC method (see \cite{ecc,ecc2})).
+ The results are consistent within errors.
+\begin{figure}
+ \centering
+  \includegraphics[width=0.8\linewidth]{figures/cal-fit.pdf}
+  \caption{ 
+   An example of STIX in-flight calibration count spectrum.
+  The three strongest lines, from left to right, are from 31 keV, 35 keV, and 81 keV
+  photons. The first two peaks are fitted by the double-Gaussian function and the high energy peak by  
+  the crystal-ball function. 
+}
+    \label{fig:cal-fit}
+\end{figure}
 
-\subsubsection{Flare identification}
 
-Quick-look light curve in the energy range from 4 to 10 keV is screened for  solar flares as they arrive.
-The flare identification procedure consists of  two steps:
+The above steps are performed for each calibration run automatically 
+once the data is available at STIX data center.
+Calibration factors obtained the analysis are written to 
+the NoSQL database. 
+It is accessible through a web page at STIX data center or python APIs.
+Once significant differences between the calibration factors and those used to 
+construct the onboard energy conversion look-up table (ELUT) are observed, 
+a new ELUT is created and commanded to STIX after being validated by STIX operations team. 
+
+\subsection{Solar flare identification}
+The in-flight software identifies solar flares by comparing  the count rate of 
+the background detector with that of other detectors 
+ and packs the results into the QL flare flag and location reports.
+However, the reports  only provide limited information on flares due to the constraints of telemetry 
+bandwidth and the limitation of onboard computing resources.
+Using QL light curves, solar flares can be identified on ground in great detail.
+
+
+Identification of solar flares on ground is  
+triggered after a new QL light curve dataset is available in the NoSQL database. 
+QL light curves the energy range from  4 to 10 keV are used for solar flare identification. 
+The identification is based on the fact 
+that the background event rate in that energy range is almost constant 
+over a timescale of days during quiet sun periods. 
+The procedure involves the following steps:
 \begin{itemize}
-\item Light curve smoothing. In order to filter spikes from electronics and to reduce the amount of variation due to statistics and the onboard integer compression, light curves are smoothed by using the average filtering. The
-\item Flare identification. Local maximums are selected from smoothed light curves.  A local maximum is considered as a flare peak if the counts are exceeds 2 standard deviations above the background and the duration above the background is longer than 1 minute.
+  \item Light curve smoothing. The selected light curve is filtered using an unweighted
+  moving average filter with a time window of 1 minute to smooth out statistical fluctuations and electric surge spikes;
+  \item Identification of flare peaks. Peaks with counts exceeding a threshold of $2\sigma$ above the background level
+   are selected. The duration of a peak is given by the time difference between the first 
+   crossing of the threshold on the left and right sides of the peak;  
+  \item Merging of flare peaks. If the time difference between the two peaks is less than 5 minutes,
+   they are considered to be from the same flare.
 \end{itemize}
 
-For each of identified solar flares,   the  information such as start time, end time, counts, background subtracted counts is stored in the STIX flare database.   It is used for automatic creation of data requests for on-board archived data.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/flaredet.pdf}
+  \caption{Solar flares identified from the 4 -- 10 keV QL light curve 
+  measured from  2022-02-13T21:00:00Z to 2022-02-14T03:00:00Z. 
+  The light curve was smoothed using a moving average filter with a time window
+  of 1 minute. Peaks are marked with plus signs and flare time ranges are highlighted in yellow.
+  }
+  \label{fig:flare-det}
+\end{figure}
 
-How to define a flux.
+As an example, Fig.~\ref{fig:flare-det} shows  solar flares  identified from the
+4 -- 10 keV QL light curve measured from 2022-02-13T21:00:00Z to 2022-02-14T03:00:00Z, with the procedure above. 
+For each identified solar flare, the start time, end time, peak count and  
 
-An ID is given to each identified solar flares. 
+Before solar flare identification, we select light curves acquired during sun quiet periods to
+estimate the background level. The calculated median and root-mean-square of the counts of the five light curves
+ are then saved to the database. 
+For the identified flares, we will deduct the background we record the width, the time of the peak and the count separately and give each
+ flare an identification number. The format of the identification number is an 8-digit number in the format of yyddmmHHMM.
+For example, 2201011200 means that the peak time of the flare is UT 2022-01-01T12:00. 
+This information is kept in the database.
+After completing the flare identification, we exclude the time period of the flare and use the light change curve when no flare occurs as background data,
+ repeating the background calculation mentioned earlier, and these data will be used as new data for flare identification.
+This list can be accessed using the web page or the api.
+
+
+
+
 
 \subsubsection{Flare ID naming convention}
 \subsubsection{Determination of solar flare GOES classes}
@@ -401,7 +455,19 @@ The error of an estimated flux is considered to be the same as the error
 of its nearest data point.
 
 \subsubsection{Flare locations}
-
+STIX uses a dedicated sub-collimator to estimate a rough (within a few arcminutes),
+ but unambiguous, flare location on board in near real time.
+  The Coarse Flare Locator (CFL) consists of a single grid with
+   a specific pattern which selectively illuminates pixels of a 
+   dedicated detector based on the source location.
+    The correlation between the counts in the pixels of this detector and a look-up table 
+    of pre-caculated expectations allows the location to be estimated promptly, 
+    within the constraints of on board processing. 
+    Using the downloaded measured counts 
+    in each pixel the coarse flare location can also be reconstructed on the ground. 
+    This allows for more sophisticated algorithms which require greater computational 
+    power than is available on board; greater flexibility as to which time and energy 
+    intervals are combined; and more careful background subtraction.
 \begin{figure*}
   \centering
   \includegraphics[width=0.95\linewidth]{figures/cflMay07.pdf}
@@ -529,8 +595,59 @@ Category & Type   &  Naming convention  & Remarks   \\ \hline
  Calibration data &   &  &  \\
 \end{tabular}
 \end{table}
-\section{Data request procedure}
 
+\section{Data selection and automation}
+
+As the foregoing discussion suggests,
+ there are three important distinctions between the 
+ QL and primary X-ray data handling: first, the QL data represent only 
+ spatially-integrated data;  second, the QL data are acquired and 
+ transmitted with fixed parameters such as a 4 s cadence; third, there is no 
+ provision for onboard QL data selection. 
+In contrast, the much more voluminous primary data can only 
+be transmitted on a highly selective (flare-associated) basis, albeit with a wide range of choices for time and energy
+ resolution, and coverage. These choices can be optimized to match the dynamic characteristics of the flare in question.  
+  Thus by limiting consideration to flare intervals only, and by optimizing time and energy range and 
+ resolution for the individual flare, the scientific efficiency of imaging and spectroscopic data telemetry can be greatly enhanced.
+
+
+There are two approaches to selecting the time- and energy
+resolution and range for the bulk spectroscopic and imaging data.
+The first approach relies on the ground segment to select param
+eters for the downlink of flare T/M. This selection can be based
+on the QL light curves in 5 different energy bands which together
+provide a robust indication of flare timing, intensity and spectral
+properties. The ground segment can use this to choose optimized
+time range, energy range, and resolution for different phases of
+the flare, predict the resulting T/M volume and upload corresponding analysis requests.
+The onboard software then applies
+these parameters to the data stored in the archive buffer. This
+option is viable because the latency of the QL data (up to 24 h)
+is much shorter than the multi-week longevity of the archive
+buffer. This provides time for the ground segment to make selections 
+and upload parameters and for the FSW to process the data.
+Since each ground system requests result in a predictable telemetry volume, 
+the STIX ground system is responsible for complying with T/M corridor restrictions on the data rate.
+
+There are three downsides to this approach to data selection:
+first, the selections and choices are a labor-intensive activity;
+second, selections must be made and satisfied before the onboard
+archive is overwritten and so that the choices must be made in a 
+timely fashion; third, there is an additional operational latency of
+at least a few days between flare occurrence and the transmission
+of the requested X-ray imaging and spectroscopic data.
+With the second approach (“autonomy”), the FSW uses the
+output of the onboard flare detection algorithm to identify rele
+vant time ranges. It then uses automatic, parametrized algorithms
+to optimize the time and energy resolution for imaging and spec-
+troscopic data for inclusion in bulk T/M. As of this writing, this
+option has not yet been fully implemented. When using autonomy,
+the QL telemetry (Table 3) will include flare and telemetry
+management information to show the analysis status of recent
+events.
+
+\begin{itemize}
+\item L1 request for solar flare.\\
 For detected flares,  a script is used to create data requests.
 If the background subtracted peak count rate of a flare is greater 150,
 both L1 and spectrogram requests are created;  For micro-flares, as only
@@ -540,6 +657,9 @@ and some extra data requests are created for events of interest in the
 STIX operations team.
 For external users, data request forms can be also submitted using a web tool
 at the data center.
+\item Spectrogram data requests.
+\item Requests for background data
+\end{itemize}
 
 An unique ID is assigned to each data request automatically.
 The ID naming convention is yyddmmxxxx, in which yyddmm indicate the observation year (without century), month, date,
@@ -550,26 +670,16 @@ The information of created data requests are stored in the NoSQL database on the
 They are converted to instrument operation requests (IORs) after a series of checks.
 Requested data will arrive at STIX data center within a time frame of two weeks to three months, depending on
 telemetry allocations.
+
+\subsubsection{Background requests}
+\subsubsection{data request unique conventions}
 \section{Database}
 \subsection{Raw data packet database } 
 \subsection{Configuration database}
-
 \section{Online data visualization tools}
 \subsection{Quick-look light curve}
 \subsection{Science data quick analysis}
 \subsubsection{Calibration data}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures/calibrationSpectrogram.pdf}
-    \caption{Caption}
-    \label{fig:calibrationSpectrum}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures/calibrationSpectrum.pdf}
-    \caption{Spectrogram of STIX calibration spectra}
-    \label{fig:calibrationSpectrogram}
-\end{figure}
 
 calibration data products
 https://fermi.gsfc.nasa.gov/ssc/data/access/gbm/
@@ -602,11 +712,9 @@ stixdcpy allows you to query and download data which are available at STIX data 
 Quick-look light curves
 Housekeeping data
 Science data
-Energy calibration data
+Energy calibration dat which are later included to the low-latency telemetry stream.
 Auxilary data
 STIX solar flare list
-
-
 
 
 

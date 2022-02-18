@@ -6,6 +6,7 @@ target=data_center.pdf
 	pdflatex $<
 
 data_center.pdf: data_center.tex
+	#rm data_center.pdf
 	pdflatex data_center.tex
 	evince data_center.pdf
 clean:
