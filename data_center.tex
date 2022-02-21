@@ -332,17 +332,6 @@ As mentioned earlier, STIX uses 128 Ba$^{133}$ radioactive sources for energy ca
 The radioactive sources emit  gamma-rays  as they decay, producing prominent photoelectric 
 peaks in the calibration spectra (\cite{oliver}). 
 
-The right panel of Fig.\ref{fig:cal-fit} shows 
-an example of STIX count spectrum from an in-flight calibration run.  
-The three strongest lines are from 31 keV, 35 keV and 81 keV photons. 
-The first two peaks are fitted with the double-Gaussian function and the third peak
-by the crystall-ball function \cite{crsystallball},  which consists of a Gaussian core portion 
-and a power-law low-end tail, below a certain threshold.
-Then a linear line is fitted to the relation between
-the three fitted peak positions and the photon energies.  
-The interception and slope indicate the baseline and gain of the channel. 
-The results were compared to the those obtained using the ECC method (see \cite{ecc,ecc2})).
- The results are consistent within errors.
 \begin{figure}
  \centering
   \includegraphics[width=0.8\linewidth]{figures/cal-fit.pdf}
@@ -354,8 +343,17 @@ The results were compared to the those obtained using the ECC method (see \cite{
 }
     \label{fig:cal-fit}
 \end{figure}
-
-
+The right panel of Fig.~\ref{fig:cal-fit} shows 
+an example of STIX count spectrum from an in-flight calibration run.  
+The three strongest lines are from 31 keV, 35 keV and 81 keV photons. 
+The first two peaks are fitted with the double-Gaussian function and the third peak
+by the crystall-ball function \cite{crsystallball},  which consists of a Gaussian core portion 
+and a power-law low-end tail, below a certain threshold.
+Then a linear line is fitted to the relation between
+the three fitted peak positions (in ADC unit) and the photon energies in units of keV.  
+The interception and slope indicate the baseline and gain of the channel. 
+The results were compared to those determined using the ECC method (see \cite{ecc,ecc2})).
+ The results are consistent within errors.
 The above steps are performed for each calibration run automatically 
 once the data is available at STIX data center.
 Calibration factors obtained the analysis are written to 
@@ -363,7 +361,7 @@ the NoSQL database.
 It is accessible through a web page at STIX data center or python APIs.
 Once significant differences between the calibration factors and those used to 
 construct the onboard energy conversion look-up table (ELUT) are observed, 
-a new ELUT is created and commanded to STIX after being validated by STIX operations team. 
+a new ELUT is created and commanded to STIX after being validated by the operations team. 
 
 \subsection{Solar flare identification}
 The in-flight software identifies solar flares by comparing  the count rate of 
@@ -374,10 +372,11 @@ bandwidth and the limitation of onboard computing resources.
 Using QL light curves, solar flares can be identified on ground in great detail.
 
 
-Identification of solar flares on ground is  
-triggered after a new QL light curve dataset is available in the NoSQL database. 
-QL light curves the energy range from  4 to 10 keV are used for solar flare identification. 
-The identification is based on the fact 
+%Solar flare identification on the ground is started 
+%after each new QL light curve dataset is pushed to the NoSQL database. 
+%As  \cite{andrea2021}
+QL light curves of the energy range from  4 to 10 keV are used for solar flare identification
+on the ground. Identification is based on the fact 
 that the background event rate in that energy range is almost constant 
 over a timescale of days during quiet sun periods. 
 The procedure involves the following steps:
@@ -394,65 +393,71 @@ The procedure involves the following steps:
 \begin{figure}
   \centering
   \includegraphics[width=0.8\linewidth]{figures/flaredet.pdf}
-  \caption{Solar flares identified from the 4 -- 10 keV QL light curve 
-  measured from  2022-02-13T21:00:00Z to 2022-02-14T03:00:00Z. 
-  The light curve was smoothed using a moving average filter with a time window
-  of 1 minute. Peaks are marked with plus signs and flare time ranges are highlighted in yellow.
+  \caption{STIX 4 -- 10 keV QL light curve recorded from  2022-02-13T21:00:00Z to 2022-02-14T03:00:00Z and 
+  identified flares.   The light curve was smoothed using a moving average filter with a time window
+  of 1 minute. The identified peaks are marked with plus signs, and flare time ranges are highlighted in yellow.
   }
   \label{fig:flare-det}
 \end{figure}
+As an example, Fig.~\ref{fig:flare-det} shows  the 4 -- 10 keV QL  light curve recorded from 
+2022-02-13T21:00:00Z to 2022-02-14T03:00:00Z, as well as the smoothed light curve and  identified solar flares (marked with plus signs).
 
-As an example, Fig.~\ref{fig:flare-det} shows  solar flares  identified from the
-4 -- 10 keV QL light curve measured from 2022-02-13T21:00:00Z to 2022-02-14T03:00:00Z, with the procedure above. 
-For each identified solar flare, the start time, end time, peak count and  
+For each identified solar flare,  start time, end time, peak time and peak 
+counts are extracted from the selected light curve and assigned 
+an 8-digit identification number of the format yymmddHHMM, which represents the solar flare peak time. 
+For example, the identification number 2201010000  indicates that 
+the solar flare peak time is at 2022-01-01T00:00:00 UT. 
+The above steps are repeated  for the QL light curves of other four higher energies in the same time frame as they tell whether the flare 
+contains non-thermal components. 
+Then all extracted information as well as the ephemeris data are 
+written to a collection called solar flare list in the NoSQL database. 
 
-Before solar flare identification, we select light curves acquired during sun quiet periods to
-estimate the background level. The calculated median and root-mean-square of the counts of the five light curves
- are then saved to the database. 
-For the identified flares, we will deduct the background we record the width, the time of the peak and the count separately and give each
- flare an identification number. The format of the identification number is an 8-digit number in the format of yyddmmHHMM.
-For example, 2201011200 means that the peak time of the flare is UT 2022-01-01T12:00. 
-This information is kept in the database.
-After completing the flare identification, we exclude the time period of the flare and use the light change curve when no flare occurs as background data,
- repeating the background calculation mentioned earlier, and these data will be used as new data for flare identification.
-This list can be accessed using the web page or the api.
-
-
-
-
-
-\subsubsection{Flare ID naming convention}
-\subsubsection{Determination of solar flare GOES classes}
+\subsubsection{Solar flare GOES classes}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\linewidth]{figures/goes-stix-scatter.pdf}
-  \caption{A scatter plot of GOES flux and STIX peak counts in the 4 -- 10 keV quick-look light curve for 989 flares observed by both instruments.
-A quadratic function fitted to the log-log data is also shown in the figure. 
-STIX counts are background subtracted and 
-corrected for flux differences due to the variation of the distance between the Sun and Solar Orbiter. 
-The fitted parameters for the quadratic function  are $p_0$=-6.91, $p_1$=0.075 and $p_2$=0.071. 
+  \includegraphics[width=0.8\linewidth]{figures/goes_stix_flux_paper.pdf}
+  \caption{Scatter plot of GOES low channel peak flux with respect to STIX 1-AU equivalent  peak count rate in the 4 -- 10 keV range
+  for 717 solar flares observed by both GOES and STIX duration the commissioning phase. 
+  The solid line is a linear fit to the log-log graph. 
+  The slope and 
+  interception for the best fit are $0.622\pm 0.002$ and $-7.376\pm0.067$, respectively.
+STIX count rate are background subtracted and corrected for the distance variations between the Sun and Solar Orbiter. 
 }
 \label{fig:goes-stix}
 \end{figure}
-For flares that are not observed by GOES. 
-A model based on a polynomial fit to the relationship of GOES flux between  STIX counts normalized by the 
-squared distance between the Sun and STIX (More details about the model.
-Fig. \ref{fig:goes-stix} shows the correlation between GOES flux and STIX peak counts in the 4 -- 10 keV quick-look light curve
-for 989 flares observed before Jan. 2022 by both instruments. 
-The GOES flux of a solar flare $F$ is estimated using
+It is straightforward to calculate the GOES
+class for a STIX flare if the flare is also in the FOV of GOES. 
+However,  most of the time Solar Orbiter is far away from Earth and looks at 
+the sun from different angles. Therefore a considerable number of flares observed by STIX
+ are not observed by near earth satellites (and vice verse). 
+As already discussed in Ref.~\cite{andrea2021}, 
+it is possible to estimate GOES classes by using STIX count rates.
+In order to study the correction, we selected 717 solar flares observed by 
+by both GOES  and   STIX during the commissioning phase.   
+%In order to estimate the GOES classes of those flares, 
+%we studied correlation between peak flux measured by GOE16  and STIX  count rate.
+Fig.~\ref{fig:goes-stix} show the scatter plot of GOES low channel peak flux with respect to 
+STIX peak count rate  of the 4 -- 10 keV QL light curves. 
+STIX count rates  have been subtracted for background,  and corrected for 
+the difference distance of Solar Orbiter to the Sun using $c'=c r^2$, where $c$ is the count rate after background subtraction
+ and $r$ the distance between Solar Orbiter and the Sun. 
+As can be seen in the figure, there is clear correlation between
+these two quantities.  
+The wide spread can be explained by the difference in 
+the energy response of the two instruments and in the flare temperature.
+The correlation can be fitted with a linear line in the log-log scale: 
 \begin{equation}
-F=10^{p_0+p_1 x+p_2 x^2},
+f=10^{a+b\log_{10} c'}, 
+\label{eq:goes-stix}
 \end{equation}
-with
-\begin{equation}
- x=\log_{10} {c*r^2}.
-\end{equation}
-where $p_0$, $p_1$, $p_2$ are the parameters from the curve fit, 
-$c$ is STIX background subtracted  counts accumulated in 4 sec and $r$ is 
-the distance between the Sun and solar orbiter in units of AU, respectively.
-The error of an estimated flux is considered to be the same as the error 
-of its nearest data point.
+where $a$ and $b$ are two free parameters, $f$ is the GOES flux  in units of W/m$^2$.
+ The best fit was obtained at $a=0.622\pm 0.002$ and $b=-7.376\pm0.067$.
+
+Parameterized Eq.~\ref{eq:goes-stix} is used to estimate GOES classes for flares 
+which are not in the earth FOV. The results are stored in the flare list in the database, which is accessible 
+from the STIX solar flare web page at STIX data center. 
+
 
 \subsubsection{Flare locations}
 STIX uses a dedicated sub-collimator to estimate a rough (within a few arcminutes),
@@ -494,25 +499,7 @@ STIX uses a dedicated sub-collimator to estimate a rough (within a few arcminute
   \label{fig:cflerror}
   %/FHNW/STIX/SolarFlareAnalysis/stix_simulator/cfl
 \end{figure*}
-
-
-
-
-\subsection{Solar flare list}
-\subsection{Flare location database}
-
-
-A list of products from the flare processing pipeline
-
-* Flare list
-* Flare location
-*
-
-\subsubsection{Flare location using coarse flare data}
-\subsubsection{Flare classification using GOES x-ray flux}
-
 \section{STIX data products}
-
 \subsection{L1 data products}
 \begin{itemize}
     \item Raw data.
@@ -547,7 +534,6 @@ The differences between L1A and L1 available in Shane's ftp include:
     Shane's formal L1 release can avoid this issue if they are produced on a later date.
 
 4. L1A contains housekeeping data
-
 The different data-processing levels for HMI are summarized as follows, with more details available from this source:
 • Data at Level 0 are images that have been constructed from the raw telemetry stream.
 • Data at Level 1.0 are images that have been converted from Level 0, with processing including bad-pixel removal, flat-fielding,
@@ -558,27 +544,14 @@ constructed from the individual Level 1.0 filtergrams.
 data in a way that is irreversible. Level 2 products include intermediate products for later production of mission science data
 products, such as helioseismic inferences of solar subsurface flows
 
-
 The Level0 archive contains TM which has been parsed or decommuated into readable structures but no additional external information is include:
 
 times are not converted to UTC
 no calibration or conversions applied
 for STIX we need to decide if we decompress / combine X-ray L0 the count/trigger data at this stage or in the next level L1
 
-copy manual,
-tree like, 
-json formats
-name, raw value, eng value, children
-look-up table, to know description
-
-estimate mongodb benchmark
-Mongodb benchmark,
-key value, index, performance
-
 
 \subsection{Auxilary data}
-
-
 
 \begin{table}
 \centering
@@ -597,7 +570,15 @@ Category & Type   &  Naming convention  & Remarks   \\ \hline
 \end{table}
 
 \section{Data selection and automation}
-
+To wisely allocate the limited telemetry available to STIX,
+the STIX instruments first sends only QuickLook (QL) data at
+low resolution to the ground (for details see Krucker et al. 2020).
+Figure 3 shows the STIX QL lightcurve at the lowest energy
+channel (4-10 keV) during the time period from June 4 through
+June 14. From the QL data, the STIX team then selects the sci-
+entifically most promising flares, and so-called data requests are
+sent to STIX to download the selected flares at the chosen res-
+olution.
 As the foregoing discussion suggests,
  there are three important distinctions between the 
  QL and primary X-ray data handling: first, the QL data represent only 
@@ -674,7 +655,7 @@ telemetry allocations.
 \subsubsection{Background requests}
 \subsubsection{data request unique conventions}
 \section{Database}
-\subsection{Raw data packet database } 
+\subsection{Raw data packet database} 
 \subsection{Configuration database}
 \section{Online data visualization tools}
 \subsection{Quick-look light curve}
@@ -700,10 +681,6 @@ At the center of the Sun.
 It is worth mentioning that has to corrected for.
 This can be done by using the web tool provided at the auxiliary data center at
 
-\subsection{Automated data request scheme}
-scheme
-
-background data request
 \subsection{Spectral analysis software}
 \subsection{STIX Imagging software}
 
