@@ -257,7 +257,8 @@ They contain information of spacecraft ephemeris and clocking calibration factor
 
 
 \section{Data processing pipelines}
-\subsection{Data processing pipelines}
+\subsection{Data processing pipeline overview}
+
 
 \begin{figure*}
     \centering
@@ -278,12 +279,13 @@ flares; The fourth path processes flaring data,
 generating higher data products.   
 
 \subsection{Raw data parsing}
-%https://v000658.fhnw.ch/index.php/apps/files/?dir=/Stix/GSW/documents&fileid=1206862
-New telemetry data arrived at STIX data center are processed by STIX data parser immediately. 
-The parser is capable of decoding all types of STIX binary telecommands and telemetry packets.   
-The decoding is based on the mission interface database (MIB), which 
+New telemetry data arrived at STIX data center are immediately processed by STIX data parser, 
+which is capable of parsing all types of STIX binary telecommands and telemetry packets.   
+Parsing of packets is based on the mission interface database (MIB), which 
 contains information on packet parameters such as names, descriptions, lengths,
-data types. Decoded packets contain raw values of parameters. 
+data types. The parser extracts header and parameters for each raw binary packet
+using the information in the MIB.
+Packets after parsing contain raw values of parameters. 
  Spacecraft clock times are further converted to UTC times using 
 the latest version of SPICE kernel data (\cite{spice1996,spice2018}), compressed integers are  
 decompressed by using a LUT table and 
@@ -304,6 +306,7 @@ filenames. They are written to different collections in the NoSQL database.
 The metadata is necessary for the subsequent processing. 
 
 \subsection{FITS file creation}
+\subsubsection{Level-1A FITS files}
 After each new raw telemetry file is being parsed, 
 housekeeping, quick-look, and science packets  
 are selected from the NoSQL database successively 
@@ -317,6 +320,7 @@ Metadata such as observation time range, creation time, filenames,  checksum are
 the primary header data units (HDU) of fits files. 
 They are also written to a collection in the database.
 
+\subsubsection{Level-1 FITS files}
 Level-1A FITS files are generated automatically and available at STIX data center within minutes 
 after the reception of a raw file.
 It should be noticed that predicted SPICE kernels may be used when the reconstructed spice kernels  
@@ -325,6 +329,7 @@ due to bugs in the early version of the flight software.
 After all resources are validated,  Level-1  FITS files are created again. 
 Level-1  FITS products have almost the same data structures as Level-1A.
 
+\subsubsection{Level-2 FITS files}
 
 
 \subsection{Energy calibration}
@@ -352,29 +357,25 @@ and a power-law low-end tail, below a certain threshold.
 Then a linear line is fitted to the relation between
 the three fitted peak positions (in ADC unit) and the photon energies in units of keV.  
 The interception and slope indicate the baseline and gain of the channel. 
-The results were compared to those determined using the ECC method (see \cite{ecc,ecc2})).
- The results are consistent within errors.
+The results were compared to those determined using the ECC method (see \cite{ecc,ecc2})), 
+ which were found to be consistent within errors.
 The above steps are performed for each calibration run automatically 
-once the data is available at STIX data center.
-Calibration factors obtained the analysis are written to 
-the NoSQL database. 
-It is accessible through a web page at STIX data center or python APIs.
-Once significant differences between the calibration factors and those used to 
-construct the onboard energy conversion look-up table (ELUT) are observed, 
-a new ELUT is created and commanded to STIX after being validated by the operations team. 
+once the data is available at STIX data center.  The results are written to a
+ collection in  NoSQL database.  It is accessible through a web page at STIX data center or python APIs.
+
+Calibration factors are monitored automatically.
+Once significant changes are observed from those used onboard,  a new ELUT is 
+created and  then uploaded to STIX after validation by the operations team. 
 
 \subsection{Solar flare identification}
 The in-flight software identifies solar flares by comparing  the count rate of 
 the background detector with that of other detectors 
  and packs the results into the QL flare flag and location reports.
-However, the reports  only provide limited information on flares due to the constraints of telemetry 
-bandwidth and the limitation of onboard computing resources.
+However,  the reports only provide limited information on flares due to the constraints of telemetry 
+bandwidth and the limitation of onboard computing resources, and micro-flares are not 
+reported due to the relative high trigger threshold.
 Using QL light curves, solar flares can be identified on ground in great detail.
 
-
-%Solar flare identification on the ground is started 
-%after each new QL light curve dataset is pushed to the NoSQL database. 
-%As  \cite{andrea2021}
 QL light curves of the energy range from  4 to 10 keV are used for solar flare identification
 on the ground. Identification is based on the fact 
 that the background event rate in that energy range is almost constant 
@@ -412,8 +413,10 @@ contains non-thermal components.
 Then all extracted information as well as the ephemeris data are 
 written to a collection called solar flare list in the NoSQL database. 
 
+As mentioned above, the flare detection algorithm requires a preset threshold. 
+{\it background database }
+\subsection{Solar flare data analysis pipeline}
 \subsubsection{Solar flare GOES classes}
-
 \begin{figure}
   \centering
   \includegraphics[width=0.8\linewidth]{figures/goes_stix_flux_paper.pdf}
@@ -443,9 +446,8 @@ STIX count rates  have been subtracted for background,  and corrected for
 the difference distance of Solar Orbiter to the Sun using $c'=c r^2$, where $c$ is the count rate after background subtraction
  and $r$ the distance between Solar Orbiter and the Sun. 
 As can be seen in the figure, there is clear correlation between
-these two quantities.  
-The wide spread can be explained by the difference in 
-the energy response of the two instruments and in the flare temperature.
+these two quantities.  The wide spread at the low flux could be explained by the difference in 
+the energy response of the two instruments and in the flare temperatures.
 The correlation can be fitted with a linear line in the log-log scale: 
 \begin{equation}
 f=10^{a+b\log_{10} c'}, 
@@ -453,15 +455,15 @@ f=10^{a+b\log_{10} c'},
 \end{equation}
 where $a$ and $b$ are two free parameters, $f$ is the GOES flux  in units of W/m$^2$.
  The best fit was obtained at $a=0.622\pm 0.002$ and $b=-7.376\pm0.067$.
-
-Parameterized Eq.~\ref{eq:goes-stix} is used to estimate GOES classes for flares 
-which are not in the earth FOV. The results are stored in the flare list in the database, which is accessible 
+The obtained model is used to estimate  GOES classes 
+ of flares that observed by STIX. 
+The results as well as those determined from GOES measurements
+are attached to flare entries in the flare list database, which is accessible 
 from the STIX solar flare web page at STIX data center. 
-
-
-\subsubsection{Flare locations}
-STIX uses a dedicated sub-collimator to estimate a rough (within a few arcminutes),
- but unambiguous, flare location on board in near real time.
+\subsubsection{Calculation of coarse flare locations}
+STIX uses a dedicated sub-collimator called Coarse Flare Locator (CFL) to estimate 
+the rough (within a few arcminutes) but unambiguous flare location after 
+a flare is identified onboard.
   The Coarse Flare Locator (CFL) consists of a single grid with
    a specific pattern which selectively illuminates pixels of a 
    dedicated detector based on the source location.
@@ -508,41 +510,7 @@ STIX uses a dedicated sub-collimator to estimate a rough (within a few arcminute
     
 \end{itemize}
 
-The latest level 1 FITS IO from Shane has been integrated into the data processing pipeline on pub023 server.
 
-I have recreated fits products for all old telemetry data with the upgraded SW.
-
-The L1 fits files  created by this pipeline have a different data level:  L1A ('A' here means  prerelease/alpha version).
-
-The idea behind L1A data sets is to allow for quicker access to STIX data in the fits format instead of grabbing  data from plots or using JSON requests,
-
-for operations,  debugging  etc.
-
-The L1A data sets can be generated within a few minutes after the arrival of a new raw telemetry file.
-
-The differences between L1A and L1 available in Shane's ftp include:
-
-1.  Two different L1A data files may have duplicated data
-
-2.  L1A data sets are still created for incomplete packets  (L1 checks for data completeness)
-
-3.  SPICE kernel data for telemetry files always arrives  after one or two days later.
-    So  there may be a sub-second difference between the UTC time in fits files (same to times on web pages)
-
-   and the real time.
-
-    Shane's formal L1 release can avoid this issue if they are produced on a later date.
-
-4. L1A contains housekeeping data
-The different data-processing levels for HMI are summarized as follows, with more details available from this source:
-• Data at Level 0 are images that have been constructed from the raw telemetry stream.
-• Data at Level 1.0 are images that have been converted from Level 0, with processing including bad-pixel removal, flat-fielding,
-and quality assessment checks, but otherwise not having undergone any irreversible data alterations.
-• Data at Level 1.5 are images of the physical observables (Dopplergrams, magnetograms, and continuum images), which were
-constructed from the individual Level 1.0 filtergrams.
-• Data at Level 2 have been irrevocably filtered, time-sequence-merged, Fourier-transformed or otherwise changed from Level 1.5
-data in a way that is irreversible. Level 2 products include intermediate products for later production of mission science data
-products, such as helioseismic inferences of solar subsurface flows
 
 The Level0 archive contains TM which has been parsed or decommuated into readable structures but no additional external information is include:
 
@@ -628,7 +596,7 @@ management information to show the analysis status of recent
 events.
 
 \begin{itemize}
-\item L1 request for solar flare.\\
+\item L1 request for STIX solar flare.\\
 For detected flares,  a script is used to create data requests.
 If the background subtracted peak count rate of a flare is greater 150,
 both L1 and spectrogram requests are created;  For micro-flares, as only
@@ -638,8 +606,8 @@ and some extra data requests are created for events of interest in the
 STIX operations team.
 For external users, data request forms can be also submitted using a web tool
 at the data center.
-\item Spectrogram data requests.
-\item Requests for background data
+\item Background L1 data request.
+\item Continous data request Requests for background data
 \end{itemize}
 
 An unique ID is assigned to each data request automatically.
@@ -652,12 +620,10 @@ They are converted to instrument operation requests (IORs) after a series of che
 Requested data will arrive at STIX data center within a time frame of two weeks to three months, depending on
 telemetry allocations.
 
-\subsubsection{Background requests}
-\subsubsection{data request unique conventions}
 \section{Database}
 \subsection{Raw data packet database} 
 \subsection{Configuration database}
-\section{Online data visualization tools}
+\section{Web data browsers}
 \subsection{Quick-look light curve}
 \subsection{Science data quick analysis}
 \subsubsection{Calibration data}
@@ -681,10 +647,9 @@ At the center of the Sun.
 It is worth mentioning that has to corrected for.
 This can be done by using the web tool provided at the auxiliary data center at
 
-\subsection{Spectral analysis software}
-\subsection{STIX Imagging software}
 
-\section{Data access and APIs}
+\section{Tools for scientitic analysis }
+\subsection{Data access and APIs}
 stixdcpy allows you to query and download data which are available at STIX data center, include
 Quick-look light curves
 Housekeeping data
@@ -692,6 +657,8 @@ Science data
 Energy calibration dat which are later included to the low-latency telemetry stream.
 Auxilary data
 STIX solar flare list
+\subsection{Spectral analysis software}
+\subsection{STIX Imagging software}
 
 
 
