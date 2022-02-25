@@ -278,7 +278,7 @@ instrument monitoring. In the third path, quick-look packets are selected and us
 flares; The fourth path processes flaring data, 
 generating higher data products.   
 
-\subsection{Raw data parsing}
+\subsection{Raw data parsing and database}
 New telemetry data arrived at STIX data center are immediately processed by STIX data parser, 
 which is capable of parsing all types of STIX binary telecommands and telemetry packets.   
 Parsing of packets is based on the mission interface database (MIB), which 
@@ -300,23 +300,17 @@ Level-1 packets are written
 to a NoSQL database. 
 The NoSQL database is schemaless,  making it ideal to store data with complex
 structures but small sizes like STIX level-1 packets. 
-In addition to packets, other data extracted during data parsing are store in the NoSQL database,
- for example,  
- 
+In addition to packets, the NoSQL also stores other data extracted by the parser during packets parsing, 
+for example, 
 \begin{itemize}
-  \item Raw file metada, 
-  \item Bulk science metada;
-  \item Quick-look dataset;
-  \item STIX instrument configuration database;
+  \item Raw file metadata, which contains filename, reception time, observation start time and stop time, MIB and SPICE kernels used by the parser ; 
+  \item Bulk science metadata, which contains the observation time range, detector and pixels masks, energy ranges, 
+   bulk science data types, and IDs of packets in the database; 
+  \item Quick-look data, containing  QL data type, observation time range, and array of counts or energies depending on the packet type;
+  \item STIX instrument configuration data, which is extracted from telemecommands, allowing tracking back of the instrument configuration;
 \end{itemize}
-The database for pipelines or APIs from packets, and stores them into several datasets in the NoSQL database, for example,
-
-
-such as data arrival 
-times, data acquisition time ranges,  calibration run configuration parameters,  raw data 
-filenames. They are written to several datasets in the NoSQL database. 
-The metadata allows for query and fast quick-look of necessary for the subsequent processing. 
-
+The information are necessary for subsequent processing. The
+database is  accessible through web pages at STIX data center website or python APIs. 
 \subsection{FITS file creation}
 \subsubsection{Level-1A FITS files}
 After each new raw telemetry file is being parsed, 
