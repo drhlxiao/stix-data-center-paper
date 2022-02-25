@@ -1,4 +1,4 @@
-\begin{thebibliography}{11}
+\begin{thebibliography}{10}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{Acton {et~al.}(2018)Acton, Bachman, Semenov, \& Wright}]{spice2018}
@@ -26,10 +26,6 @@ Acton, C.~H. 1996, Planetary and Space Science, 44, 65, planetary data system
 
 \bibitem[{{Forveille} \& {Shore}(2020)}]{SolarOrbiter2020}
 {Forveille}, T. \& {Shore}, S. 2020, \aap, 642, E1
-
-\bibitem[{Grimm(2020)}]{oliver}
-Grimm, O. 2020, Nuclear Instruments and Methods in Physics Research Section A:
-  Accelerators, Spectrometers, Detectors and Associated Equipment, 953, 163104
 
 \bibitem[{{Krucker, S\"am} {et~al.}(2020){Krucker, S\"am}, {Hurford, G. J.},
   {Grimm, O.}, {K\"ogl, S.}, {Gr\"obelbauer, H.-P}, {Etesi, L.}, {Casadei, D.},

@@ -1,5 +1,5 @@
 %
-\documentclass[referee]{aa} % for a referee version
+%\documentclass[referee]{aa} % for a referee version
 %\documentclass[onecolumn]{aa} % for a paper on 1 column  
 %\documentclass[longauth]{aa} % for the long lists of affiliations 
 %\documentclass[letter]{aa} % for the letters 
@@ -7,7 +7,7 @@
 %                              according to the author-year natbib style
 
 
-%\documentclass{aa}  
+\documentclass{aa}  
 
 \usepackage{graphicx}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -101,8 +101,8 @@ For details of the STIX instrumentation, we refer to the instrument paper (\cite
 
 
 During nominal science operations, STIX continuously acquires science data. 
-They are processed and compressed into different types of telemetry packets by
-before being transmitted to the ground.
+They are processed and compressed into telemetry packets by
+before they are transmitted to the ground.
 Being aware of the complexity of STIX data analysis and 
 the need of bringing the data to the solar physics community, a data center has been
 developed at FHNW. The data center (SDC) receives, analyzes, archives and distributes STIX data,
@@ -297,13 +297,25 @@ the former contains the basic information  of the packet such as timestamp, pack
 and the latter contains names, 
 raw values, engineering values (or decompressed integers) and child nodes of a list of parameters.
 Level-1 packets are written 
-to a NoSQL database. The NoSQL database is schemaless,  making it ideal to store data with complex
- structures but small sizes like STIX level-1 packets. 
+to a NoSQL database. 
+The NoSQL database is schemaless,  making it ideal to store data with complex
+structures but small sizes like STIX level-1 packets. 
+In addition to packets, other data extracted during data parsing are store in the NoSQL database,
+ for example,  
+ 
+\begin{itemize}
+  \item Raw file metada, 
+  \item Bulk science metada;
+  \item Quick-look dataset;
+  \item STIX instrument configuration database;
+\end{itemize}
+The database for pipelines or APIs from packets, and stores them into several datasets in the NoSQL database, for example,
 
-In addition to above processing, the parser also extracts metadata such as data arrival 
+
+such as data arrival 
 times, data acquisition time ranges,  calibration run configuration parameters,  raw data 
-filenames. They are written to different collections in the NoSQL database. 
-The metadata is necessary for the subsequent processing. 
+filenames. They are written to several datasets in the NoSQL database. 
+The metadata allows for query and fast quick-look of necessary for the subsequent processing. 
 
 \subsection{FITS file creation}
 \subsubsection{Level-1A FITS files}
@@ -318,7 +330,7 @@ which is a portable file standard widely used in the astronomy
 community to store images and tables.
 Metadata such as observation time range, creation time, filenames,  checksum are written to 
 the primary header data units (HDU) of fits files. 
-They are also written to a collection in the database.
+They are also written to a dataset in the database.
 
 \subsubsection{Level-1 FITS files}
 Level-1A FITS files are generated automatically and available at STIX data center within minutes 
@@ -333,19 +345,21 @@ Level-1  FITS products have almost the same data structures as Level-1A.
 
 
 \subsection{Energy calibration}
-As mentioned earlier, STIX uses 128 Ba$^{133}$ radioactive sources for energy calibration.
-The radioactive sources emit  gamma-rays  as they decay, producing prominent photoelectric 
-peaks in the calibration spectra (\cite{oliver}). 
+STIX converts energies from ADC units to keV onboard. This relies on
+an energy look-up table (ELUT) regularly updated  with telecommands.
+An ELUT can be constructed using energy conversion factors obtained by studying
+ positions of photo peaks in the calibration spectra measured for the onboard Ba$^{133}$ sources.  
+ As energy conversion factors may change with temperature 
+ or polarization effects,  calibration spectra need to be analyzed promptly on the ground. 
+
 
 \begin{figure}
  \centering
   \includegraphics[width=0.8\linewidth]{figures/cal-fit.pdf}
-  \caption{ 
-   An example of STIX in-flight calibration count spectrum.
+  \caption{An example of STIX in-flight calibration count spectrum.
   The three strongest lines, from left to right, are from 31 keV, 35 keV, and 81 keV
   photons. The first two peaks are fitted by the double-Gaussian function and the high energy peak by  
-  the crystal-ball function. 
-}
+  the crystal-ball function. }
     \label{fig:cal-fit}
 \end{figure}
 The right panel of Fig.~\ref{fig:cal-fit} shows 
@@ -361,11 +375,11 @@ The results were compared to those determined using the ECC method (see \cite{ec
  which were found to be consistent within errors.
 The above steps are performed for each calibration run automatically 
 once the data is available at STIX data center.  The results are written to a
- collection in  NoSQL database.  It is accessible through a web page at STIX data center or python APIs.
+ dataset in  NoSQL database.  It is accessible through a web page at STIX data center or python APIs.
 
-Calibration factors are monitored automatically.
-Once significant changes are observed from those used onboard,  a new ELUT is 
-created and  then uploaded to STIX after validation by the operations team. 
+Calibration factors are monitored continuously. Once significant changes are 
+observed from those used for the construction of  the onboard ELUT, 
+ a new ELUT is  created and  then uploaded to STIX after validation by the operations team. 
 
 \subsection{Solar flare identification}
 The in-flight software identifies solar flares by comparing  the count rate of 
@@ -408,13 +422,22 @@ counts are extracted from the selected light curve and assigned
 an 8-digit identification number of the format yymmddHHMM, which represents the solar flare peak time. 
 For example, the identification number 2201010000  indicates that 
 the solar flare peak time is at 2022-01-01T00:00:00 UT. 
-The above steps are repeated  for the QL light curves of other four higher energies in the same time frame as they tell whether the flare 
-contains non-thermal components. 
-Then all extracted information as well as the ephemeris data are 
-written to a collection called solar flare list in the NoSQL database. 
+The above steps are repeated  for the QL light curves of other four higher energies
+in the same time frame. This can provide information on the upper limit of the X-ray energy produced by the flare,
+which is used to optimise the selection of scientific data to be downloaded. 
+Then all extracted information as well as the ephemeris data calculated for the peak time are 
+written to a dataset called solar flare list in the NoSQL database.
+The flare list database can be queried using web interface or stixpy.
+\subsection{Determination of background level}
+As we mentioned earlier, a threshold value calculated using background data needs to be provided when
+performing flare identification.  
+The background, although stable within a few days, can change over long periods of time,
+ a suitable threshold is important for the accuracy of the identification. 
+ Therefore, QL light curves for  quiet sun periods are selected by excluding flaring periods. 
+ Then median values and variances are calculated from the selected light curves and 
+ written to a dataset in the database. They are used as input for the next flare identification. 
+ Those processing steps are performed automatically after flare identification.
 
-As mentioned above, the flare detection algorithm requires a preset threshold. 
-{\it background database }
 \subsection{Solar flare data analysis pipeline}
 \subsubsection{Solar flare GOES classes}
 \begin{figure}
@@ -430,7 +453,7 @@ STIX count rate are background subtracted and corrected for the distance variati
 \label{fig:goes-stix}
 \end{figure}
 It is straightforward to calculate the GOES
-class for a STIX flare if the flare is also in the FOV of GOES. 
+class of a flare observed by STIX from GOES flux if it is observed by GOES. 
 However,  most of the time Solar Orbiter is far away from Earth and looks at 
 the sun from different angles. Therefore a considerable number of flares observed by STIX
  are not observed by near earth satellites (and vice verse). 
@@ -438,9 +461,7 @@ As already discussed in Ref.~\cite{andrea2021},
 it is possible to estimate GOES classes by using STIX count rates.
 In order to study the correction, we selected 717 solar flares observed by 
 by both GOES  and   STIX during the commissioning phase.   
-%In order to estimate the GOES classes of those flares, 
-%we studied correlation between peak flux measured by GOE16  and STIX  count rate.
-Fig.~\ref{fig:goes-stix} show the scatter plot of GOES low channel peak flux with respect to 
+Fig.~\ref{fig:goes-stix} shows the scatter plot of GOES low channel peak flux with respect to 
 STIX peak count rate  of the 4 -- 10 keV QL light curves. 
 STIX count rates  have been subtracted for background,  and corrected for 
 the difference distance of Solar Orbiter to the Sun using $c'=c r^2$, where $c$ is the count rate after background subtraction
@@ -458,23 +479,22 @@ where $a$ and $b$ are two free parameters, $f$ is the GOES flux  in units of W/m
 The obtained model is used to estimate  GOES classes 
  of flares that observed by STIX. 
 The results as well as those determined from GOES measurements
-are attached to flare entries in the flare list database, which is accessible 
-from the STIX solar flare web page at STIX data center. 
-\subsubsection{Calculation of coarse flare locations}
+are attached to  the flare entry in the flare list database. 
+\subsubsection{Coarse flare location}
 STIX uses a dedicated sub-collimator called Coarse Flare Locator (CFL) to estimate 
-the rough (within a few arcminutes) but unambiguous flare location after 
-a flare is identified onboard.
-  The Coarse Flare Locator (CFL) consists of a single grid with
-   a specific pattern which selectively illuminates pixels of a 
-   dedicated detector based on the source location.
-    The correlation between the counts in the pixels of this detector and a look-up table 
-    of pre-caculated expectations allows the location to be estimated promptly, 
-    within the constraints of on board processing. 
-    Using the downloaded measured counts 
-    in each pixel the coarse flare location can also be reconstructed on the ground. 
-    This allows for more sophisticated algorithms which require greater computational 
-    power than is available on board; greater flexibility as to which time and energy 
-    intervals are combined; and more careful background subtraction.
+rough location of flares.  The CFL consists of a front grid with
+a distinctive pattern which selectively illuminates pixels of a 
+dedicated detector based on the source location.
+Flare location is estimated onboard by maximizing
+the correlation of counts in the pixels of pixels and mean counts from other detectors   with expectations 
+calculated for an array of 65$\times$65 possible flare locations.
+However, due to the constraints of onboard computation, the onboard flare location is  only calculated for intermediate flares 
+and has an accuracy of about 2 arcmin. 
+With the downloaded measured counts  in each pixel,
+the coarse flare location can be reconstructed to on the ground as well. 
+This allows for more sophisticated algorithms, greater flexibility of selecting time and energy 
+range to be integrated, and more careful background subtraction.
+
 \begin{figure*}
   \centering
   \includegraphics[width=0.95\linewidth]{figures/cflMay07.pdf}
@@ -484,23 +504,28 @@ a flare is identified onboard.
    The best fit location is indicated with the symbol X. The 1 $\sigma$, 2 $\sigma$ and 3 $\sigma$ confidence
    regions are also shown. Right: shadow of CFL sub-collimator projected on the twelve CFL pixels.}
   \label{fig:cflpattern}
-  %/FHNW/STIX/SolarFlareAnalysis/stix_simulator/cfl
 \end{figure*}
+Estimation of the coarse location of a flare on ground is started after receiving the level-1 pixel data. 
+It includes the following steps:
+\begin{itemize}
+  \item Selection of pixel data based on the flare time range and energy range information stored in the flare list dataset;
+  \item Background subtraction. Using the 
+\end{itemize}
 
 
 
-
-\begin{figure*}
-  \centering
-  \includegraphics[width=0.7\linewidth]{figures/cflError.pdf}
-  \caption{Top: reconstructed coarse flare location solutions against actual locations along the x-axis (left) and y-axis (right). Bottom:
-  Differences between the reconstructed and randomly generated locations along
-   the x-axis (left) and y-axis (right). The generated sources are assumed to be point-like. Note that statistical
-   uncertainties are not considered here. 
-    }
-  \label{fig:cflerror}
+%\begin{figure*}
+%  \centering
+%  \includegraphics[width=0.7\linewidth]{figures/cflError.pdf}
+%  \caption{Top: reconstructed coarse flare location solutions against actual locations along the x-axis (left) and y-axis (right). Bottom:
+%  Differences between the reconstructed and randomly generated locations along
+%   the x-axis (left) and y-axis (right). The generated sources are assumed to be point-like. Note that statistical
+%   uncertainties are not considered here. 
+%    }
+%  \label{fig:cflerror}
   %/FHNW/STIX/SolarFlareAnalysis/stix_simulator/cfl
-\end{figure*}
+%\end{figure*}
+
 \section{STIX data products}
 \subsection{L1 data products}
 \begin{itemize}
