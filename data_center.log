@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.11.9)  28 FEB 2022 22:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.11.9)  28 FEB 2022 22:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -693,10 +693,10 @@ Package pdftex.def Info: figures/cflMay07.pdf  used on input line 499.
 <figures/cflError.pdf, id=185, 419.166pt x 274.626pt>
 File: figures/cflError.pdf Graphic file (type pdf)
 <use figures/cflError.pdf>
-Package pdftex.def Info: figures/cflError.pdf  used on input line 528.
+Package pdftex.def Info: figures/cflError.pdf  used on input line 530.
 (pdftex.def)             Requested size: 274.85242pt x 180.07619pt.
  [11 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cflMay07.pdf>]
-Overfull \hbox (8.75203pt too wide) in paragraph at lines 561--572
+Overfull \hbox (8.75203pt too wide) in paragraph at lines 563--574
  [][] 
  []
 
@@ -741,7 +741,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  98i,12n,102p,1605b,341s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.pdf (15 pages, 369352 bytes).
+Output written on /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.pdf (15 pages, 369604 bytes).
 PDF statistics:
  319 PDF objects out of 1000 (max. 8388607)
  148 compressed objects within 2 object streams
