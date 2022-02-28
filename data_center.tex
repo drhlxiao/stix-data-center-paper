@@ -298,16 +298,21 @@ and the latter contains names,
 raw values, engineering values (or decompressed integers) and child nodes of a list of parameters.
 Level-1 packets are written 
 to a NoSQL database. 
-The NoSQL database is schemaless,  making it ideal to store data with complex
-structures but small sizes like STIX level-1 packets. 
+NoSQL database is schemaless,  making it ideal to store data with complex
+structures but small sizes like STIX level-1 packets.  
+NoSQL is also 
+
 In addition to packets, the NoSQL also stores other data extracted by the parser during packets parsing, 
 for example, 
 \begin{itemize}
-  \item Raw file metadata, which contains filename, reception time, observation start time and stop time, MIB and SPICE kernels used by the parser ; 
+  \item Raw file metadata. contains filename, reception time, observation start time and stop time, MIB and SPICE kernels used by the parser ; 
   \item Bulk science metadata, which contains the observation time range, detector and pixels masks, energy ranges, 
    bulk science data types, and IDs of packets in the database; 
-  \item Quick-look data, containing  QL data type, observation time range, and array of counts or energies depending on the packet type;
-  \item STIX instrument configuration data, which is extracted from telemecommands, allowing tracking back of the instrument configuration;
+  \item Quick-look light curves.  The dataset contains data of counts, time range, energy bins extracted from QL LC packets, 
+     allowing for  quick access to QL data with web pages or APIs;
+  \item STIX instrument configurations. 
+  It contains the instrument configuration parameters for such as  energy conversion factors and AISICs, 
+  allowing fast tracking of the instrument settings;
 \end{itemize}
 The information are necessary for subsequent processing. The
 database is  accessible through web pages at STIX data center website or python APIs. 
@@ -499,7 +504,9 @@ range to be integrated, and more careful background subtraction.
    regions are also shown. Right: shadow of CFL sub-collimator projected on the twelve CFL pixels.}
   \label{fig:cflpattern}
 \end{figure*}
+A look-up table 
 Estimation of the coarse location of a flare on ground is started after receiving the level-1 pixel data. 
+
 It includes the following steps:
 \begin{itemize}
   \item Selection of pixel data based on the flare time range and energy range information stored in the flare list dataset;
