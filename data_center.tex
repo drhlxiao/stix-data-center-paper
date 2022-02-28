@@ -1,5 +1,5 @@
 %
-%\documentclass[referee]{aa} % for a referee version
+\documentclass[referee]{aa} % for a referee version
 %\documentclass[onecolumn]{aa} % for a paper on 1 column  
 %\documentclass[longauth]{aa} % for the long lists of affiliations 
 %\documentclass[letter]{aa} % for the letters 
@@ -7,7 +7,7 @@
 %                              according to the author-year natbib style
 
 
-\documentclass{aa}  
+%\documentclass{aa}  
 
 \usepackage{graphicx}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -497,21 +497,30 @@ range to be integrated, and more careful background subtraction.
 \begin{figure*}
   \centering
   \includegraphics[width=0.95\linewidth]{figures/cflMay07.pdf}
-  \caption{Left: area of exposed regions of 12 pixels calculated by combining
+  \caption{Left: simulated shadow pattern (black color) of CFL sub-collimator on STIX detector.
+    Left: area of exposed regions of 12 pixels calculated by combining
   the twelve pixels counts with averages from other detectors, and the best fit.
-   Middle: solution of flare location as seen by Solar Orbiter for Flare 202105070034.
+   Middle: solution of flare location as seen by Solar Orbiter for STIX flare  #2105071900.
    The best fit location is indicated with the symbol X. The 1 $\sigma$, 2 $\sigma$ and 3 $\sigma$ confidence
-   regions are also shown. Right: shadow of CFL sub-collimator projected on the twelve CFL pixels.}
+   regions are also shown. 
+   }
   \label{fig:cflpattern}
 \end{figure*}
-A look-up table 
-Estimation of the coarse location of a flare on ground is started after receiving the level-1 pixel data. 
 
+Estimation of the coarse location of a flare on ground is started after receiving the level-1 pixel data. 
 It includes the following steps:
 \begin{itemize}
   \item Selection of pixel data based on the flare time range and energy range information stored in the flare list dataset;
-  \item Background subtraction. Using the 
+  \item Background subtraction. The most recent level-1 dataset for the quiet sun period is used for background subtraction;
+  \item Calculation of the mean fluence except for the CFL and the background detectors; 
+      Except for the those two detectors, the ratio between the illuminated area and total area $r$ only depends on the 
+      slit width and the pitch width. It doesn't vary with the position of the flare in the STIX FOV.  
+      Therefore, the fluence of a detector can be given by $c/(r*S_d)$,  where $c$ is the registered 
+      count and $S_\textrm{det}$ the total area of 12 pixels. 
+  \item Calculation of illuminated area of CFL pixel $s_i$ 
+  %%\item 
 \end{itemize}
+
 
 
 
