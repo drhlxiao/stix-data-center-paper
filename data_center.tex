@@ -502,13 +502,12 @@ range to be integrated, and more careful background subtraction.
   \caption{
    Left: Areas of illuminated regions of 12 pixels calculated by combining
   the twelve pixels counts with averages from other detectors, and the best fit. 
-  Pixels 0 -- 3 are the top big pixels, Pixels 4 -- 7 are the bottom pixels and 8 -- 11 the small pixels.
+  Pixels 0 -- 3 are the top big pixels, Pixels 4 -- 7 are the bottom pixels and 8 -- 11 the small pixels as shown in the right panel.
    Middle: solution of flare location as seen by Solar Orbiter for STIX flare  2105071900.
-   The best fit centroid location is obtained at (550, 278) arcsec (marked by x).  Its 1$\sigma$, 2$\sigma$ and 3$\sigma$ confidence contours  are shown.
-    Right: 
-  Shadow (the grey shaded regions) of CFL sub-collimator on the detector 
-  simulated for the best fit flare location. }
-  \label{fig:cflpattern}
+   The best-fit centroid location is obtained at (550, 278) arcsec (marked by x).  Its 1$\sigma$, 2$\sigma$ and 3$\sigma$ confidence contours  are shown.
+    Right:  Shadow (the grey shaded regions) of CFL sub-collimator on the detector 
+  simulated for the best-fit flare location. }
+  \label{fig:cfl}
 \end{figure*}
 
 Estimation of the coarse location of a flare on ground is performed
@@ -522,34 +521,21 @@ It includes the following steps:
       slit width and the pitch width. It doesn't vary with the position of the flare in the STIX FOV.  
       Therefore, the fluence of a detector can be given by $F=c/(r*S_d)$,  where $c$ is the registered 
       count and $S_\textrm{det}$ the sum of the sensitive areas of twelve pixels. 
-  \item Calculation of illuminated areas of CFL pixels $\vec{S}$ using $\vec{S} = \vec{C}/F$, where $C$  is an array of counts 
+  \item Calculation of the illuminated areas on CFL pixels $\vec{S}$ using $\vec{S} = \vec{C}/F$, where $C$  is an array of counts 
   recorded by 12 pixels. Their errors of the areas are also calculated; 
-  \item  Coarse flare location estimation is performed by minizi
-
-  %%\item 
+  \item  Coarse flare location is estimated by minimizing the weighted sum of squared deviations 
+  (i.e. chi-squared) between  the calculated illuminated areas and  expectations
+  simulated for potential flare locations in a 400 $\times$ 400 grid, whose locations are separated by 10 arcsec.  
 \end{itemize}
+As an example, the left panel of Fig.~\ref{fig:cfl} shows the calculated and best-fit illuminated areas 
+of the CFL pixels measure observed for STIX flare 2105071900, the middle panel shows the best-fit 
+flare centroid location, as well as its $1\sigma$, $2\sigma$ and $3\sigma$ contours. 
+The simulated shadow of the CFL sub-collimator  is shown in the right panel. 
 
 
-
-
-\begin{figure*}
-  \centering
-  \includegraphics[width=0.7\linewidth]{figures/cflError.pdf}
-  \caption{Top: reconstructed coarse flare location solutions against actual locations along the x-axis (left) and y-axis (right). Bottom:
-  Differences between the reconstructed and randomly generated locations along
-   the x-axis (left) and y-axis (right). The generated sources are assumed to be point-like. Note that statistical
-   uncertainties are not considered here. 
-    }
-  \label{fig:cflerror}
- %/FHNW/STIX/SolarFlareAnalysis/stix_simulator/cfl
-\end{figure*}
 
 \section{STIX data products}
-
-
-
 The Level0 archive contains TM which has been parsed or decommuated into readable structures but no additional external information is include:
-
 times are not converted to UTC
 no calibration or conversions applied
 for STIX we need to decide if we decompress / combine X-ray L0 the count/trigger data at this stage or in the next level L1
