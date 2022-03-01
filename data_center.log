@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.11.9)  1 MAR 2022 09:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.11.9)  1 MAR 2022 09:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -621,6 +621,11 @@ LaTeX Font Info:    Font shape `T1/txss/b/n' in size <10.95> not available
 (Font)              Font shape `T1/txss/bx/n' tried instead on input line 82.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
 (Font)              scaled to size 10.40245pt on input line 82.
+LaTeX Font Info:    Font shape `T1/txr/b/n' in size <10> not available
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 89.
+
+Package natbib Warning: Citation `SolarOrbiter2020' on page 1 undefined on input line 89.
+
 
 Underfull \vbox (badness 1924) has occurred while \output is active []
 
@@ -630,26 +635,50 @@ Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is usel
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+
+Package natbib Warning: Citation `StixInstrument' on page 2 undefined on input line 100.
+
+[2]
+
+Package natbib Warning: Citation `StixInstrument' on page 3 undefined on input line 142.
+
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
 (Font)              scaled to size 9.49997pt on input line 144.
 LaTeX Font Info:    Font shape `T1/txss/m/it' in size <10> not available
 (Font)              Font shape `T1/txss/m/sl' tried instead on input line 144.
 LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
 (Font)              scaled to size 9.49997pt on input line 144.
-LaTeX Font Info:    Font shape `T1/txr/b/n' in size <10> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 164.
- [3]
+[3]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+
+Package natbib Warning: Citation `EDDS' on page 4 undefined on input line 248.
+
 [4]
+
+Package natbib Warning: Citation `spice1996' on page 5 undefined on input line 255.
+
+
+Package natbib Warning: Citation `spice2018' on page 5 undefined on input line 255.
+
 <figures/pipelines.pdf, id=24, 963.6pt x 532.99126pt>
 File: figures/pipelines.pdf Graphic file (type pdf)
 <use figures/pipelines.pdf>
 Package pdftex.def Info: figures/pipelines.pdf  used on input line 265.
 (pdftex.def)             Requested size: 353.38081pt x 195.46326pt.
- [5 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/pipelines.pdf>]
+[5 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/pipelines.pdf>]
+
+Package natbib Warning: Citation `spice1996' on page 6 undefined on input line 290.
+
+
+Package natbib Warning: Citation `spice2018' on page 6 undefined on input line 290.
+
+
+Package natbib Warning: Citation `fits' on page 6 undefined on input line 327.
+
+
 Underfull \vbox (badness 7888) has occurred while \output is active []
 
  [6]
@@ -659,10 +688,17 @@ File: figures/cal-fit.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/cal-fit.pdf  used on input line 359.
 (pdftex.def)             Requested size: 314.11961pt x 197.78679pt.
 
-Underfull \vbox (badness 2538) has occurred while \output is active []
 
- [7] [8 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cal-fit.pdf, page is rotated 90 degrees>]
-<figures/flaredet.pdf, id=93, 462.52798pt x 346.89601pt>
+Package natbib Warning: Citation `crsystallball' on page 7 undefined on input line 370.
+
+
+Package natbib Warning: Citation `ecc' on page 7 undefined on input line 375.
+
+
+Package natbib Warning: Citation `ecc2' on page 7 undefined on input line 375.
+
+[7]
+<figures/flaredet.pdf, id=46, 462.52798pt x 346.89601pt>
 File: figures/flaredet.pdf Graphic file (type pdf)
 <use figures/flaredet.pdf>
 Package pdftex.def Info: figures/flaredet.pdf  used on input line 411.
@@ -672,74 +708,49 @@ Overfull \hbox (6.49155pt too wide) in paragraph at lines 418--420
 []\T1/txr/m/n/10 As an ex-am-ple, Fig. 3[] shows the 4 -- 10 keV QL light curve recorded from 2022-02-13T21:00:00Z
  []
 
-[9 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/flaredet.pdf>]
-<figures/goes_stix_flux_paper.pdf, id=136, 569.12625pt x 414.54875pt>
+[8 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cal-fit.pdf, page is rotated 90 degrees>]
+<figures/goes_stix_flux_paper.pdf, id=94, 569.12625pt x 414.54875pt>
 File: figures/goes_stix_flux_paper.pdf Graphic file (type pdf)
 <use figures/goes_stix_flux_paper.pdf>
 Package pdftex.def Info: figures/goes_stix_flux_paper.pdf  used on input line 446.
 (pdftex.def)             Requested size: 314.11961pt x 228.81218pt.
+
+Underfull \vbox (badness 2951) has occurred while \output is active []
+
+ [9 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/flaredet.pdf>]
+
+Package natbib Warning: Citation `andrea2021' on page 10 undefined on input line 461.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [10 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/goes_stix_flux_paper.pdf, page is rotated 90 degrees>]
 <figures/cflMay07.pdf, id=184, 867.24pt x 252.945pt>
 File: figures/cflMay07.pdf Graphic file (type pdf)
 <use figures/cflMay07.pdf>
 Package pdftex.def Info: figures/cflMay07.pdf  used on input line 501.
 (pdftex.def)             Requested size: 373.01442pt x 108.7951pt.
- [11 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cflMay07.pdf>]
-<figures/cflError.pdf, id=239, 419.166pt x 274.626pt>
+<figures/cflError.pdf, id=185, 419.166pt x 274.626pt>
 File: figures/cflError.pdf Graphic file (type pdf)
 <use figures/cflError.pdf>
 Package pdftex.def Info: figures/cflError.pdf  used on input line 533.
 (pdftex.def)             Requested size: 274.85242pt x 180.07619pt.
-
+ [11 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cflMay07.pdf>]
 Overfull \hbox (8.75203pt too wide) in paragraph at lines 566--577
  [][] 
  []
 
-
-Underfull \vbox (badness 4096) has occurred while \output is active []
-
- [12 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cflError.pdf>] [13] [14] (/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.bbl) [15] (/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.aux
-
-Package natbib Warning: Citation `spice2018' multiply defined.
-
-
-Package natbib Warning: Citation `spice1996' multiply defined.
-
-
-Package natbib Warning: Citation `andrea2021' multiply defined.
-
-
-Package natbib Warning: Citation `SolarOrbiter2020' multiply defined.
-
-
-Package natbib Warning: Citation `StixInstrument' multiply defined.
-
-
-Package natbib Warning: Citation `ecc' multiply defined.
-
-
-Package natbib Warning: Citation `ecc2' multiply defined.
-
-
-Package natbib Warning: Citation `EDDS' multiply defined.
-
-
-Package natbib Warning: Citation `fits' multiply defined.
-
-
-Package natbib Warning: Citation `crsystallball' multiply defined.
-
-) ) 
+[12 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cflError.pdf>] [13] [14] (/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.bbl) [15] (/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.aux) ) 
 Here is how much of TeX's memory you used:
  8514 strings out of 481252
  121143 string characters out of 5915888
- 432127 words of memory out of 5000000
+ 429458 words of memory out of 5000000
  25265 multiletter control sequences out of 15000+600000
  483499 words of font info for 154 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,12n,102p,1605b,341s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 98i,12n,102p,1603b,341s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.pdf (15 pages, 369915 bytes).
+Output written on /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.pdf (15 pages, 374523 bytes).
 PDF statistics:
  319 PDF objects out of 1000 (max. 8388607)
  148 compressed objects within 2 object streams
