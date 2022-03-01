@@ -510,29 +510,27 @@ range to be integrated, and more careful background subtraction.
   \label{fig:cfl}
 \end{figure*}
 
-Estimation of the coarse location of a flare on ground is performed
-for each flare after the pixel data (onboard L1) are . 
-It includes the following steps:
+The coarse location of a flare  is estimated on ground after its pixel data (onboard level-1) is parsed.
+The procedure consists of the following steps:
 \begin{itemize}
   \item Selection of pixel data based on the flare time range and energy range information stored in the flare list dataset;
   \item Subtraction of background. The most recent level-1 dataset for the quiet sun period is used for background subtraction;
   \item Calculation of the mean fluence except for the CFL and the background detectors; 
       Except for the those two detectors, the ratio between the illuminated area and total area $r$ only depends on the 
       slit width and the pitch width. It doesn't vary with the position of the flare in the STIX FOV.  
-      Therefore, the fluence of a detector can be given by $F=c/(r*S_d)$,  where $c$ is the registered 
+      Therefore, the fluence of a detector can be given by $F=c/(r S_d)$,  where $c$ is the registered 
       count and $S_\textrm{det}$ the sum of the sensitive areas of twelve pixels. 
   \item Calculation of the illuminated areas on CFL pixels $\vec{S}$ using $\vec{S} = \vec{C}/F$, where $C$  is an array of counts 
   recorded by 12 pixels. Their errors of the areas are also calculated; 
   \item  Coarse flare location is estimated by minimizing the weighted sum of squared deviations 
   (i.e. chi-squared) between  the calculated illuminated areas and  expectations
   simulated for potential flare locations in a 400 $\times$ 400 grid, whose locations are separated by 10 arcsec.  
+  \item Saving the calculated flare location to the flare list dataset. 
 \end{itemize}
 As an example, the left panel of Fig.~\ref{fig:cfl} shows the calculated and best-fit illuminated areas 
 of the CFL pixels measure observed for STIX flare 2105071900, the middle panel shows the best-fit 
 flare centroid location, as well as its $1\sigma$, $2\sigma$ and $3\sigma$ contours. 
 The simulated shadow of the CFL sub-collimator  is shown in the right panel. 
-
-
 
 \section{STIX data products}
 The Level0 archive contains TM which has been parsed or decommuated into readable structures but no additional external information is include:
