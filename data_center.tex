@@ -483,12 +483,12 @@ The results as well as those determined from GOES measurements
 are attached to  the flare entry in the flare list database. 
 \subsubsection{Coarse flare location}
 STIX uses a dedicated sub-collimator called Coarse Flare Locator (CFL) to estimate 
-rough location of flares.  The CFL consists of a front grid with
+centroid location of flares, which can provide constraints on flaring regions when reconstructing the images. 
+The CFL consists of a front grid with
 a distinctive pattern which selectively illuminates pixels of a 
 dedicated detector based on the source location.
-Flare location is estimated onboard by maximizing
-the correlation of counts in the pixels of pixels and mean counts from other detectors   with expectations 
-calculated for an array of 65$\times$65 possible flare locations.
+Flare location is estimated onboard by maximizing the correlation between observed CFL pixels counts 
+with expected counts using a look-up table. 
 However, due to the constraints of onboard computation, the onboard flare location is  only calculated for intermediate flares 
 and has an accuracy of about 2 arcmin. 
 With the downloaded measured counts  in each pixel,
@@ -503,8 +503,8 @@ range to be integrated, and more careful background subtraction.
    Left: Areas of illuminated regions of 12 pixels calculated by combining
   the twelve pixels counts with averages from other detectors, and the best fit. 
   Pixels 0 -- 3 are the top big pixels, Pixels 4 -- 7 are the bottom pixels and 8 -- 11 the small pixels as shown in the right panel.
-   Middle: solution of flare location as seen by Solar Orbiter for STIX flare  2105071900.
-   The best-fit centroid location is obtained at (550, 278) arcsec (marked by x).  Its 1$\sigma$, 2$\sigma$ and 3$\sigma$ confidence contours  are shown.
+   Middle: Best-fit flare centroid location (marked by x) and its 1$\sigma$, 2$\sigma$ and 3$\sigma$ confidence contours.
+   The best-fit location is obtained at (550, 278) sec. 
     Right:  Shadow (the grey shaded regions) of CFL sub-collimator on the detector 
   simulated for the best-fit flare location. }
   \label{fig:cfl}
@@ -523,12 +523,12 @@ The procedure consists of the following steps:
   \item Calculation of the illuminated areas on CFL pixels $\vec{S}$ using $\vec{S} = \vec{C}/F$, where $C$  is an array of counts 
   recorded by 12 pixels. Their errors of the areas are also calculated; 
   \item  Coarse flare location is estimated by minimizing the weighted sum of squared deviations 
-  (i.e. chi-squared) between  the calculated illuminated areas and  expectations
+  (i.e. weighted chi-squares) between  the calculated illuminated areas and  expectations
   simulated for potential flare locations in a 400 $\times$ 400 grid, whose locations are separated by 10 arcsec.  
   \item Saving the calculated flare location to the flare list dataset. 
 \end{itemize}
 As an example, the left panel of Fig.~\ref{fig:cfl} shows the calculated and best-fit illuminated areas 
-of the CFL pixels measure observed for STIX flare 2105071900, the middle panel shows the best-fit 
+of the CFL pixels measure observed for STIX flare 2105071900 (GOES class M3.9);   the middle panel shows the best-fit 
 flare centroid location, as well as its $1\sigma$, $2\sigma$ and $3\sigma$ contours. 
 The simulated shadow of the CFL sub-collimator  is shown in the right panel. 
 
