@@ -327,6 +327,8 @@ level-1 data products (Level-1A)
  in the FITS format (\cite{fits}), 
 which is a portable file standard widely used in the astronomy 
 community to store images and tables.
+It should be noted that the data levels mentioning here are data processing levels. 
+In order not to confuse two conventions, we use different notations to indicate onboard level in this paper. 
 Metadata such as observation time range, creation time, filenames,  checksum are written to 
 the primary header data units (HDU) of fits files. 
 They are also written to a dataset in the database.
@@ -502,13 +504,14 @@ range to be integrated, and more careful background subtraction.
    Middle: Area of illuminated regions of 12 pixels calculated by combining
   the twelve pixels counts with averages from other detectors, and the best fit.
    Middle: solution of flare location as seen by Solar Orbiter for STIX flare  2105071900.
-   The best fit is obtained at (550, 278) arcsecdGFAGGGGGGGGGG
+   The best fit is obtained at (550, 278) arcsec.
    The best fit location is indicated with the symbol X. The 1 $\sigma$, 2 $\sigma$ and 3 $\sigma$ confidence
    regions are also shown. }
   \label{fig:cflpattern}
 \end{figure*}
 
-Estimation of the coarse location of a flare on ground is started after receiving the level-1 pixel data. 
+Estimation of the coarse location of a flare on ground is performed
+for each flare after the pixel data (onboard L1) are . 
 It includes the following steps:
 \begin{itemize}
   \item Selection of pixel data based on the flare time range and energy range information stored in the flare list dataset;
