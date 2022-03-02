@@ -531,13 +531,9 @@ As an example, the left panel of Fig.~\ref{fig:cfl} shows the calculated and bes
 of the CFL pixels measure observed for STIX flare 2105071900 (GOES class M3.9);   the middle panel shows the best-fit 
 flare centroid location, as well as its $1\sigma$, $2\sigma$ and $3\sigma$ contours. 
 The simulated shadow of the CFL sub-collimator  is shown in the right panel. 
-
-\section{STIX data products}
-The Level0 archive contains TM which has been parsed or decommuated into readable structures but no additional external information is include:
-times are not converted to UTC
-no calibration or conversions applied
-for STIX we need to decide if we decompress / combine X-ray L0 the count/trigger data at this stage or in the next level L1
-
+\subsubsection{Joint}
+\subsubsection{Spectral analysis software}
+\subsubsection{Image reconstruction}
 
 %\subsection{Auxilary data}
 
@@ -624,45 +620,19 @@ They are converted to instrument operation requests (IORs) after a series of che
 Requested data will arrive at STIX data center within a time frame of two weeks to three months, depending on
 telemetry allocations.
 
-\section{Database}
-\subsection{Raw data packet database} 
-\subsection{Configuration database}
-\section{Web data browsers}
-\subsection{Quick-look light curve}
-\subsection{Science data quick analysis}
-\subsubsection{Calibration data}
-
-calibration data products
+\section{Interfaces and tools for users}
+\subsection{STIX data browsers}
+Caching, balencing and preprocessing
+\subsection{Data access}
+\subsection{Data query APIs}
+Calibration data products
 https://fermi.gsfc.nasa.gov/ssc/data/access/gbm/
-\subsubsection{Solar Orbiter orbit viewer}
-The ISDC maintains a web page through which
-data, software, its newletter, general information and links
-to other sites are provided. This is accessible through
-http://isdc.unige.ch
-
-When a new data file from the platform is received at the PPDC,
-it triggers an autonomous start of the dedicated program that decodes and
-interprets its contents. The binary data contain the spacecraft location, attitude, speed, and GPS timestamps with increments every half second. The GPS timestamps are converted into Unix-timestamps, where the leap seconds are also considered. After processing, the platform data are written to the ROOT format files. The data start and stop time, data processing time, input filename and ID of the output file of each processing are recorded in a dedicated database table.
-SPICE kernel
-
-Updated once per day.
-
-At the center of the Sun.
-It is worth mentioning that has to corrected for.
-This can be done by using the web tool provided at the auxiliary data center at
-
-
 \section{Tools for scientitic analysis }
 \subsection{Data access and APIs}
 stixdcpy allows you to query and download data which are available at STIX data center, include
 Quick-look light curves
 Housekeeping data
 Science data
-Energy calibration dat which are later included to the low-latency telemetry stream.
-Auxilary data
-STIX solar flare list
-\subsection{Spectral analysis software}
-\subsection{STIX Imagging software}
 
 
 
