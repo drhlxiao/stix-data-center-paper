@@ -380,7 +380,7 @@ once the data is available at STIX data center.  The results are written to a
 
 Calibration factors are monitored continuously. Once significant changes are 
 observed from those used for the construction of  the onboard ELUT, 
- a new ELUT is  created and  then uploaded to STIX after validation by the operations team. 
+ a new ELUT is  created and  then uploaded to STIX after being validated by the operations team. 
 
 \subsection{Solar flare identification}
 The in-flight software identifies solar flares by comparing  the count rate of 
@@ -440,7 +440,7 @@ The background, although stable within a few days, can change over long periods 
  Those processing steps are performed automatically after flare identification.
 
 \subsection{Solar flare data analysis pipeline}
-\subsubsection{Solar flare GOES classes}
+\subsubsection{GOES class determination}
 \begin{figure}
   \centering
   \includegraphics[width=0.8\linewidth]{figures/goes_stix_flux_paper.pdf}
@@ -481,9 +481,9 @@ The obtained model is used to estimate  GOES classes
  of flares that observed by STIX. 
 The results as well as those determined from GOES measurements
 are attached to  the flare entry in the flare list database. 
-\subsubsection{Coarse flare location}
-STIX uses a dedicated sub-collimator called Coarse Flare Locator (CFL) to estimate 
-centroid location of flares, which can provide constraints on flaring regions when reconstructing the images. 
+\subsubsection{Coarse flare location estimation}
+Flare centroid location can constraint flaring region when reconstructing flare images.
+STIX uses a dedicated sub-collimator called Coarse Flare Locator (CFL) to estimate flare locations.
 The CFL consists of a front grid with
 a distinctive pattern which selectively illuminates pixels of a 
 dedicated detector based on the source location.
@@ -510,7 +510,7 @@ range to be integrated, and more careful background subtraction.
   \label{fig:cfl}
 \end{figure*}
 
-The coarse location of a flare  is estimated on ground after its pixel data (onboard level-1) is parsed.
+The coarse location of a  observed flare is estimated on ground after its pixel data (onboard level-1) is parsed.
 The procedure consists of the following steps:
 \begin{itemize}
   \item Selection of pixel data based on the flare time range and energy range information stored in the flare list dataset;
@@ -531,15 +531,13 @@ As an example, the left panel of Fig.~\ref{fig:cfl} shows the calculated and bes
 of the CFL pixels measure observed for STIX flare 2105071900 (GOES class M3.9);   the middle panel shows the best-fit 
 flare centroid location, as well as its $1\sigma$, $2\sigma$ and $3\sigma$ contours. 
 The simulated shadow of the CFL sub-collimator  is shown in the right panel. 
-\subsubsection{Spectral analysis software}
-\subsubsection{Image reconstruction}
-
-%\subsection{Auxilary data}
+\subsubsection{Flare X-ray spectroscopy}
+\subsubsection{Flare imaging}
 
 \section{Data selection and automation}
 To wisely allocate the limited telemetry available to STIX,
 the STIX instruments first sends only QuickLook (QL) data at
-low resolution to the ground (for details see Krucker et al. 2020).
+low resolution to the ground(for details see \cite{StixInstrument}).
 Figure 3 shows the STIX QL lightcurve at the lowest energy
 channel (4-10 keV) during the time period from June 4 through
 June 14. From the QL data, the STIX team then selects the sci-
