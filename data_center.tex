@@ -316,8 +316,8 @@ for example,
 \end{itemize}
 The information are necessary for subsequent processing. The
 database is  accessible through web pages at STIX data center website or python APIs. 
-\subsection{FITS file creation}
-\subsubsection{Level-1A FITS files}
+\subsection{FITS file}
+\subsubsection{Level-1 FITS files}
 After each new raw telemetry file is being parsed, 
 housekeeping, quick-look, and science packets  
 are selected from the NoSQL database successively 
@@ -333,7 +333,6 @@ Metadata such as observation time range, creation time, filenames,  checksum are
 the primary header data units (HDU) of fits files. 
 They are also written to a dataset in the database.
 
-\subsubsection{Level-1 FITS files}
 Level-1A FITS files are generated automatically and available at STIX data center within minutes 
 after the reception of a raw file.
 It should be noticed that predicted SPICE kernels may be used when the reconstructed spice kernels  
@@ -341,8 +340,9 @@ are not available, and the L1A data are subjected to some known issues
 due to bugs in the early version of the flight software.
 After all resources are validated,  Level-1  FITS files are created again. 
 Level-1  FITS products have almost the same data structures as Level-1A.
-
 \subsubsection{Level-2 FITS files}
+Level-1 fits are further processed. 
+Dead time  correction and energy this make up the second
 
 
 \subsection{Energy calibration}
@@ -538,6 +538,11 @@ It
 \subsubsection{Flare imaging}
 \subsubsection{Joint observations}
 \section{Data request and automation}
+data volumne estimation
+
+l1 data request condition
+
+
 To wisely allocate the limited telemetry available to STIX,
 the STIX instruments first sends only QuickLook (QL) data at
 low resolution to the ground(for details see \cite{StixInstrument}).
