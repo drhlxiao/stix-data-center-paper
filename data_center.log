@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.11.9)  16 MAR 2022 15:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.11.9)  16 MAR 2022 15:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -57,30 +57,7 @@ Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
 Package: inputenc 2020/08/01 v1.3d Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
-) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
- (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: pdftex.def on input line 225.
- (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
-)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
-Package xcolor Info: Model `RGB' extended on input line 1364.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-) (/usr/share/texlive/texmf-dist/tex/latex/marginnote/marginnote.sty
-Package: marginnote 2018/08/09 v1.4b non floating margin notes for LaTeX
-\c@mn@abspage=\count189
-)
-\c@lenote=\count190
- (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
@@ -90,9 +67,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
  (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count191
-\Gm@cntv=\count192
-\c@Gm@tempcnt=\count193
+\Gm@cnth=\count189
+\Gm@cntv=\count190
+\c@Gm@tempcnt=\count191
 \Gm@bindingoffset=\dimen141
 \Gm@wd@mp=\dimen142
 \Gm@odd@mp=\dimen143
@@ -126,7 +103,7 @@ Package: cuted 2012/10/04 v1.5 Mixing onecolumn and twocolumn modes
 \lastbox@a=\box49
 \stripsep=\skip67
 \@viper=\box50
-\viper@penalty=\count194
+\viper@penalty=\count192
 \hold@viper=\box51
 \ht@viper=\dimen149
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
@@ -146,13 +123,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count195
+\inf@bad=\count193
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count196
-\leftroot@=\count197
+\uproot@=\count194
+\leftroot@=\count195
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count198
-\DOTSCASE@=\count199
+\classnum@=\count196
+\DOTSCASE@=\count197
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -161,16 +138,16 @@ LaTeX Info: Redefining \cdots on input line 620.
 \big@size=\dimen152
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-Normal \count register pool exhausted, switching to extended pool.
-\macc@depth=\count277
-\c@MaxMatrixCols=\count278
+\macc@depth=\count198
+\c@MaxMatrixCols=\count199
 \dotsspace@=\muskip16
-\c@parentequation=\count279
-\dspbrk@lvl=\count280
+Normal \count register pool exhausted, switching to extended pool.
+\c@parentequation=\count277
+\dspbrk@lvl=\count278
 \tag@help=\toks21
-\row@=\count281
-\column@=\count282
-\maxfields@=\count283
+\row@=\count279
+\column@=\count280
+\maxfields@=\count281
 \andhelp@=\toks22
 \eqnshift@=\dimen153
 \alignsep@=\dimen154
@@ -205,36 +182,36 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTright=\skip72
 \LTpre=\skip73
 \LTpost=\skip74
-\LTchunksize=\count284
+\LTchunksize=\count282
 \LTcapwidth=\dimen159
 \LT@head=\box54
 \LT@firsthead=\box55
 \LT@foot=\box56
 \LT@lastfoot=\box57
-\LT@cols=\count285
-\LT@rows=\count286
-\c@LT@tables=\count287
-\c@LT@chunks=\count288
+\LT@cols=\count283
+\LT@rows=\count284
+\c@LT@tables=\count285
+\c@LT@chunks=\count286
 \LT@p@ftn=\toks26
 ) (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip75
 \bibsep=\skip76
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count289
+\c@NAT@ctr=\count287
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2021/01/26 3.53 The Babel package
  (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2021/01/26 3.53 Babel common definitions
-\babel@savecnt=\count290
+\babel@savecnt=\count288
 \U@D=\dimen160
 \l@babelnohyphens=\language3
  (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
 )
-\bbl@dirlevel=\count291
+\bbl@dirlevel=\count289
  (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: \l@british = using hyphenrules for english
@@ -259,25 +236,27 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
-)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
 \Gin@req@height=\dimen161
 \Gin@req@width=\dimen162
 ) (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\c@r@tfl@t=\count292
+\c@r@tfl@t=\count290
 \rotFPtop=\skip77
 \rotFPbot=\skip78
 \rot@float@box=\box58
 \rot@mess@toks=\toks27
 )
-\aa@cnta=\count293
-\aa@cntb=\count294
-\aa@nbwords=\count295
-\aa@nbauthors=\count296
-\aa@nbinstitutes=\count297
-\c@aa@institutecnt=\count298
-\aa@savecounter=\count299
+\aa@cnta=\count291
+\aa@cntb=\count292
+\aa@nbwords=\count293
+\aa@nbauthors=\count294
+\aa@nbinstitutes=\count295
+\c@aa@institutecnt=\count296
+\aa@savecounter=\count297
 \aa@dima=\skip79
 \aa@dimb=\skip80
 \aa@dimc=\skip81
@@ -331,15 +310,8 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \yearCop=\toks29
 \aa@stripbox=\box59
 \aa@outputbox=\box60
-
-
-Package fancyhdr Warning: \fancyhead's `E' option without twoside option is useless on input line 705.
-
-
-Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 705.
-
-\c@AAproof=\count300
-\c@AAtheorem=\count301
+\c@AAproof=\count298
+\c@AAtheorem=\count299
 ) (/usr/share/texlive/texmf-dist/tex/latex/txfonts/txfonts.sty
 Package: txfonts 2008/01/22 v3.2.1
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 21.
@@ -428,7 +400,7 @@ LaTeX Info: Redefining \not on input line 1043.
 ) (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/01/29 v2.7 Span multiple rows of a table
 \multirow@colwidth=\skip128
-\multirow@cntb=\count302
+\multirow@cntb=\count300
 \multirow@dima=\skip129
 \bigstrutjot=\dimen163
 ) (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
@@ -453,23 +425,23 @@ Package caption Warning: Unknown document class (or package),
 (caption)                standard defaults will be used.
 See the caption package documentation for explanation.
 
-\c@caption@flags=\count303
-\c@continuedfloat=\count304
+\c@caption@flags=\count301
+\c@continuedfloat=\count302
 Package caption Info: longtable package is loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
 )
 Package caption Info: rotating package is loaded.
 )
-\c@subfigure=\count305
-\c@subtable=\count306
+\c@subfigure=\count303
+\c@subtable=\count304
 )
 LaTeX Font Info:    Trying to load font information for T1+txr on input line 20.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txr.fd
 File: t1txr.fd 2000/12/15 v3.1
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2020-01-29 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count307
+\l__color_backend_stack_int=\count305
 \l__pdf_internal_box=\box61
 ) (/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.aux)
 \openout1 = `data_center.aux'.
@@ -504,18 +476,52 @@ LaTeX Font Info:    Trying to load font information for U+txexa on input line 20
 File: utxexa.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    ... okay on input line 20.
- (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(36.98859pt, 523.5307pt, 36.98859pt)
+* v-part:(T,H,B)=(56.01874pt, 705.0pt, 84.0281pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=523.5307pt
+* \textheight=705.0pt
+* \oddsidemargin=-35.2814pt
+* \evensidemargin=-35.2814pt
+* \topmargin=-40.25125pt
+* \headheight=12.0pt
+* \headsep=12.0pt
+* \topskip=10.0pt
+* \footskip=20.0pt
+* \marginparwidth=0.0pt
+* \marginparsep=0.0pt
+* \columnsep=11.38109pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumntrue
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count308
+\scratchcounter=\count306
 \scratchdimen=\dimen171
 \scratchbox=\box62
-\nofMPsegments=\count309
-\nofMParguments=\count310
+\nofMPsegments=\count307
+\nofMParguments=\count308
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count311
+\MPscratchCnt=\count309
 \MPscratchDim=\dimen172
-\MPnumerator=\count312
-\makeMPintoPDFobject=\count313
+\MPnumerator=\count310
+\makeMPintoPDFobject=\count311
 \everyMPtoPDFconversion=\toks31
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -523,43 +529,10 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-*geometry* detected driver: pdftex
-*geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
-* paper: a4paper
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
-* h-part:(L,W,R)=(42.67912pt, 392.64803pt, 162.18073pt)
-* v-part:(T,H,B)=(56.01874pt, 705.0pt, 84.0281pt)
-* \paperwidth=597.50787pt
-* \paperheight=845.04684pt
-* \textwidth=392.64803pt
-* \textheight=705.0pt
-* \oddsidemargin=-29.59087pt
-* \evensidemargin=-29.59087pt
-* \topmargin=-40.25125pt
-* \headheight=12.0pt
-* \headsep=12.0pt
-* \topskip=10.0pt
-* \footskip=20.0pt
-* \marginparwidth=142.26378pt
-* \marginparsep=14.22636pt
-* \columnsep=11.38109pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for TS1+txr on input line 78.
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/ts1txr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ts1txr.fd
 File: ts1txr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for OT1+txr on input line 78.
@@ -606,15 +579,6 @@ LaTeX Font Info:    Font shape `T1/txss/m/it' in size <9> not available
 (Font)              Font shape `T1/txss/m/sl' tried instead on input line 78.
 LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
 (Font)              scaled to size 8.54997pt on input line 78.
-
-
-
-IMPORTANT
-
-Class aa Warning: The running head built automatically from \author and \titleexceeds the pagewidth, please supply a shorter form with \authorrunning and/or \titlerunning prior to \maketitle on input line 78.
-
-IMPORTANT 
-
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
 (Font)              scaled to size 10.40245pt on input line 82.
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <10.95> not available
@@ -622,15 +586,12 @@ LaTeX Font Info:    Font shape `T1/txss/b/n' in size <10.95> not available
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
 (Font)              scaled to size 10.40245pt on input line 82.
 
-Underfull \vbox (badness 1924) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-
-Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 92.
-
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+]
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
 (Font)              scaled to size 9.49997pt on input line 144.
 LaTeX Font Info:    Font shape `T1/txss/m/it' in size <10> not available
@@ -639,55 +600,55 @@ LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
 (Font)              scaled to size 9.49997pt on input line 144.
 LaTeX Font Info:    Font shape `T1/txr/b/n' in size <10> not available
 (Font)              Font shape `T1/txr/bx/n' tried instead on input line 164.
- [3]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[4]
-<figures/pipelines.pdf, id=24, 963.6pt x 532.99126pt>
+ [2]
+<figures/pipelines.pdf, id=19, 963.6pt x 532.99126pt>
 File: figures/pipelines.pdf Graphic file (type pdf)
 <use figures/pipelines.pdf>
 Package pdftex.def Info: figures/pipelines.pdf  used on input line 265.
-(pdftex.def)             Requested size: 353.38081pt x 195.46326pt.
- [5 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/pipelines.pdf>]
-Underfull \vbox (badness 3108) has occurred while \output is active []
-
- [6]
-<figures/cal-fit.pdf, id=40, 569.12625pt x 358.33875pt>
+(pdftex.def)             Requested size: 471.17442pt x 260.61497pt.
+<figures/cal-fit.pdf, id=20, 569.12625pt x 358.33875pt>
 File: figures/cal-fit.pdf Graphic file (type pdf)
 <use figures/cal-fit.pdf>
 Package pdftex.def Info: figures/cal-fit.pdf  used on input line 359.
-(pdftex.def)             Requested size: 314.11961pt x 197.78679pt.
+(pdftex.def)             Requested size: 204.86061pt x 128.98544pt.
+ [3]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Underfull \vbox (badness 5245) has occurred while \output is active []
-
- [7] [8 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cal-fit.pdf, page is rotated 90 degrees>]
-<figures/flaredet.pdf, id=93, 462.52798pt x 346.89601pt>
+<figures/flaredet.pdf, id=25, 462.52798pt x 346.89601pt>
 File: figures/flaredet.pdf Graphic file (type pdf)
 <use figures/flaredet.pdf>
 Package pdftex.def Info: figures/flaredet.pdf  used on input line 411.
-(pdftex.def)             Requested size: 314.11961pt x 235.60033pt.
+(pdftex.def)             Requested size: 204.86061pt x 153.6457pt.
 
-Overfull \hbox (6.49155pt too wide) in paragraph at lines 418--420
-[]\T1/txr/m/n/10 As an ex-am-ple, Fig. 3[] shows the 4 -- 10 keV QL light curve recorded from 2022-02-13T21:00:00Z
+Underfull \hbox (badness 2626) in paragraph at lines 418--420
+[]\T1/txr/m/n/10 As an ex-am-ple, Fig. 3[] shows the 4 -- 10 keV QL
  []
 
-[9 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/flaredet.pdf>]
-<figures/goes_stix_flux_paper.pdf, id=136, 569.12625pt x 414.54875pt>
+[4 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/pipelines.pdf> </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cal-fit.pdf, page is rotated 90 degrees>]
+<figures/goes_stix_flux_paper.pdf, id=81, 569.12625pt x 414.54875pt>
 File: figures/goes_stix_flux_paper.pdf Graphic file (type pdf)
 <use figures/goes_stix_flux_paper.pdf>
 Package pdftex.def Info: figures/goes_stix_flux_paper.pdf  used on input line 446.
-(pdftex.def)             Requested size: 314.11961pt x 228.81218pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/goes_stix_flux_paper.pdf, page is rotated 90 degrees>]
-<figures/cflMay07.pdf, id=184, 867.24pt x 252.945pt>
+(pdftex.def)             Requested size: 204.86061pt x 149.21844pt.
+<figures/cflMay07.pdf, id=82, 867.24pt x 252.945pt>
 File: figures/cflMay07.pdf Graphic file (type pdf)
 <use figures/cflMay07.pdf>
 Package pdftex.def Info: figures/cflMay07.pdf  used on input line 504.
-(pdftex.def)             Requested size: 373.01442pt x 108.7951pt.
- [11 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cflMay07.pdf>] [12] [13] (/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.bbl) [14] (/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.aux
+(pdftex.def)             Requested size: 497.35255pt x 145.064pt.
+ [5 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/flaredet.pdf> </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/goes_stix_flux_paper.pdf, page is rotated 90 degrees>]
+Underfull \hbox (badness 2951) in paragraph at lines 528--531
+[]\T1/txr/m/n/10 Coarse flare lo-ca-tion is es-ti-mated by min-i-miz-ing the
+ []
+
+
+Underfull \vbox (badness 1496) has occurred while \output is active []
+
+ [6 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cflMay07.pdf>]
+Overfull \hbox (37.70522pt too wide) in paragraph at lines 640--642
+\T1/txr/m/n/10 Calibration data prod-ucts https://fermi.gsfc.nasa.gov/ssc/data/access/gbm/ 
+ []
+
+(/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.bbl) [7] (/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.aux
 
 Package natbib Warning: Citation `spice2018' multiply defined.
 
@@ -720,18 +681,18 @@ Package natbib Warning: Citation `crsystallball' multiply defined.
 
 ) ) 
 Here is how much of TeX's memory you used:
- 8544 strings out of 481252
- 121443 string characters out of 5915888
- 432108 words of memory out of 5000000
- 25288 multiletter control sequences out of 15000+600000
- 492173 words of font info for 182 fonts, out of 8000000 for 9000
+ 8015 strings out of 481252
+ 115148 string characters out of 5915888
+ 428387 words of memory out of 5000000
+ 24769 multiletter control sequences out of 15000+600000
+ 495265 words of font info for 185 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,12n,102p,1605b,341s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 98i,11n,102p,1605b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.pdf (14 pages, 238457 bytes).
+Output written on /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.pdf (7 pages, 235490 bytes).
 PDF statistics:
- 297 PDF objects out of 1000 (max. 8388607)
- 132 compressed objects within 2 object streams
+ 275 PDF objects out of 1000 (max. 8388607)
+ 117 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
