@@ -909,19 +909,14 @@ LaTeX Warning: Reference `LastPage' on page 11 undefined on input line 532.
 
 LaTeX Warning: Reference `fig:cfl' on page 12 undefined on input line 533.
 
-/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.tex:539: Undefined control sequence.
-l.539 ... package based on SSWIDL's OSPEX\fotenote
-                                                  {\href https://hesperia.gs...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Overfull \hbox (2.062pt too wide) in paragraph at lines 538--546
-\T1/txr/m/n/10 soft-ware pack-age based on SS-WIDL's OS-PEX[]t[]tps://hesperia.gsfc.nasa.gov/ssw/packages/spex/doc/
- []
+/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.tex:539: Missing number, treated as zero.
+<to be read again> 
+                   \endgroup 
+l.539 ...ia.gsfc.nasa.gov/ssw/packages/spex/doc/}}
+                                                   for spectral analysis.
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
 
 
 Package natbib Warning: Citation `StixInstrument' on page 12 undefined on input line 560.
@@ -947,18 +942,18 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 12237 strings out of 481252
- 180364 string characters out of 5915888
+ 12238 strings out of 481252
+ 180375 string characters out of 5915888
  516373 words of memory out of 5000000
  28835 multiletter control sequences out of 15000+600000
  495222 words of font info for 185 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,12n,102p,840b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.pdf (14 pages, 244982 bytes).
+Output written on /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.pdf (14 pages, 245244 bytes).
 PDF statistics:
- 369 PDF objects out of 1000 (max. 8388607)
- 203 compressed objects within 3 object streams
- 55 named destinations out of 1000 (max. 500000)
+ 371 PDF objects out of 1000 (max. 8388607)
+ 205 compressed objects within 3 object streams
+ 56 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
