@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.11.9)  16 MAR 2022 16:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.11.9)  16 MAR 2022 16:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -664,7 +664,6 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 20.
 LaTeX Info: Redefining \pageref on input line 20.
 LaTeX Info: Redefining \nameref on input line 20.
- (/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.out) (/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.out)
 \@outlinefile=\write3
 \openout3 = `data_center.out'.
 
@@ -733,6 +732,11 @@ LaTeX Font Info:    Font shape `T1/txss/b/n' in size <10.95> not available
 (Font)              Font shape `T1/txss/bx/n' tried instead on input line 82.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
 (Font)              scaled to size 10.40245pt on input line 82.
+LaTeX Font Info:    Font shape `T1/txr/b/n' in size <10> not available
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 89.
+
+Package natbib Warning: Citation `SolarOrbiter2020' on page 1 undefined on input line 89.
+
 
 Underfull \vbox (badness 1924) has occurred while \output is active []
 
@@ -740,163 +744,210 @@ Underfull \vbox (badness 1924) has occurred while \output is active []
 
 Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 92.
 
+LaTeX Font Info:    Font shape `T1/txr/b/n' in size <9> not available
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 92.
 
-Package hyperref Warning: Suppressing link with empty target on input line 92.
+LaTeX Warning: Reference `LastPage' on page 1 undefined on input line 92.
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
-Package hyperref Warning: Suppressing link with empty target on input line 140.
+Package natbib Warning: Citation `StixInstrument' on page 2 undefined on input line 100.
+
+
+LaTeX Warning: Reference `sec:raw-data' on page 2 undefined on input line 117.
+
+
+LaTeX Warning: Reference `sec:summary' on page 2 undefined on input line 118.
+
+
+LaTeX Warning: Reference `LastPage' on page 2 undefined on input line 140.
 
 [2]
+
+Package natbib Warning: Citation `StixInstrument' on page 3 undefined on input line 142.
+
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
 (Font)              scaled to size 9.49997pt on input line 144.
 LaTeX Font Info:    Font shape `T1/txss/m/it' in size <10> not available
 (Font)              Font shape `T1/txss/m/sl' tried instead on input line 144.
 LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
 (Font)              scaled to size 9.49997pt on input line 144.
-LaTeX Font Info:    Font shape `T1/txr/b/n' in size <10> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 164.
 
-
-Package hyperref Warning: Suppressing link with empty target on input line 180.
+LaTeX Warning: Reference `LastPage' on page 3 undefined on input line 180.
 
 [3]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 249.
+LaTeX Warning: Reference `tb:raw_types' on page 4 undefined on input line 236.
+
+
+Package natbib Warning: Citation `EDDS' on page 4 undefined on input line 248.
+
+
+LaTeX Warning: Reference `LastPage' on page 4 undefined on input line 249.
 
 [4]
-<figures/pipelines.pdf, id=169, 963.6pt x 532.99126pt>
+
+Package natbib Warning: Citation `spice1996' on page 5 undefined on input line 255.
+
+
+Package natbib Warning: Citation `spice2018' on page 5 undefined on input line 255.
+
+<figures/pipelines.pdf, id=41, 963.6pt x 532.99126pt>
 File: figures/pipelines.pdf Graphic file (type pdf)
 <use figures/pipelines.pdf>
 Package pdftex.def Info: figures/pipelines.pdf  used on input line 265.
 (pdftex.def)             Requested size: 353.38081pt x 195.46326pt.
 
+LaTeX Warning: Reference `fig:main_pipelines' on page 5 undefined on input line 270.
 
-Package hyperref Warning: Suppressing link with empty target on input line 280.
+
+LaTeX Warning: Reference `LastPage' on page 5 undefined on input line 280.
 
 [5 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/pipelines.pdf>]
+
+Package natbib Warning: Citation `spice1996' on page 6 undefined on input line 290.
+
+
+Package natbib Warning: Citation `spice2018' on page 6 undefined on input line 290.
+
+
+Package natbib Warning: Citation `fits' on page 6 undefined on input line 327.
+
+
 Underfull \vbox (badness 3108) has occurred while \output is active []
 
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 335.
+LaTeX Warning: Reference `LastPage' on page 6 undefined on input line 335.
 
 [6]
-<figures/cal-fit.pdf, id=199, 569.12625pt x 358.33875pt>
+<figures/cal-fit.pdf, id=65, 569.12625pt x 358.33875pt>
 File: figures/cal-fit.pdf Graphic file (type pdf)
 <use figures/cal-fit.pdf>
 Package pdftex.def Info: figures/cal-fit.pdf  used on input line 359.
 (pdftex.def)             Requested size: 314.11961pt x 197.78679pt.
 
-Underfull \vbox (badness 5245) has occurred while \output is active []
+
+LaTeX Warning: Reference `fig:cal-fit' on page 7 undefined on input line 366.
 
 
+Package natbib Warning: Citation `crsystallball' on page 7 undefined on input line 370.
 
-Package hyperref Warning: Suppressing link with empty target on input line 381.
+
+Package natbib Warning: Citation `ecc' on page 7 undefined on input line 375.
+
+
+Package natbib Warning: Citation `ecc2' on page 7 undefined on input line 375.
+
+
+LaTeX Warning: Reference `LastPage' on page 7 undefined on input line 385.
 
 [7]
-
-Package hyperref Warning: Suppressing link with empty target on input line 407.
-
-[8 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cal-fit.pdf, page is rotated 90 degrees>]
-<figures/flaredet.pdf, id=266, 462.52798pt x 346.89601pt>
+<figures/flaredet.pdf, id=76, 462.52798pt x 346.89601pt>
 File: figures/flaredet.pdf Graphic file (type pdf)
 <use figures/flaredet.pdf>
 Package pdftex.def Info: figures/flaredet.pdf  used on input line 411.
 (pdftex.def)             Requested size: 314.11961pt x 235.60033pt.
 
-Overfull \hbox (6.49155pt too wide) in paragraph at lines 418--420
-[]\T1/txr/m/n/10 As an ex-am-ple, Fig. []3[] shows the 4 -- 10 keV QL light curve recorded from 2022-02-13T21:00:00Z
+
+LaTeX Warning: Reference `fig:flare-det' on page 8 undefined on input line 418.
+
+
+Overfull \hbox (11.49155pt too wide) in paragraph at lines 418--420
+[]\T1/txr/m/n/10 As an ex-am-ple, Fig. [] shows the 4 -- 10 keV QL light curve recorded from 2022-02-13T21:00:00Z
  []
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 442.
+LaTeX Warning: Reference `LastPage' on page 8 undefined on input line 421.
 
-[9 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/flaredet.pdf>]
-<figures/goes_stix_flux_paper.pdf, id=312, 569.12625pt x 414.54875pt>
+[8 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cal-fit.pdf, page is rotated 90 degrees>]
+<figures/goes_stix_flux_paper.pdf, id=127, 569.12625pt x 414.54875pt>
 File: figures/goes_stix_flux_paper.pdf Graphic file (type pdf)
 <use figures/goes_stix_flux_paper.pdf>
 Package pdftex.def Info: figures/goes_stix_flux_paper.pdf  used on input line 446.
 (pdftex.def)             Requested size: 314.11961pt x 228.81218pt.
 
+Underfull \vbox (badness 2951) has occurred while \output is active []
+
+
+
+LaTeX Warning: Reference `LastPage' on page 9 undefined on input line 459.
+
+[9 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/flaredet.pdf>]
+
+Package natbib Warning: Citation `andrea2021' on page 10 undefined on input line 465.
+
+
+LaTeX Warning: Reference `fig:goes-stix' on page 10 undefined on input line 469.
+
+
+LaTeX Warning: Reference `fig:goes-stix' on page 10 undefined on input line 477.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 487.
+LaTeX Warning: Reference `LastPage' on page 10 undefined on input line 501.
 
 [10 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/goes_stix_flux_paper.pdf, page is rotated 90 degrees>]
-<figures/cflMay07.pdf, id=368, 867.24pt x 252.945pt>
+<figures/cflMay07.pdf, id=225, 867.24pt x 252.945pt>
 File: figures/cflMay07.pdf Graphic file (type pdf)
 <use figures/cflMay07.pdf>
 Package pdftex.def Info: figures/cflMay07.pdf  used on input line 504.
 (pdftex.def)             Requested size: 373.01442pt x 108.7951pt.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 531.
+LaTeX Warning: Reference `LastPage' on page 11 undefined on input line 532.
 
 [11 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cflMay07.pdf>]
 
-Package hyperref Warning: Suppressing link with empty target on input line 577.
+LaTeX Warning: Reference `fig:cfl' on page 12 undefined on input line 533.
+
+
+Package natbib Warning: Citation `paolo2020' on page 12 undefined on input line 553.
+
+
+Package natbib Warning: Citation `StixInstrument' on page 12 undefined on input line 566.
+
+
+LaTeX Warning: Reference `LastPage' on page 12 undefined on input line 583.
 
 [12]
 
-Package hyperref Warning: Suppressing link with empty target on input line 638.
+LaTeX Warning: Reference `LastPage' on page 13 undefined on input line 644.
 
-[13] (/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.bbl)
+[13]
+No file data_center.bbl.
 
-Package hyperref Warning: Suppressing link with empty target on input line 675.
+LaTeX Warning: Reference `LastPage' on page 14 undefined on input line 681.
 
-[14] (/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.aux
+[14] (/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.aux)
 
-Package natbib Warning: Citation `spice2018' multiply defined.
-
-
-Package natbib Warning: Citation `spice1996' multiply defined.
+LaTeX Warning: There were undefined references.
 
 
-Package natbib Warning: Citation `andrea2021' multiply defined.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-
-Package natbib Warning: Citation `SolarOrbiter2020' multiply defined.
-
-
-Package natbib Warning: Citation `StixInstrument' multiply defined.
-
-
-Package natbib Warning: Citation `ecc' multiply defined.
-
-
-Package natbib Warning: Citation `ecc2' multiply defined.
-
-
-Package natbib Warning: Citation `EDDS' multiply defined.
-
-
-Package natbib Warning: Citation `fits' multiply defined.
-
-
-Package natbib Warning: Citation `crsystallball' multiply defined.
-
-) ) 
+ ) 
 Here is how much of TeX's memory you used:
- 12311 strings out of 481252
- 181847 string characters out of 5915888
- 521390 words of memory out of 5000000
- 28893 multiletter control sequences out of 15000+600000
- 492173 words of font info for 182 fonts, out of 8000000 for 9000
+ 12238 strings out of 481252
+ 180375 string characters out of 5915888
+ 516373 words of memory out of 5000000
+ 28835 multiletter control sequences out of 15000+600000
+ 495222 words of font info for 185 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,12n,102p,1605b,415s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 98i,12n,102p,840b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.pdf (14 pages, 246389 bytes).
+Output written on /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.pdf (14 pages, 246721 bytes).
 PDF statistics:
- 511 PDF objects out of 1000 (max. 8388607)
- 344 compressed objects within 4 object streams
- 67 named destinations out of 1000 (max. 500000)
- 258 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 371 PDF objects out of 1000 (max. 8388607)
+ 205 compressed objects within 3 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

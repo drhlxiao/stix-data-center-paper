@@ -536,18 +536,24 @@ flare centroid location, as well as its $1\sigma$, $2\sigma$ and $3\sigma$ conto
 The simulated shadow of the CFL sub-collimator  is shown in the right panel. 
 \subsubsection{Solar flare spectral analysis}
 X-ray spectrum of  flares provides direct information on electron acceleration in flares. 
-STIX uses a software package based on SSWIDL's OSPEX\footnote{\url{https://hesperia.gsfc.nasa.gov/ssw/packages/spex/doc/}} for spectral analysis.
+STIX uses a software package based on SSWIDL's OSPEX 
+\footnote{\url{https://hesperia.gsfc.nasa.gov/ssw/packages/spex/doc/}} for spectral analysis.
 The software reads pixel count data from L1 FITS files, 
 corrections for dead time, transmission and energy binning for the counts, and calls 
 OSPEX routines for spectral fitting. 
 A python version of spectral analysis software is still under development. 
-It will be integrated into the flaring data processing pipeline and used for creation of
+ the flaring data processing pipeline and used for creation of
  spectral analysis products.
 \subsubsection{Flare imaging}
-STIX images at different photon energy ranges can be reconstructed by means of algorithms 
-for the inversion of the Fourier transform from limited data.  
-For the details, we refer to the imaging papers () 
-For the detailed, please 
+STIX images at different photon energy ranges can
+ be reconstructed by means of algorithms  for the inversion of the Fourier transform from limited data.
+ A set of image reconstruction methods have been developed  and  is available in the STIX IDL data 
+ analysis software. 
+ For the details of the algorithms and the package, we refer to the first
+  STIX imaging paper (\cite{paolo2020}). 
+The software will be integrated into the flaring data processing pipeline to 
+create X-ray images and movies in different ranges and time intervals. 
+They will be provided to the public as level-4 data products. 
 
 \section{Data request and automation}
 data volumne estimation
