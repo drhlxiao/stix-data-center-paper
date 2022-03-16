@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.11.9)  16 MAR 2022 16:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.11.9)  16 MAR 2022 16:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -911,48 +911,17 @@ LaTeX Warning: Reference `fig:cfl' on page 12 undefined on input line 533.
 
 /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.tex:539: Undefined control sequence.
 l.539 ... package based on SSWIDL's OSPEX\fotenote
-                                                  {\href {https://hesperia.g...
+                                                  {\href https://hesperia.gs...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.tex:539: Argument of \href@split has an extra }.
-<inserted text> 
-                \par 
-l.539 ...ia.gsfc.nasa.gov/ssw/packages/spex/doc/}}
-                                                   for spectral analysis(\ci...
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
 
-Runaway argument?
-/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.tex:539: Paragraph ended before \href@split was complete.
-<to be read again> 
-                   \par 
-l.539 ...ia.gsfc.nasa.gov/ssw/packages/spex/doc/}}
-                                                   for spectral analysis(\ci...
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-/home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.tex:539: Extra }, or forgotten \endgroup.
-<recently read> }
-                 
-l.539 ...ia.gsfc.nasa.gov/ssw/packages/spex/doc/}}
-                                                   for spectral analysis(\ci...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
-Package natbib Warning: Citation `andrea2021' on page 12 undefined on input line 539.
+Overfull \hbox (2.062pt too wide) in paragraph at lines 538--546
+\T1/txr/m/n/10 soft-ware pack-age based on SS-WIDL's OS-PEX[]t[]tps://hesperia.gsfc.nasa.gov/ssw/packages/spex/doc/
+ []
 
 
 Package natbib Warning: Citation `StixInstrument' on page 12 undefined on input line 560.
@@ -976,12 +945,7 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
- )
-(\end occurred inside a group at level 2)
-
-### semi simple group (level 2) entered at line 539 (\begingroup)
-### simple group (level 1) entered at line 539 ({)
-### bottom level 
+ ) 
 Here is how much of TeX's memory you used:
  12237 strings out of 481252
  180364 string characters out of 5915888
@@ -991,10 +955,10 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  98i,12n,102p,840b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.pdf (14 pages, 244760 bytes).
+Output written on /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.pdf (14 pages, 244982 bytes).
 PDF statistics:
- 368 PDF objects out of 1000 (max. 8388607)
- 202 compressed objects within 3 object streams
+ 369 PDF objects out of 1000 (max. 8388607)
+ 203 compressed objects within 3 object streams
  55 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
