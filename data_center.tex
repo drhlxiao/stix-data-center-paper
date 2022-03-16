@@ -469,18 +469,15 @@ the difference distance of Solar Orbiter to the Sun using $c'=c r^2$, where $c$ 
  and $r$ the distance between Solar Orbiter and the Sun. 
 As can be seen in the figure, there is clear correlation between
 these two quantities.  The wide spread at the low flux could be explained by the difference in 
-the energy response of the two instruments and in the flare temperatures.
-The correlation can be fitted with a linear line in the log-log scale: 
-\begin{equation}
-f=10^{a+b\log_{10} c'}, 
-\label{eq:goes-stix}
-\end{equation}
-where $a$ and $b$ are two free parameters, $f$ is the GOES flux  in units of W/m$^2$.
- The best fit was obtained at $a=0.622\pm 0.002$ and $b=-7.376\pm0.067$.
-The obtained model is used to estimate  GOES classes 
- of flares that observed by STIX. 
-The results as well as those determined from GOES measurements
+the energy response of the two instruments and in the flare temperatures. 
+As shown in the Fig.~\ref{fig:goes-stix}, a linear line
+was fitted to the  correlation in the log-log scale. From the fit, we obtained 
+the GOES flux in units of W/m$^2$ $\log_{10}(f) = 0.622 -7.376 \log_{10} (x)$, where $x$ is the STIX
+peak count rate corrected for the distance variations between the Sun and Solar Orbiter. 
+The relation is used to estimate  GOES classes  of flares observed by STIX. 
+The estimated GOES classes as well as those from GOES measurements 
 are attached to  the flare entry in the flare list database. 
+
 \subsubsection{Coarse flare location estimation}
 Flare centroid location can constraint flaring region when reconstructing flare images.
 STIX uses a dedicated sub-collimator called Coarse Flare Locator (CFL) to estimate flare locations.
