@@ -543,31 +543,25 @@ The software reads pixel count data from L1 FITS files,
 corrections for dead time, transmission and energy binning for the counts, and calls 
 OSPEX routines for spectral fitting. 
 A python version of spectral analysis software is still under development. 
- the flaring data processing pipeline and used for creation of
+ The flaring data processing pipeline and used for creation of
  spectral analysis products, which will be in the product level-4. 
-\subsubsection{Flare imaging}
+\subsubsection{Flare image reconstruction}
 STIX images at different photon energy ranges can
  be reconstructed by means of algorithms  for the inversion of the Fourier transform from limited data.
  A set of image reconstruction methods have been developed  and  is available in the STIX IDL data 
  analysis software. 
- For the details of the algorithms and the package, we refer to the first
-  STIX imaging paper (\cite{paolo2020}). 
-The software will be integrated into the flaring data processing pipeline to 
-create X-ray images and movies in different ranges and time intervals. 
-They will be provided to the public as level-4 data products. 
-
+ For the details of the algorithms and the package, we refer to 
+ STIX imaging papers (\cite{paolo2020}). 
+The software will be integrated into the flaring data processing pipeline and used for
+creation X-ray images and movies for different ranges and time intervals. 
+The created images and movies will be available on STIX data center server 
+as the level-4 data products.
+Web tools will be provided for users to browse the images. 
 \section{Data request and automation}
-
-
-
 To wisely allocate the limited telemetry available to STIX,
 the STIX instruments first sends only QuickLook (QL) data at
 low resolution to the ground(for details see \cite{StixInstrument}).
-Figure 3 shows the STIX QL lightcurve at the lowest energy
-channel (4-10 keV) during the time period from June 4 through
-June 14. From the QL data, the STIX team then selects the scientifically most promising flares, and so-called data requests are
-sent to STIX to download the selected flares at the chosen res-
-olution.
+
 As the foregoing discussion suggests,
  there are three important distinctions between the 
  QL and primary X-ray data handling: first, the QL data represent only 
@@ -645,7 +639,7 @@ data volumne estimation
 l1 data request condition
 
 \section{Interfaces and tools for users}
-\subsection{STIX data browsers}
+\subsection{Web-based data browsers}
 Caching, balencing and preprocessing
 Web-based applications are selected for the graphical
  interfaces at the data center. This process enables the advantages 
