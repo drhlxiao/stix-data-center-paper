@@ -474,15 +474,16 @@ the difference distance of Solar Orbiter to the Sun using $x^{'}=x r^2$, where $
 As can be seen in the figure, there is clear correlation between
 these two quantities.  The wide spread at the low flux could be explained by the difference in 
 the energy response of the two instruments and in the flare temperatures. 
-As shown in the Fig.~\ref{fig:goes-stix}, a linear line
-was fitted to the  correlation in the log-log scale. 
+A linear line was fitted to the  correlation in the log-log scale. 
 From the fit, we obtained 
 the GOES flux in units of W/m$^2$ $\log_{10}(f) = 0.622 -7.376 \log_{10} (x^{'})$.
 %where $x^{'}$ is STIX
 %peak count rate corrected for the distance variations between the Sun and Solar Orbiter. 
-The relation is used to estimate  GOES classes  of flares observed by STIX. 
+The formula is used to estimate  GOES classes  of flares observed by STIX. 
+It is worthwhile to mention that more observations will be included into the fit.
 The estimated GOES classes as well as those from GOES measurements 
 are attached to  the flare entry in the flare list database. 
+
 
 \subsubsection{Coarse flare location estimation}
 Flare centroid location can constraint flaring region when reconstructing flare images.
@@ -646,6 +647,13 @@ l1 data request condition
 \section{Interfaces and tools for users}
 \subsection{STIX data browsers}
 Caching, balencing and preprocessing
+Web-based applications are selected for the graphical
+ interfaces at the data center. This process enables the advantages 
+ of clear cross-platform usability and wide access for internet browsers. 
+ As an example, Fig. 4 shows the web-based light curve viewer mentioned in Section 8.1.
+ The client side and server side interact and operate as shown in Fig. 5. The details are given below:
+
+
 \subsection{Data access}
 \subsection{Data query APIs}
 Calibration data products
@@ -656,8 +664,6 @@ stixdcpy allows you to query and download data which are available at STIX data 
 Quick-look light curves
 Housekeeping data
 Science data
-
-
 
 \section{Summary}
 \label{sec:summary}
