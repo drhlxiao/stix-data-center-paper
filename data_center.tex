@@ -539,12 +539,16 @@ The simulated shadow of the CFL sub-collimator  is shown in the right panel.
 X-ray spectrum of  flares provides direct information on electron acceleration in flares. 
 STIX uses a software package based on SSWIDL's OSPEX 
 \footnote{\url{https://hesperia.gsfc.nasa.gov/ssw/packages/spex/doc/}} for spectral analysis.
-The software reads pixel count data from L1 FITS files, 
-corrections for dead time, transmission and energy binning for the counts, and calls 
-OSPEX routines for spectral fitting. 
-A python version of spectral analysis software is still under development. 
+At the moment, the software reads pixel count data from L1 FITS files, 
+corrections for dead time, transmission and energy binning for the counts,  and calls 
+OSPEX routines for spectral fitting.  
+In further, level-3 fits fle, in which detector effects are corrected, will be used. 
+A python version of spectral analysis 
+software is still under development. 
  The flaring data processing pipeline and used for creation of
  spectral analysis products, which will be in the product level-4. 
+ Details about STIX spectral analysis software and some 
+ results will be discussed in further papers. 
 \subsubsection{Flare image reconstruction}
 STIX images at different photon energy ranges can
  be reconstructed by means of algorithms  for the inversion of the Fourier transform from limited data.
@@ -552,91 +556,53 @@ STIX images at different photon energy ranges can
  analysis software. 
  For the details of the algorithms and the package, we refer to 
  STIX imaging papers (\cite{paolo2020}). 
+An python implementation is under development. 
 The software will be integrated into the flaring data processing pipeline and used for
 creation X-ray images and movies for different ranges and time intervals. 
 The created images and movies will be available on STIX data center server 
 as the level-4 data products.
 Web tools will be provided for users to browse the images. 
 \section{Data request and automation}
-To wisely allocate the limited telemetry available to STIX,
-the STIX instruments first sends only QuickLook (QL) data at
-low resolution to the ground(for details see \cite{StixInstrument}).
+As we mentioned earlier, due to bandwidth constraints, stix will only automatically download low-latency data. 
+Quick-look data are energy-integrated data of low temporal resolution; 
+these data do not provide the spectroscopy we are interested in, as well as flare image data. 
+The pixel data stored in the stix memory contains much richer information. To download these data, it is necessary to select the data on the ground, determine the time period of the data of interest, the energy segment, the energy merge, and the time merge information. According to the limitation of the data capacity, these parameters are sent by sending remote control commands to, 
+and the download it after the host computer processes it.
 
-As the foregoing discussion suggests,
- there are three important distinctions between the 
- QL and primary X-ray data handling: first, the QL data represent only 
- spatially-integrated data;  second, the QL data are acquired and 
- transmitted with fixed parameters such as a 4 s cadence; third, there is no 
- provision for onboard QL data selection. 
-In contrast, the much more voluminous primary data can only 
-be transmitted on a highly selective (flare-associated) basis, albeit with a wide range of choices for time and energy
- resolution, and coverage. These choices can be optimized to match the dynamic characteristics of the flare in question.  
-  Thus by limiting consideration to flare intervals only, and by optimizing time and energy range and 
- resolution for the individual flare, the scientific efficiency of imaging and spectroscopic data telemetry can be greatly enhanced.
-
-
-There are two approaches to selecting the time- and energy
-resolution and range for the bulk spectroscopic and imaging data.
-The first approach relies on the ground segment to select param
-eters for the downlink of flare T/M. This selection can be based
-on the QL light curves in 5 different energy bands which together
-provide a robust indication of flare timing, intensity and spectral
-properties. The ground segment can use this to choose optimized
-time range, energy range, and resolution for different phases of
-the flare, predict the resulting T/M volume and upload corresponding analysis requests.
-The onboard software then applies
-these parameters to the data stored in the archive buffer. This
-option is viable because the latency of the QL data (up to 24 h)
-is much shorter than the multi-week longevity of the archive
-buffer. This provides time for the ground segment to make selections 
-and upload parameters and for the FSW to process the data.
-Since each ground system requests result in a predictable telemetry volume, 
-the STIX ground system is responsible for complying with T/M corridor restrictions on the data rate.
-
-There are three downsides to this approach to data selection:
-first, the selections and choices are a labor-intensive activity;
-second, selections must be made and satisfied before the onboard
-archive is overwritten and so that the choices must be made in a 
-timely fashion; third, there is an additional operational latency of
-at least a few days between flare occurrence and the transmission
-of the requested X-ray imaging and spectroscopic data.
-With the second approach (“autonomy”), the FSW uses the
-output of the onboard flare detection algorithm to identify rele
-vant time ranges. It then uses automatic, parametrized algorithms
-to optimize the time and energy resolution for imaging and spec-
-troscopic data for inclusion in bulk T/M. As of this writing, this
-option has not yet been fully implemented. When using autonomy,
-the QL telemetry (Table 3) will include flare and telemetry
-management information to show the analysis status of recent
-events.
-
+Data selection on the ground is a labor-intensive task. 
+Therefore the selection of data has been automated. 
+Automatic data selection based on QL light curve and flare list, we adopted the following strategies:
 \begin{itemize}
-\item L1 request for STIX solar flare.\\
-For detected flares,  a script is used to create data requests.
-If the background subtracted peak count rate of a flare is greater 150,
-both L1 and spectrogram requests are created;  For micro-flares, as only
-spectrograms are request normally as the statistics is too
-low to reconstruct flare images.  Aspect data requests
-and some extra data requests are created for events of interest in the
-STIX operations team.
-For external users, data request forms can be also submitted using a web tool
-at the data center.
-\item Background L1 data request.
-\item Continous data request Requests for background data
+  \item For each flare, if the signal has enough photons for image reconstruction (about 1000 photons), 
+  we request pixel-level data (science L1), the energy range is adjusted according to the hardness of the flare, 
+  and the resolution of the time channel is seconds to 10 seconds. 
+  The stronger the flare, the higher the temporal resolution. These data will be used for spectroscopic analysis as well as image reconstruction.
+\item Continuous spectral data. Spectral data is channel-integrated spectral data,
+ which does not include information about each pixel individually,
+  and requires a small amount of data. Therefore, it is possible to allow us to request higher temporal resolution information.
+   We request spectra from stix for all time periods, each spectrum request spans several hours, 
+   excluding CFL and BKG detectors, these data will be used for spectroscopic analysis,
+\item Selection of background L1 data. 
+Background subtraction is required for both spectroscopic studies and imaging. 
+Therefore, the flare list is used, the time period of the flare is excluded, and the background request is performed in one time period. 
+The background data has only one time bin, and the integration time is one or two hours.
 \end{itemize}
+In addition to the above automatically generated data, stix will also 
+respond to events of interest, such as aspect data, level 0 data, and higher-level data, 
+as well as requests from outsiders to meet other needs. All requests are stored in the database.
+In order to predict the data volume of each data,
+ we built a model to predict the data volume of each data request based on the QL data photon data to predict the on-orbit energy bins, and other parameters to predict.
 
-An unique ID is assigned to each data request automatically.
-The ID naming convention is yyddmmxxxx, in which yyddmm indicate the observation year (without century), month, date,
-and the last four digits indicates the serial number of the data request in the day.
-IDs are used to track the status of data requests, and reterieve data products from the
-STIX data center.
-The information of created data requests are stored in the NoSQL database on the same server.
-They are converted to instrument operation requests (IORs) after a series of checks.
-Requested data will arrive at STIX data center within a time frame of two weeks to three months, depending on
-telemetry allocations.
-data volumne estimation
+The data request is stored in the database. According to the priority of the data request,
+ the generation time of the data, and the bandwidth limit, each data request is assigned a 10-digit number,
+  of which 6 digits represent the start date of the data, followed by 4 bits is a random number that ensures the entire number.
 
-l1 data request condition
+Data requests in the database will be checked manually by the stix team. 
+After confirming that the parameters of each data request are correct,
+Will be generated by and IOR, and sent to STIX by MOC. During NECP,
+ the typical time required from data request to data download is 2 weeks. 
+ Data requests are automatically monitored by the state by the data center.
+
 
 \section{Interfaces and tools for users}
 \subsection{Web-based data browsers}
