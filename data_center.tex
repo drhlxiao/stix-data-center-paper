@@ -162,7 +162,7 @@ STIX generates four different types of quick-look (QL) data:
 %accumulated every 4 sec time resolution in five broad energy ranges (two thermal, two nonthermal
 %and one intermediate). Quick-look light curves are generated when STIX is in nominal observation mode.
 \item STIX light curves are a time series of detector counts in different energy bands (units will be counts/second/cm$^2$). There are five configurable energy bands (for example: 4-7keV, 7-11keV, 11-16keV, 16-40keV, and 40-150keV), with a default integration time of 4 seconds. 
-A lightcurve data point corresponds to the total counts integrated over all selected detectors and pixels for the given energy band. 
+A light curve data point corresponds to the total counts integrated over all selected detectors and pixels for the given energy band. 
 The data are temperature corrected on-board, and undergo minor corrections for detector and pixels,
 and nominal grid transmission (25 percent) on the ground. As lower energies are highly impacted by the presence of the attenuator, they will also need to be corrected. The data will not be corrected for background, live time or detector
 % efficiency. The FITS file is in accordance with [LLFITSICD] but will also comply with  in order to be usable with existing high-energy solar data file routines.
@@ -305,7 +305,7 @@ NoSQL is also
 In addition to packets, the NoSQL also stores other data extracted by the parser during packets parsing, 
 for example, 
 \begin{itemize}
-  \item Raw file metadata. contains filename, reception time, observation start time and stop time, MIB and SPICE kernels used by the parser ; 
+  \item Raw file metadata. It contains filename, reception time, observation start time and stop time, MIB and SPICE kernels used by the parser ; 
   \item Bulk science metadata, which contains the observation time range, detector and pixels masks, energy ranges, 
    bulk science data types, and IDs of packets in the database; 
   \item Quick-look light curves.  The dataset contains data of counts, time range, energy bins extracted from QL LC packets, 
