@@ -509,12 +509,12 @@ range to be integrated, and more careful background subtraction.
   Pixels 0 -- 3 are the top big pixels, Pixels 4 -- 7 are the bottom pixels and 8 -- 11 the small pixels as shown in the right panel.
    Middle: Best-fit flare centroid location (marked by x) and its 1$\sigma$, 2$\sigma$ and 3$\sigma$ confidence contours.
    The best-fit location is obtained at (550, 278) sec. 
-    Right:  Shadow (the grey shaded regions) of CFL sub-collimator on the detector 
-  simulated for the best-fit flare location. }
+    Right:  Shadow (the grey shaded regions) of CFL sub-collimator projected on the detector 
+  for the best-fit flare location. }
   \label{fig:cfl}
 \end{figure*}
 
-The coarse location of a  observed flare is estimated on ground after its pixel data (onboard level-1) is parsed.
+The coarse location of an observed flare is estimated on ground after its pixel data (onboard level-1) is parsed.
 The procedure consists of the following steps:
 \begin{itemize}
   \item Selection of pixel data based on the flare time range and energy range information stored in the flare list dataset;
@@ -563,14 +563,15 @@ The created images and movies will be available on STIX data center server
 as the level-4 data products.
 Web tools will be provided for users to browse the images. 
 \section{Data request and automation}
-As we mentioned earlier, due to bandwidth constraints, stix will only automatically download low-latency data. 
-Quick-look data are energy-integrated data of low temporal resolution; 
-these data do not provide the spectroscopy we are interested in, as well as flare image data. 
-The pixel data stored in the stix memory contains much richer information. To download these data, it is necessary to select the data on the ground, determine the time period of the data of interest, the energy segment, the energy merge, and the time merge information. According to the limitation of the data capacity, these parameters are sent by sending remote control commands to, 
-and the download it after the host computer processes it.
-
+As we mentioned earlier, only low-latency data are downloaded automatically,
+which are mainly used for instrument status monitoring and quick-look purposes. 
+High time and energy resolution pixel data stored in the onboard archive memory contain much richer information.
+They can be selected and transmitted to the ground upon request.
+Due to the data rate constraints,  data have to be selected wisely. 
+This includes optimizations of time intervals, 
+energy ranges, time binning, energy binning, detector groups,  and compression levels for data selections. 
 Data selection on the ground is a labor-intensive task. 
-Therefore the selection of data has been automated. 
+Therefore, the selection of data has been automated. 
 Automatic data selection based on QL light curve and flare list, we adopted the following strategies:
 \begin{itemize}
   \item For each flare, if the signal has enough photons for image reconstruction (about 1000 photons), 
