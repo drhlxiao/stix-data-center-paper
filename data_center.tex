@@ -535,6 +535,9 @@ As an example, the left panel of Fig.~\ref{fig:cfl} shows the calculated and bes
 of the CFL pixels measure observed for STIX flare 2105071900 (GOES class M3.9);   the middle panel shows the best-fit 
 flare centroid location, as well as its $1\sigma$, $2\sigma$ and $3\sigma$ contours. 
 The simulated shadow of the CFL sub-collimator  is shown in the right panel. 
+\subsubsection{Joint observation}
+
+
 \subsubsection{Solar flare spectral analysis}
 X-ray spectrum of  flares provides direct information on electron acceleration in flares. 
 STIX uses a software package based on SSWIDL's OSPEX 
@@ -595,7 +598,7 @@ In order to predict the data volume of each data,
  we built a model to predict the data volume of each data request based on the QL data photon data to predict the on-orbit energy bins, and other parameters to predict.
 
 The data request is stored in the database. According to the priority of the data request,
- the generation time of the data, and the bandwidth limit, each data request is assigned a 10-digit number,
+ the generation time of the data, and the bandwidth limit, a 10-digit number is assigned to each flare,
   of which 6 digits represent the start date of the data, followed by 4 bits is a random number that ensures the entire number.
 
 Data requests in the database will be checked manually by the stix team. 
