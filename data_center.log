@@ -798,17 +798,6 @@ LaTeX Font Info:    Font shape `T1/txss/b/n' in size <10.95> not available
 (Font)              Font shape `T1/txss/bx/n' tried instead on input line 82.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
 (Font)              scaled to size 10.40245pt on input line 82.
-LaTeX Font Info:    Font shape `T1/txr/b/n' in size <10> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 89.
-
-
-Package natbib Warning: Citation `SolarOrbiter2020' on page 1 undefined on inpu
-t line 89.
-
-
-Package natbib Warning: Citation `StixInstrument' on page 1 undefined on input 
-line 100.
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -821,69 +810,39 @@ Package hyperref Warning: Suppressing link with empty target on input line 140.
 
 
 ]
-
-Package natbib Warning: Citation `StixInstrument' on page 2 undefined on input 
-line 142.
-
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
 (Font)              scaled to size 9.49997pt on input line 144.
 LaTeX Font Info:    Font shape `T1/txss/m/it' in size <10> not available
 (Font)              Font shape `T1/txss/m/sl' tried instead on input line 144.
 LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
 (Font)              scaled to size 9.49997pt on input line 144.
+LaTeX Font Info:    Font shape `T1/txr/b/n' in size <10> not available
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 164.
 
-Package natbib Warning: Citation `EDDS' on page 2 undefined on input line 248.
 
-
-Package hyperref Warning: Suppressing link with empty target on input line 250.
+Package hyperref Warning: Suppressing link with empty target on input line 249.
 
 
 [2]
-
-Package natbib Warning: Citation `spice1996' on page 3 undefined on input line 
-255.
-
-
-Package natbib Warning: Citation `spice2018' on page 3 undefined on input line 
-255.
-
-<figures/pipelines.pdf, id=152, 963.6pt x 532.99126pt>
+<figures/pipelines.pdf, id=167, 963.6pt x 532.99126pt>
 File: figures/pipelines.pdf Graphic file (type pdf)
 <use figures/pipelines.pdf>
 Package pdftex.def Info: figures/pipelines.pdf  used on input line 265.
 (pdftex.def)             Requested size: 471.17442pt x 260.61497pt.
-
-Package natbib Warning: Citation `spice1996' on page 3 undefined on input line 
-290.
-
-
-Package natbib Warning: Citation `spice2018' on page 3 undefined on input line 
-290.
-
-
-Package natbib Warning: Citation `fits' on page 3 undefined on input line 327.
-
-<figures/cal-fit.pdf, id=154, 569.12625pt x 358.33875pt>
+<figures/cal-fit.pdf, id=175, 569.12625pt x 358.33875pt>
 File: figures/cal-fit.pdf Graphic file (type pdf)
 <use figures/cal-fit.pdf>
 Package pdftex.def Info: figures/cal-fit.pdf  used on input line 359.
 (pdftex.def)             Requested size: 204.86061pt x 128.98544pt.
-
-Package natbib Warning: Citation `crsystallball' on page 3 undefined on input l
-ine 370.
-
-
-Package natbib Warning: Citation `ecc' on page 3 undefined on input line 375.
-
-
-Package natbib Warning: Citation `ecc2' on page 3 undefined on input line 375.
 
 
 Package hyperref Warning: Suppressing link with empty target on input line 380.
 
 
 [3]
-<figures/flaredet.pdf, id=163, 462.52798pt x 346.89601pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<figures/flaredet.pdf, id=197, 462.52798pt x 346.89601pt>
 File: figures/flaredet.pdf Graphic file (type pdf)
 <use figures/flaredet.pdf>
 Package pdftex.def Info: figures/flaredet.pdf  used on input line 411.
@@ -899,24 +858,20 @@ Package hyperref Warning: Suppressing link with empty target on input line 432.
 
 [4 <./figures/pipelines.pdf> <./figures/cal-fit.pdf, page is rotated 90 degrees
 >]
-<figures/goes_stix_flux_paper.pdf, id=223, 569.12625pt x 414.54875pt>
+<figures/goes_stix_flux_paper.pdf, id=258, 569.12625pt x 414.54875pt>
 File: figures/goes_stix_flux_paper.pdf Graphic file (type pdf)
 <use figures/goes_stix_flux_paper.pdf>
 Package pdftex.def Info: figures/goes_stix_flux_paper.pdf  used on input line 4
 46.
 (pdftex.def)             Requested size: 204.86061pt x 149.21844pt.
-
-
-Package natbib Warning: Citation `andrea2021' on page 5 undefined on input line
- 465.
-
-<figures/cflMay07.pdf, id=225, 867.24pt x 252.945pt>
+<figures/cflMay07.pdf, id=262, 867.24pt x 252.945pt>
 File: figures/cflMay07.pdf Graphic file (type pdf)
 <use figures/cflMay07.pdf>
 Package pdftex.def Info: figures/cflMay07.pdf  used on input line 505.
 (pdftex.def)             Requested size: 497.35255pt x 145.064pt.
 
-Package hyperref Warning: Suppressing link with empty target on input line 529.
+
+Package hyperref Warning: Suppressing link with empty target on input line 527.
 
 
 [5 <./figures/flaredet.pdf> <./figures/goes_stix_flux_paper.pdf, page is rotate
@@ -936,7 +891,7 @@ Package natbib Warning: Citation `paolo2020' on page 6 undefined on input line
 561.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 593.
+Package hyperref Warning: Suppressing link with empty target on input line 589.
 
 
 [6 <./figures/cflMay07.pdf>]
@@ -950,34 +905,63 @@ access/gbm/
 Package hyperref Warning: Suppressing link with empty target on input line 653.
 
 
-[7
+[7] (./data_center.aux
 
-] (./data_center.aux) ) 
+Package natbib Warning: Citation `spice2018' multiply defined.
+
+
+Package natbib Warning: Citation `spice1996' multiply defined.
+
+
+Package natbib Warning: Citation `andrea2021' multiply defined.
+
+
+Package natbib Warning: Citation `SolarOrbiter2020' multiply defined.
+
+
+Package natbib Warning: Citation `StixInstrument' multiply defined.
+
+
+Package natbib Warning: Citation `ecc' multiply defined.
+
+
+Package natbib Warning: Citation `ecc2' multiply defined.
+
+
+Package natbib Warning: Citation `EDDS' multiply defined.
+
+
+Package natbib Warning: Citation `fits' multiply defined.
+
+
+Package natbib Warning: Citation `crsystallball' multiply defined.
+
+) ) 
 Here is how much of TeX's memory you used:
  11802 strings out of 481252
  174908 string characters out of 5915888
- 514317 words of memory out of 5000000
+ 517032 words of memory out of 5000000
  28401 multiletter control sequences out of 15000+600000
  495265 words of font info for 185 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,12n,102p,1550b,414s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.e
-nc}</usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfo
-nts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
-/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on data_center.pdf (7 pages, 245293 bytes).
+ 98i,11n,102p,1552b,416s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texli
+ve/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/t
+xfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi
+8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on data_center.pdf (7 pages, 246578 bytes).
 PDF statistics:
- 455 PDF objects out of 1000 (max. 8388607)
- 296 compressed objects within 3 object streams
+ 484 PDF objects out of 1000 (max. 8388607)
+ 324 compressed objects within 4 object streams
  61 named destinations out of 1000 (max. 500000)
  266 words of extra memory for PDF output out of 10000 (max. 10000000)
 
