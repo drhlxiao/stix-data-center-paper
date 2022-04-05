@@ -642,212 +642,212 @@ LaTeX Info: Redefining \nameref on input line 20.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for TS1+txr on input line 86.
+LaTeX Font Info:    Trying to load font information for TS1+txr on input line 84.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ts1txr.fd
 File: ts1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for OT1+txr on input line 86.
+LaTeX Font Info:    Trying to load font information for OT1+txr on input line 84.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsya on input line 86.
+LaTeX Font Info:    Trying to load font information for U+txsya on input line 84.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyb on input line 86.
+LaTeX Font Info:    Trying to load font information for U+txsyb on input line 84.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txmia on input line 86.
+LaTeX Font Info:    Trying to load font information for U+txmia on input line 84.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyc on input line 86.
+LaTeX Font Info:    Trying to load font information for U+txsyc on input line 84.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for T1+txss on input line 86.
+LaTeX Font Info:    Trying to load font information for T1+txss on input line 84.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txss.fd
 File: t1txss.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 16.41594pt on input line 86.
+(Font)              scaled to size 16.41594pt on input line 84.
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <17.28> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 86.
+(Font)              Font shape `T1/txss/bx/n' tried instead on input line 84.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 16.41594pt on input line 86.
-LaTeX Font Info:    Trying to load font information for T1+txtt on input line 86.
+(Font)              scaled to size 16.41594pt on input line 84.
+LaTeX Font Info:    Trying to load font information for T1+txtt on input line 84.
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 8.54997pt on input line 86.
+(Font)              scaled to size 8.54997pt on input line 84.
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <9> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 86.
+(Font)              Font shape `T1/txss/bx/n' tried instead on input line 84.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 8.54997pt on input line 86.
+(Font)              scaled to size 8.54997pt on input line 84.
 LaTeX Font Info:    Font shape `T1/txss/m/it' in size <9> not available
-(Font)              Font shape `T1/txss/m/sl' tried instead on input line 86.
+(Font)              Font shape `T1/txss/m/sl' tried instead on input line 84.
 LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
-(Font)              scaled to size 8.54997pt on input line 86.
+(Font)              scaled to size 8.54997pt on input line 84.
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 10.40245pt on input line 87.
+(Font)              scaled to size 10.40245pt on input line 85.
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <10.95> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 87.
+(Font)              Font shape `T1/txss/bx/n' tried instead on input line 85.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 10.40245pt on input line 87.
+(Font)              scaled to size 10.40245pt on input line 85.
 LaTeX Font Info:    Font shape `T1/txr/b/n' in size <10> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 94.
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 92.
 
 
-Package natbib Warning: Citation `SolarOrbiter2020' on page 1 undefined on input line 94.
+Package natbib Warning: Citation `SolarOrbiter2020' on page 1 undefined on input line 92.
 
 
-Package natbib Warning: Citation `StixInstrument' on page 1 undefined on input line 105.
+Package natbib Warning: Citation `StixInstrument' on page 1 undefined on input line 103.
 
 
-LaTeX Warning: Reference `sec:raw-data' on page 1 undefined on input line 122.
+LaTeX Warning: Reference `sec:raw-data' on page 1 undefined on input line 120.
 
 
-LaTeX Warning: Reference `sec:summary' on page 1 undefined on input line 123.
+LaTeX Warning: Reference `sec:summary' on page 1 undefined on input line 121.
 
 LaTeX Font Info:    Font shape `T1/txr/b/n' in size <9> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 145.
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 143.
 
-LaTeX Warning: Reference `LastPage' on page 1 undefined on input line 145.
+LaTeX Warning: Reference `LastPage' on page 1 undefined on input line 143.
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
 
-Package natbib Warning: Citation `StixInstrument' on page 2 undefined on input line 147.
+Package natbib Warning: Citation `StixInstrument' on page 2 undefined on input line 145.
 
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 149.
+(Font)              scaled to size 9.49997pt on input line 147.
 LaTeX Font Info:    Font shape `T1/txss/m/it' in size <10> not available
-(Font)              Font shape `T1/txss/m/sl' tried instead on input line 149.
+(Font)              Font shape `T1/txss/m/sl' tried instead on input line 147.
 LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
-(Font)              scaled to size 9.49997pt on input line 149.
+(Font)              scaled to size 9.49997pt on input line 147.
 
-LaTeX Warning: Reference `tb:raw_types' on page 2 undefined on input line 242.
-
-
-Package natbib Warning: Citation `EDDS' on page 2 undefined on input line 254.
+LaTeX Warning: Reference `tb:raw_types' on page 2 undefined on input line 240.
 
 
-LaTeX Warning: Reference `LastPage' on page 2 undefined on input line 255.
+Package natbib Warning: Citation `EDDS' on page 2 undefined on input line 252.
+
+
+LaTeX Warning: Reference `LastPage' on page 2 undefined on input line 253.
 
 [2]
 
-Package natbib Warning: Citation `spice1996' on page 3 undefined on input line 261.
+Package natbib Warning: Citation `spice1996' on page 3 undefined on input line 259.
 
 
-Package natbib Warning: Citation `spice2018' on page 3 undefined on input line 261.
+Package natbib Warning: Citation `spice2018' on page 3 undefined on input line 259.
 
 <figures/pipelines.pdf, id=38, 963.6pt x 532.99126pt>
 File: figures/pipelines.pdf Graphic file (type pdf)
 <use figures/pipelines.pdf>
-Package pdftex.def Info: figures/pipelines.pdf  used on input line 271.
+Package pdftex.def Info: figures/pipelines.pdf  used on input line 269.
 (pdftex.def)             Requested size: 471.17442pt x 260.61497pt.
 
-LaTeX Warning: Reference `fig:main_pipelines' on page 3 undefined on input line 276.
+LaTeX Warning: Reference `fig:main_pipelines' on page 3 undefined on input line 274.
 
 
-Package natbib Warning: Citation `spice1996' on page 3 undefined on input line 296.
+Package natbib Warning: Citation `spice1996' on page 3 undefined on input line 294.
 
 
-Package natbib Warning: Citation `spice2018' on page 3 undefined on input line 296.
+Package natbib Warning: Citation `spice2018' on page 3 undefined on input line 294.
 
 
-Package natbib Warning: Citation `fits' on page 3 undefined on input line 333.
+Package natbib Warning: Citation `fits' on page 3 undefined on input line 331.
 
 <figures/cal-fit.pdf, id=39, 569.12625pt x 358.33875pt>
 File: figures/cal-fit.pdf Graphic file (type pdf)
 <use figures/cal-fit.pdf>
-Package pdftex.def Info: figures/cal-fit.pdf  used on input line 365.
+Package pdftex.def Info: figures/cal-fit.pdf  used on input line 363.
 (pdftex.def)             Requested size: 204.86061pt x 128.98544pt.
 
-LaTeX Warning: Reference `fig:cal-fit' on page 3 undefined on input line 372.
+LaTeX Warning: Reference `fig:cal-fit' on page 3 undefined on input line 370.
 
 
-Package natbib Warning: Citation `crsystallball' on page 3 undefined on input line 376.
+Package natbib Warning: Citation `crsystallball' on page 3 undefined on input line 374.
 
 
-Package natbib Warning: Citation `ecc' on page 3 undefined on input line 381.
+Package natbib Warning: Citation `ecc' on page 3 undefined on input line 379.
 
 
-Package natbib Warning: Citation `ecc2' on page 3 undefined on input line 381.
+Package natbib Warning: Citation `ecc2' on page 3 undefined on input line 379.
 
 
-LaTeX Warning: Reference `LastPage' on page 3 undefined on input line 386.
+LaTeX Warning: Reference `LastPage' on page 3 undefined on input line 384.
 
 [3]
 <figures/flaredet.pdf, id=52, 462.52798pt x 346.89601pt>
 File: figures/flaredet.pdf Graphic file (type pdf)
 <use figures/flaredet.pdf>
-Package pdftex.def Info: figures/flaredet.pdf  used on input line 417.
+Package pdftex.def Info: figures/flaredet.pdf  used on input line 415.
 (pdftex.def)             Requested size: 204.86061pt x 153.6457pt.
 
 
-LaTeX Warning: Reference `fig:flare-det' on page 4 undefined on input line 424.
+LaTeX Warning: Reference `fig:flare-det' on page 4 undefined on input line 422.
 
 
-Underfull \hbox (badness 1902) in paragraph at lines 424--426
+Underfull \hbox (badness 1902) in paragraph at lines 422--424
 []\T1/txr/m/n/10 As an ex-am-ple, Fig. [] shows the 4 -- 10 keV QL
  []
 
 
-LaTeX Warning: Reference `LastPage' on page 4 undefined on input line 438.
+LaTeX Warning: Reference `LastPage' on page 4 undefined on input line 436.
 
 [4 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/pipelines.pdf> </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cal-fit.pdf, page is rotated 90 degrees>]
 <figures/goes_stix_flux_paper.pdf, id=112, 569.12625pt x 414.54875pt>
 File: figures/goes_stix_flux_paper.pdf Graphic file (type pdf)
 <use figures/goes_stix_flux_paper.pdf>
-Package pdftex.def Info: figures/goes_stix_flux_paper.pdf  used on input line 452.
+Package pdftex.def Info: figures/goes_stix_flux_paper.pdf  used on input line 450.
 (pdftex.def)             Requested size: 204.86061pt x 149.21844pt.
 
 
-Package natbib Warning: Citation `andrea2021' on page 5 undefined on input line 471.
+Package natbib Warning: Citation `andrea2021' on page 5 undefined on input line 469.
 
 
-LaTeX Warning: Reference `fig:goes-stix' on page 5 undefined on input line 475.
+LaTeX Warning: Reference `fig:goes-stix' on page 5 undefined on input line 473.
 
 <figures/cflMay07.pdf, id=113, 867.24pt x 252.945pt>
 File: figures/cflMay07.pdf Graphic file (type pdf)
 <use figures/cflMay07.pdf>
-Package pdftex.def Info: figures/cflMay07.pdf  used on input line 511.
+Package pdftex.def Info: figures/cflMay07.pdf  used on input line 509.
 (pdftex.def)             Requested size: 497.35255pt x 145.064pt.
 
-LaTeX Warning: Reference `LastPage' on page 5 undefined on input line 533.
+LaTeX Warning: Reference `LastPage' on page 5 undefined on input line 531.
 
 [5 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/flaredet.pdf> </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/goes_stix_flux_paper.pdf, page is rotated 90 degrees>]
-Underfull \hbox (badness 2951) in paragraph at lines 535--538
+Underfull \hbox (badness 2951) in paragraph at lines 533--536
 []\T1/txr/m/n/10 Coarse flare lo-ca-tion is es-ti-mated by min-i-miz-ing the
  []
 
 
-LaTeX Warning: Reference `fig:cfl' on page 6 undefined on input line 540.
+LaTeX Warning: Reference `fig:cfl' on page 6 undefined on input line 538.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 550--550
+Underfull \hbox (badness 10000) in paragraph at lines 548--548
 [][][][]$\T1/txtt/m/n/9 https : / / hesperia . gsfc . nasa . gov / ssw / packages / spex /
  []
 
 
-Package natbib Warning: Citation `paolo2020' on page 6 undefined on input line 567.
+Package natbib Warning: Citation `paolo2020' on page 6 undefined on input line 565.
 
 
-LaTeX Warning: Reference `LastPage' on page 6 undefined on input line 599.
+LaTeX Warning: Reference `LastPage' on page 6 undefined on input line 597.
 
 [6 </home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/figures/cflMay07.pdf>]
-Overfull \hbox (37.70522pt too wide) in paragraph at lines 631--633
+Overfull \hbox (37.70522pt too wide) in paragraph at lines 629--631
 \T1/txr/m/n/10 Calibration data prod-ucts https://fermi.gsfc.nasa.gov/ssc/data/access/gbm/ 
  []
 
 No file data_center.bbl.
 
-LaTeX Warning: Reference `LastPage' on page 7 undefined on input line 659.
+LaTeX Warning: Reference `LastPage' on page 7 undefined on input line 657.
 
 [7
 
@@ -868,7 +868,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  98i,11n,102p,840b,422s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.pdf (7 pages, 242414 bytes).
+Output written on /home/xiaohl/FHNW/STIX/Papers/stix-data-center-paper/data_center.pdf (7 pages, 242411 bytes).
 PDF statistics:
  344 PDF objects out of 1000 (max. 8388607)
  186 compressed objects within 2 object streams
