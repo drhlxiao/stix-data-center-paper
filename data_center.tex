@@ -161,10 +161,11 @@ STIX generates four different types of quick-look (QL) data:
 %of all pixels in 30 detectors (excluding background detector and the coarse flare locator)
 %accumulated every 4 sec time resolution in five broad energy ranges (two thermal, two nonthermal
 %and one intermediate). Quick-look light curves are generated when STIX is in nominal observation mode.
-\item STIX light curves are a time series of detector counts in different energy bands (units will be counts/second/cm$^2$). There are five configurable energy bands (for example: 4-7keV, 7-11keV, 11-16keV, 16-40keV, and 40-150keV), with a default integration time of 4 seconds. 
-A light curve data point corresponds to the total counts integrated over all selected detectors and pixels for the given energy band. 
-The data are temperature corrected on-board, and undergo minor corrections for detector and pixels,
-and nominal grid transmission (25 percent) on the ground. As lower energies are highly impacted by the presence of the attenuator, they will also need to be corrected. The data will not be corrected for background, live time or detector
+\item STIX quick-look light curves. 
+STIX quick-look light curves are time series of detector-sumed counts in five energy bands, with a default integration time of 4 seconds. 
+Counts are not corrected for dead time,  transmission, impacts of the presence of the attenuator  or rate control regimes. 
+STIX quick-look light curve data are transmitted to the ground as other low latency data. 
+Typically, STIX data centers receive them within tens of minutes to two days after being generated on board.
 % efficiency. The FITS file is in accordance with [LLFITSICD] but will also comply with  in order to be usable with existing high-energy solar data file routines.
 %The light curve data are structured as an array of five count values COUNTS (for the five energy bands) 
 %per time, where time is a relative time $RELATIVE_TIME$ since $OBT_START$ that is time bin centered (i.e. with an integration 
