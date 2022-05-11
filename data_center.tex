@@ -539,7 +539,7 @@ As an example, the left panel of Fig.~\ref{fig:cfl} shows the calculated and bes
 of the CFL pixels measure observed for STIX flare 2105071900 (GOES class M3.9);   the middle panel shows the best-fit 
 flare centroid location, as well as its $1\sigma$, $2\sigma$ and $3\sigma$ contours. 
 The simulated shadow of the CFL sub-collimator  is shown in the right panel. 
-\subsubsection{Joint observation}
+%\subsubsection{Joint observation}
 
 
 \subsubsection{Solar flare spectral analysis}
@@ -622,6 +622,10 @@ Web-based applications are selected for the graphical
  The client side and server side interact and operate as shown in Fig. 
   The details are given below:
 
+STIX data center provides web data browsers to all L1 data, auxilary data , which include 
+- housekeeping data browser.  housekeeping data can be 
+- Science data browser
+
 Caching, balencing and preprocessing
 \subsection{Data access}
 
@@ -634,6 +638,16 @@ stixdcpy allows you to query and download data which are available at STIX data 
 Quick-look light curves
 Housekeeping data
 Science data
+\subsection{}
+data archive. 
+There are minjnor difference between the data in L1 and 
+FITS files are split for low latency data 
+
+In most cases, three platforms contains the same data. 
+Information metadata might be slightly different 
+
+May often be produces 
+
 \section{Summary}
 \label{sec:summary}
 
