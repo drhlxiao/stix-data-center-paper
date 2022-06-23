@@ -30,15 +30,19 @@
           Shane Maloney 
           \inst{2}
           \and S\"am Krucker\inst{1}
-          \and Ewan Dickson \inst{4}
-          \and Andrea Francesco Battaglia\inst{3}
           \and Paolo Massa \inst{6}
           \and Lastufka Erica \inst{1}
+          \and Andrea Francesco Battaglia\inst{3}
+          \and Ewan Dickson \inst{4}
           \and Frederic Schuller \inst{7}
-            \and László Etesi \inst{1}
+          \and André Csillaghy\inst{1} 
           \and Ryan Daniel \inst{1}
-          \and Olivier Limousin \inst{5}
+          \and László Etesi \inst{1}
           \and Nicky Hochmuth \inst{1}
+          \and Collier Hannah \inst{1}
+          \and Gordon Hurford\inst{1} 
+          \and Olivier Limousin \inst{5}
+          \and Astrid M. Veronig\inst{4} 
           \and Alexander Warmuth \inst{7}
           \and Other STIX team members
          }
@@ -126,11 +130,10 @@ algorithms of automated data processing, data products and tools provided by the
 %--------------------------------------------------------------------
 
 This paper is organized as follows: Section \ref{sec:raw-data} briefly introduces STIX raw telemetry types, data flow and
-telemetry processing pipeline. 
-We end with a summary in Section \ref{sec:summary}.
+telemetry processing pipelines. 
+At the end it is a summary \ref{sec:summary}.
 \section{STIX raw telemetry data}
 \label{sec:raw-data}
-
 STIX continuously observes high-energy events on the Sun at 4 -- 150keV. 
 Photons emitted by solar flares are detected with 32 subcollimators 
 (a 12-pixel-detector behind a front and rear grid). While passing through the front and rear grids, 
@@ -442,7 +445,7 @@ which is used to optimise the selection of scientific data to be downloaded.
 Then all extracted information as well as the ephemeris data calculated for the peak time are 
 written to a dataset called solar flare list in the NoSQL database.
 The flare list database can be queried using web interface or stixpy.
-\subsection{Estimation of detector background}
+\subsection{Estimation of background level}
 As mentioned earlier, a threshold value calculated using background data needs to be provided when
 performing flare identification.  
 The background, although stable within a few days, can change over long periods of time,
@@ -550,22 +553,7 @@ flare centroid location, as well as its $1\sigma$, $2\sigma$ and $3\sigma$ conto
 The simulated shadow of the CFL sub-collimator  is shown in the right panel. 
 %\subsubsection{Joint observation}
 
-
-\subsubsection{Solar flare spectral analysis}
-X-ray spectrum of  flares provides direct information on electron acceleration in flares. 
-STIX uses a software package based on SSWIDL's OSPEX 
-\footnote{\url{https://hesperia.gsfc.nasa.gov/ssw/packages/spex/doc/}} for spectral analysis.
-At the moment, the software reads pixel count data from L1 FITS files, 
-corrections for dead time, transmission and energy binning for the counts,  and calls 
-OSPEX routines for spectral fitting.  
-In further, level-3 fits fle, in which detector effects are corrected, will be used. 
-A python version of spectral analysis 
-software is still under development. 
- The flaring data processing pipeline and used for creation of
- spectral analysis products, which will be in the product level-4. 
- Details about STIX spectral analysis software and some 
- results will be discussed in further papers. 
-\subsubsection{Image reconstruction pipeline}
+\subsubsection{Solar flare image reconstruction pipeline}
 
 \begin{figure*}
   \centering
@@ -577,31 +565,58 @@ software is still under development.
    at STIX data center.}
   \label{fig:imaging}
 \end{figure*}
-STIX observes thousands of flares every year.
-In order to better select events of interest,  
-an automated image reconstruction 
-pipeline has been developed and integrated with the STIX data center. 
+STIX detects thousands of  solar flares each year. However, only
+ a part of them are analyzed in detail by solar physicists. 
+To facilitate selection of flares of interest, a flare image reconstruct pipeline 
+has been developed and integrated with the main data processing pipeline. 
+The pipeline  uses  the flare list and the metadata of level-1 data in the NoSQL database 
+to find signal data and data for suitable background data for each flare. 
+For each flare, pixel counts recorded within one-minute time frame around the flare peaks  
+are selected for background subtraction, transmission and dead time corrections. 
+The corrected counts are integrated over the energy ranges 
+ of 4 -- 10 keV (thermal emission) and 16 -- 28 (non-thermal)  keV for calculations of visibilities. 
+Then images are reconstructed from the visibilities with Back-projection, CLEAN,  EM, and VIS\_FWDFIT \cite{paolo2020} algorithms.
+Fig.~\ref{fig:imaging} shows an example of  images reconstructed for a flare observed at 2022-03-08T08:55:17Z. 
+The light curves and selected time range for imaging are shown in the first panel of the figure. 
 
-The pipeline selects flares with peak 
-counts above a certain limit and constructs images for
- a thermal and a non-thermal energy  
-ranges,  using Back-projection, CLEAN,  EM, and VIS\_FWDFIT \cite{paolo2020} for peak time periods. 
-Fig.~\ref{fig:imaging} shows an example of time range selected, and images reconstructed by the pipeline. 
-Reconstructed images are written to FITS files, PNG, and PDF files. 
-They are accessible at the STIX data center. 
- 
-\section{Data request and automation}
+Reconstructed images as well as the 
+ephemeris data are written to FITS files. 
+At the mean time, the metada of images are recorded in the database.  
+They are further used for creation of images in the PNG and PDF formats, which
+are accessible with web applications or via python APIs (see \ref{sec:apis}). 
 
-High time and energy resolution pixel data stored
-in the onboard archive memory contain much richer information than low latency data.
-Due to the data rate constraints,  they are not down-linked automatically and 
-need to be selected on the ground for downloading.
-STIX science data are selected on ground automatically.
-Selections of science data involve optimizations of time intervals, 
-energy ranges, time binning,  energy binning, detector groups,  and compression levels for data selections. 
-Automatic data selection based on QL light curve and flare list, we adopted the following strategies:
+
+\subsubsection{Spectral analysis}
+X-ray spectrum of flares provides direct information on electron acceleration in flares. 
+STIX uses a software package based on SSWIDL's OSPEX 
+\footnote{\url{https://hesperia.gsfc.nasa.gov/ssw/packages/spex/doc/}} for spectral analysis.
+it reads pixel count data from L1 FITS files, 
+corrections for dead time, transmission and energy binning for the counts,  and calls 
+OSPEX routines for spectral fitting.  
+In the future, level-3 fits files, in which detector effects are corrected, will be used. 
+A python version of spectral analysis 
+software is still under development. 
+ The flaring data processing pipeline and used for creation of
+ spectral analysis products, which will be in the product level-4. 
+ Details about STIX spectral analysis software and some 
+ results will be discussed in further papers. 
+\section{Science data request automation}
+STIX only down-links low-latency data 
+automatically due to the data rate constraints.  
+Pixel data with higher time and energy resolution contain much richer information. 
+They persist in the onboard archive memory for about five to six months 
+before they are overwritten, are only down-linked after being requested from the ground. 
+Selection  of science data on-ground  is based on the knowledge from quick-look light curves 
+and is a tedious task, as it must take
+into account many factors, 
+such as constraints on the  allocated telemetry data rate, 
+the daily maximum number of requests that can be submitted, 
+age of data, solar flare fluxes and scientific value of data. 
+After two years of continuous optimization, the data selection has been semi-automated,
+which involves the following steps:
 \begin{itemize}
-  \item For each flare, if the signal has enough photons for image reconstruction (about 1000 photons), 
+  \item  
+  For each flare, if the recorded photons for image reconstruction (about 1000 photons), 
   we request pixel-level data (science L1), the energy range is adjusted according to the hardness of the flare, 
   and the resolution of the time channel is seconds to 10 seconds. 
   The stronger the flare, the higher the temporal resolution. These data will be used for spectroscopic analysis as well as image reconstruction.
@@ -615,7 +630,8 @@ Background subtraction is required for both spectroscopic studies and imaging.
 Therefore, the flare list is used, the time period of the flare is excluded, and the background request is performed in one time period. 
 The background data has only one time bin, and the integration time is one or two hours.
 \end{itemize}
-In addition to the above automatically generated data, stix will also 
+
+In addition to the above automatically generated data, STIX will also 
 respond to events of interest, such as aspect data, level 0 data, and higher-level data, 
 as well as requests from outsiders to meet other needs. All requests are stored in the database.
 In order to predict the data volume of each data,
@@ -624,14 +640,14 @@ In order to predict the data volume of each data,
 The data request is stored in the database. According to the priority of the data request,
  the generation time of the data, and the bandwidth limit, a 10-digit number is assigned to each flare,
   of which 6 digits represent the start date of the data, followed by 4 bits is a random number that ensures the entire number.
-
 Data requests in the database will be checked manually by the stix team. 
 After confirming that the parameters of each data request are correct,
 Will be generated by and IOR, and sent to STIX by MOC. During NECP,
 the typical time required from data request to data download is 2 weeks. 
 Data requests are automatically monitored by the state by the data center.
-\section{Interfaces and tools for users}
-\subsection{Web-based data browsers}
+\section{STIX data interfaces and data analysis tools}
+\subsection{Web-based data managers and browsers}
+STIX data center pipelines generates various data products and metadata. 
 Web-based applications are selected for the graphical
  interfaces at the data center. 
  This process enables the advantages 
@@ -652,6 +668,7 @@ Calibration data products
 https://fermi.gsfc.nasa.gov/ssc/data/access/gbm/
 \section{Tools for scientitic analysis }
 \subsection{Data access and APIs}
+\label{sec:apis}
 stixdcpy allows you to query and download data which are available at STIX data center, include
 Quick-look light curves
 Housekeeping data
