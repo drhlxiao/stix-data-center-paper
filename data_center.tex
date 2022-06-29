@@ -568,16 +568,17 @@ The simulated shadow of the CFL sub-collimator  is shown in the right panel.
 STIX detects thousands of  solar flares each year. However, only
  a part of them are analyzed in detail by solar physicists. 
 To facilitate selection of flares of interest, a flare image reconstruct pipeline 
-has been developed and integrated with the main data processing pipeline. 
-The pipeline  uses  the flare list and the metadata of level-1 data in the NoSQL database 
-to find signal data and data for suitable background data for each flare. 
+has been developed and integrated into the main data processing pipeline. 
+The pipeline uses  the flare list and the science data metadata recorded in the NoSQL database 
+to find available signal data and data for suitable background data for each flare. 
 For each flare, pixel counts recorded within one-minute time frame around the flare peaks  
 are selected for background subtraction, transmission and dead time corrections. 
 The corrected counts are integrated over the energy ranges 
- of 4 -- 10 keV (thermal emission) and 16 -- 28 (non-thermal)  keV for calculations of visibilities. 
-Then images are reconstructed from the visibilities with Back-projection, CLEAN,  EM, and VIS\_FWDFIT \cite{paolo2020} algorithms.
-Fig.~\ref{fig:imaging} shows an example of  images reconstructed for a flare observed at 2022-03-08T08:55:17Z. 
-The light curves and selected time range for imaging are shown in the first panel of the figure. 
+of 4 -- 10 keV (thermal emission) and 16 -- 28 (non-thermal)  keV for calculations of visibilities. 
+Then images are reconstructed from the visibilities using five different algorithms: Back-projection, CLEAN, 
+EM and VIS\_FWDFIT \cite{paolo2020}.
+As an example, Fig.~\ref{fig:imaging} shows the images reconstructed for the flare observed at 2022-03-08T08:55:17Z. 
+The light curves and time range selected for imaging are shown in the first panel of the figure. 
 
 Reconstructed images as well as the 
 ephemeris data are written to FITS files. 
@@ -587,44 +588,52 @@ are accessible with web applications or via python APIs (see \ref{sec:apis}).
 
 
 \subsubsection{Spectral analysis}
-X-ray spectrum of flares provides direct information on electron acceleration in flares. 
-STIX uses a software package based on SSWIDL's OSPEX 
-\footnote{\url{https://hesperia.gsfc.nasa.gov/ssw/packages/spex/doc/}} for spectral analysis.
-it reads pixel count data from L1 FITS files, 
-corrections for dead time, transmission and energy binning for the counts,  and calls 
-OSPEX routines for spectral fitting.  
-In the future, level-3 fits files, in which detector effects are corrected, will be used. 
-A python version of spectral analysis 
-software is still under development. 
- The flaring data processing pipeline and used for creation of
- spectral analysis products, which will be in the product level-4. 
- Details about STIX spectral analysis software and some 
- results will be discussed in further papers. 
+
+Energy spectra provide direct information on electron 
+acceleration in solar flares. 
+STIX team uses 
+the OSPEX2 SSWIDL package  to fit solar hard X-ray spectra. 
+The software includes a wide
+range of commonly used functions for parametrising the thermal
+and nonthermal components as well as an interface to perform
+the fits \footnote{\url{https://hesperia.gsfc.nasa.gov/ssw/packages/spex/doc/}}
+it reads pixel count data from L1 FITS files, corrections for dead time, transmission and energy binning for the counts,  
+and calls  OSPEX routines for spectral fitting. A python implementation of the fitting package is  
+being developed by STIX team and will be integrated 
+into the main data processing pipeline, which will provide spectroscopic data products for the community. 
+
 \section{Science data request automation}
 STIX only down-links low-latency data 
 automatically due to the data rate constraints.  
 Pixel data with higher time and energy resolution contain much richer information. 
 They persist in the onboard archive memory for about five to six months 
-before they are overwritten, are only down-linked after being requested from the ground. 
-Selection  of science data on-ground  is based on the knowledge from quick-look light curves 
-and is a tedious task, as it must take
-into account many factors, 
-such as constraints on the  allocated telemetry data rate, 
-the daily maximum number of requests that can be submitted, 
-age of data, solar flare fluxes and scientific value of data. 
-After two years of continuous optimization, the data selection has been semi-automated,
+before they are overwritten.
+They are down-link to the ground only after receiving data request telecommands initiated  by the STIX team. 
+A data request telecommand provides information on the
+time range, time binning, energy range, energy binning  and selected detectors (or pixels), based on 
+the knowledge from low-latency quick-look light curves.
+Requesting science data from STIX is a tedious task, as it must take
+into account many factors, such as constraints on the  allocated telemetry data rate, 
+the daily maximum number of requests that can be submitted,  
+the onboard time binning, 
+solar flare fluxes and the scientific value of the data. 
+After two years of operation, a semi-automated data selection procedure has been established,
 which involves the following steps:
 \begin{itemize}
   \item  
-  For each flare, if the recorded photons for image reconstruction (about 1000 photons), 
-  we request pixel-level data (science L1), the energy range is adjusted according to the hardness of the flare, 
-  and the resolution of the time channel is seconds to 10 seconds. 
-  The stronger the flare, the higher the temporal resolution. These data will be used for spectroscopic analysis as well as image reconstruction.
-\item Continuous spectral data. Spectral data is channel-integrated spectral data,
- which does not include information about each pixel individually,
-  and requires a small amount of data. Therefore, it is possible to allow us to request higher temporal resolution information.
-   We request spectra from stix for all time periods, each spectrum request spans several hours, 
-   excluding CFL and BKG detectors, these data will be used for spectroscopic analysis,
+    High time and energy resolution pixel data (onboard level-1) is requested for each solar flare 
+    with the peak signal count rate above a threshold (typically 125 counts/seccond).  
+    The energy range is  limited to the range that has signal counts, and the time resolutions is 
+    adjusted to comply with the constraint on telemetry data volume.  
+    The higher the allocated data volume, the higher time resolution is requested.
+  \item If the count rate of a flare is below the count rate limit mentioned above,
+   and  the total number recorded signal counts is less than a threshold, 
+  only single time-bin pixel data are requested.  The threshold on the total signal counts
+   is chosen at a value so that the statistics are sufficient to reconstruct an image.
+ \item  Spectrograms require small amount data, therefore high time and energy resolution spectrograms
+  are requested for all time periods when STIX is in NOMINAL mode. 
+  The maximum duration of a single spectrogram request is 6 hours and the highest possible time resolution and energy resolution 
+  are requested. 
 \item Selection of background L1 data. 
 Background subtraction is required for both spectroscopic studies and imaging. 
 Therefore, the flare list is used, the time period of the flare is excluded, and the background request is performed in one time period. 

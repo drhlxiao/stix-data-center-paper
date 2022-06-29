@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.6.9)  23 JUN 2022 20:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.6.9)  29 JUN 2022 16:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -858,38 +858,38 @@ File: figures/imaging_pipeline.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/imaging_pipeline.pdf  used on input line 560.
 (pdftex.def)             Requested size: 497.35255pt x 290.12799pt.
 
-Package natbib Warning: Citation `paolo2020' on page 6 undefined on input line 578.
+Package natbib Warning: Citation `paolo2020' on page 6 undefined on input line 579.
 
 
-LaTeX Warning: Reference `fig:imaging' on page 6 undefined on input line 579.
+LaTeX Warning: Reference `fig:imaging' on page 6 undefined on input line 580.
 
 
-LaTeX Warning: Reference `sec:apis' on page 6 undefined on input line 586.
+LaTeX Warning: Reference `sec:apis' on page 6 undefined on input line 587.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 592--592
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
 [][][][]$\T1/txtt/m/n/9 https : / / hesperia . gsfc . nasa . gov / ssw / packages / spex /
  []
 
 
-LaTeX Warning: Reference `LastPage' on page 6 undefined on input line 623.
+LaTeX Warning: Reference `LastPage' on page 6 undefined on input line 629.
 
 [6 <./figures/cflMay07.pdf>]
-Overfull \hbox (37.70522pt too wide) in paragraph at lines 667--669
+Overfull \hbox (37.70522pt too wide) in paragraph at lines 676--678
 \T1/txr/m/n/10 Calibration data prod-ucts https://fermi.gsfc.nasa.gov/ssc/data/access/gbm/ 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1735) has occurred while \output is active []
 
 
 
-LaTeX Warning: Reference `LastPage' on page 7 undefined on input line 676.
+LaTeX Warning: Reference `LastPage' on page 7 undefined on input line 678.
 
 [7 <./figures/imaging_pipeline.pdf>]
 No file data_center.bbl.
 
-LaTeX Warning: Reference `LastPage' on page 8 undefined on input line 706.
+LaTeX Warning: Reference `LastPage' on page 8 undefined on input line 715.
 
 [8
 
@@ -910,7 +910,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  85i,11n,90p,798b,438s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on data_center.pdf (8 pages, 370475 bytes).
+Output written on data_center.pdf (8 pages, 371110 bytes).
 PDF statistics:
  444 PDF objects out of 1000 (max. 8388607)
  201 compressed objects within 3 object streams
