@@ -608,39 +608,38 @@ automatically due to the data rate constraints.
 Pixel data with higher time and energy resolution contain much richer information. 
 They persist in the onboard archive memory for about five to six months 
 before they are overwritten.
-They are down-link to the ground only after receiving data request telecommands initiated  by the STIX team. 
-A data request telecommand provides information on the
-time range, time binning, energy range, energy binning  and selected detectors (or pixels), based on 
+They can be compressed and 
+down-linked  after receiving data request telecommands initiated  by the STIX operation team. 
+A data request telecommand needs to provide information on the
+time range, minimal time binning, energy range, energy binning  and selected detectors (or pixels), based on 
 the knowledge from low-latency quick-look light curves.
 Requesting science data from STIX is a tedious task, as it must take
 into account many factors, such as constraints on the  allocated telemetry data rate, 
 the daily maximum number of requests that can be submitted,  
 the onboard time binning, 
 solar flare fluxes and the scientific value of the data. 
-After two years of operation, a semi-automated data selection procedure has been established,
-which involves the following steps:
+After two years of operation, the following data selection strategy has been adopted: 
 \begin{itemize}
-  \item  
-    High time and energy resolution pixel data (onboard level-1) is requested for each solar flare 
-    with the peak signal count rate above a threshold (typically 125 counts/seccond).  
-    The energy range is  limited to the range that has signal counts, and the time resolutions is 
-    adjusted to comply with the constraint on telemetry data volume.  
-    The higher the allocated data volume, the higher time resolution is requested.
-  \item If the count rate of a flare is below the count rate limit mentioned above,
-   and  the total number recorded signal counts is less than a threshold, 
-  only single time-bin pixel data are requested.  The threshold on the total signal counts
-   is chosen at a value so that the statistics are sufficient to reconstruct an image.
- \item  Spectrograms require small amount data, therefore high time and energy resolution spectrograms
-  are requested for all time periods when STIX is in NOMINAL mode. 
-  The maximum duration of a single spectrogram request is 6 hours and the highest possible time resolution and energy resolution 
-  are requested. 
-\item Selection of background L1 data. 
-Background subtraction is required for both spectroscopic studies and imaging. 
-Therefore, the flare list is used, the time period of the flare is excluded, and the background request is performed in one time period. 
-The background data has only one time bin, and the integration time is one or two hours.
+  \item 
+  Level-1 pixel data 
+  of the flaring time period is requested for detected flares with a total number signal counts  greater than 1000, 
+  which is  the minimal counts to reconstruct an image.  
+  In order to minimize the telemetry data size, 
+  the energy range of the request is limited to the range with signal counts based on the 
+  knowledge from light curves. 
+  If the pixel-summed peak count rate is less than 125 counts/sec
+  (equivalent to the count rate observed for a B3 flare at 1 au), 
+  a single time-bin is requested. Otherwise, a finer time resolution of science data is requested.
+  The actual time resolution is adjusted based on the amount of data allocated.
+ \item Spectrograms (onboard level-4) require relative small amount data, therefore
+  the highest possible time resolution and energy resolution are requested for all time periods that STIX is in NOMINAL mode. 
+\item At least one level 1 scientific data background data is requested per day. 
+Background period selection is done by excluding periods from the list of flares stored in the database. 
+If a quiet solar period is not found, a relatively quiet solar period will be selected. To reduce the amount of telemetry data, 
+background data request counts are time-integrated over the requested time period, i.e., a single time-bin.
 \end{itemize}
-
-In addition to the above automatically generated data, STIX will also 
+In addition to the above automatically generated requested, 
+STIX will also 
 respond to events of interest, such as aspect data, level 0 data, and higher-level data, 
 as well as requests from outsiders to meet other needs. All requests are stored in the database.
 In order to predict the data volume of each data,
