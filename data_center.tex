@@ -104,28 +104,24 @@ remote-sensing and in-situ measurements.
 Solar Orbiter  will perform detailed measurements of the Sun as close as 0.28 AU and for the first time look at its uncharted polar regions (\cite{SolarOrbiter2020}).  
 Its goal is to  address the center question of heliophysics  "How does the Sun create and control the heliosphere?".  It is designed to identify the origins and causes of the solar wind, the heliospheric magnetic field, the solar energetic particles, the transient interplanetary disturbances, and the Sun's magnetic field.
 This consists of the study of energetic solar phenomena like flares,  solar transients,  the solar wind accelerating mechanisms, and the solar dynamo principle.  
+The Spectrometer Telescope for Imaging X-rays (STIX) is one of the ten instruments onboard Solar Orbiter.  
+It measures X-rays from 4 to 150 keV and takes X-ray images with a few arcsec angular resolution by using an indirect imaging technique,
+based on the Moiré effect.  STIX consists of 32 collimators with grids and pixelated Cadmium telluride detector unit Caliste-SO. 
+The main science objective of STIX is to study the extremely hot solar plasma and the high-energy electrons accelerated during solar flares. STIX provides  intensity,  spectrum, timing, and location of accelerated electron information of solar flaresn.
+For details on STIX instrumentation and its scientific capabilities, we refer to the instrument paper (\cite{StixInstrument}).
 
 
-The Spectrometer Telescope for Imaging X-rays (STIX) is one of the instruments onboard Solar Orbiter.  
-It measures X-rays from 4 to 150 keV and takes X-ray images with a few arcsec angular resolution by using an indirect imaging technique based on the Moiré effect. 
-STIX instrument consists of 32 collimators with
-grids and pixelated Cadmium telluride detector units called Caliste-SO.
-The main science objective of STIX is to study the extremely hot solar plasma and the high-energy electrons accelerated during solar flares. STIX will address the key science goals of the Solar Orbiter mission by providing information on intensity, 
-spectrum, timing, and location of accelerated electrons near the Sun.
-For details of the STIX instrumentation, we refer to the instrument paper (\cite{StixInstrument}).
-
-
-During nominal science operations, STIX continuously acquires science data. 
-They are processed and compressed into telemetry packets by
-before they are transmitted to the ground.
-Being aware of the complexity of STIX data analysis and 
-the need of bringing the data to the solar physics community, a data center has been
-developed at FHNW. The data center (SDC) receives, analyzes, archives and distributes STIX data,
- and supports STIX in-flight operations.
+During nominal science operations, STIX continuously acquires data. They are compressed and formatted into different types of telemetry packets onboard by 
+STIX onboard data processing unit (IDPU). The total number of telemetry packets reaches hundreds. 
+Being aware of the complexity of STIX data analysis and  the need of bringing the data to the solar physics community, 
+a data center was developed at FHNW. 
+The data center software consists of a set of software packets, which allow 
+The data center (SDC) receives, analyzes, archives and distributes STIX data. 
+It also supports STIX in-flight operations.
 It turns raw telemetry data into processed information and produces data products that can be used for scientific analysis.
 It also provides various data visualization tools to the solar physics community.
-The purpose of this is to describe the standard processing pipelines, 
-algorithms of automated data processing, data products and tools provided by the STIX data center.
+The purpose of this paper is to describe the processing pipelines, 
+the main algorithms of automated data processing, data products and tools provided by the STIX data center.
 %We will describe here STIX data types,  the flow of data from to the users, the data processing pipelines, the %database, the data products and the tools provided for the solar physics comnunity.
 %--------------------------------------------------------------------
 
@@ -632,7 +628,8 @@ After two years of operation, the following data selection strategy has been ado
   a single time-bin is requested. Otherwise, a finer time resolution of science data is requested.
   The actual time resolution is adjusted based on the amount of data allocated.
  \item Spectrograms (onboard level-4) require relative small amount data, therefore
-  the highest possible time resolution and energy resolution are requested for all time periods that STIX is in NOMINAL mode. 
+  the highest possible time resolution (~ 0.5 seconds depending on the configuration)
+   and energy resolution  (no rebinning of science energy bins) are requested for all time periods that STIX is in NOMINAL mode. 
 \item At least one level 1 scientific data background data is requested per day. 
 Background period selection is done by excluding periods from the list of flares stored in the database. 
 If a quiet solar period is not found, a relatively quiet solar period will be selected. To reduce the amount of telemetry data, 
@@ -652,8 +649,10 @@ data requests are also created by the instrument team for special requirements.
 \section{STIX data interfaces and data analysis tools}
 Data products generated by pipelines are either stored directly in the NoSQL database, 
 or in individual files.  For the latter, only metadata are stored in the database.
-They can be accessed via web interfaces or python application interfaces. 
-\subsection{Web-based data managers and browsers}
+STIX data center provides web interfaces
+ They can be accessed via web interfaces or python application interfaces. 
+\subsection{Web-based data browsers}
+
 STIX data center pipelines generates various data products and metadata. 
 Web-based applications are selected for the graphical
  interfaces at the data center. 
