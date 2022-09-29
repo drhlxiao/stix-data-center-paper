@@ -44,7 +44,6 @@
           \and Olivier Limousin \inst{5}
           \and Astrid M. Veronig\inst{4} 
           \and Alexander Warmuth \inst{7}
-          \and Other STIX team members
          }
 
    \institute{University of Applied Sciences and Arts Northwestern Switzerland (FHNW), 5200 Windisch, Switzerland \\
@@ -124,6 +123,9 @@ The purpose of this paper is to describe the processing pipelines,
 the main algorithms of automated data processing, data products and tools provided by the STIX data center.
 %We will describe here STIX data types,  the flow of data from to the users, the data processing pipelines, the %database, the data products and the tools provided for the solar physics comnunity.
 %--------------------------------------------------------------------
+STIX data center processes STIX telemetry to generate a set of widely usable products, as well as performing a quick-look
+analysis to access the data quality and discover solar flares. Data are distributed to users and archived at STIX data center. 
+STIX data center also provides various data analysis tools, and giving support to users. 
 
 This paper is organized as follows: Section \ref{sec:raw-data} briefly introduces STIX raw telemetry types, data flow and
 telemetry processing pipelines. 
@@ -214,11 +216,11 @@ Onboard formation of the science data is invoked by data request telecommands.
 Each science request can select subsets of energies, pixels and detectors.
 Six different science data can be generated:
 \begin{itemize}
- \item Level-0 X-ray data is the least processed data and contains uncompressed counts for the selected energies, pixels and detectors;
-\item Level-1 is essentially the same as Level-0 but the counts are compressed onboard before being sent to the ground;
-\item Level-2 data are further compressed counts from the L1 pixel data, in which are summed down to 4 before compression.
-\item Level-3 data are visibilities, which further reduces the data by combining the four summed pixel counts into complex visibility which is also compressed.
-\item Level-4 data are detector summed spectrograms;
+ \item Raw pixel data is the least processed data and contains uncompressed counts for the selected energies, pixels and detectors;
+\item Pixel data is essentially the same as Level-0 but the counts are compressed onboard before being sent to the ground;
+\item Compressed pixel data are further compressed counts from the L1 pixel data, in which are summed down to 4 before compression.
+\item Visibilities are further reduces the data by combining the four summed pixel counts into complex visibility which is also compressed.
+\item Spectrograms are detector summed spectrograms;
 \item High-time resolution aspect data.
 \end{itemize}
 It should be noticed that the data levels described 
@@ -328,14 +330,14 @@ for example,
 \end{itemize}
 The information are necessary for subsequent processing. The
 database is  accessible through web pages at STIX data center website or python APIs. 
-\subsection{FITS file}
+\subsection{Data products}
 \subsubsection{Level-1 FITS files}
 After each new raw telemetry file is being parsed, 
 housekeeping, quick-look, and science packets  
 are selected from the NoSQL database successively 
 and checked for data integrity and consistency. 
 Then packets of the same type are merged for creations of pre-release of 
-level-1 data products (Level-1A)
+level-1 data products (Level-1A) 
  in the FITS format (\cite{fits}), 
 which is a portable file standard widely used in the astronomy 
 community to store images and tables.
@@ -353,18 +355,19 @@ due to bugs in the early version of the flight software.
 After all resources are validated,  Level-1  FITS files are created again. 
 Level-1  FITS products have almost the same data structures as Level-1A.
 \subsubsection{Level-2 FITS files}
-Level-1 fits are further processed. 
+Level-1 FITS files are further processed. 
 Dead time  correction and energy this make up the second
-
+\subsubsection{Level-3 data products}
+Level-3 data products are visibilities and images
 
 \subsection{Energy calibration}
-STIX converts energies from ADC units to keV onboard. This relies on
-an energy look-up table (ELUT) regularly updated  with telecommands.
-An ELUT can be constructed using energy conversion factors obtained by studying
- positions of photo peaks in the calibration spectra measured for the onboard Ba$^{133}$ sources.  
- As energy conversion factors may change with temperature 
- or polarization effects,  calibration spectra need to be analyzed promptly on the ground. 
-
+Energies deposited by x-rays are converted from ADC units 
+to keV onboard by using an energy look-up table (ELUT),
+ which is regularly updated  with telecommands.
+ELUTs can be constructed using energy conversion factors obtained by studying
+positions of photo peaks in the calibration spectra measured for the onboard Ba$^{133}$ sources.  
+As energy conversion factors may change with temperature 
+or polarization effects,  calibration spectra need to be analyzed promptly on the ground. 
 
 \begin{figure}
  \centering
@@ -376,7 +379,7 @@ An ELUT can be constructed using energy conversion factors obtained by studying
     \label{fig:cal-fit}
 \end{figure}
 The right panel of Fig.~\ref{fig:cal-fit} shows 
-an example of STIX count spectrum from an in-flight calibration run.  
+an example of STIX count spectrum from in-flight calibration run.  
 The three strongest lines are from 31 keV, 35 keV and 81 keV photons. 
 The first two peaks are fitted with the double-Gaussian function and the third peak
 by the crystall-ball function (\cite{crsystallball}),  which consists of a Gaussian core portion 
@@ -421,14 +424,17 @@ The procedure involves the following steps:
 \begin{figure}
   \centering
   \includegraphics[width=0.8\linewidth]{figures/flaredet.pdf}
-  \caption{STIX 4 -- 10 keV QL light curve recorded from  2022-02-13T21:00:00Z to 2022-02-14T03:00:00Z and 
-  identified flares.   The light curve was smoothed using a moving average filter with a time window
-  of 1 minute. The identified peaks are marked with plus signs, and flare time ranges are highlighted in yellow.
+  \caption{STIX 4 -- 10 keV QL light curve recorded from 2022-08-10T21:00:00Z to 2022-08-10T18:00:00Z and 
+  identified flares.   
+  The light curve was smoothed using a moving average filter with a time window
+  of 1 minute. 
+  The identified peaks are marked with plus signs, and flare time ranges are colored in cyan.
   }
   \label{fig:flare-det}
 \end{figure}
 As an example, Fig.~\ref{fig:flare-det} shows  the 4 -- 10 keV QL  light curve recorded from 
-2022-02-13T21:00:00Z to 2022-02-14T03:00:00Z, as well as the smoothed light curve and  identified solar flares (marked with plus signs).
+2022-08-10T10:00:00Z to 2022-08-10T18:00:00Z,
+ as well as the smoothed light curve and  identified solar flares (marked with plus signs).
 
 For each identified solar flare,  start time, end time, peak time and peak 
 counts are extracted from the selected light curve and assigned 
@@ -491,11 +497,10 @@ From the fit, we obtained
 the GOES flux in units of W/m$^2$ $\log_{10}(f) = 0.622 -7.376 \log_{10} (x^{'})$.
 %where $x^{'}$ is STIX
 %peak count rate corrected for the distance variations between the Sun and Solar Orbiter. 
-The formula is used to estimate  GOES classes  of flares observed by STIX. 
-It should be noted that more observations will be included into the fit.
+The formula is currently used to estimate GOES classes  of flares observed by STIX. 
+It is  worthwhile to mention that more observations will be included into the fit.
 The estimated GOES classes as well as those from GOES measurements 
-are attached to  the flare entry in the flare list database. 
-
+are stored in the flare list database. 
 
 \subsubsection{Coarse flare location estimation}
 Flare centroid location can constraint flaring region when reconstructing flare images.
@@ -549,8 +554,7 @@ flare centroid location, as well as its $1\sigma$, $2\sigma$ and $3\sigma$ conto
 The simulated shadow of the CFL sub-collimator  is shown in the right panel. 
 %\subsubsection{Joint observation}
 
-\subsubsection{Solar flare image reconstruction pipeline}
-
+\subsubsection{Image reconstruction and spectral analysis}
 \begin{figure*}
   \centering
   \includegraphics[width=0.95\linewidth]{figures/imaging_pipeline.pdf}
@@ -563,42 +567,43 @@ The simulated shadow of the CFL sub-collimator  is shown in the right panel.
 \end{figure*}
 STIX detects thousands of  solar flares each year. However, only
  a part of them are analyzed in detail by solar physicists. 
-To facilitate selection of flares of interest, a flare image reconstruct pipeline 
-has been developed and integrated into the main data processing pipeline. 
-The pipeline uses  the flare list and the science data metadata recorded in the NoSQL database 
-to find available signal data and data for suitable background data for each flare. 
+To facilitate the selection of flares of interest, a flare imaging reconstruction and spectral fitting pipeline 
+has been developed and integrated into the main data processing pipeline on the platform. 
 For each flare, pixel counts recorded within one-minute time frame around the flare peaks  
-are selected for background subtraction, transmission and dead time corrections. 
-The corrected counts are integrated over the energy ranges 
-of 4 -- 10 keV (thermal emission) and 16 -- 28 (non-thermal)  keV for calculations of visibilities. 
-Then images are reconstructed from the visibilities using five different algorithms: Back-projection, CLEAN, 
-EM and VIS\_FWDFIT \cite{paolo2020}.
-As an example, Fig.~\ref{fig:imaging} shows the images reconstructed for the flare observed at 2022-03-08T08:55:17Z. 
-The light curves and time range selected for imaging are shown in the first panel of the figure. 
-
-Reconstructed images as well as the 
-ephemeris data are written to FITS files. 
-At the mean time, the metada of images are recorded in the database.  
-They are further used for creation of images in the PNG and PDF formats, which
-are accessible with web applications or via python application interfaces (APIs, see \ref{sec:apis}). 
-
-
+are selected.
+Reconstruction of an image require inputs such as background data in the same level, 
+STIX pointing information, spacecraft orientation. 
+They are prepared based on the knowledge in the NoSQL. 
+After background subtraction, transmission and dead time corrections, the selected counts are used for 
+calculation of visibilities for two energy ranges 4 -- 10 keV (thermal emission) and 16 -- 28 (non-thermal)  
+keV.
+Then images are reconstructed with four different algorithms: Back-projection, CLEAN, 
+MEM and VIS\_FWDFIT \cite{paolo2020,clean,mem}.
+Reconstructed images are further corrected for STIX off-pointing and spacecraft rotations with the auxiliary data. 
+As an example,  the first panel of Fig. ~\ref{fig:imaging} shows 
+the light curves and time range selected for a flare occurred at about 2022-03-08T08:55:17Z .
+The rest of the panels show the reconstructed images. 
+The final by the pipeline are written to files in FITS  and PNG formats, while
+their metadata are written to the NoSQL database.  
+%They are accessible from STIX data center website or via stixdcpy\footnote{stixdcpy}.
 \subsubsection{Spectral analysis}
-
-Energy spectra provide direct information on electron 
-acceleration in solar flares. 
-STIX team uses 
-the OSPEX2 SSWIDL package  to fit solar hard X-ray spectra. 
-The software includes a wide
-range of commonly used functions for parametrising the thermal
+Energy spectra provide direct information on electron acceleration in solar flares. 
+The x-ray spectral fitting package OSPEX in SSWIDL includes a wide range of commonly used functions for parametrising the thermal
 and non-thermal components as well as an interface to perform
-the fits \footnote{\url{https://hesperia.gsfc.nasa.gov/ssw/packages/spex/doc/}}
-it reads pixel count data from L1 FITS files, corrections for dead time, transmission and energy binning for the counts,  
-and calls  OSPEX routines for spectral fitting. A python implementation of the fitting package is  
-being developed by STIX team and will be integrated 
-into the main data processing pipeline, which will provide spectroscopic data products for the community. 
-
-\section{Science data request}
+the fits \footnote{\url{https://hesperia.gsfc.nasa.gov/ssw/packages/spex/doc/}}.
+It reads pixel count data from L1 FITS files, corrections for dead time, transmission and energy binning for the counts,  
+and calls  OSPEX routines for spectral fitting. 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/ospex.pdf}
+  \caption{ 
+    An example of spectral fitting results . The imaging and spectroscopy pipeline performs
+    spectral analysis for all flares in the flare list. Spectral fitting results are written to both FITS files and 
+    the NoSQL database.
+   }
+  \label{fig:ospex}
+\end{figure}
+\section{Requesting Science data}
 STIX only down-links low-latency data 
 automatically due to the data rate constraints.  
 Pixel data with higher time and energy resolution contain much richer information. 
@@ -637,23 +642,43 @@ background data request counts are time-integrated over the requested time perio
 \end{itemize}
 A routine has been developed to create data requests mentioned above automatically. 
 An unique ID is assigned to each request.
- Unique IDs have a format of {\em yymmddxxxx}, where 
-the first eight digits indicate the two digit year,  month, day of the data start time, respectively, 
+Unique IDs have a format of {\em yymmddxxxx}, where 
+the first eight digits indicate the two-digit year,  month, day of the data start time, respectively, 
 and the last four digits are a random number, which is unique for the day.  
 Information of created data requests is stored in the NoSQL database. 
-After being reviewed and adjusted by STIX team, data requests 
-are selected from the database and compiled to instrument operation requests (IORs). 
-They are used to create the final telecommands by ESA.
+After being checked by STIX team, data requests  are flagged as pending requests.
+Then they are selected compiled to instrument operation requests (IORs), which are used to create the final telecommands
+to be executed by the instrument.
 Apart from those automatically created data requests, 
 data requests are also created by the instrument team for special requirements.
-\section{STIX data interfaces and data analysis tools}
-Data products generated by pipelines are either stored directly in the NoSQL database, 
-or in individual files.  For the latter, only metadata are stored in the database.
-STIX data center provides web interfaces
- They can be accessed via web interfaces or python application interfaces. 
-\subsection{Web-based data browsers}
+\section{STIX data center interfaces}
 
-STIX data center pipelines generates various data products and metadata. 
+\begin{figure*}[h]
+  \centering
+  \includegraphics[width=0.6\linewidth]{figures/interfaces.pdf}
+  \caption{ 
+    STIX data center client-side and server-side data exchanging mechanisms.
+   }
+  \label{fig:interfaces}
+\end{figure*}
+
+
+
+Being aware of the complex structure of STIX data and the wide variety of 
+data products types,  we developed Web APIs to facilitate querying and accessing the data. 
+Based on the http APIs, we have developed web-based interfaces, 
+and application interfaces for python and IDL. 
+\subsection{Web-based graphical interfaces}
+Web applications are accessible with a web browser anywhere, and can eliminate 
+compability issues.   We have developed tens of web-based applications with modern web techniques. 
+Fig. \ref{fig:interfaces}
+
+
+
+
+They are available at STIX data center website\footnote{https://datacenter.stix.i4ds.net/}.
+Data products and metadata generated by STIX data center are either 
+written to files to  
 Web-based applications are selected for the graphical
  interfaces at the data center. 
  This process enables the advantages 
@@ -666,9 +691,19 @@ STIX data center provides web data browsers to all L1 data, auxilary data , whic
 - housekeeping data browser.  housekeeping data can be 
 - Science data browser
 
+It provides  the capability to perform customized analysis with state-of-art methods without installating software or download raw data.
+THe platform runs on the computing infrastructure at FHNW and 
+it provides  the capability to perform customised 
+analysis with state-of-art methods without installating software or download raw data.
+The barried to explore stix data is greately reduced for newcommers. The
+access is facilitated for experienced users.
+
+One can obtain images, spectra and light curves from the web interface for a large dataset. 
+
+
+
 Caching, balencing and preprocessing
 \subsection{Data access}
-
 \subsection{Data query APIs}
 Calibration data products
 https://fermi.gsfc.nasa.gov/ssc/data/access/gbm/
@@ -679,7 +714,10 @@ stixdcpy allows you to query and download data which are available at STIX data 
 Quick-look light curves
 Housekeeping data
 Science data
-\subsection{}
+\subsection{Service for web based analysis}
+SWAN (Service for Web based ANalysis)
+ is a platform to perform interactive data analysis in the cloud.
+Analyse data without the need to install any software
 data archive. 
 There are minjnor difference between the data in L1 and 
 FITS files are split for low latency data 
@@ -688,6 +726,7 @@ In most cases, three platforms contains the same data.
 Information metadata might be slightly different 
 
 May often be produces 
+\section{Imaging and spectroscopy service}
 
 \section{Summary}
 \label{sec:summary}
