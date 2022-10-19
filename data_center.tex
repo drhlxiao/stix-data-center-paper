@@ -20,7 +20,7 @@
 \begin{document} 
 
 
-   \title{Data processing pipelines and the data center for the X-ray spectrometer/imager STIX}
+   \title{Data processing pipelines and the data center for the X-ray spectrometer/imager STIX onboard Solar Orbiter}
 
    \subtitle{}
 
@@ -466,12 +466,8 @@ The background, although stable within a few days, can change over long periods 
   for 717 solar flares observed by both GOES and STIX duration the commissioning phase. 
   The solid line is a linear fit to the log-log graph. 
 From the fit, we obtained 
-the GOES flux in units of W/m$^2$ $\log_{10}(f) = 0.622 -7.376 \log_{10} (x^{'})$,
-where $x^{'}$ is STIX
-peak count rate corrected for the distance variations between the Sun and Solar Orbiter. 
-%  The slope and 
-%  interception for the best fit are $0.622\pm 0.002$ and $-7.376\pm0.067$, respectively.
-%STIX count rate are background subtracted and corrected for the distance variations between the Sun and Solar Orbiter. 
+the GOES flux (in units of W/m$^2$) $f = 10^{0.622 -7.376 \log_{10} (X^{'})}$,
+where $X^{'}$ is STIX peak count rate corrected for the distance variations between the Sun and Solar Orbiter. 
 }
 \label{fig:goes-stix}
 \end{figure}
@@ -487,14 +483,14 @@ by both GOES  and   STIX during the commissioning phase.
 Fig.~\ref{fig:goes-stix} shows the scatter plot of GOES low channel peak flux with respect to 
 STIX peak count rate  of the 4 -- 10 keV QL light curves. 
 STIX count rates  have been subtracted for background,  and corrected for 
-the difference distance of Solar Orbiter to the Sun using $x^{'}=x r^2$, where $x$ is the count rate after background subtraction
- and $r$ the distance between Solar Orbiter and the Sun. 
+the difference distance of Solar Orbiter to the Sun using $X^{'}=x r^2$, where $X$ is the count rate after background subtraction
+ and $r$ the distance between Solar Orbiter and the Sun in units of AU. 
 As can be seen in the figure, there is clear correlation between
 these two quantities.  The wide spread at the low flux could be explained by the difference in 
 the energy response of the two instruments and in the flare temperatures. 
 A linear line was fitted to the  correlation in the log-log scale. 
 From the fit, we obtained 
-the GOES flux in units of W/m$^2$ $\log_{10}(f) = 0.622 -7.376 \log_{10} (x^{'})$.
+the GOES flux in units of W/m$^2$ $\log_{10}(f) = 0.622 -7.376 \log_{10} (X^{'})$.
 %where $x^{'}$ is STIX
 %peak count rate corrected for the distance variations between the Sun and Solar Orbiter. 
 The formula is currently used to estimate GOES classes  of flares observed by STIX. 
@@ -561,7 +557,8 @@ The simulated shadow of the CFL sub-collimator  is shown in the right panel.
   \caption{ 
    STIX Quick-look light curves and reconstructed images of the solar flare observed at 2022-03-08T08:55:17Z, 
    created by the image reconstruction pipeline.  The time period at the peak was selected and 
-   Back-projection, CLEAN, EM and VIS\_FWDFIT algorithms were used for reconstructing images. Image products are accessible
+   Back-projection, CLEAN, EM and VIS\_FWDFIT
+    algorithms were used for reconstructing images. Image products are accessible
    at STIX data center.}
   \label{fig:imaging}
 \end{figure*}
@@ -578,7 +575,7 @@ After background subtraction, transmission and dead time corrections, the select
 calculation of visibilities for two energy ranges 4 -- 10 keV (thermal emission) and 16 -- 28 (non-thermal)  
 keV.
 Then images are reconstructed with four different algorithms: Back-projection, CLEAN, 
-MEM and VIS\_FWDFIT \cite{paolo2020,clean,mem}.
+MEM and VIS\_FWDFIT \cite{paolo2020,clean, mem}.
 Reconstructed images are further corrected for STIX off-pointing and spacecraft rotations with the auxiliary data. 
 As an example,  the first panel of Fig. ~\ref{fig:imaging} shows 
 the light curves and time range selected for a flare occurred at about 2022-03-08T08:55:17Z .
@@ -588,23 +585,25 @@ their metadata are written to the NoSQL database.
 %They are accessible from STIX data center website or via stixdcpy\footnote{stixdcpy}.
 \subsubsection{Spectral analysis}
 Energy spectra provide direct information on electron acceleration in solar flares. 
-The x-ray spectral fitting package OSPEX in SSWIDL includes a wide range of commonly used functions for parametrising the thermal
+The x-ray spectral fitting package OSPEX in SSWIDL includes a wide range of commonly used 
+functions for parametrising the thermal
 and non-thermal components as well as an interface to perform
 the fits \footnote{\url{https://hesperia.gsfc.nasa.gov/ssw/packages/spex/doc/}}.
-It reads pixel count data from L1 FITS files, corrections for dead time, transmission and energy binning for the counts,  
+It reads pixel count data from L1 FITS files, corrections for dead time, transmission 
+and energy binning for the counts,  
 and calls  OSPEX routines for spectral fitting. 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.9\linewidth]{figures/ospex.pdf}
   \caption{ 
-    An example of spectral fitting results . The imaging and spectroscopy pipeline performs
+    An example of spectral fitting results. The imaging and spectroscopy pipeline performs
     spectral analysis for all flares in the flare list. Spectral fitting results are written to both FITS files and 
     the NoSQL database.
    }
   \label{fig:ospex}
 \end{figure}
-\section{Requesting Science data}
-STIX only down-links low-latency data 
+\section{Science data request strategy}
+As mentioned earlier, STIX only down-links low-latency data 
 automatically due to the data rate constraints.  
 Pixel data with higher time and energy resolution contain much richer information. 
 They persist in the onboard archive memory for about five to six months 
@@ -637,7 +636,8 @@ After two years of operation, the following data selection strategy has been ado
    and energy resolution  (no rebinning of science energy bins) are requested for all time periods that STIX is in NOMINAL mode. 
 \item At least one level 1 scientific data background data is requested per day. 
 Background period selection is done by excluding periods from the list of flares stored in the database. 
-If a quiet solar period is not found, a relatively quiet solar period will be selected. To reduce the amount of telemetry data, 
+If a quiet solar period is not found, a relatively quiet solar period will be selected. 
+To reduce the amount of telemetry data, 
 background data request counts are time-integrated over the requested time period, i.e., a single time-bin.
 \end{itemize}
 A routine has been developed to create data requests mentioned above automatically. 
@@ -651,47 +651,56 @@ Then they are selected compiled to instrument operation requests (IORs), which a
 to be executed by the instrument.
 Apart from those automatically created data requests, 
 data requests are also created by the instrument team for special requirements.
-\section{STIX data center interfaces}
+\section{STIX data platform user interfaces}
 
+\subsection{STIX web-based data browsers}
 \begin{figure*}[h]
   \centering
-  \includegraphics[width=0.6\linewidth]{figures/interfaces.pdf}
+  \includegraphics[width=0.7\linewidth]{figures/data-browser.pdf}
   \caption{ 
-    STIX data center client-side and server-side data exchanging mechanisms.
-   }
-  \label{fig:interfaces}
+    Interactive web-based STIX Quick-look data browser. 
+    Apart from STIX Quick-looks, it can also display quick-looks of simultaneous measurements 
+    performed by other instruments, such as GOES X-ray fluxes, SDO/AIA images and Solar Orbiter EUI. 
+    The browser is available at the link \url{https://datacenter.stix.i4ds.net/view/ql/lightcurves}.}
+  \label{fig:qlbrowser}
 \end{figure*}
 
 
+To facilitate the access of the data, a series of web APIs have been developed.
+The web APIs accept HTTP requests from the client side, 
+then the requests are processed on the server side
+ and the results are returned to the client side.  
+The web APIs provide access to all STIX data products 
+and the metadata stored in the NoSQL database. 
 
-Being aware of the complex structure of STIX data and the wide variety of 
-data products types,  we developed Web APIs to facilitate querying and accessing the data. 
-Based on the http APIs, we have developed web-based interfaces, 
-and application interfaces for python and IDL. 
-\subsection{Web-based graphical interfaces}
-Web applications are accessible with a web browser anywhere, and can eliminate 
-compability issues.   We have developed tens of web-based applications with modern web techniques. 
-Fig. \ref{fig:interfaces}
+Based on the web APIs, we have built dozens of different web applications to manage and visualize 
+different data products. 
+The reason that we chose web techniques for the data browsers is that
+web applications provide many advantages, such as clear cross-platform usability, 
+wide access with browsers, allowing rapid development and easy maintenance. 
+
+As an example, 
+Fig.~\ref{fig:qlbrowser} shows a screenshot of the interactive web-based STIX Quick-look data browser hosted 
+at STIX data center website.  It allows users to browse any historical STIX Quick-look data.
+On the browser, users can specify time ranges of Quick-look data to be loaded.
+After the web API on the server receives  a request, 
+it reads level-1 packets from the NoSQL database measured in the given time frame, and sends the
+compiled and serialized data  to the web browser. 
+Then the data are parsed, and used to  create interactive light curve plot on the client side by using JavaScript.
+Thanks to the use of modern web technologies, the interactive plot allows users  
+to rebin integration times, correct light travel times, estimate GOES fluxes, and export data to local files. 
+Apart from STIX quick-looks, quick-looks of 
+simultaneous measurements performed by other Sun observing instruments
+can be also displayed on the same page.
+
+Based on the same concept, we have developed web applications to 
+browser housekeeping data, ephemeris data, calibration data,  
+and different types of science data. They
 
 
 
-
-They are available at STIX data center website\footnote{https://datacenter.stix.i4ds.net/}.
-Data products and metadata generated by STIX data center are either 
-written to files to  
-Web-based applications are selected for the graphical
- interfaces at the data center. 
- This process enables the advantages 
- of clear cross-platform usability and wide access for internet browsers. 
- As an example, Fig. 4 shows the web-based light curve viewer mentioned in Section 8.1.
- The client side and server side interact and operate as shown in Fig. 
-  The details are given below:
-
-STIX data center provides web data browsers to all L1 data, auxilary data , which include 
-- housekeeping data browser.  housekeeping data can be 
-- Science data browser
-
-It provides  the capability to perform customized analysis with state-of-art methods without installating software or download raw data.
+It provides  the capability to perform customized analysis with state-of-art methods 
+without installating software or download raw data.
 THe platform runs on the computing infrastructure at FHNW and 
 it provides  the capability to perform customised 
 analysis with state-of-art methods without installating software or download raw data.
@@ -700,13 +709,14 @@ access is facilitated for experienced users.
 
 One can obtain images, spectra and light curves from the web interface for a large dataset. 
 
-
-
+\subsubsection{Interactive data analysis with web tools}
 Caching, balencing and preprocessing
+
 \subsection{Data access}
 \subsection{Data query APIs}
 Calibration data products
 https://fermi.gsfc.nasa.gov/ssc/data/access/gbm/
+
 \section{Tools for scientitic analysis }
 \subsection{Data access and APIs}
 \label{sec:apis}
@@ -726,7 +736,10 @@ In most cases, three platforms contains the same data.
 Information metadata might be slightly different 
 
 May often be produces 
-\section{Imaging and spectroscopy service}
+
+
+science data are not sent down automated. They are only selected and down-linked after requested by 
+using telecommands
 
 \section{Summary}
 \label{sec:summary}
