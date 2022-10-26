@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.6.9)  19 OCT 2022 18:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.6.9)  26 OCT 2022 21:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -808,71 +808,75 @@ Package natbib Warning: Citation `ecc2' on page 4 undefined on input line 390.
 
 Underfull \vbox (badness 1496) has occurred while \output is active []
 
-<figures/flaredet.pdf, id=53, 673.55638pt x 422.77951pt>
+
+
+Package natbib Warning: Citation `sinp' on page 4 undefined on input line 421.
+
+
+LaTeX Warning: Reference `LastPage' on page 4 undefined on input line 423.
+
+[4 <./figures/pipelines.pdf> <./figures/cal-fit.pdf, page is rotated 90 degrees>]
+<figures/flaredet.pdf, id=111, 673.55638pt x 422.77951pt>
 File: figures/flaredet.pdf Graphic file (type pdf)
 <use figures/flaredet.pdf>
-Package pdftex.def Info: figures/flaredet.pdf  used on input line 426.
+Package pdftex.def Info: figures/flaredet.pdf  used on input line 433.
 (pdftex.def)             Requested size: 204.86061pt x 128.58307pt.
 
 
-LaTeX Warning: Reference `fig:flare-det' on page 4 undefined on input line 435.
+LaTeX Warning: Reference `fig:flare-det' on page 5 undefined on input line 442.
 
 
-Underfull \hbox (badness 1902) in paragraph at lines 435--438
+Underfull \hbox (badness 1902) in paragraph at lines 442--445
 []\T1/txr/m/n/10 As an ex-am-ple, Fig. [] shows the 4 -- 10 keV QL
  []
 
-
-LaTeX Warning: Reference `LastPage' on page 4 undefined on input line 438.
-
-[4 <./figures/pipelines.pdf> <./figures/cal-fit.pdf, page is rotated 90 degrees>]
-<figures/goes_stix_flux_paper.pdf, id=113, 569.12625pt x 414.54875pt>
+<figures/goes_stix_flux_paper.pdf, id=112, 569.12625pt x 414.54875pt>
 File: figures/goes_stix_flux_paper.pdf Graphic file (type pdf)
 <use figures/goes_stix_flux_paper.pdf>
-Package pdftex.def Info: figures/goes_stix_flux_paper.pdf  used on input line 464.
+Package pdftex.def Info: figures/goes_stix_flux_paper.pdf  used on input line 471.
 (pdftex.def)             Requested size: 204.86061pt x 149.21844pt.
 
+Package natbib Warning: Citation `andrea2021' on page 5 undefined on input line 486.
 
-Package natbib Warning: Citation `andrea2021' on page 5 undefined on input line 479.
+
+LaTeX Warning: Reference `fig:goes-stix' on page 5 undefined on input line 490.
 
 
-LaTeX Warning: Reference `fig:goes-stix' on page 5 undefined on input line 483.
-
-<figures/cflMay07.pdf, id=114, 867.24pt x 252.945pt>
-File: figures/cflMay07.pdf Graphic file (type pdf)
-<use figures/cflMay07.pdf>
-Package pdftex.def Info: figures/cflMay07.pdf  used on input line 518.
-(pdftex.def)             Requested size: 497.35255pt x 145.064pt.
-
-LaTeX Warning: Reference `LastPage' on page 5 undefined on input line 534.
+LaTeX Warning: Reference `LastPage' on page 5 undefined on input line 522.
 
 [5 <./figures/flaredet.pdf> <./figures/goes_stix_flux_paper.pdf, page is rotated 90 degrees>]
-Underfull \hbox (badness 2951) in paragraph at lines 542--545
+<figures/cflMay07.pdf, id=212, 867.24pt x 252.945pt>
+File: figures/cflMay07.pdf Graphic file (type pdf)
+<use figures/cflMay07.pdf>
+Package pdftex.def Info: figures/cflMay07.pdf  used on input line 525.
+(pdftex.def)             Requested size: 497.35255pt x 145.064pt.
+
+Underfull \hbox (badness 2951) in paragraph at lines 549--552
 []\T1/txr/m/n/10 Coarse flare lo-ca-tion is es-ti-mated by min-i-miz-ing the
  []
 
 
-LaTeX Warning: Reference `fig:cfl' on page 6 undefined on input line 547.
+LaTeX Warning: Reference `fig:cfl' on page 6 undefined on input line 554.
 
 <figures/imaging_pipeline.pdf, id=213, 867.24pt x 505.89pt>
 File: figures/imaging_pipeline.pdf Graphic file (type pdf)
 <use figures/imaging_pipeline.pdf>
-Package pdftex.def Info: figures/imaging_pipeline.pdf  used on input line 556.
+Package pdftex.def Info: figures/imaging_pipeline.pdf  used on input line 563.
 (pdftex.def)             Requested size: 497.35255pt x 290.12799pt.
 
-Package natbib Warning: Citation `paolo2020' on page 6 undefined on input line 578.
+Package natbib Warning: Citation `paolo2020' on page 6 undefined on input line 585.
 
 
-Package natbib Warning: Citation `clean' on page 6 undefined on input line 578.
+Package natbib Warning: Citation `clean' on page 6 undefined on input line 585.
 
 
-Package natbib Warning: Citation `mem' on page 6 undefined on input line 578.
+Package natbib Warning: Citation `mem' on page 6 undefined on input line 585.
 
 
-LaTeX Warning: Reference `fig:imaging' on page 6 undefined on input line 580.
+LaTeX Warning: Reference `fig:imaging' on page 6 undefined on input line 587.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--591
+Underfull \hbox (badness 10000) in paragraph at lines 598--598
 [][][][]$\T1/txtt/m/n/9 https : / / hesperia . gsfc . nasa . gov / ssw / packages / spex /
  []
 
@@ -882,45 +886,55 @@ pdfTeX warning: pdflatex (file ./figures/ospex.pdf): PDF inclusion: found PDF ve
 <figures/ospex.pdf, id=216, 433.62pt x 505.89pt>
 File: figures/ospex.pdf Graphic file (type pdf)
 <use figures/ospex.pdf>
-Package pdftex.def Info: figures/ospex.pdf  used on input line 597.
+Package pdftex.def Info: figures/ospex.pdf  used on input line 604.
 (pdftex.def)             Requested size: 230.46574pt x 268.87689pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `LastPage' on page 6 undefined on input line 624.
-
-[6 <./figures/cflMay07.pdf>]
-Underfull \hbox (badness 4765) in paragraph at lines 634--637
+Underfull \hbox (badness 4765) in paragraph at lines 641--644
 []\T1/txr/m/n/10 Spectrograms (on-board level-4) re-quire rel-a-tive small
  []
 
-<figures/data-browser.pdf, id=280, 1384.17125pt x 690.58pt>
+
+LaTeX Warning: Reference `LastPage' on page 6 undefined on input line 661.
+
+[6]
+<figures/data-browser.pdf, id=228, 1384.17125pt x 690.58pt>
 File: figures/data-browser.pdf Graphic file (type pdf)
 <use figures/data-browser.pdf>
-Package pdftex.def Info: figures/data-browser.pdf  used on input line 659.
+Package pdftex.def Info: figures/data-browser.pdf  used on input line 666.
 (pdftex.def)             Requested size: 366.46988pt x 182.83423pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `fig:qlbrowser' on page 7 undefined on input line 683.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `LastPage' on page 7 undefined on input line 695.
+Underfull \vbox (badness 3657) has occurred while \output is active []
 
-[7 <./figures/imaging_pipeline.pdf>]
-Overfull \hbox (37.70522pt too wide) in paragraph at lines 717--719
+
+
+LaTeX Warning: Reference `LastPage' on page 7 undefined on input line 688.
+
+[7 <./figures/cflMay07.pdf> <./figures/imaging_pipeline.pdf>]
+
+LaTeX Warning: Reference `fig:qlbrowser' on page 8 undefined on input line 690.
+
+
+Overfull \hbox (37.70522pt too wide) in paragraph at lines 745--747
 \T1/txr/m/n/10 Calibration data prod-ucts https://fermi.gsfc.nasa.gov/ssc/data/access/gbm/ 
  []
 
 No file data_center.bbl.
 
-LaTeX Warning: Reference `LastPage' on page 8 undefined on input line 764.
+LaTeX Warning: Reference `LastPage' on page 8 undefined on input line 792.
 
 [8 <./figures/ospex.pdf>]
 
-LaTeX Warning: Reference `LastPage' on page 9 undefined on input line 764.
+LaTeX Warning: Reference `LastPage' on page 9 undefined on input line 792.
 
 [9 <./figures/data-browser.pdf>] (./data_center.aux)
 
@@ -933,13 +947,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Here is how much of TeX's memory you used:
  15316 strings out of 480247
  240648 string characters out of 5896152
- 546515 words of memory out of 5000000
+ 547515 words of memory out of 5000000
  32911 multiletter control sequences out of 15000+600000
  569110 words of font info for 196 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  85i,11n,90p,798b,516s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on data_center.pdf (9 pages, 742018 bytes).
+Output written on data_center.pdf (9 pages, 743115 bytes).
 PDF statistics:
  508 PDF objects out of 1000 (max. 8388607)
  223 compressed objects within 3 object streams

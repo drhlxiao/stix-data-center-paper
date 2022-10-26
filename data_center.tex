@@ -410,14 +410,21 @@ QL light curves of the energy range from  4 to 10 keV are used for solar flare i
 on the ground. Identification is based on the fact 
 that the background event rate in that energy range is almost constant 
 over a timescale of days during quiet sun periods. 
-The procedure involves the following steps:
+The procedure includes the following steps:
 \begin{itemize}
   \item Light curve smoothing. The selected light curve is filtered using an unweighted
   moving average filter with a time window of 1 minute to smooth out statistical fluctuations and electric surge spikes;
-  \item Identification of flare peaks. Peaks with counts exceeding a threshold of $2\sigma$ above the background level
+  \item "Background" subtraction.  
+   A flare may last hours and may have short-duration pulses lying  on the main pulse in the light curve.
+   The main pulse can be considered as the "background" of those short-duration pulses.
+  In order to identify those short-duration pulses  and estimate their durations, 
+  we estimate  the "background"  using the Statistic-sensitive Non-linear Iterative Peak-clipping  algorithm (SNIP)\cite{sinp}, which is widely used in X-ray spectroscopy.
+    Then it is subtracted from the smoothed light curve.
+  \item Identification of flare peaks. Peaks with counts exceeding a threshold of $2\sigma$ 
+  above the quiet Sun background count rates,  
    are selected. The duration of a peak is given by the time difference between the first 
    crossing of the threshold on the left and right sides of the peak;  
-  \item Merging of flare peaks. If the time difference between the two peaks is less than 5 minutes,
+  \item Merging of flare peaks. If the time difference between the two consecutive peaks is less than 5 minutes,
    they are considered to be from the same flare.
 \end{itemize}
 
@@ -458,7 +465,7 @@ The background, although stable within a few days, can change over long periods 
  Those processing steps are performed automatically after flare identification.
 
 \subsection{Solar flare data analysis pipeline}
-\subsubsection{GOES class determination}
+\subsubsection{Flare GOES class determination}
 \begin{figure}
   \centering
   \includegraphics[width=0.8\linewidth]{figures/goes_stix_flux_paper.pdf}
@@ -668,7 +675,7 @@ data requests are also created by the instrument team for special requirements.
 
 To facilitate the access of the data, a series of web APIs have been developed.
 The web APIs accept HTTP requests from the client side, 
-then the requests are processed on the server side
+then the requests are processed on the server-side
  and the results are returned to the client side.  
 The web APIs provide access to all STIX data products 
 and the metadata stored in the NoSQL database. 
@@ -685,29 +692,50 @@ at STIX data center website.  It allows users to browse any historical STIX Quic
 On the browser, users can specify time ranges of Quick-look data to be loaded.
 After the web API on the server receives  a request, 
 it reads level-1 packets from the NoSQL database measured in the given time frame, and sends the
-compiled and serialized data  to the web browser. 
-Then the data are parsed, and used to  create interactive light curve plot on the client side by using JavaScript.
-Thanks to the use of modern web technologies, the interactive plot allows users  
+compiled and serialized data  back to the web browser. 
+Then the data are parsed, and used to  create interactive light curve plot on the client-side by using JavaScript.
+Thanks to the use of state-of-art web technologies, the interactive plot allows users  
 to rebin integration times, correct light travel times, estimate GOES fluxes, and export data to local files. 
 Apart from STIX quick-looks, quick-looks of 
 simultaneous measurements performed by other Sun observing instruments
-can be also displayed on the same page.
+can also be loaded on the same page, which greatly facilitates finding of the 
+events of interest for joint analysis. 
 
-Based on the same concept, we have developed web applications to 
-browser housekeeping data, ephemeris data, calibration data,  
-and different types of science data. They
+Based on similar concepts, tens of web tools have been developed for 
+browsing other STIX data products. 
+The four most used by STIX data users are: 
+\begin{itemize}
+  \item  Science data browser:
+  It enables users to search for science data according to user input 
+  conditions and display the results. The preview tool on the browser 
+  enables users to select a result of interest and use the tools provided 
+  by the software to generate interactive quick-look plots (such as 
+  count rate spectrograms, light curves, and energy spectra). 
+  Users can further select an energy and time period of interest 
+  and use the tools on the preview page to perform common analysis tasks,  
+  such as background subtraction, energy and time rebinning, and estimation 
+  of coarse flare locations.  Users can also export data from the interactive plots or 
+  download the science data in the FITS format to the local disk for further analysis. 
+  The browser greatly reduces the barrier to explore STIX science data for new commers. It is also facilitated
+  for  experience user. 
+  \item  Preview images and spectroscopy product browser:
+  \item  Ephemeris data browser : 
+  \item  Calibration data browser: 
+  \item  Housekeeping data browser: 
+\end{itemize}
 
 
+
+One can obtain images, spectra and light curves from the web interface for a large dataset. 
 
 It provides  the capability to perform customized analysis with state-of-art methods 
 without installating software or download raw data.
 THe platform runs on the computing infrastructure at FHNW and 
 it provides  the capability to perform customised 
 analysis with state-of-art methods without installating software or download raw data.
-The barried to explore stix data is greately reduced for newcommers. The
+The barried to explore stix data is greately reduced for new commers. The
 access is facilitated for experienced users.
 
-One can obtain images, spectra and light curves from the web interface for a large dataset. 
 
 \subsubsection{Interactive data analysis with web tools}
 Caching, balencing and preprocessing
