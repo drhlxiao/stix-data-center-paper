@@ -660,7 +660,16 @@ Apart from those automatically created data requests,
 data requests are also created by the instrument team for special requirements.
 \section{STIX data platform user interfaces}
 
-\subsection{STIX web-based data browsers}
+\subsection{STIX data platform web applications}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/interfaces.pdf}
+  \caption{ 
+    Data flow at STIX data center.
+  }
+  \label{fig:interfaces}
+\end{figure}
+
 \begin{figure*}[h]
   \centering
   \includegraphics[width=0.7\linewidth]{figures/data-browser.pdf}
@@ -705,21 +714,31 @@ Based on similar concepts, tens of web tools have been developed for
 browsing other STIX data products. 
 The four most used by STIX data users are: 
 \begin{itemize}
-  \item  Science data browser:
-  It enables users to search for science data according to user input 
-  conditions and display the results. The preview tool on the browser 
-  enables users to select a result of interest and use the tools provided 
-  by the software to generate interactive quick-look plots (such as 
-  count rate spectrograms, light curves, and energy spectra). 
-  Users can further select an energy and time period of interest 
-  and use the tools on the preview page to perform common analysis tasks,  
+  \item  Science data browsering and interactive analyis tool:
+  It provide users tools to search for science data, 
+  download science data, 
+  perform common data analysis tasks and visualize science data and
+  data analysis results. 
+  With the tools, users can also select select data of interest  
+  for common analysis tasks,  
   such as background subtraction, energy and time rebinning, and estimation 
-  of coarse flare locations.  Users can also export data from the interactive plots or 
+ of coarse flare locations on the client-side using JavaScript.
+Moreover, Users can also submit imaging and spectrocopy requests to the server with the
+ interactive analysis tools on the page.   
+ without the need of installing software. 
+ Interactive plots are created using the results.
+  Users can also export data from the interactive plots or 
   download the science data in the FITS format to the local disk for further analysis. 
+It is worth mentioning that this feature is only available for register users. 
   The browser greatly reduces the barrier to explore STIX science data for new commers. It is also facilitated
   for  experience user. 
   \item  Preview images and spectroscopy product browser:
-  A web tool is available 
+  The tool    provides an web-based imaging and spectroscopy manager. With the tool, users can view the 
+  the reconstructed solar flare images and fitting results from 
+  automated imaging/spectroscopy runs and those submited by register users. 
+  It also allow users to plot time evolution of emission of emission measures and temperatures as well as animation of x-ray images 
+  for the selected runs. 
+
   \item  Ancilary data viewer: 
   The auxiliary data viewer allows users to view any historical auxilary data of Solar Orbiter. 
   After reciving the time range information from the client-side,
@@ -729,8 +748,13 @@ The four most used by STIX data users are:
    STIX FOVs, and angles from differet observers, and sends the results to the client side. 
    Then the results are charted on the web page using JavaScript. 
 
-  \item  Calibration data browser: 
   \item  Housekeeping data browser: 
+The housekeeping browser allows users to browse any historical HK data from stix. After the hk browser receives the user's request, it sends the request to the server. The server directly uses the nosql data package to scale and serialize the data and return it to the browser. The browser then uses the data to generate interactive graphics (such as sensors). 
+temperature, voltage, working status, memory status, etc.).
+which provide great convenience for load operation control and for understanding instrument status in data analysis.
+\item STIX data access page:  
+With the dat product manager, users can search  for data products, and download products. 
+
 \end{itemize}
 
 
@@ -745,11 +769,18 @@ analysis with state-of-art methods without installating software or download raw
 The barried to explore stix data is greately reduced for new commers. The
 access is facilitated for experienced users.
 
+\subsection{STIX data center interface:  stixdcpy}
+stixdcpy is a python package that facilitates access and analysis of STIX data.
+It provides APIs to query and download data from STIX data center 
+ and a set of tools for visualizing data and performing common analysis tasks. 
+ With stixdcpy, users can query and download the following  almost all data products available at STIX data center. 
 
-\subsubsection{Interactive data analysis with web tools}
-Caching, balencing and preprocessing
+similar to the web tools, stixdcpy also provide common data analysis algorithm, such as 
+live time correction, transmission correction, data clipping and  merging, auxilary data tools, 
+creating quick-looks for products 
+stixdcpy is still under  development 
+The source code of stixdcpy is hosted at the github repo at  \url{https://github.com/i4Ds/stixdcpy}.
 
-\subsection{Data access}
 \subsection{Data query APIs}
 Calibration data products
 https://fermi.gsfc.nasa.gov/ssc/data/access/gbm/
