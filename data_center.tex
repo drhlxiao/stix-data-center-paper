@@ -1,21 +1,21 @@
 %
 %\documentclass[referee]{aa} % for a referee version
-%\documentclass[onecolumn]{aa} % for a paper on 1 column  
+\documentclass[onecolumn]{aa} % for a paper on 1 column  
 %\documentclass[longauth]{aa} % for the long lists of affiliations 
 %\documentclass[letter]{aa} % for the letters 
 %\documentclass[bibyear]{aa} % if the references are not structured 
 %                              according to the author-year natbib style
 
 
-\documentclass{aa}  
+%\documentclass{aa}  
 \usepackage{hyperref}
 \usepackage{graphicx}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{txfonts}
-\usepackage{multirow}
+%\usepackage{multirow}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{subcaption}
-
+\usepackage{flushend}
   % results heading (mandatory)
 \begin{document} 
 
@@ -660,7 +660,8 @@ Apart from those automatically created data requests,
 data requests are also created by the instrument team for special requirements.
 \section{STIX data platform user interfaces}
 
-\subsection{STIX data platform web applications}
+
+\subsection{Interactive web pages}
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.9\linewidth]{figures/interfaces.pdf}
@@ -719,25 +720,23 @@ The four most used by STIX data users are:
   download science data, 
   perform common data analysis tasks and visualize science data and
   data analysis results. 
-  With the tools, users can also select select data of interest  
-  for common analysis tasks,  
-  such as background subtraction, energy and time rebinning, and estimation 
- of coarse flare locations on the client-side using JavaScript.
-Moreover, Users can also submit imaging and spectrocopy requests to the server with the
- interactive analysis tools on the page.   
- without the need of installing software. 
- Interactive plots are created using the results.
-  Users can also export data from the interactive plots or 
+  On the web app, users can also select select data of interest  
+  for common analysis tasks, such as background subtraction, energy and time rebinning, 
+  and estimation of coarse flare locations, which  on the client-side using JavaScript.
+Moreover, Users can also submit imaging and spectrocopy requests to the cloud with the
+ interactive analysis tools on the page  without the need of installing software. 
+ Interactive plots are created using the results. Users can also export data from the interactive plots or 
   download the science data in the FITS format to the local disk for further analysis. 
-It is worth mentioning that this feature is only available for register users. 
   The browser greatly reduces the barrier to explore STIX science data for new commers. It is also facilitated
   for  experience user. 
+
   \item  Preview images and spectroscopy product browser:
   The tool    provides an web-based imaging and spectroscopy manager. With the tool, users can view the 
   the reconstructed solar flare images and fitting results from 
   automated imaging/spectroscopy runs and those submited by register users. 
   It also allow users to plot time evolution of emission of emission measures and temperatures as well as animation of x-ray images 
-  for the selected runs. 
+  for the selected runs.  Users can also create idl or python templates, allowing the same results to be reproduced on their local machine.
+
 
   \item  Ancilary data viewer: 
   The auxiliary data viewer allows users to view any historical auxilary data of Solar Orbiter. 
@@ -753,24 +752,18 @@ The housekeeping browser allows users to browse any historical HK data from stix
 temperature, voltage, working status, memory status, etc.).
 which provide great convenience for load operation control and for understanding instrument status in data analysis.
 \item STIX data access page:  
-With the dat product manager, users can search  for data products, and download products. 
+STIX adopts an open data policy. 
+STIX data products are published on the data access page once they are generated. 
+On the page, user can search for data products by providing the data type and the observation time range  
+, or download data products to local disks for further analysis. 
 
 \end{itemize}
 
 
 
-One can obtain images, spectra and light curves from the web interface for a large dataset. 
-
-It provides  the capability to perform customized analysis with state-of-art methods 
-without installating software or download raw data.
-THe platform runs on the computing infrastructure at FHNW and 
-it provides  the capability to perform customised 
-analysis with state-of-art methods without installating software or download raw data.
-The barried to explore stix data is greately reduced for new commers. The
-access is facilitated for experienced users.
 
 \subsection{STIX data center interface:  stixdcpy}
-stixdcpy is a python package that facilitates access and analysis of STIX data.
+{\it stixdcpy} is a python package that facilitates access and analysis of STIX data.
 It provides APIs to query and download data from STIX data center 
  and a set of tools for visualizing data and performing common analysis tasks. 
  With stixdcpy, users can query and download the following  almost all data products available at STIX data center. 
@@ -781,38 +774,34 @@ creating quick-looks for products
 stixdcpy is still under  development 
 The source code of stixdcpy is hosted at the github repo at  \url{https://github.com/i4Ds/stixdcpy}.
 
-\subsection{Data query APIs}
-Calibration data products
-https://fermi.gsfc.nasa.gov/ssc/data/access/gbm/
-
-\section{Tools for scientitic analysis }
-\subsection{Data access and APIs}
-\label{sec:apis}
-stixdcpy allows you to query and download data which are available at STIX data center, include
-Quick-look light curves
-Housekeeping data
-Science data
-\subsection{Service for web based analysis}
-SWAN (Service for Web based ANalysis)
- is a platform to perform interactive data analysis in the cloud.
-Analyse data without the need to install any software
-data archive. 
-There are minjnor difference between the data in L1 and 
-FITS files are split for low latency data 
-
-In most cases, three platforms contains the same data. 
-Information metadata might be slightly different 
-
-May often be produces 
-
-
-science data are not sent down automated. They are only selected and down-linked after requested by 
-using telecommands
-
 \section{Summary}
 \label{sec:summary}
+STIX is one of ten instruments onboard Solar Orbiter.
+ It measures the spectrum and takes X-ray images of solar 
+ flares in the energy range 4 - 150 keV. Solar Orbiter  was launched into space on February 10, 2020. 
+ During nominal operations, STIX continuously generates telemetry data. 
+ To process and archive  data as well as to support the operation of 
+ instruments and scientific activities using STIX data, 
+ automated data processing pipelines and data platforms have been 
+ developed for STIX at FHNW. 
+ The pipelines generates telemetry in different levels and perform common scientific analysis. 
+ The platform provides 
+ all STIX data products of different levels and also provide users 
+ with various web-based tools to search for,  browser STIX data products. 
+ It also provides web-based tools to perform common analysis tasks with STIX data. 
+  The data center is designed to work in a 
+ fully automatic mode with minimal human intervention. The concept has proven successful 
+ and has been running continuously for over two years.
+The platform not only facilitates the operations of the instrument, but also provide great support to STIX data users.
 
-
+%One can obtain images, spectra and light curves from the web interface for a large dataset. 
+%It provides  the capability to perform customized analysis with state-of-art methods 
+%without installating software or download raw data.
+%THe platform runs on the computing infrastructure at FHNW and 
+%it provides  the capability to perform customised 
+%analysis with state-of-art methods without installating software or download raw data.
+%The barried to explore stix data is greately reduced for new commers. The
+%access is facilitated for experienced users.
 
 % WARNING
 %-------------------------------------------------------------------
