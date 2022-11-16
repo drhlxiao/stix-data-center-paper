@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.6.9)  4 NOV 2022 17:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.6.9)  16 NOV 2022 11:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -787,215 +787,216 @@ LaTeX Info: Redefining \nameref on input line 20.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for TS1+txr on input line 1
-04.
+02.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ts1txr.fd
 File: ts1txr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for OT1+txr on input line 1
-04.
+02.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for U+txsya on input line 1
-04.
+02.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for U+txsyb on input line 1
-04.
+02.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for U+txmia on input line 1
-04.
+02.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for U+txsyc on input line 1
-04.
+02.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for T1+txss on input line 1
-04.
+02.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txss.fd
 File: t1txss.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 16.41594pt on input line 104.
+(Font)              scaled to size 16.41594pt on input line 102.
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <17.28> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 104.
+(Font)              Font shape `T1/txss/bx/n' tried instead on input line 102.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 16.41594pt on input line 104.
+(Font)              scaled to size 16.41594pt on input line 102.
 LaTeX Font Info:    Trying to load font information for T1+txtt on input line 1
-04.
+02.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 8.54997pt on input line 104.
+(Font)              scaled to size 8.54997pt on input line 102.
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <9> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 104.
+(Font)              Font shape `T1/txss/bx/n' tried instead on input line 102.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 8.54997pt on input line 104.
+(Font)              scaled to size 8.54997pt on input line 102.
 LaTeX Font Info:    Font shape `T1/txss/m/it' in size <9> not available
-(Font)              Font shape `T1/txss/m/sl' tried instead on input line 104.
+(Font)              Font shape `T1/txss/m/sl' tried instead on input line 102.
 LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
-(Font)              scaled to size 8.54997pt on input line 104.
+(Font)              scaled to size 8.54997pt on input line 102.
+
+Overfull \hbox (0.30202pt too wide) in paragraph at lines 102--102
+ \T1/txss/m/sl/9 Methods. \T1/txr/m/n/9 Au-to-mated pipelines and a data plat-f
+orm have been es-tab-lished at FHNW. The pipelines 
+ []
 
 
 Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
-less on input line 104.
+less on input line 102.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 104.
+Package hyperref Warning: Suppressing link with empty target on input line 102.
 
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 10.40245pt on input line 107.
+(Font)              scaled to size 10.40245pt on input line 105.
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <10.95> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 107.
+(Font)              Font shape `T1/txss/bx/n' tried instead on input line 105.
 LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 10.40245pt on input line 107.
+(Font)              scaled to size 10.40245pt on input line 105.
+
+Underfull \vbox (badness 3068) has occurred while \output is active []
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 134.
+
+Package hyperref Warning: Suppressing link with empty target on input line 137.
 
 
 [2]
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 166.
+(Font)              scaled to size 9.49997pt on input line 164.
 LaTeX Font Info:    Font shape `T1/txss/m/it' in size <10> not available
-(Font)              Font shape `T1/txss/m/sl' tried instead on input line 166.
+(Font)              Font shape `T1/txss/m/sl' tried instead on input line 164.
 LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
-(Font)              scaled to size 9.49997pt on input line 166.
+(Font)              scaled to size 9.49997pt on input line 164.
+LaTeX Font Info:    Font shape `T1/txr/b/n' in size <10> not available
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 184.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 186.
+Package hyperref Warning: Suppressing link with empty target on input line 189.
 
 
 [3]
-LaTeX Font Info:    Font shape `T1/txr/b/n' in size <10> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 186.
-
 
 Package hyperref Warning: Suppressing link with empty target on input line 229.
 
 
 [4]
-<figures/pipelines.pdf, id=162, 963.6pt x 532.99126pt>
+<figures/pipelines.pdf, id=163, 963.6pt x 532.99126pt>
 File: figures/pipelines.pdf Graphic file (type pdf)
 <use figures/pipelines.pdf>
-Package pdftex.def Info: figures/pipelines.pdf  used on input line 287.
+Package pdftex.def Info: figures/pipelines.pdf  used on input line 285.
 (pdftex.def)             Requested size: 353.38081pt x 195.46326pt.
 
-Underfull \vbox (badness 2181) has occurred while \output is active []
 
-
-
-Package hyperref Warning: Suppressing link with empty target on input line 297.
+Package hyperref Warning: Suppressing link with empty target on input line 295.
 
 
 [5]
 
-Package hyperref Warning: Suppressing link with empty target on input line 320.
+Package hyperref Warning: Suppressing link with empty target on input line 324.
 
 
 [6 <./figures/pipelines.pdf>]
+<figures/cal-fit.pdf, id=194, 569.12625pt x 358.33875pt>
+File: figures/cal-fit.pdf Graphic file (type pdf)
+<use figures/cal-fit.pdf>
+Package pdftex.def Info: figures/cal-fit.pdf  used on input line 372.
+(pdftex.def)             Requested size: 314.11961pt x 197.78679pt.
 
-Package hyperref Warning: Suppressing link with empty target on input line 363.
+
+Package hyperref Warning: Suppressing link with empty target on input line 378.
 
 
 [7]
-<figures/cal-fit.pdf, id=200, 569.12625pt x 358.33875pt>
-File: figures/cal-fit.pdf Graphic file (type pdf)
-<use figures/cal-fit.pdf>
-Package pdftex.def Info: figures/cal-fit.pdf  used on input line 374.
-(pdftex.def)             Requested size: 314.11961pt x 197.78679pt.
 
-Underfull \vbox (badness 2762) has occurred while \output is active []
-
-
-
-Package hyperref Warning: Suppressing link with empty target on input line 408.
+Package hyperref Warning: Suppressing link with empty target on input line 412.
 
 
 [8 <./figures/cal-fit.pdf, page is rotated 90 degrees>]
-<figures/flaredet.pdf, id=261, 673.55638pt x 422.77951pt>
+<figures/flaredet.pdf, id=262, 673.55638pt x 422.77951pt>
 File: figures/flaredet.pdf Graphic file (type pdf)
 <use figures/flaredet.pdf>
-Package pdftex.def Info: figures/flaredet.pdf  used on input line 433.
+Package pdftex.def Info: figures/flaredet.pdf  used on input line 431.
 (pdftex.def)             Requested size: 314.11961pt x 197.17104pt.
 
-Overfull \hbox (6.49155pt too wide) in paragraph at lines 442--445
+Overfull \hbox (6.49155pt too wide) in paragraph at lines 440--443
 []\T1/txr/m/n/10 As an ex-am-ple, Fig. []3[] shows the 4 -- 10 keV QL light cur
 ve recorded from 2022-08-10T10:00:00Z
  []
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 466.
+Package hyperref Warning: Suppressing link with empty target on input line 455.
 
 
-[9]
-<figures/goes_stix_flux_paper.pdf, id=271, 569.12625pt x 414.54875pt>
+[9 <./figures/flaredet.pdf>]
+<figures/goes_stix_flux_paper.pdf, id=316, 569.12625pt x 414.54875pt>
 File: figures/goes_stix_flux_paper.pdf Graphic file (type pdf)
 <use figures/goes_stix_flux_paper.pdf>
 Package pdftex.def Info: figures/goes_stix_flux_paper.pdf  used on input line 4
-71.
+69.
 (pdftex.def)             Requested size: 314.11961pt x 228.81218pt.
 
+Underfull \vbox (badness 1072) has occurred while \output is active []
 
-Package hyperref Warning: Suppressing link with empty target on input line 507.
 
 
-[10 <./figures/flaredet.pdf>]
-<figures/cflMay07.pdf, id=326, 867.24pt x 252.945pt>
+Package hyperref Warning: Suppressing link with empty target on input line 505.
+
+
+[10 <./figures/goes_stix_flux_paper.pdf, page is rotated 90 degrees>]
+<figures/cflMay07.pdf, id=368, 867.24pt x 252.945pt>
 File: figures/cflMay07.pdf Graphic file (type pdf)
 <use figures/cflMay07.pdf>
-Package pdftex.def Info: figures/cflMay07.pdf  used on input line 525.
+Package pdftex.def Info: figures/cflMay07.pdf  used on input line 523.
 (pdftex.def)             Requested size: 373.01442pt x 108.7951pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Package hyperref Warning: Suppressing link with empty target on input line 545.
 
 
-
-Package hyperref Warning: Suppressing link with empty target on input line 541.
-
-
-[11 <./figures/goes_stix_flux_paper.pdf, page is rotated 90 degrees>]
-<figures/imaging_pipeline.pdf, id=376, 867.24pt x 505.89pt>
+[11]
+<figures/imaging_pipeline.pdf, id=377, 867.24pt x 505.89pt>
 File: figures/imaging_pipeline.pdf Graphic file (type pdf)
 <use figures/imaging_pipeline.pdf>
-Package pdftex.def Info: figures/imaging_pipeline.pdf  used on input line 563.
+Package pdftex.def Info: figures/imaging_pipeline.pdf  used on input line 561.
 (pdftex.def)             Requested size: 373.01442pt x 217.59021pt.
 
 
 Package natbib Warning: Citation `paolo2020' on page 12 undefined on input line
- 585.
+ 583.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 593.
+Package hyperref Warning: Suppressing link with empty target on input line 591.
 
 
 [12 <./figures/cflMay07.pdf>]
 
 pdfTeX warning: pdflatex (file ./figures/ospex.pdf): PDF inclusion: found PDF v
 ersion <1.7>, but at most version <1.5> allowed
-<figures/ospex.pdf, id=441, 433.62pt x 505.89pt>
+<figures/ospex.pdf, id=445, 433.62pt x 505.89pt>
 File: figures/ospex.pdf Graphic file (type pdf)
 <use figures/ospex.pdf>
-Package pdftex.def Info: figures/ospex.pdf  used on input line 604.
+Package pdftex.def Info: figures/ospex.pdf  used on input line 602.
 (pdftex.def)             Requested size: 353.38081pt x 412.30055pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1006,46 +1007,43 @@ Package hyperref Warning: Suppressing link with empty target on input line 629.
 
 [13 <./figures/imaging_pipeline.pdf>]
 
-Package hyperref Warning: Suppressing link with empty target on input line 641.
+Package hyperref Warning: Suppressing link with empty target on input line 647.
 
 
 [14 <./figures/ospex.pdf>]
 
 pdfTeX warning: pdflatex (file ./figures/interfaces.pdf): PDF inclusion: found 
 PDF version <1.7>, but at most version <1.5> allowed
-<figures/interfaces.pdf, id=575, 256.65887pt x 119.54663pt>
+<figures/interfaces.pdf, id=576, 256.65887pt x 119.54663pt>
 File: figures/interfaces.pdf Graphic file (type pdf)
 <use figures/interfaces.pdf>
-Package pdftex.def Info: figures/interfaces.pdf  used on input line 667.
+Package pdftex.def Info: figures/interfaces.pdf  used on input line 665.
 (pdftex.def)             Requested size: 353.38081pt x 164.59874pt.
-<figures/data-browser.pdf, id=576, 1384.17125pt x 690.58pt>
+<figures/data-browser.pdf, id=577, 1384.17125pt x 690.58pt>
 File: figures/data-browser.pdf Graphic file (type pdf)
 <use figures/data-browser.pdf>
-Package pdftex.def Info: figures/data-browser.pdf  used on input line 676.
+Package pdftex.def Info: figures/data-browser.pdf  used on input line 674.
 (pdftex.def)             Requested size: 274.85242pt x 137.12303pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Package hyperref Warning: Suppressing link with empty target on input line 693.
+Package hyperref Warning: Suppressing link with empty target on input line 711.
 
 
 [15 <./figures/interfaces.pdf>]
 
-Package hyperref Warning: Suppressing link with empty target on input line 733.
+Package hyperref Warning: Suppressing link with empty target on input line 739.
 
 
 [16 <./figures/data-browser.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-Package hyperref Warning: Suppressing link with empty target on input line 796.
+Package hyperref Warning: Suppressing link with empty target on input line 794.
 
 
 [17] (./data_center.bbl)
 
-Package hyperref Warning: Suppressing link with empty target on input line 802.
+Package hyperref Warning: Suppressing link with empty target on input line 800.
 
 
 [18] (./data_center.aux
@@ -1088,32 +1086,36 @@ Package natbib Warning: Citation `sinp' multiply defined.
 
 Package natbib Warning: Citation `crsystallball' multiply defined.
 
-) ) 
+)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
  15948 strings out of 480247
  249335 string characters out of 5896152
- 558726 words of memory out of 5000000
+ 557726 words of memory out of 5000000
  33511 multiletter control sequences out of 15000+600000
  562969 words of font info for 190 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  85i,12n,90p,1552b,518s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texli
-ve/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/t
-xfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi
-8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on data_center.pdf (18 pages, 792276 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/tx
+fonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8
+a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on data_center.pdf (18 pages, 791779 bytes).
 PDF statistics:
- 730 PDF objects out of 1000 (max. 8388607)
- 428 compressed objects within 5 object streams
+ 731 PDF objects out of 1000 (max. 8388607)
+ 429 compressed objects within 5 object streams
  78 named destinations out of 1000 (max. 500000)
  262 words of extra memory for PDF output out of 10000 (max. 10000000)
 
