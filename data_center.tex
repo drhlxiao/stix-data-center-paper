@@ -274,88 +274,52 @@ used to create level-1 FITS files. The second path selects calibration data for 
  In the third path, quick-look packets are selected and used to identify solar
 flares; The fourth path performs standard analysis of science data for flares.
 
-\subsection{Raw packet processing}
+\subsection{Raw packet parsing and database}
 Telemetry data that arrived at STIX data center are binary packets. 
-Parsing of the binary packets is  based on the information of packets in 
-the mission interface database. Identifies the different packet types 
-by the packet header and uses MIB to define the structure of 
-the packet to read the raw value of each parameter. 
-The decoded data of the decoder is stored in a tree structure, and 
-the raw data they contain is decoded by the parameter type defined by the MIB, 
-or converted to a physical quantity, and if it is spacecraft-local time, 
-converted to UTC time . 
+Each packet contains a fixed-length header 
+and a list of parameters that vary with the type of packet. 
+The parsing of parameters is based on the information in 
+the mission interface database (MIB), which contains the name and the 
+length of each parameter for each type of packet. 
+Packets after parsing contain raw values of parameters, 
+which need converting to physical values. 
+Raw values of spacecraft-local times are converted to UTC times by using 
+the latest version of SPICE kernels (\cite{spice1996,spice2018});
+Raw values of housekeeping parameters are converted to physical values using 
+the pre-calibrated conversion factors in the MIB. For compressed counts, 
+they are decompressed using a look-up table. 
 
-
-Extracing of headers and parameters of each packet is based on the mission interface database (MIB), which 
-contains information on  the structure of header and parameters, 
-lengths and raw-to-engineer conversion factors of parameters of different packets and telecommands. 
-Packets being decoded contain raw values.
-Spacecraft clock times are further converted to UTC times using 
-the latest version of SPICE kernel data (\cite{spice1996,spice2018}), compressed integers are  
-decompressed by using an energy lookup table,  and 
-housekeeping raw values are converted to 
-human-readable values using calibration factors or the lookup tables stored in the MIB. 
-Packets after the above processing steps are called level-1 packets. They
-have tree structures, each containing two nodes “header” and “parameters”;
-the former contains the basic information  of the packet such as timestamp, packet type,
-and the latter contains names, 
-raw values, engineering values (or decompressed integers) and child nodes of a list of parameters.
-Level-1 packets are written 
-to a NoSQL database. 
+The raw and physical values of parameters of each packet as well as its header are grouped  
+in a tree-like structure.  They are considered level-1 packets and written to a NoSQL database. 
 NoSQL database is schemaless,  making it ideal for storing data with complex
 structures but small sizes, like STIX level-1 packets.  
-NoSQL is also 
+The use of the NoSQL database provides great convenience for checking the integrity of the data packet,
+finding a specific data packet, merging of packets, and for the subsequent analysis of STIX data.  
+In addition to level-1 packets, 
+other metadata such as the raw filenames,  the version of SPICE kernel data, the version of the MIB,
+a  summary of the packets are 
+also written to the NoSQL database during the parsing of packets. 
 
-In addition to packets, the NoSQL also stores other data extracted by the parser during the parsing of packets, 
-for example, 
-\begin{itemize}
-  \item Raw file metadata. It contains the filename, reception time, observation start time and stops time, MIB and SPICE kernels used by the parser ; 
-  \item Bulk science metadata, which contains the observation time range, detector and pixels masks, energy ranges, 
-   bulk science data types, and IDs of packets in the database; 
-  \item Quick-look light curves.  The dataset contains data on counts, time range, and energy bins extracted from QL LC packets, 
-     allowing for quick access to QL data with web pages or APIs;
-  \item STIX instrument configurations. 
-  It contains the instrument configuration parameters for such as energy conversion factors and ASICs, 
-  allowing fast tracking of the instrument settings;
-\end{itemize}
-Information is necessary for subsequent processing. The
-the database is accessible through web pages at the STIX data center website or python APIs. 
-\subsection{Data products}
-\subsubsection{Level-1 FITS files}
-After each new raw telemetry file is parsed, housekeeping, quick look, and science packets  
-are selected from the NoSQL database 
-and checked for data integrity and consistency. 
-Then packets of the same type are merged for the creation of the pre-release of 
-level-1 data products (Level-1A) 
- in the FITS format (\cite{fits}), 
-which is a portable file standard widely used in the astronomy 
-community to store images and tables.
-It should be noted that the data levels mentioned here are data processing levels. 
-In order not to confuse two conventions, we use different notations to indicate on-board level in this paper. 
-Metadata such as observation time range, creation time, filenames, and checksum are written to 
-the primary header data units (HDU) of fits files. They are also written to a data set in the database.
+\subsubsection{Creation of level-1 FITS files}
+Flexible Image Transport System (FITS) is a portable file standard widely used in the astronomy 
+community to store, transmit and manipulate scientific images, tables and associated data (\cite{fits}).  
+Therefore, FITS format is adopted by STIX data center to store standard data products. 
+After the parsing of each new raw telemetry file, housekeeping, quick look, and science packets  
+are sequentially selected from the NoSQL database and merged after passing checks for data integrity and consistency. 
+The merged data as well as the associated metadata and auxiliary data are written to FITS files, and 
+the metadata is also written to a collection in NoSQL in the meantime, which allows for fast queries on the files.
+At STIX data center, files created from the level-1 packets are considered as level-1A data products. 
 
-Level-1A FITS files are generated automatically and available at the STIX data center within minutes 
-after the reception of a raw file.  It should be noticed that predicted SPICE kernels may be used 
-when the reconstructed spice kernels  
-are not available, and the L1A data are subjected to some known issues 
-due to bugs in the early version of the flight software.
-After all the resources are validated,  Level-1  FITS files are created again. 
-Level-1  FITS products have almost the same data structures as Level-1A.
-\subsubsection{Level-2 FITS files}
-Level-1 FITS files are further processed. 
-Dead time  correction and energy, make up the second
-\subsubsection{Level-3 data products}
-Level-3 data products are visibilities and images
-
+Level-1A FITS files are created automatically by the pipeline, and available at the STIX data center within minutes 
+after the reception of the data. They are used in some of the subsequent data processing pipelines.
+As predicted ephemeris data might be used when creating the Level-1A files,
+FITS files are recreated after a few days to weeks after all resources are validated.
+The created files are official Level-1  at STIX data center. 
 \subsection{Energy calibration}
-Energies deposited by x-rays are converted from ADC units to keV onboard by using an energy look-up table (ELUT),
-which is regularly updated with telecommands.  
-ELUTs can be constructed using energy conversion factors obtained by determining the 
-positions of photo peaks in the calibration spectra measured for the onboard Ba$^{133}$ sources.  
-As energy conversion factors may change with temperature 
-or polarization effects,  calibration spectra need to be analyzed promptly on the ground. 
-
+As mentioned earlier, STIX acquires a high-resolution energy spectrum
+for the onboard Ba$^{133}$ sources for each pixel about every 24 hours. 
+In order to monitor the performance of STIX detectors, 
+calibration spectra are analyzed immediately after being parsed.
 \begin{figure}
  \centering
   \includegraphics[width=0.8\linewidth]{figures/cal-fit.pdf}
@@ -365,9 +329,8 @@ or polarization effects,  calibration spectra need to be analyzed promptly on th
   the crystal-ball function. }
     \label{fig:cal-fit}
 \end{figure}
-The right panel of Fig.~\ref{fig:cal-fit} shows 
-an example of the STIX count spectrum from the in-flight calibration run.  
-The three strongest lines are from 31 keV, 35 keV and 81 keV photons. 
+The right panel of Fig.~\ref{fig:cal-fit} shows an example of the calibration spectrum of a pixel accumulated for 24 hours.  
+The three most prominent peaks are produced by the photons of  31 keV, 35 keV and 81 keV emitted by the calibration sources. 
 The first two peaks are fitted with the double-Gaussian function and the third peak
 by the crystal-ball function (\cite{crsystallball}),  which consists of a Gaussian core portion 
 and a power-law low-end tail, below a certain threshold.
@@ -492,7 +455,7 @@ It is worthwhile to mention that more observations will be included in the fit.
 The estimated GOES class as well as those from GOES measurements 
 are stored in the flare list database. 
 
-\subsubsection{Estimation of coarse flare locations using CFL counts}
+\subsubsection{Estimation of coarse flare locations using CFL data}
 Flare centroid location can constrain the flaring region when reconstructing flare images.
 STIX uses a dedicated sub-collimator called Coarse Flare Locator (CFL) to estimate flare locations.
 The CFL consists of a front grid with
