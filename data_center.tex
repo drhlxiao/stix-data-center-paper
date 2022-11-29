@@ -316,110 +316,109 @@ As predicted ephemeris data might be used when creating the Level-1A files,
 FITS files are recreated after a few days to weeks after all resources are validated.
 The created files are official Level-1  at STIX data center. 
 \subsection{Energy calibration}
-As mentioned earlier, STIX acquires a high-resolution energy spectrum
-for the onboard Ba$^{133}$ sources for each pixel about every 24 hours. 
-In order to monitor the performance of STIX detectors, 
-calibration spectra are analyzed immediately after being parsed.
+%STIX performs energy calibration onboard by using an energy look-up table, 
+%which has to be
 \begin{figure}
  \centering
   \includegraphics[width=0.8\linewidth]{figures/cal-fit.pdf}
   \caption{An example of STIX in-flight calibration count spectrum.
-  The three strongest lines, from left to right, are from 31 keV, 35 keV, and 81 keV
+  The most prominent peaks, from left to right, are photopeaks of 31 keV, 35 keV, and 81 keV
   photons. The first two peaks are fitted by the double-Gaussian function and the high energy peak by  
   the crystal-ball function. }
     \label{fig:cal-fit}
 \end{figure}
+STIX rebins detected energies to 32 boarder science energy channels onboard
+with an energy look-up table (ELUT), which can be constructed using energy conversion
+factors determined from calibration runs. 
+STIX acquires a high-resolution calibration spectrum
+for the onboard Ba$^{133}$ sources for each pixel about every 24 hours. 
 The right panel of Fig.~\ref{fig:cal-fit} shows an example of the calibration spectrum of a pixel accumulated for 24 hours.  
 The three most prominent peaks are produced by the photons of  31 keV, 35 keV and 81 keV emitted by the calibration sources. 
-The first two peaks are fitted with the double-Gaussian function and the third peak
-by the crystal-ball function (\cite{crsystallball}),  which consists of a Gaussian core portion 
+To determine the positions of the photopeaks, we fit the first two peaks with the double-Gaussian function,  and the third peak
+with the crystal-ball function (\cite{crsystallball}),  which consists of a Gaussian core portion 
 and a power-law low-end tail, below a certain threshold.
-Then a linear line is fitted to the relation between
-the three fitted peak positions (in ADC unit) and the photon energies in units of keV.  
-The interception and slope indicate the baseline and gain of the channel. 
-The results were compared to those determined using the ECC method (see \cite{ecc,ecc2})), 
- which were found to be consistent within errors.
-The above steps are performed for each calibration run automatically 
-once the data is available at STIX data center.  The results are written to a
- dataset in the NoSQL database.  It is accessible through a web page at STIX data center or python APIs.
+Then we perform a linear fit of the positions and the photon energies, 
+which gives the gain, namely, the ADC to energy conversion factor, and the baseline. 
+Another calibration spectrum fitting method often used by STIX team  
+ is the ECC method (see \cite{ecc,ecc2})).  We found that the results from the two methods are consistent at 1$\sigma$.
 
-Calibration factors are monitored continuously. Once significant changes are 
-observed from those used for the construction of  the onboard ELUT, 
- a new ELUT is created and then uploaded to STIX after being validated by the operations team. 
+The above steps are performed for each calibration spectrum automatically once the data is available at STIX data center. 
+ The results are written to a dataset in the NoSQL database. 
+ They are used to further correction of energy bins for science data.  
+Once significant changes in the calibration factors are 
+observed,  a new energy lookup table is created 
+and then uploaded to STIX.
+
 
 \subsection{Solar flare identification}
-The in-flight software identifies solar flares by comparing  the count rate of 
-the background detector with that of other detectors 
- and packs the results into the QL flare flag and location reports.
-However,  the reports only provide limited information on flares due to the constraints of telemetry 
-bandwidth and the limitation of onboard computing resources, and micro-flares are not 
-reported due to the relatively high trigger threshold.
-Using QL light curves, solar flares can be identified on the ground in great detail.
 
-QL light curves of the energy range from  4 to 10 keV are used for solar flare identification
-on the ground. Identification is based on the fact 
-that the background event rate in that energy range is almost constant 
-over a timescale of days during quiet sun periods. 
-The procedure includes the following steps:
-\begin{itemize}
-  \item Light curve smoothing. The selected light curve is filtered using an unweighted
-  moving average filter with a time window of 1 minute to smooth out statistical fluctuations and electric surge spikes;
-  \item “Background” subtraction.  
-   A flare may last hours and may have short-duration pulses lying on the main pulse in the light curve.
-   The main pulse can be considered as the “background” of those short-duration pulses.
-  To identify those short-duration pulses and estimate their durations, 
-  we estimate the “background”  using the Statistic-sensitive Non-linear Iterative Peak-clipping algorithm \cite{sinp}, which is widely used in X-ray spectroscopy.
-    Then it is subtracted from the smoothed light curve.
-  \item Identification of flare peaks. Peaks with counts exceeding a threshold of $2\sigma$ 
-  above the quiet Sun background count rates,  
-   are selected. The duration of a peak is given by the time difference between the first 
-   crossing of the threshold on the left and right sides of the peak;  
-  \item Merging of flare peaks. If the time difference between the two consecutive peaks is less than 5 minutes,
-   they are considered to be from the same flare.
-\end{itemize}
+STIX identifies solar flares onboard based on the
+ count rates of the BKG detector and other detectors.
+The rough time ranges and locations of identified flares are included in the QL data.
+However,  they only provide limited information on flares due to the constraints of telemetry 
+bandwidth and onboard computing resources. Moreover, micro-flares are not identified on-board 
+due to the relatively high trigger threshold.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.8\linewidth]{figures/flaredet.pdf}
   \caption{STIX 4 -- 10 keV QL light curve recorded from 2022-08-10T21:00:00Z to 2022-08-10T18:00:00Z and 
-  identified flares.   
-  The light curve was smoothed using a moving average filter with a time window
-  of 1 minute. 
-  The identified peaks are marked with plus signs, and flare time ranges are colored in cyan.
+  identified flares.   The orange curve is the smoothed light curve using a moving average filter with a time window
+  of 1 minute.  The identified peaks are marked with plus signs, and colored ranges show their time ranges.
   }
   \label{fig:flare-det}
 \end{figure}
-As an example, Fig.~\ref{fig:flare-det} shows  the 4 -- 10 keV QL  light curve recorded from 
-2022-08-10T10:00:00Z to 2022-08-10T18:00:00Z,
- as well as the smoothed light curve and identified solar flares (marked with plus signs).
+Using QL light curves, solar flares can be identified in greater detail on the ground. 
+The ground flare identification procedure includes the following steps:
+\begin{itemize}
+  \item Light curve smoothing. The selected light curve is filtered using an unweighted
+  moving average filter with a time window of 1 minute. This can smooth out statistical fluctuations and electric surge spikes;
+  \item Envelope subtraction.  
+   A flare may last hours and there may have short-duration pulses lying on the main pulse in the light curve.
+   The main pulse is the “envelope” of those short-duration pulses.
+  To identify those short-duration pulses and estimate their durations, 
+  The envelope is estimated using the Statistic-sensitive Non-linear Iterative Peak-clipping algorithm \cite{sinp}, which is widely used in X-ray spectroscopy.
+    Then it is subtracted from the smoothed light curve.
+  \item Identification of flare peaks. We consider a flare is detected 
+ if the peak count rate after envelope subtraction lies beyond two standard deviations 
+ of the mean count rate during quiet Sun periods. 
+  The flare start and stop times are given at the times crossing the threshold.  
+  \item Merging of flare peaks. Two flares are considered as one flare if their peak times are less than 5 minutes,
+\end{itemize}
 
-For each identified solar flare,  start time, end time, peak time, and peak 
-counts are extracted from the selected light curve and assigned 
-an 8-digit identification number of the format {\it yymmddHHMM}, which represents the solar flare peak time. 
-For example, the identification number 2201010000  indicates that 
-the solar flare peak time is at 2022-01-01T00:00:00 UT. 
-The above steps are repeated for the QL light curves of the other four higher energies
-in the same time frame. This can provide information on the upper limit of the X-ray energy produced by the flare,
-which is used to optimize the selection of scientific data to be downloaded. 
-Then all extracted information as well as the ephemeris data calculated for the peak time are 
-written to a dataset called solar flare list in the NoSQL database.
-The flare list database can be queried using a web interface or stixpy.
-\subsection{Estimation of background level}
-As mentioned earlier, a threshold value calculated using background data needs to be provided when
-performing flare identification.  
-The background, although stable within a few days, can change over long periods,
- a suitable threshold is important for the accuracy of the identification. 
- Therefore, QL light curves for quiet sun periods are selected by excluding flaring periods. 
- Then median values and variances are calculated from the selected light curves and 
- written to a dataset in the database. They are used as inputs for the next flare identification. 
- Those processing steps are performed automatically after flare identification.
+As an example, Fig.~\ref{fig:flare-det}  shows  STIX QL  light curve  in the energy range 4 -- 10 keV, recorded from 
+2022-08-10T10:00:00Z to 2022-08-10T18:00:00Z.  The orange curve is the smoothed light curve using a moving average filter with a time window
+of 1 minute. 
+The identified peaks are marked with plus signs, and colored ranges show their time ranges.
 
-\subsection{Solar flare data analysis pipeline}
-\subsubsection{Flare GOES class determination}
+%For each identified solar flare,
+%  start time, end time, peak time, and peak 
+%counts are from the selected light curve and 
+%an 8-digit identification number of the format {\it yymmddHHMM}, which represents the solar flare peak time. 
+%For example, the identification number 2201010000  indicates that 
+%the solar flare peak time is at 2022-01-01T00:00:00 UT. 
+The above steps are repeated for QL light curves of the other four higher energies
+in the same time frame, which provides information on the upper limit of the X-ray energy produced by the flare.
+Time ranges, peak count rate and total counts as well as the corresponding ephemeris data of identified flares are 
+written to the flare list dataset in the NoSQL database.
+
+%\subsection{Estimation of background level}
+%As mentioned earlier, a threshold value calculated using background data needs to be provided when
+%performing flare identification.  
+%The background, although stable within a few days, can change over long periods,
+% a suitable threshold is important for the accuracy of the identification. 
+% Therefore, QL light curves for quiet sun periods are selected by excluding flaring periods. 
+% Then median values and variances are calculated from the selected light curves and 
+% written to a dataset in the database. They are used as inputs for the next flare identification. 
+% Those processing steps are performed automatically after flare identification.
+
+\subsection{Solar flare standard analysis pipeline}
+\subsubsection{Estimation of solar flare GOES class }
 \begin{figure}
   \centering
   \includegraphics[width=0.8\linewidth]{figures/goes_stix_flux_paper.pdf}
-  \caption{Scatter plot of GOES low channel peak flux with respect to STIX 1-AU equivalent  peak count rate in the 4 -- 10 keV range
+  \caption{Scatter plot of GOES low channel peak flux with respect to the equivalent  peak count rate  at 1 AU
+   in the 4 -- 10 keV range
   for 717 solar flares observed by both GOES and STIX duration of the commissioning phase. 
   The solid line is a linear fit to the log-log graph. 
 From the fit, we obtained 
@@ -428,45 +427,46 @@ where $X^{'}$ is STIX peak count rate corrected for the distance variations betw
 }
 \label{fig:goes-stix}
 \end{figure}
-It is straightforward to calculate the GOES
-class of a flare observed by STIX from GOES flux if it is observed by GOES. 
-However,  most of the time, Solar Orbiter is far away from Earth and looks at 
-the sun from different angles. Therefore, a considerable number of flares observed by STIX
- are not observed by near-earth satellites (and vice versa). 
-As already discussed in Ref.~\cite{andrea2021}, 
-it is possible to estimate GOES classes by using STIX count rates.
-To study the correction, we selected 717 solar flares observed by 
-both GOES  and   STIX during the commissioning phase.   
-Fig.~\ref{fig:goes-stix} shows the scatter plot of GOES low channel peak flux with respect to 
-STIX peak count rate of the 4 -- 10 keV QL light curves. 
-STIX count rates  have been subtracted for background and corrected for 
-the difference distance of Solar Orbiter to the Sun using $X^{'}=x r^2$, where $X$ is the count rate after background subtraction
+%It is straightforward to calculate the GOES
+%class of a flare observed by STIX from GOES flux if it is observed by GOES. 
+%However,  Most of the time, 
+Solar Orbiter is far away from the Earth and looks at 
+the Sun from different angles. Therefore, a considerable number of flares observed by STIX
+ are not observed by GOES satellites(and vice versa). 
+%As already discussed in Ref.~\cite{andrea2021}, 
+In order to estimate the GOES classes of those flares, 
+we selected 717 solar flares observed by both GOES and  STIX  in 2021. 
+Fig.~\ref{fig:goes-stix} shows the scatter plot of the peak flux
+measured by GOES satellites
+ with respect to the STIX background-subtracted peak count rate in the energy range from 4 to 10 keV. 
+It should be noted that the STIX count rate 
+has been corrected for 
+the different distance between Solar Orbiter and the Sun using $X^{'}=x r^2$, where $X$ is the count rate after background subtraction
  and $r$ is the distance between the Solar Orbiter and the Sun in units of AU. 
 As can be seen in the figure, there is a clear correlation between
-these two quantities.  The widespread at the low flux could be explained by the difference in 
-the energy response of the two instruments and the flare temperatures. 
-A linear line was fitted to the correlation in the log-log scale. 
-From the fit, we obtained 
-the GOES flux in units of W/m$^2$ $\log_{10}(f) = 0.622 -7.376 \log_{10} (X^{'})$.
-%where $x^{'}$ is STIX
-%peak count rate corrected for the distance variations between the Sun and Solar Orbiter. 
-The formula is currently used to estimate GOES classes of flares observed by STIX. 
-It is worthwhile to mention that more observations will be included in the fit.
-The estimated GOES class as well as those from GOES measurements 
-are stored in the flare list database. 
+them.  The widespread at low fluxes can be explained by the difference in 
+the energy response of the two instruments and the variation in flare temperatures. 
+From a linear fit to the correlation in the log-log scale, 
+we obtained the GOES flux in units of W/m$^2$ $\log_{10}(f) = 0.622 -7.376 \log_{10} (X^{'})$.
+The above formula is currently used to estimate GOES classes of the flares
+which are not directly observed by GOES satellites.  
+Estimated GOES flare classes are stored in the flare list in the database. 
+
 
 \subsubsection{Estimation of coarse flare locations using CFL data}
-Flare centroid location can constrain the flaring region when reconstructing flare images.
-STIX uses a dedicated sub-collimator called Coarse Flare Locator (CFL) to estimate flare locations.
-The CFL consists of a front grid with
+The CFL sub-collimator consists of a front grid with
 a distinctive pattern that selectively illuminates pixels of a 
-dedicated detector based on the source location.
+dedicated detector based on the source location, which allows
+estimating flare centroid location by using only the counts of the 12 pixels 
+of that detector. 
+%Flare centroid location can constrain the flaring region when reconstructing flare images.
 Flare location is estimated onboard by maximizing the correlation between observed CFL pixel counts 
 with expected counts using a look-up table. 
-However, due to the constraints of onboard computation, the onboard flare location is  only calculated for intermediate flares 
-and has an accuracy of about 2 arcmin. 
-With the downloaded measured counts in each pixel,
-the coarse flare location can be reconstructed on the ground as well. 
+However, due to the limited onboard computing power,
+STIX only calculates the flare locations for intermediate flares 
+and their accuracy is only about 2 arcmin. 
+With the science data downloaded from STIX,
+the coarse flare location can be reconstructed on the ground. 
 This allows for more sophisticated algorithms, greater flexibility in selecting time and energy 
 range to be integrated, and more careful background subtraction.
 
@@ -484,11 +484,11 @@ range to be integrated, and more careful background subtraction.
   \label{fig:cfl}
 \end{figure*}
 
-The coarse location of an observed flare is estimated on the ground after its pixel data (onboard level-1) is parsed.
+The coarse location of an identified flare is estimated once the level-1 pixel data  is received.
 The procedure consists of the following steps:
 \begin{itemize}
-  \item Selection of pixel data based on the flare time range and energy range information stored in the flare list dataset;
-  \item Subtraction of background. The most recent level-1 dataset for the quiet sun period is used for background subtraction;
+  \item Select  pixel data based on the flare time range and energy range information stored in the flare list dataset;
+  \item Subtract background: The most recent level-1 dataset for the quiet sun period is used for background subtraction;
   \item Calculation of the mean fluence except for the CFL and the background detectors; 
       Except for those two detectors, the ratio between the illuminated area and total area $r$ only depends on the 
       slit width and the pitch width. It doesn't vary with the position of the flare in the STIX field of view (FOV).  
