@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: data_center.aux
+The style file: aa.bst
+Database file #1: citations.bib
+I was expecting a `,' or a `}'---line 129 of file citations.bib
+ :        
+ :        author = {{Massa}, Paolo and {Battaglia}, Andrea F. and {Volpara}, Anna and {Collier}, Hannah and {Hurford}, Gordon J. and {Kuhar}, Matej and {Perracchione}, Emma and {Garbarino}, Sara and {Massone}, Anna Maria and {Benvenuto}, Federico and {Schuller}, Frederic and {Warmuth}, Alexander and {Dickson}, Ewan C.~M. and {Xiao}, Hualin and {Maloney}, Shane A. and {Ryan}, Daniel F. and {Piana}, Michele and {Krucker}, S{\"a}m},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "paolo2020"
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 13 entries,
+            3039 wiz_defined-function locations,
+            750 strings with 9290 characters,
+and the built_in function-call counts, 11215 in all, are:
+= -- 847
+> -- 1417
+< -- 7
++ -- 476
+- -- 459
+* -- 1036
+:= -- 2105
+add.period$ -- 13
+call.type$ -- 13
+change.case$ -- 207
+chr.to.int$ -- 13
+cite$ -- 13
+duplicate$ -- 249
+empty$ -- 349
+format.name$ -- 494
+if$ -- 2186
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 11
+newline$ -- 43
+num.names$ -- 52
+pop$ -- 202
+preamble$ -- 1
+purify$ -- 205
+quote$ -- 0
+skip$ -- 219
+stack$ -- 0
+substring$ -- 282
+swap$ -- 10
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 117
+warning$ -- 0
+while$ -- 52
+width$ -- 0
+write$ -- 135
+(There was 1 error message)
