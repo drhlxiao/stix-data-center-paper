@@ -20,14 +20,16 @@
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \babel@aux{english}{}
 \citation{SolarOrbiter2020}
-\citation{stixinstrument}
+\citation{stix2020}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{section.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2}STIX raw telemetry data}{3}{section.2}\protected@file@percent }
-\newlabel{sec:raw-data}{{2}{3}{STIX raw telemetry data}{section.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Housekeeping data}{3}{subsection.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Quick-look data}{3}{subsection.2.2}\protected@file@percent }
+\citation{stix2020}
+\citation{stix2020}
+\@writefile{toc}{\contentsline {section}{\numberline {2}STIX telemetry data products}{3}{section.2}\protected@file@percent }
+\newlabel{sec:raw-data}{{2}{3}{STIX telemetry data products}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Housekeeping (HK) data}{3}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Quick-look (QL) data}{3}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Bulk science data (BSD)}{4}{subsection.2.3}\protected@file@percent }
 \citation{EDDS}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Bulk science data }{4}{subsection.2.3}\protected@file@percent }
 \citation{spice1996,spice2018}
 \citation{spice1996,spice2018}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Telemetry processing pipelines at STIX data center.\relax }}{5}{figure.caption.1}\protected@file@percent }
@@ -36,44 +38,50 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3}Data reception}{5}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Data processing pipelines}{5}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Data processing pipeline overview}{5}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Raw packet parsing}{5}{subsection.4.2}\protected@file@percent }
 \citation{fits}
 \citation{crsystallball}
 \citation{ecc,ecc2}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Raw packet parsing}{6}{subsection.4.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}FITS products creation}{6}{subsubsection.4.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Energy calibration}{6}{subsection.4.3}\protected@file@percent }
 \citation{stix2020}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces An example of STIX in-flight calibration spectrum. The most prominent peaks, from left to right, are photo-peaks of 31, 35, and 81 keV photons. The first two peaks are fitted by the double-Gaussian function, and the high energy peak by the crystal-ball function. \relax }}{7}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:cal-fit}{{2}{7}{An example of STIX in-flight calibration spectrum. The most prominent peaks, from left to right, are photo-peaks of 31, 35, and 81 keV photons. The first two peaks are fitted by the double-Gaussian function, and the high energy peak by the crystal-ball function. \relax }{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Energy calibration}{7}{subsection.4.3}\protected@file@percent }
 \citation{snip}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces An example of STIX in-flight calibration spectrum. The most prominent peaks, from left to right, are photopeaks of 31 keV, 35 keV, and 81 keV photons. The first two peaks are fitted by the double-Gaussian function, and the high energy peak by the crystal-ball function. \relax }}{7}{figure.caption.2}\protected@file@percent }
-\newlabel{fig:cal-fit}{{2}{7}{An example of STIX in-flight calibration spectrum. The most prominent peaks, from left to right, are photopeaks of 31 keV, 35 keV, and 81 keV photons. The first two peaks are fitted by the double-Gaussian function, and the high energy peak by the crystal-ball function. \relax }{figure.caption.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Solar flare identification}{7}{subsection.4.4}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces STIX 4 -- 10 keV QL light curve recorded from 2022-08-10T21:00:00Z to 2022-08-10T18:00:00Z and identified flares. The orange curve is the smoothed light curve using a moving average filter with a time window of 1 minute. The identified peaks are marked with plus signs, and the colored ranges show their time ranges. \relax }}{8}{figure.caption.3}\protected@file@percent }
 \newlabel{fig:flare-det}{{3}{8}{STIX 4 -- 10 keV QL light curve recorded from 2022-08-10T21:00:00Z to 2022-08-10T18:00:00Z and identified flares. The orange curve is the smoothed light curve using a moving average filter with a time window of 1 minute. The identified peaks are marked with plus signs, and the colored ranges show their time ranges. \relax }{figure.caption.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Solar flare standard analysis pipeline}{8}{subsection.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}Estimation of solar flare GOES class }{8}{subsubsection.4.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Solar flare identification}{8}{subsection.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Scatter plot of GOES low channel peak flux with respect to the equivalent peak count rate at 1 AU in the 4 -- 10 keV range for 717 solar flares observed by both GOES and STIX duration of the commissioning phase. The solid line is a linear fit to the log-log graph. \relax }}{9}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:goes-stix}{{4}{9}{Scatter plot of GOES low channel peak flux with respect to the equivalent peak count rate at 1 AU in the 4 -- 10 keV range for 717 solar flares observed by both GOES and STIX duration of the commissioning phase. The solid line is a linear fit to the log-log graph. \relax }{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Solar flare standard analysis pipeline}{9}{subsection.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}Estimation of solar flare GOES class }{9}{subsubsection.4.5.1}\protected@file@percent }
 \citation{stix2020}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Scatter plot of GOES low channel peak flux with respect to the equivalent peak count rate at 1 AU in the 4 -- 10 keV range for 717 solar flares observed by both GOES and STIX duration of the commissioning phase. The solid line is a linear fit to the log-log graph. From the fit, we get the GOES flux estimation formula as follows: $f = 10^{0.622 -7.376 \qopname  \relax o{log}_{10} (X^{'})}$ (in units of W/m$^2$), where $X^{'}$ is the STIX peak count rate corrected for the distance variations between the Sun and Solar Orbiter. \relax }}{9}{figure.caption.4}\protected@file@percent }
-\newlabel{fig:goes-stix}{{4}{9}{Scatter plot of GOES low channel peak flux with respect to the equivalent peak count rate at 1 AU in the 4 -- 10 keV range for 717 solar flares observed by both GOES and STIX duration of the commissioning phase. The solid line is a linear fit to the log-log graph. From the fit, we get the GOES flux estimation formula as follows: $f = 10^{0.622 -7.376 \log _{10} (X^{'})}$ (in units of W/m$^2$), where $X^{'}$ is the STIX peak count rate corrected for the distance variations between the Sun and Solar Orbiter. \relax }{figure.caption.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2}Estimation of coarse flare locations using CFL data}{9}{subsubsection.4.5.2}\protected@file@percent }
-\citation{paolo2022,clean,mem}
+\citation{paolo2022}
+\citation{clean}
+\citation{mem,memge}
+\citation{visfwd}
 \citation{andrea2021}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Left: Calculated areas of illuminated regions of 12 CFL pixels and the best fit simulated pattern for the flare location at (550, 278) arcsec. Pixels 0 to 3 are the top big pixels, Pixels 4 to 7 are the bottom pixels, and 8 to 11 are the small pixels as shown in the right panel. Middle: Best-fit flare centroid location (marked by x) and its 1$\sigma $, 2$\sigma $, and 3$\sigma $ confidence contours. Right: Projection of CFL sub-collimator (the gray shaded regions) on the detector simulated for the best-fit flare location. \relax }}{10}{figure.caption.5}\protected@file@percent }
 \newlabel{fig:cfl}{{5}{10}{Left: Calculated areas of illuminated regions of 12 CFL pixels and the best fit simulated pattern for the flare location at (550, 278) arcsec. Pixels 0 to 3 are the top big pixels, Pixels 4 to 7 are the bottom pixels, and 8 to 11 are the small pixels as shown in the right panel. Middle: Best-fit flare centroid location (marked by x) and its 1$\sigma $, 2$\sigma $, and 3$\sigma $ confidence contours. Right: Projection of CFL sub-collimator (the gray shaded regions) on the detector simulated for the best-fit flare location. \relax }{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2}Estimation of coarse flare locations using CFL data}{10}{subsubsection.4.5.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3}Imaging and spectroscopy pipeline}{10}{subsubsection.4.5.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  STIX Quick-look light curves and reconstructed images of the solar flare observed at 2022-03-08T08:55:17Z, created by the image reconstruction pipeline. The period at the peak was selected and Back-projection, CLEAN, EM, and VIS\_FWFIT algorithms were used for reconstructing images. \relax }}{11}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:imaging}{{6}{11}{STIX Quick-look light curves and reconstructed images of the solar flare observed at 2022-03-08T08:55:17Z, created by the image reconstruction pipeline. The period at the peak was selected and Back-projection, CLEAN, EM, and VIS\_FWFIT algorithms were used for reconstructing images. \relax }{figure.caption.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Science data request strategy}{11}{section.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  STIX Quick-look light curves and reconstructed images of the solar flare observed at 2022-03-08T08:55:17Z, created by the image reconstruction pipeline. A 1-min integration time around the peak was selected and Back Projection, CLEAN, MEM\_GE and VIS\_FWDFIT were used for reconstructing the images. The full-disk Back Projection image shown in the top-row middle panel has been used for identifying the source location. The other reconstructions were performed considering a Field of View (FOV) of dimension 256 arcsec $\times $ 256 arcsec around the location of the flare. Note that a Gaussian elliptical shape has been selected for reconstructing the flaring source by means of VIS\_FWDFIT (bottom-right panel). \relax }}{11}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:imaging}{{6}{11}{STIX Quick-look light curves and reconstructed images of the solar flare observed at 2022-03-08T08:55:17Z, created by the image reconstruction pipeline. A 1-min integration time around the peak was selected and Back Projection, CLEAN, MEM\_GE and VIS\_FWDFIT were used for reconstructing the images. The full-disk Back Projection image shown in the top-row middle panel has been used for identifying the source location. The other reconstructions were performed considering a Field of View (FOV) of dimension 256 arcsec $\times $ 256 arcsec around the location of the flare. Note that a Gaussian elliptical shape has been selected for reconstructing the flaring source by means of VIS\_FWDFIT (bottom-right panel). \relax }{figure.caption.6}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces An example of spectral fitting results. The imaging and spectroscopy pipeline performs spectral analysis for all flares in the flare list. \relax }}{12}{figure.caption.7}\protected@file@percent }
 \newlabel{fig:ospex}{{7}{12}{An example of spectral fitting results. The imaging and spectroscopy pipeline performs spectral analysis for all flares in the flare list. \relax }{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Science data request strategy}{12}{section.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6}STIX data platform user interfaces}{13}{section.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Interactive web pages}{13}{subsection.6.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces  Data flow at STIX data center. \relax }}{13}{figure.caption.8}\protected@file@percent }
 \newlabel{fig:interfaces}{{8}{13}{Data flow at STIX data center. \relax }{figure.caption.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces  Interactive web-based STIX Quick-look data browser. In addition to STIX Quick-looks, it can also display quick-looks of simultaneous measurements performed by other instruments, such as GOES X-ray fluxes, SDO/AIA images, and Solar Orbiter EUI. The browser is available at the link \url  {https://datacenter.stix.i4ds.net/view/ql/lightcurves}.\relax }}{13}{figure.caption.9}\protected@file@percent }
-\newlabel{fig:qlbrowser}{{9}{13}{Interactive web-based STIX Quick-look data browser. In addition to STIX Quick-looks, it can also display quick-looks of simultaneous measurements performed by other instruments, such as GOES X-ray fluxes, SDO/AIA images, and Solar Orbiter EUI. The browser is available at the link \url {https://datacenter.stix.i4ds.net/view/ql/lightcurves}.\relax }{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces  Interactive web-based STIX Quick-look data browser. In addition to STIX Quick-looks, it can also display quick-looks of simultaneous measurements performed by other instruments, such as GOES X-ray fluxes, SDO/AIA images, and Solar Orbiter EUI. The browser is available at the link \url  {https://datacenter.stix.i4ds.net/view/ql/lightcurves}.\relax }}{14}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:qlbrowser}{{9}{14}{Interactive web-based STIX Quick-look data browser. In addition to STIX Quick-looks, it can also display quick-looks of simultaneous measurements performed by other instruments, such as GOES X-ray fluxes, SDO/AIA images, and Solar Orbiter EUI. The browser is available at the link \url {https://datacenter.stix.i4ds.net/view/ql/lightcurves}.\relax }{figure.caption.9}{}}
 \bibstyle{aa}
 \bibdata{citations}
 \bibcite{spice2018}{{1}{2018}{{Acton {et~al.}}}{{Acton, Bachman, Semenov, \& Wright}}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}STIX data center interface: stixdcpy}{15}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Summary}{15}{section.7}\protected@file@percent }
+\newlabel{sec:summary}{{7}{15}{Summary}{section.7}{}}
 \bibcite{spice1996}{{2}{1996}{{Acton}}{{}}}
 \bibcite{andrea2021}{{3}{2021}{{{Battaglia, Andrea Francesco} {et~al.}}}{{{Battaglia, Andrea Francesco}, {Saqri, Jonas}, {Massa, Paolo}, {Perracchione, Emma}, {Dickson, Ewan C. M.}, {Xiao, Hualin}, {Veronig, Astrid M.}, {Warmuth, Alexander}, {Battaglia, Marina}, {Hurford, Gordon J.}, {Meuris, Aline}, {Limousin, Olivier}, {Etesi, L\'aszl\'o}, {Maloney, Shane A.}, {Schwartz, Richard A.}, {Kuhar, Matej}, {Schuller, Frederic}, {Senthamizh Pavai, Valliappan}, {Musset, Sophie}, {Ryan, Daniel F.}, {Kleint, Lucia}, {Piana, Michele}, {Massone, Anna Maria}, {Benvenuto, Federico}, {Sylwester, Janusz}, {Litwicka, Michalina}, {Stcki, Marek}, {Mrozek, Tomasz}, {Vilmer, Nicole}, {F\'arn\'{\i }k, Frantisek}, {Kasparov\'a, Jana}, {Mann, Gottfried}, {Gallagher, Peter T.}, {Dennis, Brian R.}, {Csillaghy, Andr\'e}, {Benz, Arnold O.}, \& {Krucker, S\"am}}}}
 \bibcite{mem}{{4}{1985}{{{Cornwell} \& {Evans}}}{{}}}
@@ -85,8 +93,5 @@
 \bibcite{EDDS}{{10}{2005}{{Peccia}}{{}}}
 \bibcite{fits}{{11}{2010}{{{Pence, W. D.} {et~al.}}}{{{Pence, W. D.}, {Chiappetti, L.}, {Page, C. G.}, {Shaw, R. A.}, \& {Stobie, E.}}}}
 \bibcite{sinp}{{12}{1988}{{Ryan {et~al.}}}{{Ryan, Clayton, Griffin, Sie, \& Cousens}}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}STIX data center interface: stixdcpy}{15}{subsection.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Summary}{15}{section.7}\protected@file@percent }
-\newlabel{sec:summary}{{7}{15}{Summary}{section.7}{}}
 \bibcite{crsystallball}{{13}{1986}{{Skwarnicki}}{{}}}
 \newlabel{LastPage}{{16}{16}{}{}{}}
