@@ -1,0 +1,174 @@
+\documentclass{article}
+\usepackage[x11names, svgnames, rgb]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+\usepackage{amsmath}
+%
+%
+
+%
+
+%
+
+\begin{document}
+\pagestyle{empty}
+%
+%
+%
+
+\enlargethispage{100cm}
+% Start of code
+% \begin{tikzpicture}[anchor=mid,>=latex',line join=bevel,]
+\begin{tikzpicture}[>=latex',line join=bevel,]
+  \pgfsetlinewidth{1bp}
+%%
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (444.0bp,39.0bp) node {Data processing pipelines at STIX data center};
+\end{scope}
+  \pgfsetcolor{black}
+  % Edge: parser -> nosqldb
+  \draw [->] (436.0bp,369.38bp) .. controls (436.0bp,359.04bp) and (436.0bp,345.68bp)  .. node {Packets and$\backslash$n metadata} (436.0bp,323.79bp);
+  % Edge: idb -> parser
+  \draw [->] (328.12bp,428.5bp) .. controls (335.74bp,425.33bp) and (342.0bp,422.74bp)  .. (342.0bp,422.74bp) .. controls (342.0bp,422.74bp) and (359.38bp,416.45bp)  .. (388.72bp,405.84bp);
+  % Edge: raw -> parser
+  \draw [->] (436.0bp,422.47bp) .. controls (436.0bp,420.4bp) and (436.0bp,418.24bp)  .. (436.0bp,405.99bp);
+  % Edge: spice -> parser
+  \draw [->] (557.14bp,422.69bp) .. controls (540.9bp,418.14bp) and (523.22bp,413.18bp)  .. (496.8bp,405.78bp);
+  % Edge: nosqldb -> flaredet
+  \draw [->] (367.62bp,300.36bp) .. controls (255.77bp,293.19bp) and (46.0bp,279.74bp)  .. (46.0bp,279.74bp) .. controls (46.0bp,279.74bp) and (46.0bp,249.74bp)  .. (46.0bp,249.74bp) .. controls (46.0bp,249.74bp) and (46.558bp,249.18bp)  .. node {Light $\backslash$n curves} (54.802bp,240.94bp);
+  % Edge: nosqldb -> flaredp
+  \draw [->] (367.74bp,296.42bp) .. controls (308.1bp,289.14bp) and (231.0bp,279.74bp)  .. (231.0bp,279.74bp) .. controls (231.0bp,279.74bp) and (231.0bp,249.74bp)  .. (231.0bp,249.74bp) .. controls (231.0bp,249.74bp) and (232.1bp,248.97bp)  .. node {L1 Sciecne data $\backslash$nand flare list} (242.3bp,241.8bp);
+  % Edge: nosqldb -> cal
+  \draw [->] (451.24bp,287.64bp) .. controls (465.62bp,271.49bp) and (485.0bp,249.74bp)  .. (485.0bp,249.74bp) .. controls (485.0bp,249.74bp) and (485.21bp,249.52bp)  .. node {Spectra} (492.64bp,241.8bp);
+  % Edge: nosqldb -> fitsio
+  \draw [->] (504.14bp,296.14bp) .. controls (561.41bp,288.9bp) and (634.0bp,279.74bp)  .. (634.0bp,279.74bp) .. controls (634.0bp,279.74bp) and (692.0bp,249.74bp)  .. (692.0bp,249.74bp) .. controls (692.0bp,249.74bp) and (700.9bp,247.17bp)  .. node {L1 Packets} (722.97bp,240.79bp);
+  % Edge: flaredet -> nosqldb
+  \draw [->] (98.576bp,240.85bp) .. controls (124.16bp,257.31bp) and (159.0bp,279.74bp)  .. (159.0bp,279.74bp) .. controls (159.0bp,279.74bp) and (275.91bp,290.29bp)  .. node {Flare list} (367.88bp,298.59bp);
+  % Edge: flaredet -> Flare list
+  \draw [->] (72.0bp,204.46bp) .. controls (72.0bp,199.41bp) and (72.0bp,193.75bp)  .. (72.0bp,177.98bp);
+  % Edge: flaredp -> nosqldb
+  \draw [->] (326.34bp,241.8bp) .. controls (340.67bp,246.23bp) and (352.0bp,249.74bp)  .. (352.0bp,249.74bp) .. controls (352.0bp,249.74bp) and (385.0bp,279.74bp)  .. (385.0bp,279.74bp) .. controls (385.0bp,279.74bp) and (387.8bp,281.11bp)  .. node {metadata} (401.14bp,287.65bp);
+  % Edge: flaredp -> Flaring data \n quick-look products
+  \draw [->] (268.0bp,203.48bp) .. controls (268.0bp,201.45bp) and (268.0bp,199.34bp)  .. (268.0bp,187.0bp);
+  % Edge: cal -> nosqldb
+  \draw [->] (533.61bp,241.8bp) .. controls (539.42bp,246.23bp) and (544.0bp,249.74bp)  .. (544.0bp,249.74bp) .. controls (544.0bp,249.74bp) and (544.0bp,279.74bp)  .. (544.0bp,279.74bp) .. controls (544.0bp,279.74bp) and (530.69bp,282.82bp)  .. node {calibration$\backslash$nparameters} (503.48bp,289.12bp);
+  % Edge: cal -> Calibration reports
+  \draw [->] (510.0bp,203.48bp) .. controls (510.0bp,198.65bp) and (510.0bp,193.34bp)  .. (510.0bp,177.87bp);
+  % Edge: fitsio -> nosqldb
+  \draw [->] (779.25bp,240.85bp) .. controls (776.6bp,257.31bp) and (773.0bp,279.74bp)  .. (773.0bp,279.74bp) .. controls (773.0bp,279.74bp) and (613.79bp,291.55bp)  .. node {metadata} (504.2bp,299.68bp);
+  % Edge: fitsio -> l1a
+  \draw [->] (782.0bp,204.46bp) .. controls (782.0bp,199.41bp) and (782.0bp,193.75bp)  .. (782.0bp,177.98bp);
+  % Edge: l1a -> l23
+  \draw [->] (782.0bp,141.59bp) .. controls (782.0bp,136.92bp) and (782.0bp,131.73bp)  .. (782.0bp,116.39bp);
+  % Node: parser
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (503.0bp,405.74bp) -- (369.0bp,405.74bp) -- (369.0bp,369.74bp) -- (503.0bp,369.74bp) -- cycle;
+  \draw (436.0bp,387.74bp) node {Raw data parser};
+\end{scope}
+  % Node: nosqldb
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (504.0bp,320.47bp) .. controls (504.0bp,322.27bp) and (473.52bp,323.74bp)  .. (436.0bp,323.74bp) .. controls (398.48bp,323.74bp) and (368.0bp,322.27bp)  .. (368.0bp,320.47bp) .. controls (368.0bp,320.47bp) and (368.0bp,291.01bp)  .. (368.0bp,291.01bp) .. controls (368.0bp,289.21bp) and (398.48bp,287.74bp)  .. (436.0bp,287.74bp) .. controls (473.52bp,287.74bp) and (504.0bp,289.21bp)  .. (504.0bp,291.01bp) .. controls (504.0bp,291.01bp) and (504.0bp,320.47bp)  .. (504.0bp,320.47bp);
+  \draw (504.0bp,320.47bp) .. controls (504.0bp,318.66bp) and (473.52bp,317.19bp)  .. (436.0bp,317.19bp) .. controls (398.48bp,317.19bp) and (368.0bp,318.66bp)  .. (368.0bp,320.47bp);
+  \draw (436.0bp,305.74bp) node {NoSQL database};
+\end{scope}
+  % Node: idb
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (301.0bp,440.74bp) node {IDB};
+\end{scope}
+  % Node: raw
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (436.0bp,440.74bp) node {Raw telemetry data};
+\end{scope}
+  % Node: spice
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (618.0bp,440.74bp) node {SPICE kernel data};
+\end{scope}
+  % Node: flaredet
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (144.0bp,240.74bp) -- (0.0bp,240.74bp) -- (0.0bp,204.74bp) -- (144.0bp,204.74bp) -- cycle;
+  \draw (72.0bp,222.74bp) node {Flare detection};
+\end{scope}
+  % Node: flaredp
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (348.0bp,241.74bp) -- (188.0bp,241.74bp) -- (188.0bp,203.74bp) -- (348.0bp,203.74bp) -- cycle;
+  \draw (268.0bp,226.54bp) node {Flaring data};
+  \draw (268.0bp,211.54bp) node { processing pipeline};
+\end{scope}
+  % Node: cal
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (590.0bp,241.74bp) -- (430.0bp,241.74bp) -- (430.0bp,203.74bp) -- (590.0bp,203.74bp) -- cycle;
+  \draw (510.0bp,226.54bp) node {Calibration data };
+  \draw (510.0bp,211.54bp) node { processing pipeline};
+\end{scope}
+  % Node: fitsio
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (845.0bp,240.74bp) -- (719.0bp,240.74bp) -- (719.0bp,204.74bp) -- (845.0bp,204.74bp) -- cycle;
+  \draw (782.0bp,222.74bp) node {FITS file writer};
+\end{scope}
+  % Node: Flare list
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (72.0bp,159.87bp) ellipse (52.79bp and 18.0bp);
+  \draw (72.0bp,159.87bp) node {Flare list};
+\end{scope}
+  % Node: Flaring data \n quick-look products
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (268.0bp,159.87bp) ellipse (113.69bp and 26.74bp);
+  \draw (268.0bp,163.67bp) node {Flaring data };
+  \draw (268.0bp,148.67bp) node { quick-look products};
+\end{scope}
+  % Node: Calibration reports
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (510.0bp,159.87bp) ellipse (99.38bp and 18.0bp);
+  \draw (510.0bp,159.87bp) node {Calibration reports};
+\end{scope}
+  % Node: l1a
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (782.0bp,159.87bp) ellipse (97.48bp and 18.0bp);
+  \draw (782.0bp,159.87bp) node {L1A FITS products};
+\end{scope}
+  % Node: l23
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (782.0bp,100.8bp) node {To higher data products or };
+  \draw (782.0bp,85.8bp) node { scientific analysis};
+\end{scope}
+%
+\end{tikzpicture}
+% End of code
+
+%
+\end{document}
+%
+
+
+
